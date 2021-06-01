@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-    <form class="col s12 m6 offset-m3">
+    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('join') }}">
         <div class="card blue-grey darken-1">
             <div class="card-content white-text">
                 <span class="card-title">Join Our Community</span>
                 <p></p>
             </div>
+            <!-- username input -->
+            <div class="row">
+                <div class="input-field col s10 push-s1">
+                    <i class="material-icons prefix blue-grey darken-1 ">account_circle</i>
+                    <input id="username" name="username" type="text" class="validate">
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <!-- password input -->
+            <div class="row">
+                <div class="input-field col s10 push-s1">
+                    <i class="material-icons prefix blue-grey darken-1">lock</i>
+                    <input id="password" name="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+            <!-- submit button -->    
+                <div class="row">
+                    <button class="col s6 btn lime darken-3 offset-s3" type="submit" name="action">Submit
+                        <i class="material-icons right grey-text text-darken-4">send</i>
+                    </button>
+                </div>
+            </div>
+
             <div class="card-action">
                 <a href="#">Add a Recommendation</a>
                 <a href="#">Browse Galleries</a>
