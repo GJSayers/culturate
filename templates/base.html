@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
@@ -11,6 +12,37 @@
     <title>Culturate</title>
 </head>
 <body>
+    <header>
+
+        <!--top nav-->
+            <nav class="lime darken-3">
+                <div class="nav-wrapper">
+                <a href="{{ url_for('get_galleries') }}" class="brand-logo grey-text text-darken-4">Culturate</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons grey-text text-darken-4">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_galleries') }}">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Add Recomendation</a></li>
+                    <li><a href="#">Manage Categories</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Register</a></li>
+
+                </ul>
+                </div>
+            </nav>
+
+            <!--mobile sidenav-->
+            <ul class="sidenav" id="mobile-demo">
+                    <li><a href="{{ url_for('get_galleries') }}">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Add Recomendation</a></li>
+                    <li><a href="#">Manage Categories</a></li>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Log Out</a></li>
+                    <li><a href="#">Register</a></li>
+            </ul>
+    </header>
     
     {% block content %}
     {% endblock %}
