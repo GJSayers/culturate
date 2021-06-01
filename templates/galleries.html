@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galleries</title>
+</head>
+<body>
+    {% for gallery in galleries %}
+        {{ gallery.gallery_name }}<br>
+        {{ gallery.gallery_city }}<br>
+        {{ gallery.gallery_facilities }}<br>
+        {{ gallery.gallery_cost }}<br>
+        {{ gallery.gallery_rating }}<br>
+        {{ gallery.gallery_comments }}<br>
+    {% endfor %}    
+
+    
+</body>
+</html>
