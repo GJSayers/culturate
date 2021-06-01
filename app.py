@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo 
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -22,11 +23,10 @@ mongo = PyMongo(app)
 def get_galleries():
     galleries = mongo.db.galleries.find()
     return render_template("galleries.html", galleries=galleries)
-def hello():
-    """
-    docstring
-    """
-    return "Hello World again!"
+
+@app.route("/join", methods=["GET", "POST"])
+def join():
+    return render_template("join.html")
 
 
 if __name__ == "__main__":
