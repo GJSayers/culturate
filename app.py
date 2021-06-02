@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_galleries")
 def get_galleries():
-    galleries = mongo.db.galleries.find()
+    galleries = list(mongo.db.galleries.find())
     return render_template("galleries.html", galleries=galleries)
 
 
