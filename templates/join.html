@@ -7,12 +7,21 @@
                 <span class="card-title">Join Our Community</span>
                 <p></p>
             </div>
+            
             <!-- username input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
                     <i class="material-icons prefix blue-grey darken-1 ">account_circle</i>
                     <input id="username" name="username" type="text" class="validate">
                     <label for="username">Username</label>
+                </div>
+            </div>
+            <!-- email input -->
+            <div class="row">
+                <div class="input-field col s10 push-s1">
+                    <i class="material-icons prefix blue-grey darken-1 ">email</i>
+                    <input id="email" name="email" type="email" class="validate">
+                    <label for="email">Email</label>
                 </div>
             </div>
             <!-- password input -->
@@ -22,19 +31,43 @@
                     <input id="password" name="password" type="password" class="validate">
                     <label for="password">Password</label>
                 </div>
+            </div> 
+            <!-- bio input -->
+            <div class="row">
+                <div class="input-field col s10 push-s1">
+                    <i class="material-icons prefix blue-grey darken-1">face</i>
+                    <textarea id="bio" class="materialize-textarea validate"></textarea>
+                    <label for="bio">Bio</label>
+                </div>
+            </div>
+            <!-- profile pic input -->
+            <div class="row">
+            <div class="file-field input-field col s10 push-s1">
+                    <span><i class="material-icons prefix blue-grey darken-1">add_a_photo</i><label for="avatar">Upload Profile Pic
+                    </label></span>
+                    
+                    <input id="profile-pic" name="profile-pic" type="file">
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                    
+                </div>
+            </div>
+            
             <!-- submit button -->    
                 <div class="row">
                     <button class="col s6 btn lime darken-3 offset-s3" type="submit" name="action">Submit
                         <i class="material-icons right grey-text text-darken-4">send</i>
                     </button>
                 </div>
-            </div>
+            
 
             <div class="card-action">
                 <a href="#">Add a Recommendation</a>
                 <a href="#">Browse Galleries</a>
             </div>
+            </div>
         </div>
     </form>
+    
 </div>
 {% endblock %}
