@@ -51,7 +51,9 @@ def join():
         start a session for the user with a session cookie
         """
         session["user"] = request.form.get("username").lower()
-        flash("Thanks for joining the Culturate community!")    
+        flash("Thanks for joining the Culturate community!")
+        return redirect(url_for("profile", username=session["user"]))
+
     return render_template("join.html")
 
 @app.route("/login", methods=["GET", "POST"])    
@@ -68,9 +70,13 @@ def login():
             checks password is correct
             """
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Hey, {}".format(request.form.get("username")))
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Hey, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "profile", username=session["user"]))
+
             else:
                 """
                 if password invalid
@@ -85,6 +91,16 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    """
+    get session user's username from the database
+    """
+    username = mongo.db.users.find_one(
+        {"username":session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 if __name__ == "__main__":
