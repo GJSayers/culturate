@@ -17,7 +17,7 @@
     <header>
 
         <!--top nav-->
-            <nav class="lime darken-3">
+            <nav class="purple accent-2">
                 <div class="nav-wrapper">
                 <a href="{{ url_for('get_galleries') }}" class="brand-logo grey-text text-darken-4">Culturate.</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons grey-text text-darken-4">menu</i></a>
@@ -26,7 +26,7 @@
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Add Recomendation</a></li>
                     <li><a href="#">Manage Categories</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="#">Log Out</a></li>
                     <li><a href="{{ url_for('join') }}">Join</a></li>
 
@@ -40,7 +40,7 @@
                     <li><a href="#">Profile</a></li>
                     <li><a href="#">Add Recomendation</a></li>
                     <li><a href="#">Manage Categories</a></li>
-                    <li><a href="#">Log In</a></li>
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="#">Log Out</a></li>
                     <li><a href="{{ url_for('join') }}">Join</a></li>
             </ul>
