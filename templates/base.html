@@ -25,7 +25,7 @@
                     <li><a href="{{ url_for('get_galleries') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="#">Add Recomendation</a></li>
+                        <li><a href="{{ url_for('add_recommendation') }}">Add Recomendation</a></li>
                         <li><a href="#">Manage Categories</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
@@ -42,7 +42,7 @@
                     <li><a href="{{ url_for('get_galleries') }}">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="#">Add Recomendation</a></li>
+                        <li><a href="{{ url_for('add_recommendation') }}">Add Recomendation</a></li>
                         <li><a href="#">Manage Categories</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
