@@ -3,17 +3,14 @@
 
 
 <div class="row">
-    <div class="col s12 m6">
+    <div class="col s12 m3">
         {% for gallery in galleries %}
-        <div class="card left push-s2">
+        <div class="card">
             <div class="card-image">
                 <img class="responsive-image" src="{{ gallery.gallery_image }}" alt="">
-                <span class="card-title">{{ gallery.gallery_name }}<br></span>
-
-                
+                <span class="card-title">{{ gallery.gallery_name }}</span>
             </div>
             <div class="card-content">
-            
                     <ul>
                         <li><strong>{{ gallery.gallery_city }}</strong></li><br>
                         <li>{{ gallery.gallery_rating }}</li><br>
