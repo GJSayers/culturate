@@ -117,7 +117,8 @@ def logout():
 
 @app.route("/add_recommendation")
 def add_recommendation():
-    return render_template("add_recommendation.html")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_recommendation.html", categories=categories)
 
 
 

@@ -5,20 +5,22 @@
 
 <div class="row">
     <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('add_recommendation') }}">
-        <div class="input-field col s10 push-s1">
-            <i class="material-icons prefix yellow-text text-accent-3 ">business</i>
-            <select>
-                <option value="" disabled selected>Listing Type</option>
-                <option value="1">Gallery</option>
-                <option value="2">Exhibition</option>
-                <option value="3">Event</option>
-                <option value="4">Street Art</option>
-            </select>
-            <label>Venue Type</label>
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3 ">business</i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Listing Type</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                </select>
+                <label>Venue Type</label>
+            </div>
         </div>
+        <div class="row">
         <div class="input-field col s10 push-s1">
             <i class="material-icons prefix yellow-text text-accent-3 ">local_cafe</i>
-            <select multiple>
+            <select multiple id="gallery_facilities" name="gallery_facilities" class="validate" required>
                 <option value="" disabled selected>Choose available facilities</option>
                 <option value="1">Accessible</option>
                 <option value="2">Cafe</option>
@@ -26,26 +28,30 @@
                 <option value="4">Child Friendly</option>
                 <option value="5">Guide Available</option>
             </select>
-            <label>Facilities</label>
+            <label for="gallery_facilities">Facilities</label>
+        </div>
         </div>
 
         <!-- Cost input -->
+        <div class="row">
         <div class="input-field col s10 push-s1">
             <i class="material-icons prefix yellow-text text-accent-3 ">attach_money</i>
-            <select>
+            <select id="gallery_cost" name="gallery_name" class="validate" required>
                 <option value="" disabled selected>Choose Cost Level</option>
                 <option value="1">FREE</option>
                 <option value="2">£</option>
                 <option value="3">££</option>
                 <option value="4">£££</option>
             </select>
-            <label>Cost</label>
+            <label for="gallery_cost">Cost</label>
+        </div>
         </div>
 
         <!-- Ratings input -->
+        <div class="row">
         <div class="input-field col s10 push-s1">
             <i class="material-icons prefix yellow-text text-accent-3 ">star</i>
-            <select>
+            <select id="gallery_rating" name="gallery_rating" class="validate" required>
                 <option value="" disabled selected>Rating</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -54,12 +60,13 @@
                 <option value="5">5</option>
                 <option value="6">6</option>
             </select>
-            <label>Rating</label>
+            <label for="gallery_rating" >Rating</label>
+        </div>
         </div>
 
         <!-- Place / Event City input -->
         <div class="row">
-            <div class="input-field col s8 push-s2">
+            <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">location_city</i>
                 <textarea id="place_city" name="place_city" class="materialize-textarea validate"></textarea>
                 <label for="place_city">Place / Event City</label>
@@ -68,7 +75,7 @@
 
         <!-- Place / Event Name input -->
         <div class="row">
-            <div class="input-field col s8 push-s2">
+            <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">label</i>
                 <textarea id="place_name" name="place_name" class="materialize-textarea validate"></textarea>
                 <label for="place_name">Place / Event Name</label>
@@ -76,7 +83,7 @@
         </div>
         <!-- Comments input -->
         <div class="row">
-            <div class="input-field col s8 push-s2">
+            <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">insert_comment</i>
                 <textarea id="comments" name="comments" class="materialize-textarea validate"></textarea>
                 <label for="comments">Comments</label>
@@ -85,18 +92,18 @@
 
         <!-- profile pic input -->
         <div class="row">
-            <div class="input-field file-field col s8 push-s2">
+            <div class="input-field file-field col s10 push-s1">
                 <span><i class="material-icons prefix yellow-text text-accent-3">add_a_photo</i>
-                <label for="avatar">Upload Gallery Pic</label>
+                    <label for="avatar">Upload Gallery Pic</label>
                 </span>
                 <input id="gallery-pic" name="gallery-pic" type="file">
                 <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">  
+                    <input class="file-path validate" type="text">
                 </div>
             </div>
         </div>
-            
-        <!-- submit button -->    
+
+        <!-- submit button -->
         <div class="row">
             <button class="col s6 btn yellow accent-4 offset-s3" type="submit" name="action">Submit
                 <i class="material-icons right grey-text text-darken-3">send</i>
