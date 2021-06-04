@@ -3,21 +3,25 @@
 
 
 <div class="row">
+    {% for gallery in galleries %}
     <div class="col s12 m3">
-        {% for gallery in galleries %}
         <div class="card">
             <div class="card-image">
-                <img class="responsive-image" src="{{ gallery.gallery_image }}" alt="">
+                <img src="{{ gallery.gallery_image }}" alt="">
                 <span class="card-title">{{ gallery.gallery_name }}</span>
             </div>
+            <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
             <div class="card-content">
                     <ul>
-                        <li><strong>{{ gallery.gallery_city }}</strong></li><br>
-                        <li>{{ gallery.gallery_rating }}</li><br>
-                        <li>{{ gallery.gallery_facilities }}</li><br>
-                        <li>{{ gallery.gallery_cost }}</li><br>
-                        <li>{{ gallery.gallery_comments }}</li><br>
-                        <p><em>created by:{{ gallery.created_by }}</em></p>
+                        <li><strong>{{ gallery.gallery_city }}</strong></li>
+                        <li>Rating: {{ gallery.gallery_rating }}</li>
+                            <li>Facilities: {% for facility in gallery.gallery_facilities %}
+                                <span>{{ facility }},</span>
+                            {% endfor %}</li>
+
+                        <li>Cost: {{ gallery.gallery_cost }}</li>
+                        <li>Comments: {{ gallery.gallery_comments }}</li><br>
+                        <p><em>created by: {{ gallery.created_by }}</em></p>
                     </ul>
                 </div>
             </div>
