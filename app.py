@@ -19,6 +19,12 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+
+@app.route("/index")
+def get_index():
+    return render_template("index.html")
+
+
 @app.route("/get_galleries")
 def get_galleries():
     galleries = list(mongo.db.galleries.find())
@@ -41,7 +47,8 @@ def join():
         join = {
             "user_name": request.form.get("user_name").lower(),
             "user_email": request.form.get("user_email"),
-            "user_password": generate_password_hash(request.form.get("user_password")),
+            "user_password": generate_password_hash(
+                request.form.get("user_password")),
             "user_bio": request.form.get("user_bio"),
             "user_avatar": request.form.get("user_avatar")
         }
@@ -71,7 +78,8 @@ def login():
             checks password is correct
             """
             if check_password_hash(
-                    existing_user["user_password"], request.form.get("user_password")):
+                    existing_user["user_password"], request.form.get(
+                        "user_password")):
                 session["user"] = request.form.get("user_name").lower()
                 flash("Hey, {}".format(
                     request.form.get("user_name")))
