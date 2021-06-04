@@ -1,7 +1,11 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $('.sidenav').sidenav();
     $('select').formSelect();
-  });
+    $('.fixed-action-btn').floatingActionButton({
+        hoverEnabled: true
+    });
+    $('.parallax').parallax();
+});
 
  validateMaterializeSelect();
     function validateMaterializeSelect() {

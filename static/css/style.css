@@ -5,3 +5,7 @@ html .brand-logo .card-title {
 .flashes h4 {
     line-height: 2;
 }
+
+.parallax-container {
+      height: 400px;
+    }
