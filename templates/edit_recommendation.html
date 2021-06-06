@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="grey-text text-darken-4 center-align"> Edit Recommendation</h3>
+
+<div class="row">
+    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('edit_recommendation', gallery_id=gallery._id) }}">
+        <!--category selection-->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3 ">business</i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Listing Type</option>
+                    {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_name">Venue Type</label>
+            </div>
+        </div>
+
+                <!-- Place / Event Name input -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3">label</i>
+                <textarea id="gallery_name" name="gallery_name" class="materialize-textarea validate" required></textarea>
+                <label for="gallery_name">Place / Event Name</label>
+            </div>
+        </div>
+
+        <!--facilities input-->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3 ">local_cafe</i>
+                <select multiple id="gallery_facilities" name="gallery_facilities" class="validate" required>
+                    <option value="" disabled selected>Choose available facilities</option>
+                    <option value="1">Accessible</option>
+                    <option value="2">Cafe</option>
+                    <option value="3">Toilets</option>
+                    <option value="4">Child Friendly</option>
+                    <option value="5">Guide Available</option>
+                </select>
+                <label for="gallery_facilities">Facilities</label>
+            </div>
+        </div>
+
+        <!-- Cost input -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3 ">attach_money</i>
+                <select id="gallery_cost" name="gallery_cost" class="validate" required>
+                    <option value="" disabled selected>Choose Cost Level</option>
+                    <option value="1">FREE</option>
+                    <option value="2">£</option>
+                    <option value="3">££</option>
+                    <option value="4">£££</option>
+                </select>
+                <label for="gallery_cost">Cost</label>
+            </div>
+        </div>
+
+        <!-- Ratings input -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3 ">star</i>
+                <select id="gallery_rating" name="gallery_rating" class="validate" required>
+                    <option value="" disabled selected>Rating</option>
+                    <option value="toilets">toilets</option>
+                    <option value="cloakroom">cloakroom</option>
+                    <option value="cafe">cafe</option>
+                    <option value="shop">shop</option>
+                    <option value="accessible access">accessible</option>
+                    <option value="guided tours available">6</option>
+                </select>
+                <label for="gallery_rating">Rating</label>
+            </div>
+        </div>
+
+        <!-- Place / Event City input -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3">location_city</i>
+                <textarea id="gallery_city" name="gallery_city" class="materialize-textarea validate" required></textarea>
+                <label for="gallery_city">Place / Event City</label>
+            </div>
+        </div>
+
+
+        <!-- Comments input -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3">insert_comment</i>
+                <textarea id="gallery_comments" name="gallery_comments" class="materialize-textarea validate" required></textarea>
+                <label for="gallery_comments">Comments</label>
+            </div>
+        </div>
+
+        <!-- profile pic input -->
+        <div class="row">
+            <div class="input-field file-field col s10 push-s1">
+                <span><i class="material-icons prefix yellow-text text-accent-3 validate" required>add_a_photo</i>
+                    <label for="avatar">Upload Gallery Pic</label>
+                </span>
+                <input id="gallery_image" name="gallery_image" type="file">
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+        </div>
+
+        <!-- submit button -->
+        <div class="row">
+            <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Edit
+                <i class="material-icons border_color grey-text text-darken-3">Edit</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
