@@ -10,9 +10,14 @@
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3 ">business</i>
                 <select id="category_name" name="category_name" class="validate" required>
-                    <option value="" disabled selected>Listing Type</option>
+                    <option value="" selected>Listing Type</option>
                     {% for category in categories %}
-                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% if category.category_name == gallery.category_name %}
+                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
+
                     {% endfor %}
                 </select>
                 <label for="category_name">Venue Type</label>
@@ -23,7 +28,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">label</i>
-                <textarea id="gallery_name" name="gallery_name" class="materialize-textarea validate" required></textarea>
+                <textarea id="gallery_name" name="gallery_name" class="materialize-textarea validate"  required>{{ gallery.gallery_name }}</textarea>
                 <label for="gallery_name">Place / Event Name</label>
             </div>
         </div>
@@ -34,6 +39,7 @@
                 <i class="material-icons prefix yellow-text text-accent-3 ">local_cafe</i>
                 <select multiple id="gallery_facilities" name="gallery_facilities" class="validate" required>
                     <option value="" disabled selected>Choose available facilities</option>
+
                     <option value="1">Accessible</option>
                     <option value="2">Cafe</option>
                     <option value="3">Toilets</option>
@@ -80,7 +86,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">location_city</i>
-                <textarea id="gallery_city" name="gallery_city" class="materialize-textarea validate" required></textarea>
+                <textarea id="gallery_city" name="gallery_city" class="materialize-textarea validate" required>{{ gallery.gallery_city }}</textarea>
                 <label for="gallery_city">Place / Event City</label>
             </div>
         </div>
@@ -90,7 +96,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">insert_comment</i>
-                <textarea id="gallery_comments" name="gallery_comments" class="materialize-textarea validate" required></textarea>
+                <textarea id="gallery_comments" name="gallery_comments" class="materialize-textarea validate" required>{{ gallery.gallery_comments }}</textarea>
                 <label for="gallery_comments">Comments</label>
             </div>
         </div>
@@ -111,7 +117,7 @@
         <!-- submit button -->
         <div class="row">
             <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Edit
-                <i class="material-icons border_color grey-text text-darken-3">Edit</i>
+                <i class="material-icons border_color grey-text text-darken-3">mode_edit</i>
             </button>
         </div>
     </form>
