@@ -20,6 +20,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 
+
 @app.route("/index")
 def get_index():
     return render_template("index.html")
@@ -146,6 +147,15 @@ def add_recommendation():
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recommendation.html", categories=categories)
+
+
+@app.route("/edit_recommendation/<gallery_id>", methods=["GET", "POST"])
+def edit_recommendation(gallery_id):
+    recommendation = mongo.db.galleries.find_one({"_id": ObjectId(gallery_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_recommendation.html", gallery=recommendation,
+        categories=categories)
 
 
 if __name__ == "__main__":
