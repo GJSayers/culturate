@@ -151,6 +151,21 @@ def add_recommendation():
 
 @app.route("/edit_recommendation/<gallery_id>", methods=["GET", "POST"])
 def edit_recommendation(gallery_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "gallery_facilities": request.form.getlist("gallery_facilities"),
+            "gallery_name": request.form.get("gallery_name"),
+            "gallery_cost": request.form.get("gallery_cost"),
+            "gallery_rating": request.form.get("gallery_rating"),
+            "gallery_city": request.form.get("gallery_city"),
+            "gallery_comments": request.form.get("gallery_comments"),
+            "gallery_image": request.form.get("gallery_image"),
+            "created_by": session["user"]
+        }
+        mongo.db.galleries.update({"_id": ObjectId(gallery_id)}, submit)
+        flash("Gallery Updated - Thank you!") 
+
     recommendation = mongo.db.galleries.find_one({"_id": ObjectId(gallery_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
