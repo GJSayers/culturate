@@ -11,6 +11,22 @@
     font-family: 'Archivo Black', sans-serif;
 }
 
+.card-title {
+    font-family: 'Archivo Black', sans-serif;
+}
+/* .gallery-section.img {
+    opacity: 0.7;
+} */
+
+.sidenav {
+    background-color: #C2B678;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+/* nav.ul.sidenav.li.a:hover {
+    color: #F7E93F !important;
+} */
+
 .how-it-works {
     background-color: #1a2017;
     color: #C2B678;
