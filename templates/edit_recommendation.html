@@ -116,7 +116,11 @@
 
         <!-- submit button -->
         <div class="row">
-            <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Edit
+            <button class="col s6 btn purple offset-s3" type="url">
+            <a href="{{ url_for('get_galleries') }}"> Cancel <i class="material-icons grey-text text-darken-3">clear</i></a>
+            </button>
+
+            <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Save Changes
                 <i class="material-icons border_color grey-text text-darken-3">mode_edit</i>
             </button>
         </div>
