@@ -2,11 +2,10 @@
 {% block content %}
 
 
-<div class="row">
+<div class="row gallery-section">
     {% for gallery in galleries %}
-    <div class="row">
-    <div class="col s12 m3">
-        <div class="card">
+    <div class="col s12 m4 gallery-card">
+        <div class="card ">
             <div class="card-image">
                 <img class="responsive" src="{{ gallery.gallery_image }}" alt="">
                 <span class="card-title">{{ gallery.gallery_name }}</span>
@@ -28,8 +27,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
     {% endfor %}
 </div>
 
