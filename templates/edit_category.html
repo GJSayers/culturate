@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="grey-text text-darken-4 center-align"> Edit category</h3>
+
+<div class="row">
+    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
+
+                <!-- Category Name -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix yellow-text text-accent-3">collections_bookmark</i>
+                <input id="category_name" name="category_name" type="text" value="{{ category.category_name }}" class="materialize-textarea validate" required></textarea>
+                <label for="category_name">Category Name</label>
+            </div>
+        </div>
+
+        
+        <!-- submit button -->
+        <div class="row">
+            <a href="{{ url_for('get_categories') }}"> Cancel <i class="material-icons grey-text text-darken-3">clear</i>
+            </a>
+            <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Edit Category
+                <i class="material-icons right grey-text text-darken-3">edit</i>
+            </button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
