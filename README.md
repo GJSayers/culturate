@@ -1,59 +1,95 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">Culturate</h1>
 
-Welcome GJSayers,
+[View the live project here.](https://culturate.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+Culturate is a cultural places, exhibitions and events site. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
-## Gitpod Reminders
+## UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### Strategy
+#### Accessibility 
+#### Security
 
-`python3 -m http.server`
+#### User Goals
+##### User Stories *New User 
+##### User Stories *Existing User (Logged in / joined member)
+##### User Journey Map *Existing User (Not Logged in / Brower user)
+##### User Stories *Site Manager / Admin User 
 
-A blue button should appear to click: _Make Public_,
+### Scope
+#### Core Features
+#### Feature Feasibility *MVP vs Full Features
+#### 1st Round Selected Production Features 
+#### Future Implementations
+#### Content and Structure requirements
 
-Another blue button should appear to click: _Open Browser_.
+### Structure
+#### Database Schema
+#### User Journey Map
+##### User Journey Map *First time User
+##### User Journey Map *Existing User (Logged in / joined member)
+##### User Journey Map *Existing User (Not Logged in / Brower user)
+##### User Journey Map *Site Manager / Admin User 
+#### Necessary Elements 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+### Skeleton
+#### Element arrangement considerations
+#### User feedback arrangements
+#### Arguments for AB testing 
+#### Wireframes / Prototypes
 
-Another blue button should appear to click: _Open Browser_.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+### Surface
+#### Design Inspiration
+##### Mood Board & Colour choices
+##### Typography
+##### Imagery
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Implementation 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
+## Technologies Used
 
-## Updates Since The Instructional Video
+### Languages Used
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+*  [HTML5](https://en.wikipedia.org/wiki/HTML5)
+*  [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+*  [Javascript]
+*  [Python3] (https://www.python.org/)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Frameworks, Libraries & Programs Used
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+*  [Jinja] (https://en.wikipedia.org/wiki/Jinja_(template_engine))
+*  [MaterializeCSS] (https://materializecss.com/) is used as a css framework to ensure responsive design delivery within the timeframe. 
+*  [Heroku](https://www.heroku.com) is the cloud-based platform used to deploy the project. 
+*  [MongoDB](https://www.mongodb.com) is used for the document database.
+*  [Flask] (https://en.wikipedia.org/wiki/Flask_(web_framework)) is used as a micro-framework and supports the use of Jinja templates. 
+*  [Figma] (https://www.figma.com/)
+*  [JQuery] (https://jquery.com/)
+*  [Hover.css](https://ianlunn.github.io/Hover/) I used hover to make elements more interactive.
+*  [Google Fonts](https://fonts.google.com/) I used Monserrat as the font for the whole site.
+*  [Font Awesome](https://fontawesome.com/) Font awesome is where I sourced all the icons for the site.
+*  [GitHub](https://github.com/) is used to file the repository and record the version control. 
+*  [GitPod](https://gitpod.io) was used for development and version control.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Testing
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+Detailed testing documentation can be found in [TESTING.MD] (/workspace/culturate/TESTING.MD)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Known Bugs
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Deployment
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Forking the GitHub Repository
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Making a Local Clone
 
----
+### Credits
+* Content
+* Media
 
-Happy coding!
+
+### Acknowledgements
