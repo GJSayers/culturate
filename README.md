@@ -8,20 +8,55 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 
 ### Strategy
 #### Accessibility 
+-------
 #### Security
-
+-------
 #### User Goals
-##### User Stories *New User 
-##### User Stories *Existing User (Logged in / joined member)
-##### User Journey Map *Existing User (Not Logged in / Brower user)
-##### User Stories *Site Manager / Admin User 
+-------
+#### User Stories - First Time User 
+-------
+1. As a **First time user**, I want to have a clear visual impact on landing on the site to demonstrate the **artistic** / **cultual sharing** & **listing** purpose of the site. 
+2. As a **First time user**, I want to be able to **browse at least some listings** without having to sign up / login. 
+3. As a **First time user** I want to be able to **join** the community **easily and securely** 
+
+#### User Stories - Existing User (Logged in / joined member)
+-------
+1. As an **Existing User** I want to be able to **login** easily. 
+2. As an **Existing User** I want a **Personalised experience** by being able to **like** and **save listings** for future reference.  
+3. As an **Existing User** I would like to be **addessed by my username**, and have the option to **upload an image** to my profile. 
+4. As an **Existing User** I would like to be able to **upload listings** for others to see. 
+5. As an **Existing User** I would like to be able to **share interesting finds directly on social media**
+
+
+##### User Stories - Repeat/ Frequent User (Logged in / joined member)
+1. As a **Repeat User** I would like to be able to **edit my likes and saves** 
+2. As a **Repeat User** I would like to be able to **search the listings** 
+3. As a **Repeat User** I would like to be able to **edit and update my profile**
+4. As a **Repeat User** I would like to be able to **edit or update the comments on my listings**
+5. As a **Repeat User** I would like to be able to **contact the website owners** to suggest new listing categories. 
+
+
+
+#### User Stories Existing User (Not Logged in / Brower user)
+-----
+#### User Stories - Site Manager / Admin User 
+-----
+1. As a **Site Manager / Admin User** I want to be able to **create new categories**
+2. As a **Site Manager / Admin User** I want to be able to **edit & delete listings** if necessary. 
+3. As a **Site Manager / Admin User** I want to ensure that the website **stays up to date**, and **automatically deletes** events that have passed. 
 
 ### Scope
+-----
 #### Core Features
+-----
 #### Feature Feasibility *MVP vs Full Features
+-----
 #### 1st Round Selected Production Features 
+-----
 #### Future Implementations
+-----
 #### Content and Structure requirements
+-----
 
 ### Structure
 #### Database Schema
