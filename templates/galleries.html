@@ -10,8 +10,14 @@
                 <img class="responsive" src="{{ gallery.gallery_image }}" alt="">
                 <span class="card-title">{{ gallery.gallery_name }}</span>
                 {% if session.user|lower == gallery.created_by|lower %}
-                <a href="{{ url_for('delete_recommendation', gallery_id=gallery._id)}}"class="btn-floating btn-small halfway-fab waves-effect waves-light red left-align"><i class="material-icons">delete</i></a>
+                <div class="row">
+                <div class="col s8 push-s8">
+                <a href="{{ url_for('delete_recommendation', gallery_id=gallery._id)}}"class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons ">delete</i></a>
+                </div>
+                <div class="col s4">
                 <a href="{{ url_for('edit_recommendation', gallery_id=gallery._id)}}"class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
+                </div>
+                </div>
                 {% else %}
                 <a href="#"class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
                 {% endif %}

@@ -161,7 +161,7 @@ def edit_recommendation(gallery_id):
             "gallery_city": request.form.get("gallery_city"),
             "gallery_comments": request.form.get("gallery_comments"),
             "gallery_image": request.form.get("gallery_image"),
-            "created_by": session["user"]
+            "created_by": session["user_name"]
         }
         mongo.db.galleries.update({"_id": ObjectId(gallery_id)}, submit)
         flash("Gallery Updated - Thank you!") 
@@ -171,6 +171,12 @@ def edit_recommendation(gallery_id):
     return render_template(
         "edit_recommendation.html", gallery=recommendation,
         categories=categories)
+
+@app.route("/delete_recommendation/<gallery_id>")
+def delete_recommendation(gallery_id):
+    mongo.db.galleries.remove({"_id": ObjectId(gallery_id)})
+    flash("Listing sucessfully Deleted")
+    return redirect(url_for("get_galleries"))
 
 
 if __name__ == "__main__":
