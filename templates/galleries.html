@@ -5,11 +5,16 @@
 <div class="row gallery-section">
     {% for gallery in galleries %}
     <div class="col s12 m4 gallery-card">
-        <div class="card ">
+        <div class="card">
             <div class="card-image">
                 <img class="responsive" src="{{ gallery.gallery_image }}" alt="">
                 <span class="card-title">{{ gallery.gallery_name }}</span>
+                {% if session.user|lower == gallery.created_by|lower %}
+                <a href="{{ url_for('delete_recommendation', gallery_id=gallery._id)}}"class="btn-floating btn-small halfway-fab waves-effect waves-light red left-align"><i class="material-icons">delete</i></a>
                 <a href="{{ url_for('edit_recommendation', gallery_id=gallery._id)}}"class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
+                {% else %}
+                <a href="#"class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                {% endif %}
             </div>
             
             <div class="card-content">
