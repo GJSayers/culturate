@@ -211,7 +211,7 @@ def edit_category(category_id):
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Category Successfully deteted")
+    flash("Category Successfully deleted")
     return redirect(url_for("get_categories"))
 
 
