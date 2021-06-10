@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="row listing-section">
+    {% for listing in listings %}
+    <div class="col s12 m4 listing-card">
+        <div class="card">
+            <div class="card-image">
+                <img class="responsive" src="{{ listing.listing_image }}" alt="">
+                <span class="card-title">{{ listing.listing_name }}</span>
+                {% if session.user|lower == listing.created_by|lower %}
+                <div class="row">
+                <div class="col s8 push-s8">
+                <a href="{{ url_for('delete_listing', listing_id=listing._id)}}"class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons ">delete</i></a>
+                </div>
+                <div class="col s4">
+                <a href="{{ url_for('edit_listing', listing_id=listing._id)}}"class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
+                </div>
+                </div>
+                {% else %}
+                <a href="#"class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i class="material-icons">favorite</i></a>
+                {% endif %}
+            </div>
+            
+            <div class="card-content">
+                    <ul>
+                        <li><strong>{{ listing.listing_city }}</strong></li>
+                        <li>Rating: {{ listing.listing_rating }}</li>
+                            <li>Facilities: {% for facility in listing.listing_facilities %}
+                                <span>{{ facility }},</span>
+                            {% endfor %}</li>
+
+                        <li>Cost: {{ listing.listing_cost }}</li>
+                        <li>Comments: {{ listing.listing_comments }}</li><br>
+                        <p><em>created by: {{ listing.created_by }}</em></p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
