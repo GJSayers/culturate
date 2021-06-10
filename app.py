@@ -24,10 +24,10 @@ def get_index():
     return render_template("index.html")
 
 
-@app.route("/get_galleries")
-def get_galleries():
-    galleries = list(mongo.db.galleries.find())
-    return render_template("galleries.html", galleries=galleries)
+@app.route("/get_listings")
+def get_listings():
+    listings = list(mongo.db.listings.find())
+    return render_template("listings.html", listings=listings)
 
 
 @app.route("/join", methods=["GET", "POST"])
@@ -124,57 +124,57 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_recommendation", methods=["GET", "POST"])
-def add_recommendation():
+@app.route("/add_listing", methods=["GET", "POST"])
+def add_listing():
     if request.method == "POST":
-        recommendation = {
+        listing = {
             "category_name": request.form.get("category_name"),
-            "gallery_facilities": request.form.getlist("gallery_facilities"),
-            "gallery_name": request.form.get("gallery_name"),
-            "gallery_cost": request.form.get("gallery_cost"),
-            "gallery_rating": request.form.get("gallery_rating"),
-            "gallery_city": request.form.get("gallery_city"),
-            "gallery_comments": request.form.get("gallery_comments"),
-            "gallery_image": request.form.get("gallery_image"),
+            "listing_facilities": request.form.getlist("listing_facilities"),
+            "listing_name": request.form.get("listing_name"),
+            "listing_cost": request.form.get("listing_cost"),
+            "listing_rating": request.form.get("listing_rating"),
+            "listing_city": request.form.get("listing_city"),
+            "listing_comments": request.form.get("listing_comments"),
+            "listing_image": request.form.get("listing_image"),
             "created_by": session["user"]
         }
 
-        mongo.db.galleries.insert_one(recommendation)
-        flash("Recommendation Added - Thank you!")
-        return redirect(url_for("get_galleries"))
+        mongo.db.listings.insert_one(listing)
+        flash("listing Added - Thank you!")
+        return redirect(url_for("get_listings"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recommendation.html", categories=categories)
+    return render_template("add_listing.html", categories=categories)
 
 
-@app.route("/edit_recommendation/<gallery_id>", methods=["GET", "POST"])
-def edit_recommendation(gallery_id):
+@app.route("/edit_listing/<listing_id>", methods=["GET", "POST"])
+def edit_listing(listing_id):
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
-            "gallery_facilities": request.form.getlist("gallery_facilities"),
-            "gallery_name": request.form.get("gallery_name"),
-            "gallery_cost": request.form.get("gallery_cost"),
-            "gallery_rating": request.form.get("gallery_rating"),
-            "gallery_city": request.form.get("gallery_city"),
-            "gallery_comments": request.form.get("gallery_comments"),
-            "gallery_image": request.form.get("gallery_image"),
+            "listing_facilities": request.form.getlist("listing_facilities"),
+            "listing_name": request.form.get("listing_name"),
+            "listing_cost": request.form.get("listing_cost"),
+            "listing_rating": request.form.get("listing_rating"),
+            "listing_city": request.form.get("listing_city"),
+            "listing_comments": request.form.get("listing_comments"),
+            "listing_image": request.form.get("listing_image"),
             "created_by": session["user_name"]
         }
-        mongo.db.galleries.update({"_id": ObjectId(gallery_id)}, submit)
-        flash("Gallery Updated - Thank you!")
-    recommendation = mongo.db.galleries.find_one({"_id": ObjectId(gallery_id)})
+        mongo.db.listings.update({"_id": ObjectId(listing_id)}, submit)
+        flash("listing Updated - Thank you!")
+    listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
-        "edit_recommendation.html", gallery=recommendation,
+        "edit_listing.html", listing=listing,
         categories=categories)
 
 
-@app.route("/delete_recommendation/<gallery_id>")
-def delete_recommendation(gallery_id):
-    mongo.db.galleries.remove({"_id": ObjectId(gallery_id)})
+@app.route("/delete_listing/<listing_id>")
+def delete_listing(listing_id):
+    mongo.db.listings.remove({"_id": ObjectId(listing_id)})
     flash("Listing sucessfully Deleted")
-    return redirect(url_for("get_galleries"))
+    return redirect(url_for("get_listings"))
 
 
 @app.route("/get_categories")
