@@ -9,14 +9,55 @@
 .nav-wrapper {
     background-color: #C2B678;
     font-family: 'Archivo Black', sans-serif;
+    font-weight: 900;
 }
 
 .card-title {
     font-family: 'Archivo Black', sans-serif;
+    font-weight: 900;
+    color: #1a2017;
+
 }
 /* .gallery-section.img {
     opacity: 0.7;
 } */
+
+.card-action {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: lighter;
+    color: #C2B678;
+    /* color: #C2B678; */
+}
+
+.submit-btn {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    background-color: #C2B678;
+    color: #1a2017;
+}
+
+.submit-btn:hover {
+    background-color: #03B066;
+}
+
+.submission-form {
+    background-color: rgba(247, 233, 63, 1);
+    box-shadow: none;
+    width: 100%;
+}
+
+.submission-icon {
+    color: #1a2017;
+}
+
+.submission-icon:hover {
+   color: #03B066; 
+}
+
+.submit-section {
+    margin-top: 10%;
+    padding-bottom: 5%;
+}
 
 .sidenav {
     background-color: #C2B678;
@@ -27,6 +68,10 @@
     color: #F7E93F !important;
 } */
 
+.form-backgorund {
+    background-color: rgba(247, 233, 63, 1);
+}
+
 .how-it-works {
     background-color: #1a2017;
     color: #C2B678;
@@ -35,4 +80,21 @@
 
 .listing-section {
     background-color: #1a2017;
+}
+
+.input-field>label {
+    color:rgb(26, 32, 23, 0.6);
+}
+
+.login-link {
+    padding-bottom: 7%;
+    
+}
+
+.login-link>a {
+    color: #1a2017;
+}
+
+.login-link>a:hover {
+    color: #03B066;
 }

@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
+<div class="row form-backgorund">
     <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('join') }}">
-        <div class="card grey darken-4">
-            <div class="card-content yellow-text text-accent-3">
+        <div class="card submission-form">
+            <div class="card-content center-align">
                 <span class="card-title">Join Our Community</span>
                 <p></p>
             </div>
@@ -11,7 +11,7 @@
             <!-- username input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix yellow-text text-accent-3 ">account_circle</i>
+                    <i class="material-icons prefix submission-icon">account_circle</i>
                     <input id="user_name" name="user_name" type="text" class="validate" autocomplete="username">
                     <label for="user_name">Username</label>
                 </div>
@@ -19,15 +19,15 @@
             <!-- email input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix yellow-text text-accent-3">email</i>
+                    <i class="material-icons prefix submission-icon">email</i>
                     <input id="user_email" name="user_email" type="email" class="validate">
-                    <label for="user_email">Email</label>
+                    <label for="user_email" class="label">Email</label>
                 </div>
             </div>
             <!-- password input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix yellow-text text-accent-3">lock</i>
+                    <i class="material-icons prefix submission-icon">lock</i>
                     <input id="user_password" name="user_password" type="password" class="validate" autocomplete="new-password">
                     <label for="user_password">Password</label>
                 </div>
@@ -35,7 +35,7 @@
             <!-- bio input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix yellow-text text-accent-3">face</i>
+                    <i class="material-icons prefix submission-icon">face</i>
                     <textarea id="user_bio" name="user_bio" class="materialize-textarea validate"></textarea>
                     <label for="user_bio">Bio</label>
                 </div>
@@ -43,8 +43,8 @@
             <!-- profile pic input -->
             <div class="row">
             <div class="file-field input-field col s10 push-s1">
-                    <span><i class="material-icons yellow-text text-accent-3">add_a_photo</i><label for="user_avatar">Upload Profile Pic
-                    </label></span>
+                    <i class="material-icons prefix submission-icon">add_a_photo</i><label for="user_avatar">Upload Profile Pic
+                    </label>
                     
                     <input id="user_avatar" name="user_avatar" type="file">
                 <div class="file-path-wrapper">
@@ -52,19 +52,20 @@
                     
                 </div>
             </div>
+            </div>
             
             <!-- submit button -->    
-                <div class="row">
-                    <button class="col s6 btn yellow accent-4 offset-s3" type="submit" name="action">Submit
-                        <i class="material-icons right grey-text text-darken-3">send</i>
+                <div class="row submit-section">
+                    <button class="col s6 btn offset-s3 submit-btn" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
                     </button>
                 </div>
             
 
-            <div class="card-action">
-                <a href="{{ url_for('login') }}">Already a user? Log in here</a>
+            <div class="center-align login-link">
+                <a href="{{ url_for('login') }}" class="">Already a user?... Log in here</a>
             </div>
-            </div>
+            
         </div>
     </form>
     
