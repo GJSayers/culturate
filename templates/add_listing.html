@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="grey-text text-darken-4 center-align"> Add a recommendation</h3>
+<h3 class="grey-text text-darken-4 center-align"> Add a listing</h3>
 
 <div class="row">
-    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('add_recommendation') }}">
+    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('add_listing') }}">
         <!--category selection-->
         <div class="row">
             <div class="input-field col s10 push-s1">
@@ -15,7 +15,7 @@
                     <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endfor %}
                 </select>
-                <label for="category_name">Venue Type</label>
+                <label for="category_name">Listing Type</label>
             </div>
         </div>
 
@@ -23,8 +23,8 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">label</i>
-                <textarea id="gallery_name" name="gallery_name" class="materialize-textarea validate" required></textarea>
-                <label for="gallery_name">Place / Event Name</label>
+                <textarea id="listing_name" name="listing_name" class="materialize-textarea validate" required></textarea>
+                <label for="listing_name">Listing Name</label>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3 ">local_cafe</i>
-                <select multiple id="gallery_facilities" name="gallery_facilities" class="validate" required>
+                <select multiple id="listing_facilities" name="listing_facilities" class="validate" required>
                     <option value="" disabled selected>Choose available facilities</option>
                     <option value="Accessible">Accessible</option>
                     <option value="Cafe">Cafe</option>
@@ -40,7 +40,7 @@
                     <option value="Child Friendly">Child Friendly</option>
                     <option value="Guide Available">Guide Available</option>
                 </select>
-                <label for="gallery_facilities">Facilities</label>
+                <label for="listing_facilities">Facilities</label>
             </div>
         </div>
 
@@ -48,14 +48,14 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3 ">attach_money</i>
-                <select id="gallery_cost" name="gallery_cost" class="validate" required>
+                <select id="listing_cost" name="listing_cost" class="validate" required>
                     <option value="" disabled selected>Choose Cost Level</option>
                     <option value="FREE">FREE</option>
                     <option value="£">£</option>
                     <option value="££">££</option>
                     <option value="£££">£££</option>
                 </select>
-                <label for="gallery_cost">Cost</label>
+                <label for="listing_cost">Cost</label>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3 ">star</i>
-                <select id="gallery_rating" name="gallery_rating" class="validate" required>
+                <select id="listing_rating" name="listing_rating" class="validate" required>
                     <option value="" disabled selected>Rating</option>
                     <option value=1>1 Star</option>
                     <option value=2>2 Stars</option>
@@ -72,7 +72,7 @@
                     <option value=5>5 Stars</option>
                     <option value=6>6 Stars</option>
                 </select>
-                <label for="gallery_rating">Rating</label>
+                <label for="listing_rating">Rating</label>
             </div>
         </div>
 
@@ -80,8 +80,8 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">location_city</i>
-                <textarea id="gallery_city" name="gallery_city" class="materialize-textarea validate" required></textarea>
-                <label for="gallery_city">Place / Event City</label>
+                <textarea id="listing_city" name="listing_city" class="materialize-textarea validate" required></textarea>
+                <label for="listing_city">Place / Event City</label>
             </div>
         </div>
 
@@ -90,8 +90,8 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">insert_comment</i>
-                <textarea id="gallery_comments" name="gallery_comments" class="materialize-textarea validate" required></textarea>
-                <label for="gallery_comments">Comments</label>
+                <textarea id="listing_comments" name="listing_comments" class="materialize-textarea validate" required></textarea>
+                <label for="listing_comments">Comments</label>
             </div>
         </div>
 
@@ -99,9 +99,9 @@
         <div class="row">
             <div class="input-field file-field col s10 push-s1">
                 <span><i class="material-icons prefix yellow-text text-accent-3 validate" required>add_a_photo</i>
-                    <label for="avatar">Upload Gallery Pic</label>
+                    <label for="avatar">Upload listing Pic</label>
                 </span>
-                <input id="gallery_image" name="gallery_image" type="file">
+                <input id="listing_image" name="listing_image" type="file">
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
                 </div>

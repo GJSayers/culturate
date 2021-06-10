@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="grey-text text-darken-4 center-align"> Edit Recommendation</h3>
+<h3 class="grey-text text-darken-4 center-align"> Edit listing</h3>
 
 <div class="row">
-    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('edit_recommendation', gallery_id=gallery._id) }}">
+    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('edit_listing', listing_id=listing._id) }}">
         <!--category selection-->
         <div class="row">
             <div class="input-field col s10 push-s1">
@@ -12,7 +12,7 @@
                 <select id="category_name" name="category_name" class="validate" required>
                     <option value="" selected>Listing Type</option>
                     {% for category in categories %}
-                        {% if category.category_name == gallery.category_name %}
+                        {% if category.category_name == listing.category_name %}
                         <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                         {% else %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
@@ -28,8 +28,8 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">label</i>
-                <textarea id="gallery_name" name="gallery_name" class="materialize-textarea validate"  required>{{ gallery.gallery_name }}</textarea>
-                <label for="gallery_name">Place / Event Name</label>
+                <textarea id="listing_name" name="listing_name" class="materialize-textarea validate"  required>{{ listing.listing_name }}</textarea>
+                <label for="listing_name">Place / Event Name</label>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3 ">local_cafe</i>
-                <select multiple id="gallery_facilities" name="gallery_facilities" class="validate" required>
+                <select multiple id="listing_facilities" name="listing_facilities" class="validate" required>
                     <option value="" disabled selected>Choose available facilities</option>
 
                     <option value="Accessible">Accessible</option>
@@ -46,7 +46,7 @@
                     <option value="Child Friendly">Child Friendly</option>
                     <option value="Guide Available">Guide Available</option>
                 </select>
-                <label for="gallery_facilities">Facilities</label>
+                <label for="listing_facilities">Facilities</label>
             </div>
         </div>
 
@@ -54,14 +54,14 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3 ">attach_money</i>
-                <select id="gallery_cost" name="gallery_cost" class="validate" required>
+                <select id="listing_cost" name="listing_cost" class="validate" required>
                     <option value="" disabled selected>Choose Cost Level</option>
                     <option value="FREE">FREE</option>
                     <option value="£">£</option>
                     <option value="££">££</option>
                     <option value="£££">£££</option>
                 </select>
-                <label for="gallery_cost">Cost</label>
+                <label for="listing_cost">Cost</label>
             </div>
         </div>
 
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3 ">star</i>
-                <select id="gallery_rating" name="gallery_rating" class="validate" required>
+                <select id="listing_rating" name="listing_rating" class="validate" required>
                     <option value="" disabled selected>Rating</option>
                     <option value=1>1 star</option>
                     <option value=2>2 stars</option>
@@ -78,7 +78,7 @@
                     <option value=5>5 stars</option>
                     <option value=6>6 stars</option>
                 </select>
-                <label for="gallery_rating">Rating</label>
+                <label for="listing_rating">Rating</label>
             </div>
         </div>
 
@@ -86,8 +86,8 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">location_city</i>
-                <textarea id="gallery_city" name="gallery_city" class="materialize-textarea validate" required>{{ gallery.gallery_city }}</textarea>
-                <label for="gallery_city">Place / Event City</label>
+                <textarea id="listing_city" name="listing_city" class="materialize-textarea validate" required>{{ listing.listing_city }}</textarea>
+                <label for="listing_city">Place / Event City</label>
             </div>
         </div>
 
@@ -96,8 +96,8 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix yellow-text text-accent-3">insert_comment</i>
-                <textarea id="gallery_comments" name="gallery_comments" class="materialize-textarea validate" required>{{ gallery.gallery_comments }}</textarea>
-                <label for="gallery_comments">Comments</label>
+                <textarea id="listing_comments" name="listing_comments" class="materialize-textarea validate" required>{{ listing.listing_comments }}</textarea>
+                <label for="listing_comments">Comments</label>
             </div>
         </div>
 
@@ -105,9 +105,9 @@
         <div class="row">
             <div class="input-field file-field col s10 push-s1">
                 <span><i class="material-icons prefix yellow-text text-accent-3 validate" required>add_a_photo</i>
-                    <label for="gallery_image">Upload Gallery Pic</label>
+                    <label for="listing_image">Upload listing Pic</label>
                 </span>
-                <input id="gallery_image" name="gallery_image" type="file">
+                <input id="listing_image" name="listing_image" type="file">
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
                 </div>
@@ -117,7 +117,7 @@
         <!-- submit button -->
         <div class="row">
             <button class="col s6 btn purple offset-s3" type="url">
-            <a href="{{ url_for('get_galleries') }}"> Cancel <i class="material-icons grey-text text-darken-3">clear</i></a>
+            <a href="{{ url_for('get_listings') }}"> Cancel <i class="material-icons grey-text text-darken-3">clear</i></a>
             </button>
 
             <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Save Changes
