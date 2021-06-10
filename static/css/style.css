@@ -13,7 +13,7 @@
 }
 
 .card-title {
-    font-family: 'Archivo Black', sans-serif;
+    font-family: 'Permanent Marker', cursive;
     font-weight: 900;
     color: #1a2017;
 
@@ -93,6 +93,8 @@
 
 .login-link>a {
     color: #1a2017;
+    font-family: 'Permanent Marker', cursive;
+
 }
 
 .login-link>a:hover {
