@@ -1,32 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="grey-text text-darken-4 center-align"> Manage Categories </h3>
-
-<div class="row ">
-    <div class="col s12 center-align">
-        <a href="{{ url_for('add_category') }}" class="btn-large light-blue darken-2 test-shadow">
-            Add Category <i class="material-icons right grey-text text-darken-3">add</i>
-        </a>
-
-    </div>
-
-</div>
-
-<div class="row">
-    {% for category in categories %}
-    <div class="col s12 m3">
-        <div class="card grey darken-1 center-align">
-            <div class="card-content white-text">
-                <span class="card-title">{{ category.category_name}}</span>
+<div class="row form-background">
+    <div class="col">
+        <div class="card submission-form">
+            <div class="card-content center-align">
+                <span class="card-title submission-header"> Manage Categories </span>
             </div>
-            <div class="card-action">
-                <a href="{{ url_for('edit_category', category_id=category._id) }}" class="btn green accent-4">Edit</a>
-                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn light-blue lighten-1">Delete</a>
+
+            <div class="row submit-section">
+                <a href="{{ url_for('add_category') }}" class="col s6 btn offset-s3 submit-btn">
+                    Add Category <i class="material-icons right">add</i>
+                </a>
             </div>
+            {% for category in categories %}
+            <div class="col s12 m4">
+                <div class="card small">
+                    <div class="card-image">
+                        <img src="https://cdn.pixabay.com/photo/2020/02/25/21/57/graffiti-art-4880123_1280.jpg"
+                            alt="community-art">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">{{ category.category_name}}</span>
+                           </div>
+                            <div class="fixed-action-btn click-to-toggle">
+                                <a class="btn-floating btn-large red">
+                                    <i class="large material-icons">mode_edit</i>
+                                </a>
+                                <ul>
+                                    <li><a class="btn-floating blue"
+                                            href="{{ url_for('delete_category', category_id=category._id) }}"><i class="material-icons">mode_edit</i></a></li>
+                                    <li><a class="btn-floating green"
+                                            href="{{ url_for('delete_category', category_id=category._id) }}">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
