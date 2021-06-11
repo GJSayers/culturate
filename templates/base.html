@@ -19,8 +19,8 @@
     <!--top nav-->
             <nav>
                 <div class="nav-wrapper">
-                <a href="{{ url_for('get_index') }}" class="brand-logo grey-text text-darken-4">Culturate.</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons grey-text text-darken-4">menu</i></a>
+                <a href="{{ url_for('get_index') }}" class="brand-logo">Culturate.</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_listings') }}">Home</a></li>
                     {% if session.user %}
