@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="grey-text text-darken-4 center-align"> Add a listing</h3>
-
-<div class="row">
-    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('add_listing') }}">
+<div class="row form-background">
+    <form class="col s12 m6 offset-m3 " method="POST" action="{{ url_for('add_listing') }}">
+        <div class="card submission-form">
+            <div class="card-content center-align">
+                <span class="card-title submission-header">Add a Listing</span>
+                </div>
+            </div>
         <!--category selection-->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3 ">business</i>
+                <i class="material-icons prefix submission-icon">business</i>
                 <select id="category_name" name="category_name" class="validate" required>
                     <option value="" disabled selected>Listing Type</option>
                     {% for category in categories %}
@@ -22,7 +25,7 @@
                 <!-- Place / Event Name input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3">label</i>
+                <i class="material-icons prefix submission-icon">label</i>
                 <textarea id="listing_name" name="listing_name" class="materialize-textarea validate" required></textarea>
                 <label for="listing_name">Listing Name</label>
             </div>
@@ -31,7 +34,7 @@
         <!--facilities input-->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3 ">local_cafe</i>
+                <i class="material-icons prefix submission-icon">local_cafe</i>
                 <select multiple id="listing_facilities" name="listing_facilities" class="validate" required>
                     <option value="" disabled selected>Choose available facilities</option>
                     <option value="Accessible">Accessible</option>
@@ -47,7 +50,7 @@
         <!-- Cost input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3 ">attach_money</i>
+                <i class="material-icons prefix submission-icon">attach_money</i>
                 <select id="listing_cost" name="listing_cost" class="validate" required>
                     <option value="" disabled selected>Choose Cost Level</option>
                     <option value="FREE">FREE</option>
@@ -62,7 +65,7 @@
         <!-- Ratings input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3 ">star</i>
+                <i class="material-icons prefix submission-icon">star</i>
                 <select id="listing_rating" name="listing_rating" class="validate" required>
                     <option value="" disabled selected>Rating</option>
                     <option value=1>1 Star</option>
@@ -79,7 +82,7 @@
         <!-- Place / Event City input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3">location_city</i>
+                <i class="material-icons prefix submission-icon">location_city</i>
                 <textarea id="listing_city" name="listing_city" class="materialize-textarea validate" required></textarea>
                 <label for="listing_city">Place / Event City</label>
             </div>
@@ -89,7 +92,7 @@
         <!-- Comments input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3">insert_comment</i>
+                <i class="material-icons prefix submission-icon">insert_comment</i>
                 <textarea id="listing_comments" name="listing_comments" class="materialize-textarea validate" required></textarea>
                 <label for="listing_comments">Comments</label>
             </div>
@@ -98,7 +101,7 @@
         <!-- profile pic input -->
         <div class="row">
             <div class="input-field file-field col s10 push-s1">
-                <span><i class="material-icons prefix yellow-text text-accent-3 validate" required>add_a_photo</i>
+                <span><i class="material-icons prefix submission-icon validate" required>add_a_photo</i>
                     <label for="avatar">Upload listing Pic</label>
                 </span>
                 <input id="listing_image" name="listing_image" type="file">
@@ -110,8 +113,8 @@
 
         <!-- submit button -->
         <div class="row">
-            <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Add
-                <i class="material-icons right grey-text text-darken-3">add</i>
+            <button class="col s6 btn offset-s3 submit-btn" type="submit">Add
+                <i class="material-icons right">add</i>
             </button>
         </div>
     </form>
