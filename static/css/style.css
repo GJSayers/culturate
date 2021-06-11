@@ -79,9 +79,9 @@ nav i.material-icons {
     font-family: 'Archivo Black', sans-serif;
 }
 
-/* nav.ul.sidenav.li.a:hover {
-    color: #F7E93F !important;
-} */
+.sidenav>li:hover, nav ul a:hover {
+    background-color: #F7E93F;
+} 
 
 .form-background {
     background-color: rgba(247, 233, 63, 1);
