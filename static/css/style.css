@@ -6,6 +6,19 @@
       height: 400px;
     }
 
+nav a.brand-logo{
+    color: #1a2017;
+    padding-left: 5%;
+}
+
+nav ul a {
+    color: #1a2017;
+}
+
+nav i.material-icons {
+    color: #1a2017;
+}
+
 .nav-wrapper {
     background-color: #C2B678;
     font-family: 'Archivo Black', sans-serif;
