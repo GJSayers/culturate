@@ -92,11 +92,14 @@ nav ul a:hover {
     background-color: #C2B678;
 }
 
+.submission-header {
+    font-family: 'Permanent Marker', cursive;
+}
+
 .card-action {
     font-family: 'Archivo Black', sans-serif;
     font-weight: lighter;
     color: #C2B678;
-    /* color: #C2B678; */
 }
 
 .submission-form {
