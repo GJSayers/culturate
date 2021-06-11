@@ -19,30 +19,32 @@
                     <div class="card-image">
                         <img src="https://cdn.pixabay.com/photo/2020/02/25/21/57/graffiti-art-4880123_1280.jpg"
                             alt="community-art">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title">{{ category.category_name}}</span>
-                           </div>
-                            <div class="fixed-action-btn click-to-toggle">
-                                <a class="btn-floating btn-large red">
-                                    <i class="large material-icons">mode_edit</i>
-                                </a>
-                                <ul>
-                                    <li><a class="btn-floating blue"
-                                            href="{{ url_for('delete_category', category_id=category._id) }}"><i class="material-icons">mode_edit</i></a></li>
-                                    <li><a class="btn-floating green"
-                                            href="{{ url_for('delete_category', category_id=category._id) }}">
-                                            <i class="material-icons">delete</i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> 
                     </div>
+                    <div class="card-content">
+                        <span class="card-title">{{ category.category_name}}</span>
+                    </div>
+                    <div class="fixed-action-btn click-to-toggle">
+                        <a class="btn-floating btn-large red">
+                            <i class="large material-icons">mode_edit</i>
+                        </a>
+                        <ul>
+                            <li><a class="btn-floating blue"
+                                    href="{{ url_for('delete_category', category_id=category._id) }}"><i
+                                        class="material-icons">mode_edit</i></a></li>
+                            <li><a class="btn-floating green"
+                                    href="{{ url_for('delete_category', category_id=category._id) }}">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
             {% endfor %}
         </div>
     </div>
 </div>
+
 
 {% endblock %}
