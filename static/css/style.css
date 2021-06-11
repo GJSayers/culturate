@@ -40,12 +40,12 @@ nav i.material-icons {
 .submit-btn {
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
-    background-color: #C2B678;
+    background-color: #03B066;
     color: #1a2017;
 }
 
 .submit-btn:hover {
-    background-color: #03B066;
+    background-color: #C2B678;
 }
 
 .card-action {
@@ -94,12 +94,24 @@ nav i.material-icons {
 }
 
 
+
+
 .listing-section {
     background-color: #1a2017;
 }
 
-.input-field>label {
+/* div.input-field>label, .input-field>label, .input-field, .validate {
     color:rgb(26, 32, 23, 0.6);
+}
+
+div.input-field {
+    color: #03B066;
+} */
+
+input[type='text'], .input-field .prefix.active {
+    --color: #03B066;
+    --active: #03B066;
+    --border-hover: #03B066;
 }
 
 .login-link {
