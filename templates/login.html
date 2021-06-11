@@ -1,45 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
+<div class="row form-background">
     <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login') }}">
-        <div class="card grey darken-4">
-            <div class="card-content yellow-text text-accent-3">
-                <span class="card-title">Log In</span>
-                <p></p>
+        <div class="card submission-form">
+            <div class="card-content center-align">
+                <span class="card-title submission-header">Log In</span>
             </div>
-            
+
             <!-- username input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix yellow-text text-accent-3 ">account_circle</i>
+                    <i class="material-icons prefix submission-icon">account_circle</i>
                     <input id="user_name" name="user_name" type="text" class="validate" autocomplete="username">
                     <label for="user_name">Username</label>
                 </div>
             </div>
-            
+
             <!-- password input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix yellow-text text-accent-3">lock</i>
-                    <input id="user_password" name="user_password" type="password" class="validate" autocomplete="new-password">
+                    <i class="material-icons prefix submission-icon">lock</i>
+                    <input id="user_password" name="user_password" type="password" class="validate"
+                        autocomplete="new-password">
                     <label for="user_password">Password</label>
                 </div>
-            </div> 
-            
-            <!-- submit button -->    
-                <div class="row">
-                    <button class="col s6 btn yellow accent-4 offset-s3" type="submit" name="action">Log In
-                        <i class="material-icons right grey-text text-darken-3">chevron_right</i>
-                    </button>
-                </div>
-            
-             <!-- redirect option for new user --> 
-            <div class="card-action">
-                <a href="{{ url_for('join') }}"> New User? Join our community here</a>
             </div>
+
+            <!-- submit button -->
+            <div class="row submit-section">
+                <button class="col s6 btn offset-s3 submit-btn" type="submit" name="action">Log In
+                    <i class="material-icons right">chevron_right</i>
+                </button>
+            </div>
+
+            <!-- redirect option for new user -->
+            <div class="center-align login-link">
+                <a href="{{ url_for('join') }}"> New User? Join here</a>
             </div>
         </div>
     </form>
-    
 </div>
 {% endblock %}
