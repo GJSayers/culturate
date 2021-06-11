@@ -2,11 +2,21 @@
     line-height: 2;
 }
 
-.parallax-container {
-      height: 400px;
-    }
+/*---- index ---- */
 
-nav a.brand-logo{
+.how-it-works {
+    background-color: #1a2017;
+    color: #C2B678;
+}
+
+.parallax-container {
+    height: 400px;
+}
+
+
+/*---- navigation-stying ---- */
+
+nav a.brand-logo {
     color: #1a2017;
     padding-left: 5%;
 }
@@ -19,10 +29,41 @@ nav i.material-icons {
     color: #1a2017;
 }
 
+nav i.material-icons:hover {
+    color: #03B066;
+}
+
 .nav-wrapper {
     background-color: #C2B678;
     font-family: 'Archivo Black', sans-serif;
     font-weight: 900;
+}
+
+.nav-wrapper>a:hover {
+    color: #03B066;
+}
+
+.sidenav {
+    background-color: #C2B678;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.sidenav>li:hover,
+nav ul a:hover {
+    background-color: #F7E93F;
+}
+
+.logo-part-2 {
+    transition: ease-out;
+    transition-duration: .5s;
+    transition-delay: .2s;
+}
+
+
+/*---- listings ---- */
+
+.listing-section {
+    background-color: #1a2017;
 }
 
 .card-title {
@@ -31,11 +72,12 @@ nav i.material-icons {
     color: #1a2017;
 
 }
+
 /* .gallery-section.img {
     opacity: 0.7;
 } */
 
-
+/*---- sumbission form styling ---- */
 
 .submit-btn {
     font-family: 'Archivo Black', sans-serif;
@@ -66,49 +108,16 @@ nav i.material-icons {
 }
 
 .submission-icon:hover {
-   color: #03B066; 
+    color: #03B066;
 }
 
 .submit-section {
-     margin-top: 10%;
-    padding-bottom: 5%; 
+    margin-top: 10%;
+    padding-bottom: 5%;
 }
 
-.sidenav {
-    background-color: #C2B678;
-    font-family: 'Archivo Black', sans-serif;
-}
-
-.sidenav>li:hover, nav ul a:hover {
-    background-color: #F7E93F;
-} 
-
-.form-background {
-    background-color: rgba(247, 233, 63, 1);
-    margin: 0%;
-}
-
-.how-it-works {
-    background-color: #1a2017;
-    color: #C2B678;
-}
-
-
-
-
-.listing-section {
-    background-color: #1a2017;
-}
-
-/* div.input-field>label, .input-field>label, .input-field, .validate {
-    color:rgb(26, 32, 23, 0.6);
-}
-
-div.input-field {
-    color: #03B066;
-} */
-
-input[type='text'], .input-field .prefix.active {
+input[type='text'],
+.input-field .prefix.active {
     --color: #03B066;
     --active: #03B066;
     --border-hover: #03B066;
@@ -116,8 +125,16 @@ input[type='text'], .input-field .prefix.active {
 
 .login-link {
     padding-bottom: 10%;
-    
+
 }
+
+
+.form-background {
+    background-color: rgba(247, 233, 63, 1);
+    margin: 0%;
+}
+
+/*---- login ---- */
 
 .login-link>a {
     color: #1a2017;
@@ -129,6 +146,11 @@ input[type='text'], .input-field .prefix.active {
     color: #03B066;
 }
 
+
+
+
+
+/*---- footer ---- */
 
 .page-footer {
     background-color: #C2B678;
