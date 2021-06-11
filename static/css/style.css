@@ -35,7 +35,7 @@ nav i.material-icons:hover {
 
 .nav-wrapper {
     background-color: #C2B678;
-    font-family: 'Archivo Black', sans-serif;
+    /* font-family: 'Archivo Black', sans-serif; */
     font-weight: 900;
 }
 
@@ -64,13 +64,15 @@ nav ul a:hover {
 
 .listing-section {
     background-color: #1a2017;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .card-title {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Archivo Black', sans-serif; 
     font-weight: 900;
-    color: #1a2017;
-
 }
 
 /* .gallery-section.img {
@@ -155,12 +157,18 @@ input[type='text'],
 .page-footer {
     background-color: #C2B678;
     color: #1a2017;
+    /* font-family: 'Archivo Black', sans-serif; */
+    
+    padding-bottom: 5%;
+}
+
+.page-footer>h5 {
     font-family: 'Archivo Black', sans-serif;
     font-weight: 900;
-    padding-bottom: 5%;
 }
 
 .footer-copyright>a {
     background-color: #C2B678;
+    font-weight: lighter;
     color: #1a2017;
 }
