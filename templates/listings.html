@@ -28,7 +28,11 @@
     <div class="col s12 m4 listing-card">
         <div class="card">
             <div class="card-image">
-                <img class="responsive" src="{{ listing.listing_image }}" alt="">
+                {% if listing.listing_image != "" %}
+                <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
+                    {% else %}
+                    <img class="responsive" src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg" alt="eye-street-art-default-listing-image">
+                {% endif %}
                 <span class="card-title">{{ listing.listing_name }}</span>
                 {% if session.user|lower == listing.created_by|lower %}
                 <div class="row">
