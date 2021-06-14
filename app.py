@@ -30,6 +30,13 @@ def get_listings():
     return render_template("listings.html", listings=listings)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    listings = list(mongo.db.listings.find({"$text": {"$search": query}}))
+    return render_template("listings.html", listings=listings)
+
+
 @app.route("/join", methods=["GET", "POST"])
 def join():
     if request.method == "POST":
