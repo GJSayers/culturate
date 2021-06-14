@@ -1,7 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="row search-section card-panel">
+    <form action="{{ url_for('search') }}" method="POST">
+        <div class="row valign-wrapper center-align">
+            <div class="input-field col s12 m8">
+                <i class="material-icons">search</i>
+                <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                <label for="query">Search Listings</label>
+            </div> 
+            <div class="col s12 m4">
+                <a href="{{ url_for('get_listings') }}" class="red btn">Start Again</a>
+                <button type="submit" class="green btn">
+                    <i class="material-icons">search</i>
+                </button>
+            </div>
+        </div>
+    </form>
 
+</div>
 <div class="row listing-section">
     {% for listing in listings %}
     <div class="col s12 m4 listing-card">
