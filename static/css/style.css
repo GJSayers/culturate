@@ -79,7 +79,7 @@ nav ul a:hover {
     background-color: #03B066;
 }
 
-.cancel-button {
+.cancel-button, .like-button {
     background-color: #C33F8B;
 }
 
