@@ -2,23 +2,27 @@
 {% block content %}
 
 <div class="row search-section card-panel">
-    <form action="{{ url_for('search') }}" method="POST">
+    <form action="{{ url_for('search') }}" method="POST" class="col">
         <div class="row valign-wrapper center-align">
-            <div class="input-field col s12 m8">
-                <i class="material-icons">search</i>
+            <div class="input-field col s12 center-align">
+                <i class="material-icons prefix">search</i>
                 <input type="text" name="query" id="query" minlength="3" class="validate" required>
                 <label for="query">Search Listings</label>
             </div> 
-            <div class="col s12 m4">
-                <a href="{{ url_for('get_listings') }}" class="red btn">Start Again</a>
-                <button type="submit" class="green btn">
-                    <i class="material-icons">search</i>
+        </div>
+          <div class="row valign-wrapper center-align">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('get_listings') }}" class="btn cancel-button">Start Again</a>
+                <button type="submit" class="btn affirmative-button">
+                    <i class="material-icons left">search</i> Search
                 </button>
             </div>
-        </div>
+            </div>
+        
     </form>
 
 </div>
+{% if listings|length > 0 %}  
 <div class="row listing-section">
     {% for listing in listings %}
     <div class="col s12 m4 listing-card">
@@ -57,6 +61,9 @@
         </div>
     {% endfor %}
 </div>
+{% else %}
+    <h4 class="center-align alert-text">Sorry, no results for that search</h4>
+{% endif %}
 
 
 {% endblock %}
