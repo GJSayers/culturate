@@ -62,6 +62,13 @@ nav ul a:hover {
 
 /*---- listings ---- */
 
+.search-section {
+    background-color: #1a2017;
+    padding-top: 10%;
+    color: #C2B678;
+    
+}
+
 .listing-section {
     background-color: #1a2017;
     margin-top: 0%;
