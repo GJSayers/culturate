@@ -7,10 +7,13 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 ## UX
 
 ### Strategy
+-------
+
 #### Accessibility 
 -------
 #### Security
 -------
+
 #### User Goals
 -------
 #### User Stories - First Time User 
@@ -78,6 +81,7 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 
 ### Surface
 #### Design Inspiration
+
 ##### Mood Board & Colour choices
 ##### Typography
 ##### Imagery
@@ -103,7 +107,7 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 *  [Figma] (https://www.figma.com/)
 *  [JQuery] (https://jquery.com/)
 *  [Hover.css](https://ianlunn.github.io/Hover/) I used hover to make elements more interactive.
-*  [Google Fonts](https://fonts.google.com/) I used Monserrat as the font for the whole site.
+*  [Google Fonts](https://fonts.google.com/) 
 *  [Font Awesome](https://fontawesome.com/) Font awesome is where I sourced all the icons for the site.
 *  [GitHub](https://github.com/) is used to file the repository and record the version control. 
 *  [GitPod](https://gitpod.io) was used for development and version control.
@@ -125,6 +129,7 @@ Detailed testing documentation can be found in [TESTING.MD] (/workspace/culturat
 ### Credits
 * Content
 * Media
+* default image (if no listing image uploaded) https://www.isupportstreetart.com/students-benefit-street-art/
 
 
 ### Acknowledgements
