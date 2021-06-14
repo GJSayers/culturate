@@ -63,10 +63,24 @@ nav ul a:hover {
 /*---- listings ---- */
 
 .search-section {
+    margin: 0%;
     background-color: #1a2017;
     padding-top: 10%;
     color: #C2B678;
     
+}
+
+.alert-text {
+    color: #C33F8B;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+.affirmative-button {
+    background-color: #03B066;
+}
+
+.cancel-button {
+    background-color: #C33F8B;
 }
 
 .listing-section {
