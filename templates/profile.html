@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
-    <div class="col s12 m6 offset-m3">
-        <div class="card grey darken-4">
-            <div class="card-content yellow-text text-accent-3">
-                <h4 class="center-align yellow-text text-accent-3">{{ user_name }}'s Profile</h4>      
-            </div>
+
+<div class="row form-background center-align">
+    <div class="card submission-form">
+        <div class="card-content center-align">
+            <span class="card-title submission-header">{{ user_name }}'s Profile</span>
+              <div class="chip">
+    <img src="https://media-exp3.licdn.com/dms/image/C4D03AQETNATTbmpQoA/profile-displayphoto-shrink_400_400/0/1599125266647?e=1629331200&v=beta&t=Vn4FUlcWv3ypSONu7rwBOwlWkoMA6_f3lNRirkcGyI0" alt="{{ user_name }}_profile_pic">
+    {{ user_name }}
+  </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
