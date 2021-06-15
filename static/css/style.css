@@ -79,7 +79,7 @@ nav ul a:hover {
     background-color: #03B066;
 }
 
-.cancel-button, .like-button {
+.cancel-button, .favourite-button {
     background-color: #C33F8B;
 }
 
@@ -143,7 +143,7 @@ nav ul a:hover {
 }
 
 input[type='text'],
-.input-field .prefix.active {
+.input-field, .prefix.active {
     --color: #03B066;
     --active: #03B066;
     --border-hover: #03B066;
