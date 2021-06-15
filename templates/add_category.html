@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="grey-text text-darken-4 center-align"> Add a category</h3>
-
-<div class="row">
-    <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('add_category') }}">
+<div class="row form-background center-align">
+    <form class="col s12 card submission-form" method="POST" action="{{ url_for('add_category') }}">
+            <div class="card-content">
+                <span class="card-title submission-header"> Manage Categories </span>
+            </div>
+            
+    
 
                 <!-- Place / Event Name input -->
-        <div class="row">
+        <div class="row center-align">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix yellow-text text-accent-3">collections_bookmark</i>
+                <i class="material-icons prefix">collections_bookmark</i>
                 <textarea id="category_name" name="category_name" class="materialize-textarea validate" required></textarea>
                 <label for="category_name">Category Name</label>
             </div>
         </div>
+        
 
         
         <!-- submit button -->
         <div class="row">
-            <button class="col s6 btn yellow accent-4 offset-s3" type="submit">Add Category
-                <i class="material-icons right grey-text text-darken-3">add</i>
-            </button>
+                <a href="{{ url_for('add_category') }}" class="col s6 btn offset-s3 submit-btn">
+                    Add Category <i class="material-icons right">add</i>
+                </a>
         </div>
     </form>
 </div>
