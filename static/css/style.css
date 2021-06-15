@@ -149,6 +149,14 @@ input[type='text'],
     --border-hover: #03B066;
 }
 
+.input-field>label {
+    color: #1a2017;
+}
+
+.input-field>label:hover {
+    color: #C33F8B;
+}
+
 .login-link {
     padding-bottom: 10%;
 
@@ -178,21 +186,21 @@ input[type='text'],
 
 /*---- footer ---- */
 
+.footer-title {
+    color: #1a2017;
+    font-family: 'Archivo Black', sans-serif;
+}
+
 .page-footer {
     background-color: #C2B678;
     color: #1a2017;
-    /* font-family: 'Archivo Black', sans-serif; */
-    
+    font-family: 'Archivo Black', sans-serif;
     padding-bottom: 5%;
 }
 
-.page-footer>h5 {
-    font-family: 'Archivo Black', sans-serif;
-    font-weight: 900;
-}
-
-.footer-copyright>a {
+.footer-copyright {
     background-color: #C2B678;
     font-weight: lighter;
+    font-size: xx-small;
     color: #1a2017;
 }
