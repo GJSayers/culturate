@@ -1,11 +1,14 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('select').formSelect();
-    $('.fixed-action-btn').floatingActionButton({
-        hoverEnabled: true
-    });
     $('.parallax').parallax();
+    $('.fixed-action-btn').floatingActionButton();
+    $('.collapsible').collapsible();
 });
+
+ 
+    
+
 
  validateMaterializeSelect();
     function validateMaterializeSelect() {
