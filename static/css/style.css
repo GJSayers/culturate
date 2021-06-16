@@ -77,10 +77,12 @@ nav ul a:hover {
 
 .affirmative-button {
     background-color: #03B066;
+    color: #1a2017;
 }
 
 .cancel-button, .favourite-button {
     background-color: #C33F8B;
+    color: #1a2017;
 }
 
 .listing-section {
