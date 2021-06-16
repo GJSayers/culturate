@@ -166,7 +166,7 @@ def edit_listing(listing_id):
             "listing_city": request.form.get("listing_city"),
             "listing_comments": request.form.get("listing_comments"),
             "listing_image": request.form.get("listing_image"),
-            "created_by": session["user_name"]
+            "listing_by": session["user"]
         }
         mongo.db.listings.update({"_id": ObjectId(listing_id)}, submit)
         flash("listing Updated - Thank you!")
