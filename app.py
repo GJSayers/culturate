@@ -143,7 +143,7 @@ def add_listing():
             "listing_city": request.form.get("listing_city"),
             "listing_comments": request.form.get("listing_comments"),
             "listing_image": request.form.get("listing_image"),
-            "created_by": session["user"]
+            "listing_by": session["user"]
         }
 
         mongo.db.listings.insert_one(listing)

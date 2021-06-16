@@ -34,7 +34,7 @@
                     <img class="responsive" src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg" alt="eye-street-art-default-listing-image">
                 {% endif %}
                 <span class="card-title">{{ listing.listing_name }}</span>
-                {% if session.user|lower == listing.created_by|lower %}
+                {% if session.user|lower == listing.listing_by|lower %}
                 <div class="row">
                 <div class="col s8 push-s8">
                 <a href="{{ url_for('delete_listing', listing_id=listing._id)}}"class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons ">delete</i></a>
@@ -58,7 +58,7 @@
 
                         <li>Cost: {{ listing.listing_cost }}</li>
                         <li>Comments: {{ listing.listing_comments }}</li><br>
-                        <p><em>created by: {{ listing.created_by }}</em></p>
+                        <p><em>created by: {{ listing.listing_by }}</em></p>
                     </ul>
                 </div>
             </div>
