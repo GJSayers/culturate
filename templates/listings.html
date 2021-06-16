@@ -8,21 +8,20 @@
                 <i class="material-icons prefix">search</i>
                 <input type="text" name="query" id="query" minlength="3" class="validate" required>
                 <label for="query">Search Listings</label>
-            </div> 
+            </div>
         </div>
-          <div class="row valign-wrapper center-align">
-            <div class="col s12 center-align">
+        <div class="row valign-wrapper center-align">
+            <div class="col center-align">
                 <a href="{{ url_for('get_listings') }}" class="btn cancel-button">Start Again</a>
                 <button type="submit" class="btn affirmative-button">
                     <i class="material-icons left">search</i> Search
                 </button>
             </div>
-            </div>
-        
+        </div>
     </form>
-
 </div>
-{% if listings|length > 0 %}  
+
+{% if listings|length > 0 %}
 <div class="row listing-section">
     {% for listing in listings %}
     <div class="col s12 m4 listing-card">
@@ -30,44 +29,51 @@
             <div class="card-image">
                 {% if listing.listing_image != "" %}
                 <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
-                    {% else %}
-                    <img class="responsive" src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg" alt="eye-street-art-default-listing-image">
+                {% else %}
+                <img class="responsive"
+                    src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg"
+                    alt="eye-street-art-default-listing-image">
                 {% endif %}
                 <span class="card-title">{{ listing.listing_name }}</span>
                 {% if session.user|lower == listing.listing_by|lower %}
                 <div class="row">
-                <div class="col s8 push-s8">
-                <a href="{{ url_for('delete_listing', listing_id=listing._id)}}"class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons ">delete</i></a>
-                </div>
-                <div class="col s4">
-                <a href="{{ url_for('edit_listing', listing_id=listing._id)}}"class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i class="material-icons">mode_edit</i></a>
-                </div>
+                    <div class="col s8 push-s8">
+                        <a href="{{ url_for('delete_listing', listing_id=listing._id)}}"
+                            class="btn-floating btn-small waves-effect waves-light red"><i
+                                class="material-icons ">delete</i></a>
+                    </div>
+                    <div class="col s4">
+                        <a href="{{ url_for('edit_listing', listing_id=listing._id)}}"
+                            class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i
+                                class="material-icons">mode_edit</i></a>
+                    </div>
                 </div>
                 {% else %}
-                <a href="#"class="btn-floating btn-small halfway-fab waves-effect waves-light favourite-button"><i class="material-icons">favorite</i></a>
+                <a href="#" class="btn-floating btn-small halfway-fab waves-effect waves-light favourite-button"><i
+                        class="material-icons">favorite</i></a>
                 {% endif %}
             </div>
-            
-            <div class="card-content">
-                    <ul>
-                        <li><strong>{{ listing.listing_city }}</strong></li>
-                        <li>Rating: {{ listing.listing_rating }}</li>
-                            <li>Facilities: {% for facility in listing.listing_facilities %}
-                                <span>{{ facility }},</span>
-                            {% endfor %}</li>
 
-                        <li>Cost: {{ listing.listing_cost }}</li>
-                        <li>Comments: {{ listing.listing_comments }}</li><br>
-                        <p><em>created by: {{ listing.listing_by }}</em></p>
-                    </ul>
-                </div>
+            <div class="card-content">
+                <ul>
+                    <li><strong>{{ listing.listing_city }}</strong></li>
+                    <li>Rating: {{ listing.listing_rating }}</li>
+                    <li>Facilities: {% for facility in listing.listing_facilities %}
+                        <span>{{ facility }},</span>
+                        {% endfor %}</li>
+
+                    <li>Cost: {{ listing.listing_cost }}</li>
+                    <li>Comments: {{ listing.listing_comments }}</li><br>
+                    <p><em>created by: {{ listing.listing_by }}</em></p>
+                </ul>
             </div>
         </div>
+    </div>
     {% endfor %}
 </div>
-{% else %}
-    <h4 class="center-align alert-text">Sorry, no results for that search</h4>
-{% endif %}
 
+{% else %}
+<h4 class="center-align alert-text">Sorry, no results for that search</h4>
+{% endif %}
 
 {% endblock %}
