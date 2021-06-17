@@ -58,8 +58,26 @@
                 <ul>
                     <li class="city">{{ listing.listing_city }}</li>
                     <br>
-                    <li class="rating">Rating: {{ listing.listing_rating }}</li>
-                    <br>
+                    <li class="rating">Rating: 
+                        {% for rating in listing.listing_rating %}
+                            {% if rating == "1" %}
+                                <span><i class="material-icons">star</i></span>
+                            {% elif rating == "2" %}
+                                <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% elif rating == "3" %}
+                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% elif rating == "4" %}
+                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% elif rating == "5" %}
+                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% elif rating == "6" %}
+                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% else %}
+                                <span>This listing has not been rated yet!</span>
+                            {% endif %}
+                        {% endfor %}
+                    </li>
+                        <br>
                     <li class="facilities">Facilities: 
                         {% for facility in listing.listing_facilities %}
                             {% if facility == "Accessible" %}
@@ -77,9 +95,9 @@
                             {% if facility == "Toilets" %}
                         <span><i class="material-icons">wc</i></a></span>
                             {% endif %}
-                            
+                        {% endfor %}   
 
-                        {% endfor %}</li>
+                        </li>
                     <br>
                     <li class="cost">Cost: {{ listing.listing_cost }}</li>
                     <br>
