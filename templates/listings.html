@@ -56,14 +56,34 @@
 
             <div class="card-content">
                 <ul>
-                    <li><strong>{{ listing.listing_city }}</strong></li>
-                    <li>Rating: {{ listing.listing_rating }}</li>
-                    <li>Facilities: {% for facility in listing.listing_facilities %}
-                        <span>{{ facility }},</span>
-                        {% endfor %}</li>
+                    <li class="city">{{ listing.listing_city }}</li>
+                    <br>
+                    <li class="rating">Rating: {{ listing.listing_rating }}</li>
+                    <br>
+                    <li class="facilities">Facilities: 
+                        {% for facility in listing.listing_facilities %}
+                            {% if facility == "Accessible" %}
+                        <span><i class="material-icons">accessible</i></a></span>
+                            {% endif %}
+                            {% if facility == "Cafe" %}
+                        <span><i class="material-icons">local_dining</i></a></span>
+                            {% endif %}
+                            {% if facility == "Guide Available" %}
+                        <span><i class="material-icons">headset_mic</i></a></span>
+                            {% endif %}
+                            {% if facility == "Child Friendly" %}
+                        <span><i class="material-icons">child_friendly</i></a></span>
+                            {% endif %}
+                            {% if facility == "Toilets" %}
+                        <span><i class="material-icons">wc</i></a></span>
+                            {% endif %}
+                            
 
-                    <li>Cost: {{ listing.listing_cost }}</li>
-                    <li>Comments: {{ listing.listing_comments }}</li><br>
+                        {% endfor %}</li>
+                    <br>
+                    <li class="cost">Cost: {{ listing.listing_cost }}</li>
+                    <br>
+                    <li class="comments">Comments: {{ listing.listing_comments }}</li><br>
                     <p><em>created by: {{ listing.listing_by }}</em></p>
                 </ul>
             </div>
