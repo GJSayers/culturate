@@ -58,7 +58,7 @@
                 <ul>
                     <li class="city">{{ listing.listing_city }}</li>
                     <br>
-                    <li class="rating">Rating: 
+                    <li class="rating valign-wrapper">Rating: 
                         {% for rating in listing.listing_rating %}
                             {% if rating == "1" %}
                                 <span><i class="material-icons">star</i></span>
@@ -78,7 +78,7 @@
                         {% endfor %}
                     </li>
                         <br>
-                    <li class="facilities">Facilities: 
+                    <li class="facilities valign-wrapper">Facilities: 
                         {% for facility in listing.listing_facilities %}
                             {% if facility == "Accessible" %}
                         <span><i class="material-icons">accessible</i></a></span>
