@@ -101,7 +101,18 @@ nav ul a:hover {
     background-color: rgb(26, 32, 23, .5);  
 }
 
+.city {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 3px;
+    font-weight: 900;
+    font-size: x-large;
+}
 
+.rating, .facilities, .cost, .comments {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
 
 
 /*---- sumbission form styling ---- */
