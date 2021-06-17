@@ -114,6 +114,10 @@ nav ul a:hover {
     font-weight: 400;
 }
 
+li.rating span i {
+    color: #C2B678;
+}
+
 
 /*---- sumbission form styling ---- */
 
