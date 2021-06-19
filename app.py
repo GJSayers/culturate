@@ -115,9 +115,12 @@ def profile(user_name):
     """
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
+    user_favourites = list(mongo.db.users.find({"user_favourites": []}))
 
     if session["user"]:
-        return render_template("profile.html", user_name=user_name)
+        return render_template(
+            "profile.html", user_name=user_name,
+            user_favourites=user_favourites)
 
     return redirect(url_for("login"))
 
