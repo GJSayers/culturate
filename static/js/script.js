@@ -2,11 +2,21 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
     $('select').formSelect();
     $('.parallax').parallax();
-    $('.fixed-action-btn').floatingActionButton();
     $('.collapsible').collapsible();
     $('.carousel').carousel();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'left',
+      hoverEnabled: false
+    });
+  });
+
+instance.open();
+
+instance.close();
  
     
 
