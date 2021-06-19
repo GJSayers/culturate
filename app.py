@@ -56,10 +56,10 @@ def join():
             "user_password": generate_password_hash(
                 request.form.get("user_password")),
             "user_bio": request.form.get("user_bio"),
-            "user_avatar": request.form.get("user_avatar")
-        }
+            "user_avatar": request.form.get("user_avatar"),
+            "user_favourites": []
+                }
         mongo.db.users.insert_one(join)
-
         """
         start a session for the user with a session cookie
         """
@@ -175,6 +175,36 @@ def edit_listing(listing_id):
     return render_template(
         "edit_listing.html", listing=listing,
         categories=categories)
+
+
+@app.route("/favourite_listing/<listing_id>", methods=["GET", "POST"])
+def favourite_listing(listing_id):
+    listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
+    user = mongo.db.users.find_one(session["user"])
+    print(user)
+    user_name = mongo.db.users.find_one(
+        {"user_name": session["user"]})["user_name"]
+    print(user_name)
+    user_favourites = mongo.db.users.find_one(
+        {"user_name": session["user"]})["user_favourites"]
+    print(user_favourites)
+    if request.method == "POST":
+        # check if the listing is already in the
+        # user's favourites list in db.
+        if listing in user_favourites:
+            # remove the listing from the list of favourites
+            mongo.db.users.update(
+                {"user_name": session["user"]},
+                {"$pull": {"user_favourites": listing["_id"]}})
+            flash("listing removed from favourites")
+        else:
+            # add a listing to the session user's
+            # favourites section in profile
+            mongo.db.users.insert_one(
+                {"user_name": session["user"]},
+                {"$push": {"user_favourites": listing["_id"]}})
+            flash("listing successfully added to favourites")
+    return render_template("listings.html")
 
 
 @app.route("/delete_listing/<listing_id>")
