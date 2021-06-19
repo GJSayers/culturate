@@ -180,7 +180,7 @@ def edit_listing(listing_id):
 @app.route("/favourite_listing/<listing_id>", methods=["GET", "POST"])
 def favourite_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    user = mongo.db.users.find_one(session["user"])
+    user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
     print(user)
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
@@ -193,17 +193,19 @@ def favourite_listing(listing_id):
         # user's favourites list in db.
         if listing in user_favourites:
             # remove the listing from the list of favourites
-            mongo.db.users.update(
-                {"user_name": session["user"]},
+            mongo.db.users.update_one(
+                {"_id": user},
                 {"$pull": {"user_favourites": listing["_id"]}})
             flash("listing removed from favourites")
+            return render_template("listings.html")
         else:
             # add a listing to the session user's
             # favourites section in profile
-            mongo.db.users.insert_one(
-                {"user_name": session["user"]},
+            mongo.db.users.update_one(
+                {"_id": user},
                 {"$push": {"user_favourites": listing["_id"]}})
             flash("listing successfully added to favourites")
+        return render_template("listings.html")
     return render_template("listings.html")
 
 
