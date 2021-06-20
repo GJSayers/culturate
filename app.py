@@ -115,7 +115,9 @@ def profile(user_name):
     """
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
-    user_favourites = list(mongo.db.users.find({"user_favourites": []}))
+    user_favourites = list(mongo.db.users.find(
+                {"user_name": user_name},
+                {"user_favourites": ["_id"]})
 
     if session["user"]:
         return render_template(
