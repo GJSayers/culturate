@@ -183,8 +183,11 @@ def edit_listing(listing_id):
 @app.route("/favourite_listing/<listing_id>", methods=["GET", "POST"])
 def favourite_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
+    print(listing)
     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
     print(user)
+    user_favourite = listing["_id"]
+    print(user_favourite)
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
     print(user_name)
@@ -194,7 +197,7 @@ def favourite_listing(listing_id):
     if request.method == "POST":
         # check if the listing is already in the
         # user's favourites list in db.
-        if listing in user_favourites:
+        if user_favourite in user_favourites:
             # remove the listing from the list of favourites
             mongo.db.users.update_one(
                 {"_id": user},
