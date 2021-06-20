@@ -115,14 +115,16 @@ def profile(user_name):
     """
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
-    user_favourites = list(mongo.db.users.find(
-                {"user_name": user_name},
-                {"user_favourites": ["_id"]})
-
+    user_favourites = mongo.db.users.find_one(
+        {"user_name": session["user"]})["user_favourites"]
+    print(user_favourites)
+    listing = mongo.db.users.find(
+        {'_id': {'$in': ["user_favourites"]}})
+    # last response not populating cards but cards visible 
     if session["user"]:
         return render_template(
             "profile.html", user_name=user_name,
-            user_favourites=user_favourites)
+            user_favourites=user_favourites, listing=listing)
 
     return redirect(url_for("login"))
 
