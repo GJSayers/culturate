@@ -9,6 +9,7 @@ $(document).ready(function () {
         hoverEnabled: false,
         isOpen: false
     });
+    $('.modal').modal();
 });
 
 
