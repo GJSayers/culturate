@@ -4,7 +4,7 @@
 <div class="row form-background center-align">
     <div class="card submission-form">
         <div class="card-content center-align">
-            <span class="card-title submission-header">{{ user_name }}'s Profile</span>
+            <span class="submission-header">{{ user_name }}'s Profile</span>
             {% if user_avatar != "" %}
             <div class="chip">
                 <img src="{{ user_avatar }}" alt="{{ user_name }}_profile_pic">
@@ -31,7 +31,7 @@
                 </li>
             </ul>
 
-            <span class="card-title submission-header">{{ user_name }}'s Favourites</span>
+            <span class="submission-header">{{ user_name }}'s Favourites</span>
 
             {% if user_favourites|length > 0 %}
             <div class="row listing-section">
