@@ -115,17 +115,35 @@ def profile(user_name):
     """
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
+    """
+    get session user favourites from the database
+    """
     user_favourites = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_favourites"]
-    print(user_favourites)
-    listing = mongo.db.users.find(
-        {'_id': {'$in': ["user_favourites"]}})
+    
+    favourites_list = []
+
+    for favourite in user_favourites:
+        listing = mongo.db.listings.find_one({"_id": favourite})
+
+        favourites_list.append(listing)
+
+        print(type(favourite))
+        print("__________________________")
+    # listing_id = mongo.db.listings.find_one({"_id": ObjectId})
+    # """
+    # identify listings that are in user_favourites []
+    # """
+    # listing = mongo.db.listings.find(
+    #     {['listing_id']: {'$in': ["user_favourites"]}})
     # last response not populating cards but cards visible 
     if session["user"]:
         return render_template(
             "profile.html", user_name=user_name,
-            user_favourites=user_favourites, listing=listing)
-
+            user_favourites=favourites_list)
+    """
+    if user is not in session, re-direct
+    """
     return redirect(url_for("login"))
 
 
@@ -182,10 +200,11 @@ def edit_listing(listing_id):
                 mongo.db.listings.update({"_id": ObjectId(listing_id)}, submit)
                 flash("listing Updated - Thank you!")
         
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template(
-        "edit_listing.html", listing=listing,
-        categories=categories)
+            categories = mongo.db.categories.find().sort("category_name", 1)
+            return render_template(
+            "edit_listing.html", listing=listing, categories=categories)
+        return redirect(url_for("get_listings"))
+        
 
 
 @app.route("/favourite_listing/<listing_id>", methods=["GET", "POST"])

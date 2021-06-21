@@ -5,16 +5,20 @@
     <div class="card submission-form">
         <div class="card-content center-align">
             <span class="submission-header">{{ user_name }}'s Profile</span>
-            {% if user_avatar != "" %}
+            <!-- {% if user_avatar != "" %}
             <div class="chip">
                 <img src="{{ user_avatar }}" alt="{{ user_name }}_profile_pic">
                 {{ user_name }}
-            {% else %}
-                <div class="chip"></div>
-                <img src="https://media.istockphoto.com/photos/empty-frame-picture-id1013725314?k=6&m=1013725314&s=170667a&w=0&h=1iincn7JHOcHvUm_bNUAkKZ-2ch83ld5joZoR4mxM3U=" alt="{{ user_name }}_profile_pic">
-                {{ user_name }}
-            {% endif %}
             </div>
+                
+            {% else %}
+            <div class="chip">
+                <img src="https://static2-living.corriereobjects.it/wp-content/uploads/2021/01/floreale-660x440.jpg" alt="{{ user_name }}_profile_pic">
+                {{ user_name }}
+            </div>
+                
+            {% endif %} -->
+
             <ul class="collapsible">
                 <li>
                     <div class="collapsible-header"><i class="material-icons">place</i>Near Me</div>
@@ -33,114 +37,111 @@
 
             <span class="submission-header">{{ user_name }}'s Favourites</span>
 
-            {% if user_favourites|length > 0 %}
             <div class="row listing-section">
-                {% for favourite in user_favourites %}
-                <div class="col s12 m4 listing-card">
-                    <div class="card">
-                        <div class="card-image">
-                            {% if listing.listing_image != "" %}
-                            <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
-                            {% else %}
-                            <img class="responsive"
-                                src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg"
-                                alt="eye-street-art-default-listing-image">
-                            {% endif %}
-                            <span class="card-title">{{ listing.listing_name }}</span>
-                            {% if session.user|lower == listing.listing_by|lower %}
-                            <form id="edit-buttons" class="edit-buttons">
-                                <div class="fixed-action-button">
-                                    <a
-                                        class="btn-floating btn-large click-to-toggle halfway-fab waves-effect waves-light red"><i
-                                            class="material-icons">mode_edit</i>
-                                    </a>
-                                    <ul>
-                                        <li><a href="{{ url_for('delete_listing', listing_id=listing._id)}}"
-                                                class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i
-                                                    class="material-icons ">delete</i></a>
-                                        </li>
-                                        <li> <a href="{{ url_for('edit_listing', listing_id=listing._id)}}"
-                                                class="btn-floating btn-small halfway-fab waves-effect waves-light blue"><i
-                                                    class="material-icons ">mode_edit</i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </form>
-                            {% else %}
-                            <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}"
-                                id="favourite_form" name="favourite_form">
-                                <button
-                                    class="btn-floating btn-small halfway-fab waves-effect waves-light favourite-button"></button>
+                    {% for listing in user_favourites %}
+                    <div class="col s12 m4 listing-card">
+                        <div class="card">
+                            <div class="card-image">
+                                {% if listing.listing_image != "" %}
+                                <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
+                                {% else %}
+                                <img class="responsive"
+                                    src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg"
+                                    alt="eye-street-art-default-listing-image">
+                                {% endif %}
+                                <span class="card-title">{{ listing.listing_name }}</span>
+                                {% if session.user|lower == listing.listing_by|lower %}
+                                <form id="edit-buttons" class="edit-buttons">
+                                    <div class="fixed-action-button">
+                                        <a
+                                            class="btn-floating btn-large click-to-toggle halfway-fab waves-effect waves-light red"><i
+                                                class="material-icons">mode_edit</i>
+                                        </a>
+                                        <ul>
+                                            <li><a href="{{ url_for('delete_listing', listing_id=listing._id)}}"
+                                                    class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i
+                                                        class="material-icons ">delete</i></a>
+                                            </li>
+                                            <li> <a href="{{ url_for('edit_listing', listing_id=listing._id)}}"
+                                                    class="btn-floating btn-small halfway-fab waves-effect waves-light blue"><i
+                                                        class="material-icons ">mode_edit</i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                                {% else %}
+                                <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}"
+                                    id="favourite_form" name="favourite_form">
+                                    <button
+                                        class="btn-floating btn-small halfway-fab waves-effect waves-light favourite-button"></button>
 
 
-                                <i class="material-icons">favorite</i>
-                            </form>
-                            {% endif %}
+                                    <i class="material-icons">favorite</i>
+                                </form>
+                                {% endif %}
 
-                        </div>
+                            </div>
 
-                        <div class="card-content">
-                            <ul>
-                                <li class="city">{{ listing.listing_city }}</li>
-                                <br>
-                                <li class="rating valign-wrapper">Rating:
-                                    {% for rating in listing.listing_rating %}
-                                    {% if rating == "1" %}
-                                    <span><i class="material-icons">star</i></span>
-                                    {% elif rating == "2" %}
-                                    <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                                    {% elif rating == "3" %}
-                                    <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                            class="material-icons">star</i></span>
-                                    {% elif rating == "4" %}
-                                    <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                            class="material-icons">star</i><i class="material-icons">star</i></span>
-                                    {% elif rating == "5" %}
-                                    <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                            class="material-icons">star</i><i class="material-icons">star</i><i
-                                            class="material-icons">star</i></span>
-                                    {% elif rating == "6" %}
-                                    <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                            class="material-icons">star</i><i class="material-icons">star</i><i
-                                            class="material-icons">star</i><i class="material-icons">star</i></span>
-                                    {% else %}
-                                    <span>This listing has not been rated yet!</span>
-                                    {% endif %}
-                                    {% endfor %}
-                                </li>
-                                <br>
-                                <li class="facilities valign-wrapper">Facilities:
-                                    {% for facility in listing.listing_facilities %}
-                                    {% if facility == "Accessible" %}
-                                    <span><i class="material-icons">accessible</i></a></span>
-                                    {% endif %}
-                                    {% if facility == "Cafe" %}
-                                    <span><i class="material-icons">local_dining</i></a></span>
-                                    {% endif %}
-                                    {% if facility == "Guide Available" %}
-                                    <span><i class="material-icons">headset_mic</i></a></span>
-                                    {% endif %}
-                                    {% if facility == "Child Friendly" %}
-                                    <span><i class="material-icons">child_friendly</i></a></span>
-                                    {% endif %}
-                                    {% if facility == "Toilets" %}
-                                    <span><i class="material-icons">wc</i></a></span>
-                                    {% endif %}
-                                    {% endfor %}
-
-                                </li>
-                                <br>
-                                <li class="cost">Cost: {{ listing.listing_cost }}</li>
-                                <br>
-                                <li class="comments">Comments: {{ listing.listing_comments }}</li><br>
-                                <p><em>created by: {{ listing.listing_by }}</em></p>
-                            </ul>
+                            <div class="card-content">
+                                <ul>
+                                    <li class="city">{{ listing.listing_city }}</li>
+                                    <br>
+                                    <li class="rating valign-wrapper">Rating:
+                                        {% for rating in listing.listing_rating %}
+                                        {% if rating == 1 %}
+                                        <span><i class="material-icons">star</i></span>
+                                        {% elif rating == 2 %}
+                                        <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                                        {% elif rating == 3 %}
+                                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                class="material-icons">star</i></span>
+                                        {% elif rating == 4 %}
+                                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                class="material-icons">star</i><i class="material-icons">star</i></span>
+                                        {% elif rating == 5 %}
+                                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                class="material-icons">star</i><i class="material-icons">star</i><i
+                                                class="material-icons">star</i></span>
+                                        {% elif rating == 6 %}
+                                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                class="material-icons">star</i><i class="material-icons">star</i><i
+                                                class="material-icons">star</i><i class="material-icons">star</i></span>
+                                        {% else %}
+                                        <span>This listing has not been rated yet!</span>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                    <br>
+                                    <li class="facilities valign-wrapper">Facilities:
+                                        {% for facility in listing.listing_facilities %}
+                                        {% if facility == "Accessible" %}
+                                        <span><i class="material-icons">accessible</i></a></span>
+                                        {% endif %}
+                                        {% if facility == "Cafe" %}
+                                        <span><i class="material-icons">local_dining</i></a></span>
+                                        {% endif %}
+                                        {% if facility == "Guide Available" %}
+                                        <span><i class="material-icons">headset_mic</i></a></span>
+                                        {% endif %}
+                                        {% if facility == "Child Friendly" %}
+                                        <span><i class="material-icons">child_friendly</i></a></span>
+                                        {% endif %}
+                                        {% if facility == "Toilets" %}
+                                        <span><i class="material-icons">wc</i></a></span>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                    <br>
+                                    <li class="cost">Cost: {{ listing.listing_cost }}</li>
+                                    <br>
+                                    <li class="comments">Comments: {{ listing.listing_comments }}</li><br>
+                                    <p><em>created by: {{ listing.listing_by }}</em></p>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
             </div>
-            {% endif %}
 
 
 
