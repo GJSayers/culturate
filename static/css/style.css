@@ -85,6 +85,11 @@ nav ul a:hover {
     color: #1a2017;
 }
 
+.edit-button {
+    background-color: #C2B678;
+    color: #1a2017;
+}
+
 .listing-section {
     background-color: #1a2017;
     margin-top: 0%;
