@@ -218,6 +218,7 @@ def favourite_listing(listing_id):
         return render_template("listings.html")
     return render_template("listings.html")
 
+
 @app.route("/rate_listing/<listing_id>", methods=["GET", "POST"])
 def rate_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
@@ -228,27 +229,27 @@ def rate_listing(listing_id):
         {"listing_by": session["user"]})["listing_by"]
     print(user_name)
     if request.method == "POST":
-        user_rating = {
+        listing_rating = {
             "listing_by": session["user"],
-            "user_rating": request.form.get("user_rating", 0),
-            "user_comments": request.form.get("user_comments", "").lower()
-        }
+            "user_rating": request.form.get("user_rating"),
+            "user_comments": request.form.get("user_comments")
+            }
         mongo.db.listings.update_one(
             {"_id": listing},
-            {"$push": {"listing_rating": {listing["_id"], user_rating}})
-        print(user_rating)
-
-           mongo.db.users.update_one(
-                {"_id": user},
-                {"$push": {"user_favourites": listing["_id"]}})
+            {"$push": {"listing_rating": listing_rating}})
+        print(listing_rating)
+        return render_template("listings.html")
+    return render_template("listings.html")
 
 
 @app.route("/view_ratings/<listing_id>", methods=["GET", "POST"])
 def view_ratings(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
     print(listing)
-    for rating in mongo.db.find_one({"_id": ObjectId(listing_id)})["listing_rating"]:
-    print(rating)
+    for listing_rating in mongo.db.find_one(
+        {"_id": ObjectId(listing_id)})["listing_rating"]:
+            print(listing_rating)
+    return render_template
 
 
 @app.route("/delete_listing/<listing_id>")
