@@ -28,86 +28,169 @@
         <div class="card">
             <div class="card-image">
                 {% if listing.listing_image != "" %}
-                    <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
+                <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
                 {% else %}
-                    <img class="responsive"
+                <img class="responsive"
                     src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg"
                     alt="eye-street-art-default-listing-image">
                 {% endif %}
-                    <span class="card-title">{{ listing.listing_name }}</span>
-                
-                    {% if session.user|lower == listing.listing_by|lower %}
-                        <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" id="edit_form" name="edit_form">
-                        <button class="btn-floating btn-large halfway-fab edit-button"><i class="material-icons">edit</i></button>
-                        </form>
-                    {% elif session.user|lower %}
-                    <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}" id="favourite_form" name="favourite_form">
-                    <button class="btn-floating btn-large halfway-fab favourite-button"><i class="material-icons">favorite</i></button>
-                    </form>
-                    {% else %}
-                    <!-- modal-trigger -->
-                    <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#modal1"><i class="material-icons">favorite</i></button>
-                    <!-- modal -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Please Login or Join to Favourite</h4>
-                            <p>A bunch of text</p>
-                        </div>
+                <span class="card-title">{{ listing.listing_name }}</span>
+
+                {% if session.user|lower == listing.listing_by|lower %}
+                <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" id="edit_form" name="edit_form">
+                    <button class="btn-floating btn-large halfway-fab edit-button"><i
+                            class="material-icons">edit</i></button>
+                </form>
+                {% elif session.user|lower %}
+                <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}"
+                    id="favourite_form" name="favourite_form">
+                    <button class="btn-floating btn-large halfway-fab favourite-button"><i
+                            class="material-icons">favorite</i></button>
+                </form>
+                {% else %}
+                <!-- modal-trigger -->
+                <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#modal1"><i
+                        class="material-icons">favorite</i></button>
+                <!-- modal -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Please Login or Join to Favourite</h4>
+                        <p>A bunch of text</p>
+                    </div>
                     <div class="modal-footer">
                         <a href="{{ url_for('join') }}" class="modal-close waves-effect waves-green btn-flat">Join</a>
                         <a href="{{ url_for('login') }}" class="modal-close waves-effect waves-green btn-flat">Login</a>
                     </div>
-                    </div>
-   
-                    {% endif %}
+                </div>
 
-                
+                {% endif %}
+
+
             </div>
 
             <div class="card-content">
                 <ul>
                     <li class="city">{{ listing.listing_city }}</li>
                     <br>
-                    <li class="rating valign-wrapper">Rating: 
+                    <li class="rating valign-wrapper">Rating:
                         {% for rating in listing.listing_rating %}
-                            {% if rating == "1" %}
-                                <span><i class="material-icons">star</i></span>
-                            {% elif rating == "2" %}
-                                <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "3" %}
-                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "4" %}
-                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "5" %}
-                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "6" %}
-                                <span><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% else %}
-                                <span>This listing has not been rated yet!</span>
-                            {% endif %}
+                        {% if rating == "1" %}
+                        <span><i class="material-icons">star</i></span>
+                        {% elif rating == "2" %}
+                        <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                        {% elif rating == "3" %}
+                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                class="material-icons">star</i></span>
+                        {% elif rating == "4" %}
+                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                class="material-icons">star</i><i class="material-icons">star</i></span>
+                        {% elif rating == "5" %}
+                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                class="material-icons">star</i><i class="material-icons">star</i><i
+                                class="material-icons">star</i></span>
+                        {% elif rating == "6" %}
+                        <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                class="material-icons">star</i><i class="material-icons">star</i><i
+                                class="material-icons">star</i><i class="material-icons">star</i></span>
+                        {% else %}
+                        <span>This listing has not been rated yet!</span>
+                        {% endif %}
+                        <button class="btn-large favourite-button modal-trigger" href="#modal1"><i
+                                class="material-icons">star</i></button>
+                        <!-- modal -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>Rate {{ listing.listing_name }}</h4>
+                                <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}" id="user_rating" name="user_rating">
+                                    <p>
+                                        <label for="user_rating">
+                                            <input name="user_rating" value="user_rating1" class="group1" type="radio" checked />
+                                            <span><i class="material-icons">star</i></span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label for="user_rating">
+                                            <input name="user_rating" value="user_rating2" class="group1 rating_star" type="radio"/>
+                                            <span><i class="material-icons">star</i><i
+                                                    class="material-icons">star</i></span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label for="user_rating">
+                                            <input name="user_rating" value="user_rating3" class="group1 rating_star" type="radio"/>
+                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                    class="material-icons">star</i></span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label for="user_rating">
+                                            <input name="user_rating" value="user_rating4" class="group1 rating_star" type="radio"/>
+                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                    class="material-icons">star</i><i
+                                                    class="material-icons">star</i></span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label for="user_rating">
+                                            <input name="user_rating" value="user_rating5" class="group1 rating_star" type="radio"/>
+                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                    class="material-icons">star</i><i class="material-icons">star</i><i
+                                                    class="material-icons">star</i></span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label for="user_rating">
+                                            <input name="user_rating" value="user_rating6" class="group1 rating_star" type="radio"/>
+                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                                    class="material-icons">star</i><i class="material-icons">star</i><i
+                                                    class="material-icons">star</i><i
+                                                    class="material-icons">star</i></span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label for="user_comments">Tell us what you think..</label>
+                                        <textarea name="user_comments" id="user_comments" class="materialize-textarea validate" required>
+                                        </textarea>
+                                        
+                                    </p>
+                                    <div class="modal-footer">
+
+                                <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel <i
+                                        class="material-icons right submission-icon">clear</i></a>
+                                <button class="btn affirmative-button center-align" type="submit">Rate it
+                                    <i class="material-icons right submission-icon">library_add</i>
+                                </button>
+
+                            </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+
+
                         {% endfor %}
                     </li>
-                        <br>
-                    <li class="facilities valign-wrapper">Facilities: 
+                    <br>
+                    <li class="facilities valign-wrapper">Facilities:
                         {% for facility in listing.listing_facilities %}
-                            {% if facility == "Accessible" %}
+                        {% if facility == "Accessible" %}
                         <span><i class="material-icons">accessible</i></a></span>
-                            {% endif %}
-                            {% if facility == "Cafe" %}
+                        {% endif %}
+                        {% if facility == "Cafe" %}
                         <span><i class="material-icons">local_dining</i></a></span>
-                            {% endif %}
-                            {% if facility == "Guide Available" %}
+                        {% endif %}
+                        {% if facility == "Guide Available" %}
                         <span><i class="material-icons">headset_mic</i></a></span>
-                            {% endif %}
-                            {% if facility == "Child Friendly" %}
+                        {% endif %}
+                        {% if facility == "Child Friendly" %}
                         <span><i class="material-icons">child_friendly</i></a></span>
-                            {% endif %}
-                            {% if facility == "Toilets" %}
+                        {% endif %}
+                        {% if facility == "Toilets" %}
                         <span><i class="material-icons">wc</i></a></span>
-                            {% endif %}
-                        {% endfor %}   
+                        {% endif %}
+                        {% endfor %}
 
-                        </li>
+                    </li>
                     <br>
                     <li class="cost">Cost: {{ listing.listing_cost }}</li>
                     <br>
