@@ -32,7 +32,7 @@
                     <div class="modal-content">
                         <h4>Rate {{ listing.listing_name }}</h4>
                         <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
-                            id="{{ listing.listing_name }}user_rating" name="{{ listing.listing_name }}user_rating">
+                            id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_id}}user_rating">
                             <p>
                                 <label for="{{ listing.listing_name }}user_rating1">
                                     <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating1" value="1" class="group1"
