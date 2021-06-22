@@ -31,7 +31,7 @@ def get_listings():
     print(type(listings))
     print("__________________________")
     return render_template("listings.html", listings=listings)
-   
+
 
 # for searching the listings
 @app.route("/search", methods=["GET", "POST"])
