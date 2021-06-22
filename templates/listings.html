@@ -32,40 +32,40 @@
                     <div class="modal-content">
                         <h4>Rate {{ listing.listing_name }}</h4>
                         <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
-                            id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_id }}user_rating">
+                            id="{{ listing.listing_name }}user_rating" name="{{ listing.listing_name }}user_rating">
                             <p>
-                                <label for="{{ listing.listing_id }}user_rating1">
-                                    <input name="{{ listing.listing_id }}user_rating" id="{{ listing.listing_id }}user_rating1" value="1" class="group1"
+                                <label for="{{ listing.listing_name }}user_rating1">
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating1" value="1" class="group1"
                                         type="radio" checked />
                                     <span><i class="material-icons">star</i></span>
                                 </label>
                             </p>
                             <p>
                                 <label for="user_rating2">
-                                    <input name="{{ listing.listing_id }}user_rating" id="{{ listing.listing_id }}user_rating2" value="2"
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating2" value="2"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
                                 </label>
                             </p>
                             <p>
-                                <label for="{{ listing.listing_id }}user_rating3">
-                                    <input name="{{ listing.listing_id }}user_rating" id="{{ listing.listing_id }}user_rating3" value="3"
+                                <label for="{{ listing.listing_name }}user_rating3">
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating3" value="3"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                             class="material-icons">star</i></span>
                                 </label>
                             </p>
                             <p>
-                                <label for="{{ listing.listing_id }}user_rating4">
-                                    <input name="{{ listing.listing_id }}user_rating" id="{{ listing.listing_id }}user_rating4" value="4"
+                                <label for="{{ listing.listing_name }}user_rating4">
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating4" value="4"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                             class="material-icons">star</i><i class="material-icons">star</i></span>
                                 </label>
                             </p>
                             <p>
-                                <label for="{{ listing.listing_id }}user_rating5">
-                                    <input name="{{ listing.listing_id }}user_rating" id="{{ listing.listing_id }}user_rating5" value="user_rating5"
+                                <label for="{{ listing.listing_name }}user_rating5">
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating5" value="user_rating5"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                             class="material-icons">star</i><i class="material-icons">star</i><i
@@ -73,8 +73,8 @@
                                 </label>
                             </p>
                             <p>
-                                <label for="{{ listing.listing_id }}user_rating6">
-                                    <input name="{{ listing.listing_id }}user_rating" id="{{ listing.listing_id }}user_rating6" value="user_rating6"
+                                <label for="{{ listing.listing_name }}user_rating6">
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating6" value="user_rating6"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                             class="material-icons">star</i><i class="material-icons">star</i><i
