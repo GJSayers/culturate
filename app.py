@@ -244,18 +244,15 @@ def rate_listing(listing_id):
     print(listing)
     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
     print(user)
-    user_name = mongo.db.users.find_one(
-        {"listing_by": session["user"]})["listing_by"]
-    print(user_name)
     if request.method == "POST":
         listing_rating = {
-            "listing_by": session["user"],
+            "rating_by": session["user"],
             "user_rating": request.form.get("user_rating"),
             "user_comments": request.form.get("user_comments")
             }
         mongo.db.listings.update_one(
-            {"_id": listing},
-            {"$push": {"listing_rating": listing_rating}})
+            {"_id": ObjectId(listing_id)},
+            {"$push": {"listing_rating": listing_rating}}, upsert=True)
         print(listing_rating)
         return render_template("listings.html")
     return render_template("listings.html")
