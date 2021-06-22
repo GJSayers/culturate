@@ -35,7 +35,7 @@
 
                         <!-- ratings form  -->
                         <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
-                            id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_id}}user_rating">
+                            id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name}}user_rating">
                             <p>
                                 <label for="{{ listing.listing_name }}user_rating1">
                                     <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating1" value="1" class="group1"
@@ -44,8 +44,8 @@
                                 </label>
                             </p>
                             <p>
-                                <label for="user_rating2">
-                                    <input name="{{ listing.listing_name }}user_rating2" id="{{ listing.listing_name }}user_rating2" value="2"
+                                <label for="{{ listing.listing_name }}user_rating2">
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating2" value="2"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
                                 </label>
