@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+            <!-- search bar -->
 <div class="row search-section card-panel">
     <form action="{{ url_for('search') }}" method="POST" class="col">
         <div class="row valign-wrapper center-align">
@@ -20,17 +20,20 @@
         </div>
     </form>
 </div>
-
+                        <!-- contruct listing cards -->
 {% if listings|length > 0 %}
 <div class="row listing-section">
     {% for listing in listings %}
     <div class="col s12 m4 listing-card">
         <div class="card">
             <div class="card-image">
-                <!-- ratings modal  -->
+
+                        <!-- ratings modal  -->
                 <div id="{{ listing.listing_name }}modal" class="modal">
                     <div class="modal-content">
                         <h4>Rate {{ listing.listing_name }}</h4>
+
+                        <!-- ratings form  -->
                         <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
                             id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_id}}user_rating">
                             <p>
@@ -42,7 +45,7 @@
                             </p>
                             <p>
                                 <label for="user_rating2">
-                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating2" value="2"
+                                    <input name="{{ listing.listing_name }}user_rating2" id="{{ listing.listing_name }}user_rating2" value="2"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
                                 </label>
@@ -87,8 +90,8 @@
                                     required>
                                 </textarea>
                             </p>
+                            <!-- modal footer with buttons to cancel or submit -->
                             <div class="modal-footer">
-
                                 <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel <i
                                         class="material-icons right submission-icon">clear</i></a>
                                 <button class="btn affirmative-button v-align center-align" type="submit">Rate it
@@ -98,7 +101,8 @@
                         </form>
                     </div>
                 </div>
-                <!-- rate button  -->
+                
+                <!-- contruct listing cards images -->
 
                 {% if listing.listing_image != "" %}
                 <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
@@ -110,12 +114,15 @@
                 <span class="card-title">{{ listing.listing_name }}</span>
 
                 {% if session.user|lower == listing.listing_by|lower %}
-                <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" id="{{ listing.listing_id }}edit_form" name="{{ listing.listing_name }}edit_form">
+
+                <!-- favourite form to submit favourites -->
+                <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" 
+                id="{{ listing.listing_id }}edit_form" name="{{ listing.listing_name }}edit_form">
                     <button class="btn-floating btn-large halfway-fab edit-button"><i
                             class="material-icons">edit</i></button>
                 </form>
                 {% elif session.user|lower %}
-                <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}"
+                <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id) }}"
                     id="{{ listing.listing_id }}favourite_form" name="{{ listing.listing_name }}favourite_form">
                     <button class="btn-floating btn-large halfway-fab favourite-button"><i
                             class="material-icons">favorite</i></button>
