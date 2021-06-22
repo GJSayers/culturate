@@ -181,30 +181,26 @@ def add_listing():
 
 @app.route("/edit_listing/<listing_id>", methods=["GET", "POST"])
 def edit_listing(listing_id):
-    if "user" in session:
-        user = session["user"]
-        listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-        if listing["listing_by"] == user:
-            if request.method == "POST":
-                submit = {
-                    "category_name": request.form.get("category_name"),
-                    "listing_facilities": request.form.getlist("listing_facilities"),
-                    "listing_name": request.form.get("listing_name"),
-                    "listing_cost": request.form.get("listing_cost"),
-                    "listing_rating": request.form.get("listing_rating"),
-                    "listing_city": request.form.get("listing_city"),
-                    "listing_comments": request.form.get("listing_comments"),
-                    "listing_image": request.form.get("listing_image"),
-                    "listing_by": session["user"]
-                }
-                mongo.db.listings.update({"_id": ObjectId(listing_id)}, submit)
-                flash("listing Updated - Thank you!")
-        
-            categories = mongo.db.categories.find().sort("category_name", 1)
-            return render_template(
-            "edit_listing.html", listing=listing, categories=categories)
-        return redirect(url_for("get_listings"))
-        
+    if request.method == "POST":
+
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "listing_facilities": request.form.getlist("listing_facilities"),
+            "listing_name": request.form.get("listing_name"),
+            "listing_cost": request.form.get("listing_cost"),
+            "listing_rating": request.form.get("listing_rating"),
+            "listing_city": request.form.get("listing_city"),
+            "listing_comments": request.form.get("listing_comments"),
+            "listing_image": request.form.get("listing_image"),
+            "listing_by": session["user"]
+            }
+        mongo.db.listings.update({"_id": ObjectId(listing_id)}, submit)
+        flash("listing Updated - Thank you!")
+    listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "edit_listing.html", listing=listing,
+        categories=categories)    
 
 
 @app.route("/favourite_listing/<listing_id>", methods=["GET", "POST"])
