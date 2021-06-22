@@ -51,33 +51,27 @@
                                 {% endif %}
                                 <span class="card-title">{{ listing.listing_name }}</span>
                                 {% if session.user|lower == listing.listing_by|lower %}
-                                <form id="edit-buttons" class="edit-buttons">
-                                    <div class="fixed-action-button">
-                                        <a
-                                            class="btn-floating btn-large click-to-toggle halfway-fab waves-effect waves-light red"><i
-                                                class="material-icons">mode_edit</i>
-                                        </a>
-                                        <ul>
-                                            <li><a href="{{ url_for('delete_listing', listing_id=listing._id)}}"
-                                                    class="btn-floating btn-small halfway-fab waves-effect waves-light red"><i
-                                                        class="material-icons ">delete</i></a>
-                                            </li>
-                                            <li> <a href="{{ url_for('edit_listing', listing_id=listing._id)}}"
-                                                    class="btn-floating btn-small halfway-fab waves-effect waves-light blue"><i
-                                                        class="material-icons ">mode_edit</i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </form>
-                                {% else %}
-                                <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}"
-                                    id="favourite_form" name="favourite_form">
-                                    <button
-                                        class="btn-floating btn-small halfway-fab waves-effect waves-light favourite-button"></button>
-
-
-                                    <i class="material-icons">favorite</i>
-                                </form>
+                                  <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" id="edit_form" name="edit_form">
+                        <button class="btn-floating btn-large halfway-fab edit-button"><i class="material-icons">edit</i></button>
+                        </form>
+                    {% elif session.user|lower %}
+                    <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}" id="favourite_form" name="favourite_form">
+                    <button class="btn-floating btn-large halfway-fab favourite-button"><i class="material-icons">favorite</i></button>
+                    </form>
+                    {% else %}
+                    <!-- modal-trigger -->
+                    <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#modal1"><i class="material-icons">favorite</i></button>
+                    <!-- modal -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Please Login or Join to Favourite</h4>
+                            <p>A bunch of text</p>
+                        </div>
+                    <div class="modal-footer">
+                        <a href="{{ url_for('join') }}" class="modal-close waves-effect waves-green btn-flat">Join</a>
+                        <a href="{{ url_for('login') }}" class="modal-close waves-effect waves-green btn-flat">Login</a>
+                    </div>
+                    </div>
                                 {% endif %}
 
                             </div>
