@@ -24,12 +24,16 @@ def get_index():
     return render_template("index.html")
 
 
+# to display all listings
 @app.route("/get_listings")
 def get_listings():
     listings = list(mongo.db.listings.find())
+    print(type(listings))
+    print("__________________________")
     return render_template("listings.html", listings=listings)
+   
 
-
+# for searching the listings
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -37,6 +41,7 @@ def search():
     return render_template("listings.html", listings=listings)
 
 
+# route to join / sign-up for the site
 @app.route("/join", methods=["GET", "POST"])
 def join():
     if request.method == "POST":
@@ -70,6 +75,7 @@ def join():
     return render_template("join.html")
 
 
+# route to login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -108,6 +114,7 @@ def login():
     return render_template("login.html")
 
 
+# route to populate profile page
 @app.route("/profile/<user_name>", methods=["GET", "POST"])
 def profile(user_name):
     """
@@ -120,9 +127,11 @@ def profile(user_name):
     """
     user_favourites = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_favourites"]
-    
-    favourites_list = []
 
+    favourites_list = []
+    """
+    iterate through listings to find favourites in listings
+    """
     for favourite in user_favourites:
         listing = mongo.db.listings.find_one({"_id": favourite})
 
@@ -136,7 +145,7 @@ def profile(user_name):
     # """
     # listing = mongo.db.listings.find(
     #     {['listing_id']: {'$in': ["user_favourites"]}})
-    # last response not populating cards but cards visible 
+    # last response not populating cards but cards
     if session["user"]:
         return render_template(
             "profile.html", user_name=user_name,
@@ -147,6 +156,7 @@ def profile(user_name):
     return redirect(url_for("login"))
 
 
+# route to add a logout
 @app.route("/logout")
 def logout():
     """
@@ -156,6 +166,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# route to add a listing
 @app.route("/add_listing", methods=["GET", "POST"])
 def add_listing():
     if request.method == "POST":
@@ -179,6 +190,7 @@ def add_listing():
     return render_template("add_listing.html", categories=categories)
 
 
+# route to edit a listing
 @app.route("/edit_listing/<listing_id>", methods=["GET", "POST"])
 def edit_listing(listing_id):
     if request.method == "POST":
@@ -200,9 +212,10 @@ def edit_listing(listing_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "edit_listing.html", listing=listing,
-        categories=categories)    
+        categories=categories)
 
 
+# route to save listing as favourite
 @app.route("/favourite_listing/<listing_id>", methods=["GET", "POST"])
 def favourite_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
@@ -238,6 +251,7 @@ def favourite_listing(listing_id):
     return render_template("listings.html")
 
 
+# route to rate listing with star radio buttons
 @app.route("/rate_listing/<listing_id>", methods=["GET", "POST"])
 def rate_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
@@ -258,16 +272,17 @@ def rate_listing(listing_id):
     return render_template("listings.html")
 
 
-@app.route("/view_ratings/<listing_id>", methods=["GET", "POST"])
-def view_ratings(listing_id):
-    listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    print(listing)
-    for listing_rating in mongo.db.find_one(
-        {"_id": ObjectId(listing_id)})["listing_rating"]:
-            print(listing_rating)
-    return render_template
+# @app.route("/view_ratings/<listing_id>", methods=["GET", "POST"])
+# def view_ratings(listing_id):
+#     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
+#     print(listing)
+#     for listing_rating in mongo.db.find_one(
+#         {"_id": ObjectId(listing_id)})["listing_rating"]:
+#             print(listing_rating)
+#     return render_template
 
 
+# route to delete a listing
 @app.route("/delete_listing/<listing_id>")
 def delete_listing(listing_id):
     mongo.db.listings.remove({"_id": ObjectId(listing_id)})
@@ -275,12 +290,16 @@ def delete_listing(listing_id):
     return redirect(url_for("get_listings"))
 
 
+# route to get list of categories
+# available to superuser
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
+# route to add new categories
+# available to superuser
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
@@ -294,6 +313,8 @@ def add_category():
     return render_template("add_category.html")
 
 
+# route to edit categories
+# available to superuser
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if request.method == "POST":
@@ -306,6 +327,8 @@ def edit_category(category_id):
     return render_template("edit_category.html", category=category)
 
 
+# route to delete categories
+# available to superuser
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
