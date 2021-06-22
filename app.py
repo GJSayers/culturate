@@ -252,7 +252,7 @@ def rate_listing(listing_id):
             }
         mongo.db.listings.update_one(
             {"_id": ObjectId(listing_id)},
-            {"$push": {"listing_rating": listing_rating}}, upsert=True)
+            {"$push": {"listing_rating": listing_rating}})
         print(listing_rating)
         return render_template("listings.html")
     return render_template("listings.html")
