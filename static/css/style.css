@@ -131,18 +131,43 @@ li.rating span i {
 }
 
 .tabs .tab a:hover, .tabs .tab a.active {
+    color: #C2B678;
+    background-color: #1a2017;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: #1a2017;
+}
+
+.tabs .tab a {
+    
     background-color: #C2B678;
     color: #1a2017;
 }
 
-.tabs .tab a:focus, .tabs .tab a:focus.active {
-    background-color: transparent;
+#ratings, #info {
+    background-color: #1a2017;
+    color: #C2B678;
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 2px;
+    font-weight: 300;
 }
 
-.tabs .tab a {
-    color: #C2B678;
-    background-color: #1a2017;
-    outline-color: #F7E93F;
+.ratings-header {
+    margin-top: 15%;
+    font-family: 'Permanent Marker', cursive;
+    font-size: x-large;
+}
+
+.comments-tabs {
+    text-align: center;
+
+}
+
+hr.ratings-divider {
+    border: 1px solid #C33F8B;
+    width: 10%;
+    display: inline-flex;
 }
 
 
