@@ -208,9 +208,21 @@
         </div>
         <div class="card-content grey lighten-4">
         <div id="Ratings">
-            {% for rating in ratings %}
-            
-            {% endfor %}
+                {% for rating in listing_ratings %}
+                        <ul>
+                            <li>
+                                Rating - <span>{{ rating.user_comments }}</span>
+                            </li>
+                            <li>
+                                Comment - <span>{{ rating.user_rating }}</span>
+                            </li>
+                            <li>
+                                Rated by - <span>{{ rating.rating_by }}</span>
+                            </li>
+                        </ul>
+                            
+                        
+                {% endfor %}
         </div>
         <div id="test5">Info </div>
         </div>
