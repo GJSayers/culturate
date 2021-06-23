@@ -123,6 +123,28 @@ li.rating span i {
     color: #C2B678;
 }
 
+/*---- lisiting_page tabs ---- */
+
+.tabs .indicator {
+    color: #F7E93F;
+    background-color: #F7E93F;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+    background-color: #C2B678;
+    color: #1a2017;
+}
+
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+    background-color: transparent;
+}
+
+.tabs .tab a {
+    color: #C2B678;
+    background-color: #1a2017;
+    outline-color: #F7E93F;
+}
+
 
 /*---- sumbission form styling ---- */
 
