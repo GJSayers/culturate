@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
-    <img src="https://www.townereastbourne.org.uk/wp-content/uploads/Home-apge-slide-dance-diagonal-%C2%A9-Marc-Atkins-46.jpg" alt="towner_gallery_eastbourne">
-    <p>Oops! looks like you didn't find what you were looking for...(404)</p>
-</div>
+<div class="row listing-section">
+<div class="col s12">
+    <h2 class="header">404 Error </h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://www.townereastbourne.org.uk/wp-content/uploads/Home-apge-slide-dance-diagonal-%C2%A9-Marc-Atkins-46.jpg" alt="towner_gallery_eastbourne">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Oops! looks like you didn't find what you were looking for...(404)</p>
+        </div>
+        <div class="card-action">
+          <a href="{{ url_for('index.html') }}">Homepage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
 {% endblock %}
