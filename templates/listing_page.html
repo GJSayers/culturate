@@ -164,23 +164,23 @@
                             </div>
 
                             <!-- rating div for average rating display -->
-                            {% for rating in listing_ratings %}
+                            {% for rating in listing.listing_rating %}
 
-                            {% if rating == "user_rating1" %}
+                            {% if rating.user_rating == "user_rating1" %}
                             <span><i class="material-icons">star</i></span>
-                            {% elif rating == "user_rating2" %}
+                            {% elif rating.user_rating == "user_rating2" %}
                             <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "user_rating3" %}
+                            {% elif rating.user_rating == "user_rating3" %}
                             <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                     class="material-icons">star</i></span>
-                            {% elif rating == "user_rating4" %}
+                            {% elif rating.user_rating == "user_rating4" %}
                             <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                     class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "user_rating5" %}
+                            {% elif rating.user_rating == "user_rating5" %}
                             <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                     class="material-icons">star</i><i class="material-icons">star</i><i
                                     class="material-icons">star</i></span>
-                            {% elif rating == "user_rating6" %}
+                            {% elif rating.user_rating == "user_rating6" %}
                             <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                     class="material-icons">star</i><i class="material-icons">star</i><i
                                     class="material-icons">star</i><i class="material-icons">star</i></span>
@@ -229,16 +229,39 @@
 </div>
 <div class="card-content grey lighten-4">
     <div id="Ratings" class="ratings_div">
-        {% for item in listing.listing_rating %}
+        {% for rating in listing.listing_rating %}
         <ul>
             <li>
-                Rating - <span>{{ item.user_rating }}</span>
+                Rating - <!-- rating div for average rating display -->
+
+                            {% if rating.user_rating == "user_rating1" %}
+                            <span><i class="material-icons">star</i></span>
+                            {% elif rating.user_rating == "user_rating2" %}
+                            <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% elif rating.user_rating == "user_rating3" %}
+                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                    class="material-icons">star</i></span>
+                            {% elif rating.user_rating == "user_rating4" %}
+                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                    class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% elif rating.user_rating == "user_rating5" %}
+                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                    class="material-icons">star</i><i class="material-icons">star</i><i
+                                    class="material-icons">star</i></span>
+                            {% elif rating.user_rating == "user_rating6" %}
+                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
+                                    class="material-icons">star</i><i class="material-icons">star</i><i
+                                    class="material-icons">star</i><i class="material-icons">star</i></span>
+                            {% else %}
+                            <span>This listing has not been rated yet!</span>
+
+                            {% endif %}
             </li>
             <li>
-                Comment - <span>{{ item.user_comments }}</span>
+                Comment - <span>{{ rating.user_comments }}</span>
             </li>
             <li>
-                Rated by - <span>{{ item.rating_by }}</span>
+                Rated by - <span>{{ rating.rating_by }}</span>
             </li>
         </ul>
         {% endfor %}
