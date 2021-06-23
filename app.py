@@ -36,14 +36,16 @@ def get_listings():
 def listing_page(listing_id):
 
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    # ratings_list = []
-    # listing_ratings = mongo.db.listings.find_one(
-    #     {"_id": listing_id})["listing_rating"]
-    
-    # for listing_id in listing_ratings:
-    #     ratings_list.append(listing_ratings)
-    return render_template("listing_page.html",
-        listing_id=listing_id, listing=listing)
+    listing_ratings = mongo.db.listings.find_one(
+        {"_id": ObjectId(listing_id)})["listing_rating"]
+    # print(listing_ratings)
+    ratings_list = []
+    print(ratings_list)
+    for listing_ratings in listing:
+        ratings_list.append(listing_ratings)
+
+    return render_template(
+        "listing_page.html", listing=listing, listing_ratings=ratings_list)
 
 
 # for searching the listings
@@ -347,6 +349,11 @@ def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully deleted")
     return redirect(url_for("get_categories"))
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html", error=error)
 
 
 if __name__ == "__main__":

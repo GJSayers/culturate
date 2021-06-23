@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row listing-section">
+<div class="col s12">
+    <h2 class="header">500 Error </h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://www.townereastbourne.org.uk/wp-content/uploads/Home-apge-slide-dance-diagonal-%C2%A9-Marc-Atkins-46.jpg" alt="towner_gallery_eastbourne">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Oops! looks like there's an error on our side...sorry about that! Error code (500)</p>
+        </div>
+        <div class="card-action">
+          <a href="{{ url_for('index.html') }}">Homepage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
