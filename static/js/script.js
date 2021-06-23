@@ -3,7 +3,7 @@ $(document).ready(function () {
     $('select').formSelect();
     $('.parallax').parallax();
     $('.collapsible').collapsible();
-    $('.carousel').carousel();
+    $('.tabs').tabs();
     $('.fixed-action-btn').floatingActionButton({
         direction: 'left',
         hoverEnabled: false,
