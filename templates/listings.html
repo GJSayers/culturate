@@ -20,20 +20,84 @@
         </div>
     </form>
 </div>
-                        <!-- contruct listing cards -->
+                        <!-- contruct listing cards list-->
 {% if listings|length > 0 %}
 <div class="row listing-section">
     {% for listing in listings %}
     <div class="col s12 m4 listing-card">
+        <a href="{{ url_for('listing_page', listing_id=listing._id)}}">
         <div class="card">
+                
+            
             <div class="card-image">
+            
 
-                        <!-- ratings modal  -->
+                
+                
+                <!-- contruct listing cards images -->
+
+                {% if listing.listing_image != "" %}
+                <a href="#"></a>
+                <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
+                {% else %}
+                <img class="responsive"
+                    src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg"
+                    alt="eye-street-art-default-listing-image">
+                {% endif %}
+                <span class="card-title">{{ listing.listing_name }}</span>
+
+                {% if session.user|lower == listing.listing_by|lower %}
+
+                <!-- edit form button to edit listings -->
+                <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" 
+                id="{{ listing.listing_id }}edit_form" name="{{ listing.listing_name }}edit_form">
+                    <button class="btn-floating btn-large halfway-fab edit-button"><i
+                            class="material-icons">edit</i></button>
+                </form>
+                <!-- favourite form button to submit favourites -->
+
+                {% elif session.user|lower %}
+                <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id) }}"
+                    id="{{ listing.listing_id }}favourite_form" name="{{ listing.listing_name }}favourite_form">
+                    <button class="btn-floating btn-large halfway-fab favourite-button"><i
+                            class="material-icons">favorite</i></button>
+                </form>
+
+                {% else %}
+                <!-- login/ join modal-trigger on favourite button -->
+                <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#modal1"><i
+                        class="material-icons">favorite</i></button>
+
+                <!-- login/ join modal -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Please Login or Join to Favourite</h4>
+                        <p>A bunch of text</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ url_for('join') }}" class="modal-close waves-effect waves-green btn-flat">Join</a>
+                        <a href="{{ url_for('login') }}" class="modal-close waves-effect waves-green btn-flat">Login</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="card-content">
+                <ul>
+                    <li class="city">{{ listing.listing_city }}</li>
+                    <br>
+                    <li class="rating valign-wrapper">Rating:
+                        <!-- rating button to open rating modal -->
+                        <button class="btn-small favourite-button modal-trigger valign-wrapper"
+                            href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right-align">star</i>
+                        </button>
+
+                                                <!-- ratings modal  -->
                 <div id="{{ listing.listing_name }}modal" class="modal">
                     <div class="modal-content">
                         <h4>Rate {{ listing.listing_name }}</h4>
 
-                        <!-- ratings form  -->
+                        <!-- ratings form in modal -->
                         <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
                             id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name}}user_rating">
                             <p>
@@ -101,58 +165,8 @@
                         </form>
                     </div>
                 </div>
-                
-                <!-- contruct listing cards images -->
 
-                {% if listing.listing_image != "" %}
-                <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
-                {% else %}
-                <img class="responsive"
-                    src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg"
-                    alt="eye-street-art-default-listing-image">
-                {% endif %}
-                <span class="card-title">{{ listing.listing_name }}</span>
-
-                {% if session.user|lower == listing.listing_by|lower %}
-
-                <!-- favourite form to submit favourites -->
-                <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" 
-                id="{{ listing.listing_id }}edit_form" name="{{ listing.listing_name }}edit_form">
-                    <button class="btn-floating btn-large halfway-fab edit-button"><i
-                            class="material-icons">edit</i></button>
-                </form>
-                {% elif session.user|lower %}
-                <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id) }}"
-                    id="{{ listing.listing_id }}favourite_form" name="{{ listing.listing_name }}favourite_form">
-                    <button class="btn-floating btn-large halfway-fab favourite-button"><i
-                            class="material-icons">favorite</i></button>
-                </form>
-                {% else %}
-                <!-- login/ join modal-trigger -->
-                <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#modal1"><i
-                        class="material-icons">favorite</i></button>
-                <!-- login/ join modal -->
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>Please Login or Join to Favourite</h4>
-                        <p>A bunch of text</p>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('join') }}" class="modal-close waves-effect waves-green btn-flat">Join</a>
-                        <a href="{{ url_for('login') }}" class="modal-close waves-effect waves-green btn-flat">Login</a>
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-
-            <div class="card-content">
-                <ul>
-                    <li class="city">{{ listing.listing_city }}</li>
-                    <br>
-                    <li class="rating valign-wrapper">Rating:
-                        <button class="btn-small favourite-button modal-trigger valign-wrapper"
-                            href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right-align">star</i>
-                        </button>
+                        <!-- rating div for average rating display -->
                         {% for rating in listings.user_rating %}
                         
                             {% if rating == "user_rating1" %}
