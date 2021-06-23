@@ -5,12 +5,7 @@
     <div class="col s12 listing-card">
         <a href="{{ url_for('listing_page', listing_id=listing._id)}}">
             <div class="card">
-
-
                 <div class="card-image">
-
-
-
 
                     <!-- contruct listing cards images -->
 
@@ -69,7 +64,7 @@
                             <!-- rating button to open rating modal -->
                             <button class="btn-small favourite-button modal-trigger valign-wrapper"
                                 href="#{{ listing.listing_name }}modal">Rate it <i
-                                    class="material-icons right-align">star</i>
+                                    class="material-icons right">star</i>
                             </button>
 
                             <!-- ratings modal  -->
@@ -261,7 +256,7 @@
                     <span class="rating-span v-align">This listing has not been rated yet!</span>
                     <button class="btn-small favourite-button modal-trigger v-align center-align"
                                 href="#{{ listing.listing_name }}modal">Rate it<i
-                                    class="material-icons right-align">star</i>
+                                    class="material-icons right">star</i>
                             </button>
 
                     {% endif %}
