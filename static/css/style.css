@@ -76,11 +76,13 @@ nav ul a:hover {
 }
 
 .affirmative-button {
+    margin: 5%;
     background-color: #03B066;
     color: #1a2017;
 }
 
 .cancel-button, .favourite-button {
+    margin: 5%;
     background-color: #C33F8B;
     color: #1a2017;
 }
@@ -88,6 +90,15 @@ nav ul a:hover {
 .edit-button {
     background-color: #C2B678;
     color: #1a2017;
+}
+
+blockquote {
+    padding-left: 15%;
+    margin-left: 20%;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: x-large;
+    font-weight: 600;
+    border-left: none;
 }
 
 .listing-section {
