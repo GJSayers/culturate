@@ -121,6 +121,11 @@ nav ul a:hover {
     color: #1a2017;
 }
 
+/* iframe {
+    width: 275px;
+    height: 220px;
+} */
+
 .cards-backdrop {
     background-color: #1a2017;
     box-shadow: none;
