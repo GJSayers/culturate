@@ -14,7 +14,7 @@
 }
 
 
-/*---- navigation-stying ---- */
+/*---- navigation ---- */
 
 nav a.brand-logo {
     color: #1a2017;
@@ -29,9 +29,15 @@ nav i.material-icons {
     color: #1a2017;
 }
 
-nav i.material-icons:hover {
+nav i.material-icons:hover, i.material-icons.link-icon:hover {
     color: #03B066;
 }
+
+i.material-icons.link-icon {
+    color: #C2B678;
+}
+
+
 
 .nav-wrapper {
     background-color: #C2B678;
@@ -70,28 +76,6 @@ nav ul a:hover {
     
 }
 
-.alert-text {
-    color: #C33F8B;
-    font-family: 'Archivo Black', sans-serif;
-}
-
-.affirmative-button {
-    margin: 5%;
-    background-color: #03B066;
-    color: #1a2017;
-}
-
-.cancel-button, .favourite-button {
-    margin: 5%;
-    background-color: #C33F8B;
-    color: #1a2017;
-}
-
-.edit-button {
-    background-color: #C2B678;
-    color: #1a2017;
-}
-
 blockquote {
     padding-left: 15%;
     margin-left: 20%;
@@ -101,6 +85,7 @@ blockquote {
     border-left: none;
 }
 
+
 .listing-section {
     background-color: #1a2017;
     margin-top: 0%;
@@ -108,6 +93,19 @@ blockquote {
     padding-top: 5%;
     padding-bottom: 5%;
 }
+
+.cards-backdrop {
+    background-color: #1a2017;
+    box-shadow: none;
+    width: 100%;
+}
+
+.alert-text {
+    color: #C33F8B;
+    font-family: 'Archivo Black', sans-serif;
+}
+
+/*--- listing-cards ---*/
 
 .card .card-title {
     font-family: 'Archivo Black', sans-serif; 
@@ -124,17 +122,7 @@ blockquote {
     font-size: x-large;
 }
 
-.modal-content h4 {
-    font-family: 'Archivo Black', sans-serif;
-    letter-spacing: 2px;
-    color: #1a2017;
-}
 
-.modal-content blockquote {
-    font-family: 'Archivo Black', sans-serif;
-    letter-spacing: normal;
-    color: #C2B678;
-}
 
 .rating, .facilities, .cost, .comments {
     font-family: 'Archivo Black', sans-serif;
@@ -168,6 +156,8 @@ li.rating span i {
     color: #1a2017;
 }
 
+/*--- tabs-content styling ---*/
+
 #ratings, #info {
     background-color: #1a2017;
     color: #C2B678;
@@ -194,18 +184,8 @@ hr.ratings-divider {
 }
 
 
-/*---- sumbission form styling ---- */
+/*---- sumbission forms ---- */
 
-.submit-btn {
-    font-family: 'Archivo Black', sans-serif;
-    font-weight: bold;
-    background-color: #F7E93F;
-    color: #1a2017;
-}
-
-.submit-btn:hover {
-    background-color: #C33F8B;
-}
 
 .submission-header {
     font-family: 'Permanent Marker', cursive;
@@ -237,6 +217,14 @@ hr.ratings-divider {
     padding-bottom: 5%;
 }
 
+
+.form-background {
+    background-color: transparent;
+    margin: 0%;
+}
+
+/*--- input fields ---*/
+
 input[type='text'],
 .input-field, .prefix.active {
     --color: #03B066;
@@ -252,18 +240,27 @@ input[type='text'],
     color: #C33F8B;
 }
 
+/*--- modals ---*/
+
+.modal-content {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 2px;
+    color: #1a2017;
+}
+
+.modal-content blockquote {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: normal;
+    color: #C2B678;
+}
+
+
+/*---- login ---- */
+
 .login-link {
     padding-bottom: 10%;
 
 }
-
-
-.form-background {
-    background-color: transparent;
-    margin: 0%;
-}
-
-/*---- login ---- */
 
 .login-link>a {
     color: #1a2017;
@@ -275,7 +272,36 @@ input[type='text'],
     color: #03B066;
 }
 
+/*---- buttons ---- */
 
+
+.affirmative-button {
+    margin: 5%;
+    background-color: #03B066;
+    color: #1a2017;
+}
+
+.cancel-button, .favourite-button {
+    margin: 5%;
+    background-color: #C33F8B;
+    color: #1a2017;
+}
+
+.edit-button {
+    background-color: #C2B678;
+    color: #1a2017;
+}
+
+.submit-btn {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    background-color: #F7E93F;
+    color: #1a2017;
+}
+
+.submit-btn:hover {
+    background-color: #C33F8B;
+}
 
 
 
