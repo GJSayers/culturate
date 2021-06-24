@@ -17,6 +17,8 @@
 /*---- navigation ---- */
 
 nav a.brand-logo {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 900;
     color: #1a2017;
     padding-left: 5%;
 }
@@ -41,8 +43,6 @@ i.material-icons.link-icon {
 
 .nav-wrapper {
     background-color: #C2B678;
-    /* font-family: 'Archivo Black', sans-serif; */
-    font-weight: 900;
 }
 
 .nav-wrapper>a:hover {
@@ -76,13 +76,18 @@ nav ul a:hover {
     
 }
 
-blockquote {
+.listings-blockquote {
     padding-left: 15%;
     margin-left: 20%;
     font-family: 'Archivo Black', sans-serif;
     font-size: x-large;
     font-weight: 600;
     border-left: none;
+}
+
+.blockquote-small {
+    
+    border-left: 5px solid #C2B678;
 }
 
 
@@ -94,9 +99,21 @@ blockquote {
     padding-bottom: 5%;
 }
 
+.card, .listing-card {
+    border: none;
+    box-shadow: none;
+}
 .listing-card {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
+    color: #1a2017;
+}
+
+.website a {
+    color: #C33F8B;
+}
+
+.website a:hover{
     color: #1a2017;
 }
 
