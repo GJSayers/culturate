@@ -29,7 +29,8 @@ def get_index():
 def get_listings():
     listings = list(mongo.db.listings.find())
     
-    #     
+
+         
     return render_template(
         "listings.html", listings=listings)
 
@@ -39,11 +40,10 @@ def get_listings():
 def listing_page(listing_id):
 
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    for i in range(len(listings)):
-    #         listings[i]['user_rating'] = round(sum(
-    #             listings[i]['user_rating']) / len(listings[i]['user_rating']))
-    #     return average_rating
-    #     print(average_rating)
+   
+   
+        
+    
     return render_template(
         "listing_page.html", listing=listing)
 
@@ -151,16 +151,6 @@ def profile(user_name):
         listing = mongo.db.listings.find_one({"_id": favourite})
 
         favourites_list.append(listing)
-
-        print(type(favourite))
-        print("__________________________")
-    # listing_id = mongo.db.listings.find_one({"_id": ObjectId})
-    # """
-    # identify listings that are in user_favourites []
-    # """
-    # listing = mongo.db.listings.find(
-    #     {['listing_id']: {'$in': ["user_favourites"]}})
-    # last response not populating cards but cards
     if session["user"]:
         return render_template(
             "profile.html", user_name=user_name,
@@ -185,6 +175,7 @@ def logout():
 @app.route("/add_listing", methods=["GET", "POST"])
 def add_listing():
     if request.method == "POST":
+
         listing = {
             "category_name": request.form.get("category_name"),
             "listing_facilities": request.form.getlist("listing_facilities"),
@@ -296,16 +287,6 @@ def rate_listing(listing_id):
     return render_template("listings.html")
 
 
-# @app.route("/view_ratings/<listing_id>", methods=["GET", "POST"])
-# def view_ratings(listing_id):
-#     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-#     print(listing)
-#     for listing_rating in mongo.db.find_one(
-#         {"_id": ObjectId(listing_id)})["listing_rating"]:
-#             print(listing_rating)
-#     return render_template
-
-
 # route to delete a listing
 @app.route("/delete_listing/<listing_id>")
 def delete_listing(listing_id):
@@ -360,15 +341,15 @@ def delete_category(category_id):
     return redirect(url_for("get_categories"))
 
 
-# # error handlers
-# @app.errorhandler(404)
-# def not_found(error):
-#     return render_template("404.html", error=error)
+# error handlers
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html", error=error)
 
 
-# @app.errorhandler(500)
-# def internal(error):
-#     return render_template("500.html", error=error)
+@app.errorhandler(500)
+def internal(error):
+    return render_template("500.html", error=error)
 
 
 if __name__ == "__main__":
