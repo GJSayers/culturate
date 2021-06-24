@@ -19,7 +19,7 @@
         </div>
     </form>
     <div class="art-quote col m6 hide-on-small-only">
-        <blockquote>"More important than a work of art itself is what it will sow. Art can die, a painting can disappear. What counts is the seed."
+        <blockquote class="listings-blockquote">"More important than a work of art itself is what it will sow. Art can die, a painting can disappear. What counts is the seed."
 ―  Joan Miro</blockquote>
     </div>
 
@@ -29,15 +29,11 @@
 <div class="row listing-section">
     {% for listing in listings %}
     <div class="col s12 m4 listing-card">
-        <a href="{{ url_for('listing_page', listing_id=listing._id)}}">
+      
         <div class="card">
-                
-            
             <div class="card-image">
-            
+                 
 
-                
-                
                 <!-- contruct listing cards images -->
 
                 {% if listing.listing_image != "" %}
@@ -74,7 +70,7 @@
                 <!-- login/ join modal -->
                 <div id="not-logged-modal" class="modal">
                     <div class="modal-content">
-                        <h4>Please Login or Join to Favourite & Rate</h4>
+                        <h4>Login or Join to Favourite & Rate</h4>
                         <blockquote>"Art is too important not to share" 
                             <br>
                             <br>
@@ -93,13 +89,7 @@
                     <li class="city">{{ listing.listing_city }}</li> 
                     <br>
                 
-                    <li class="rating valign-wrapper">Average rating:
-                        
-                
-                        <!-- rating button to open rating modal -->
-                        <button class="btn-small favourite-button modal-trigger valign-wrapper"
-                            href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right-align">star</i>
-                        </button>
+                    
                 
                         <!-- ratings modal  -->
                 <div id="{{ listing.listing_name }}modal" class="modal">
@@ -180,64 +170,47 @@
                              </div>
                         </form>
                     </div>
-                </div>
+                </div> 
 
-                        <!-- rating div for average rating display -->
-                        {% for rating in listings.user_rating %}
-                        
-                            {% if rating == "user_rating1" %}
-                            <span><i class="material-icons">star</i></span>
-                            {% elif rating == "user_rating2" %}
-                            <span><i class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "user_rating3" %}
-                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                    class="material-icons">star</i></span>
-                            {% elif rating == "user_rating4" %}
-                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                    class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% elif rating == "user_rating5" %}
-                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                    class="material-icons">star</i><i class="material-icons">star</i><i
-                                    class="material-icons">star</i></span>
-                            {% elif rating == "user_rating6" %}
-                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                    class="material-icons">star</i><i class="material-icons">star</i><i
-                                    class="material-icons">star</i><i class="material-icons">star</i></span>
-                            {% else %}
-                            <span>This listing has not been rated yet!</span>
-
-                        {% endif %}
-                        {% endfor %}
-                    </li>
-                    <br>
-                    <li class="facilities valign-wrapper">Facilities:
+              
+                        <li class="facilities valign-wrapper">Facilities:
                         {% for facility in listing.listing_facilities %}
                         {% if facility == "Accessible" %}
-                        <span><i class="material-icons">accessible</i></a></span>
+                        <span><i class="material-icons">accessible</i></span>
                         {% endif %}
                         {% if facility == "Cafe" %}
-                        <span><i class="material-icons">local_dining</i></a></span>
+                        <span><i class="material-icons">local_dining</i></span>
                         {% endif %}
                         {% if facility == "Guide Available" %}
-                        <span><i class="material-icons">headset_mic</i></a></span>
+                        <span><i class="material-icons">headset_mic</i></span>
                         {% endif %}
                         {% if facility == "Child Friendly" %}
-                        <span><i class="material-icons">child_friendly</i></a></span>
+                        <span><i class="material-icons">child_friendly</i></span>
                         {% endif %}
                         {% if facility == "Toilets" %}
-                        <span><i class="material-icons">wc</i></a></span>
+                        <span><i class="material-icons">wc</i></span>
                         {% endif %}
                         {% endfor %}
 
                     </li>
                     <br>
-                    <li class="cost">Cost: {{ listing.listing_cost }}</li>
-                    <br>
-                    <li class="comments">Comments: {{ listing.listing_comments }}</li><br>
+                
+                        <!-- rating button to open rating modal -->
+                        <div class="">
+                            <span>Already visited? </span>
+                        <button class="btn-small favourite-button modal-trigger valign-wrapper"
+                            href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right">star</i>
+                        </button>
+                        <div>
+                        </div>
+                            <span>Planning a visit?</span>
+                        <a class="btn-small affirmative-button valign-wrapper" href="{{ url_for('listing_page', listing_id=listing._id)}}">Info<i class="material-icons right">lightbulb_outline</i>
+                        </a>
+                        </div>
                     <p><em>created by: {{ listing.listing_by }}</em></p>
                 </ul>
             </div>
-        </div>
+        </div> 
     </div>
     {% endfor %}
 </div>
