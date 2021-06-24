@@ -94,6 +94,12 @@ blockquote {
     padding-bottom: 5%;
 }
 
+.listing-card {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 2px;
+    color: #1a2017;
+}
+
 .cards-backdrop {
     background-color: #1a2017;
     box-shadow: none;
@@ -124,7 +130,7 @@ blockquote {
 
 
 
-.rating, .facilities, .cost, .comments {
+div.li.rating, div.li.facilities, div.li.cost, div.li.comments, a {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
     font-weight: 400;
@@ -181,6 +187,10 @@ hr.ratings-divider {
     border: 1px solid #C33F8B;
     width: 10%;
     display: inline-flex;
+}
+
+.tabs-content {
+    background-color: #1a2017;
 }
 
 
