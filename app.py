@@ -28,12 +28,8 @@ def get_index():
 @app.route("/get_listings")
 def get_listings():
     listings = list(mongo.db.listings.find())
-    # average_rating = 
-    #     for i in range(len(listings)):
-    #         listings[i]['user_rating'] = round(sum(
-    #             listings[i]['user_rating']) / len(listings[i]['user_rating']))
-    #     return average_rating
-    #     print(average_rating)
+    
+    #     
     return render_template(
         "listings.html", listings=listings)
 
@@ -43,13 +39,11 @@ def get_listings():
 def listing_page(listing_id):
 
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    # listing_ratings = mongo.db.listings.find_one(
-    #      {"_id": ObjectId(listing_id)})["listing_rating"]
-    # print(listing_ratings)
-    # ratings_list = []
-    # # print(ratings_list)
-    # for listing_ratings in listing:
-    #     ratings_list.append(listing_ratings)
+    for i in range(len(listings)):
+    #         listings[i]['user_rating'] = round(sum(
+    #             listings[i]['user_rating']) / len(listings[i]['user_rating']))
+    #     return average_rating
+    #     print(average_rating)
     return render_template(
         "listing_page.html", listing=listing)
 
@@ -196,11 +190,12 @@ def add_listing():
             "listing_facilities": request.form.getlist("listing_facilities"),
             "listing_name": request.form.get("listing_name"),
             "listing_cost": request.form.get("listing_cost"),
-            "listing_rating": request.form.get("listing_rating"),
+            "listing_rating": [],
             "listing_city": request.form.get("listing_city"),
-            "listing_comments": request.form.get("listing_comments"),
             "listing_image": request.form.get("listing_image"),
-            "listing_by": session["user"]
+            "listing_by": session["user"],
+            "listing_website": request.form.get("listing_website"),
+            "listing_avg_rating": ""
         }
 
         mongo.db.listings.insert_one(listing)
@@ -221,12 +216,12 @@ def edit_listing(listing_id):
             "listing_facilities": request.form.getlist("listing_facilities"),
             "listing_name": request.form.get("listing_name"),
             "listing_cost": request.form.get("listing_cost"),
-            "listing_rating": request.form.get("listing_rating"),
             "listing_city": request.form.get("listing_city"),
-            "listing_comments": request.form.get("listing_comments"),
             "listing_image": request.form.get("listing_image"),
-            "listing_by": session["user"]
-            }
+            "listing_by": session["user"],
+            "listing_website": request.form.get("listing_website"),
+        }
+
         mongo.db.listings.update({"_id": ObjectId(listing_id)}, submit)
         flash("listing Updated - Thank you!")
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
@@ -298,9 +293,7 @@ def rate_listing(listing_id):
             """
     flash("please login to rate this listing")
     return redirect(url_for("login"))
-        
-    
-    # return render_template("listings.html")
+    return render_template("listings.html")
 
 
 # @app.route("/view_ratings/<listing_id>", methods=["GET", "POST"])
