@@ -42,21 +42,24 @@
             <div class="card-content">
                 <ul>
                     <li class="city">{{ listing.listing_city }}</li>
+                    
                     <br>
-                    <li class="rating valign-wrapper">Rating:
+                    <li class="comments">
+                        <blockquote class="blockquote-small">{{ listing.listing_comments }}</blockquote>
+                    </li>
+                    <p><small><em>listed by - {{ listing.listing_by }}</em></small></p>
+                    <br>
+                    <li class="website">
+                        <a href="{{ listing.listing_website }}" target="_blank">Vist listing website</a>
+                    </li>
+                    <br>
+                    <li class="buttons valign-wrapper">
                         <!-- rating button to open rating modal -->
                         <button class="btn-small favourite-button modal-trigger valign-wrapper"
                             href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right">star</i>
                         </button>
                     </li>
-                    <br>
-                    <li class="cost">Cost: {{ listing.listing_cost }}
-                    </li>
-                    <br>
-                    <li class="comments">Comments: {{ listing.listing_comments }}
-                    </li>
-                    <br>
-                    <p><em>created by: {{ listing.listing_by }}</em></p>
+                    
                 </ul>
             </div>
             <!---------- tabs section -------->
@@ -117,17 +120,17 @@
                     </ul>
                     {% endfor %}
                 </div>
-                <div id="info" class="col s12 comments-tabs">
+                <div id="info" class="comments-tabs center-align">
                     <br>
                     <span class="ratings-header">Info</span>
                         
                     <div class="row">
                         <ul>
-                        <li class="col s12 m6">
+                        <li>
                             <span class="cost">Cost: {{ listing.listing_cost }}</span>
                         </li>
                         <hr class="ratings-divider">
-                        <li class="col s12 m6 facilities">
+                        <li class="facilities">
                             Facilities:
                             {% for facility in listing.listing_facilities %}
                             {% if facility == "Accessible" %}
@@ -156,11 +159,7 @@
                         </li>
                         <br>
                         </ul>
-                    <div class="col s12 m6"><iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2523.696973484141!2d0.2807141801494126!3d50.762652272800935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df73f8bff3daff%3A0xc64e31cb905fd3d1!2sTowner%20Eastbourne!5e0!3m2!1sen!2sit!4v1624543549372!5m2!1sen!2sit"
-                            width="275" height="220" style="border:0;" allowfullscreen="" loading="lazy">
-                        </iframe>
-                    </div>
+                    <div class="col s12 l6">{{ listing.listing_location }}</div>
                 </div>
             </div>
         </div>
