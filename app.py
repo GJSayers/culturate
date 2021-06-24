@@ -108,8 +108,6 @@ def login():
                     existing_user["user_password"], request.form.get(
                         "user_password")):
                 session["user"] = request.form.get("user_name").lower()
-                flash("Hey, {}".format(
-                    request.form.get("user_name")))
                 return redirect(url_for(
                     "profile", user_name=session["user"]))
 

@@ -1,5 +1,19 @@
+.row.flashes {
+    align-content: space-around;
+}
+
+
 .flashes h4 {
-    line-height: 2;
+    align-content: space-around;
+    height: 25%;
+    background-color: #F7E93F;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: 900;
+    padding: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
+    transition: ease-out;
+    
 }
 
 /*---- index ---- */
