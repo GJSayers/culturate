@@ -124,6 +124,18 @@ blockquote {
     font-size: x-large;
 }
 
+.modal-content h4 {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: 2px;
+    color: #1a2017;
+}
+
+.modal-content blockquote {
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: normal;
+    color: #C2B678;
+}
+
 .rating, .facilities, .cost, .comments {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
@@ -187,12 +199,12 @@ hr.ratings-divider {
 .submit-btn {
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
-    background-color: #03B066;
+    background-color: #F7E93F;
     color: #1a2017;
 }
 
 .submit-btn:hover {
-    background-color: #C2B678;
+    background-color: #C33F8B;
 }
 
 .submission-header {
@@ -207,7 +219,7 @@ hr.ratings-divider {
 }
 
 .submission-form {
-    background-color: rgba(247, 233, 63, 1);
+    background-color: transparent;
     box-shadow: none;
     width: 100%;
 }
@@ -247,7 +259,7 @@ input[type='text'],
 
 
 .form-background {
-    background-color: rgba(247, 233, 63, 1);
+    background-color: transparent;
     margin: 0%;
 }
 
