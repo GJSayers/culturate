@@ -28,7 +28,14 @@ def get_index():
 @app.route("/get_listings")
 def get_listings():
     listings = list(mongo.db.listings.find())
-    return render_template("listings.html", listings=listings)
+    # average_rating = 
+    #     for i in range(len(listings)):
+    #         listings[i]['user_rating'] = round(sum(
+    #             listings[i]['user_rating']) / len(listings[i]['user_rating']))
+    #     return average_rating
+    #     print(average_rating)
+    return render_template(
+        "listings.html", listings=listings)
 
 
 # to display one listing
@@ -244,6 +251,7 @@ def favourite_listing(listing_id):
     user_favourites = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_favourites"]
     print(user_favourites)
+    
     if request.method == "POST":
         # check if the listing is already in the
         # user's favourites list in db.
@@ -272,18 +280,27 @@ def rate_listing(listing_id):
     print(listing)
     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
     print(user)
-    if request.method == "POST":
-        listing_rating = {
-            "rating_by": session["user"],
-            "user_rating": request.form.get("user_rating"),
-            "user_comments": request.form.get("user_comments")
-            }
-        mongo.db.listings.update_one(
+    if session["user"]:
+        if request.method == "POST":
+            listing_rating = {
+                "rating_by": session["user"],
+                "user_rating": request.form.get("user_rating"),
+                "user_comments": request.form.get("user_comments")
+                }
+            
+            mongo.db.listings.update_one(
             {"_id": ObjectId(listing_id)},
             {"$push": {"listing_rating": listing_rating}})
-        print(listing_rating)
-        return render_template("listings.html")
-    return render_template("listings.html")
+            print(listing_rating)
+            return render_template("listings.html")
+            """
+            if user is not in session, re-direct
+            """
+    flash("please login to rate this listing")
+    return redirect(url_for("login"))
+        
+    
+    # return render_template("listings.html")
 
 
 # @app.route("/view_ratings/<listing_id>", methods=["GET", "POST"])
