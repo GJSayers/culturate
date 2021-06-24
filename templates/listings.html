@@ -19,7 +19,7 @@
         </div>
     </form>
     <div class="art-quote col m6 hide-on-small-only">
-        <blockquote>"More important than a work of art itself is what it will sow. Art can die, a painting can disappear. What counts is the seed.""
+        <blockquote>"More important than a work of art itself is what it will sow. Art can die, a painting can disappear. What counts is the seed."
 ―  Joan Miro</blockquote>
     </div>
 
@@ -68,14 +68,17 @@
 
                 {% else %}
                 <!-- login/ join modal-trigger on favourite button -->
-                <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#modal1"><i
+                <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#not-logged-modal"><i
                         class="material-icons">favorite</i></button>
 
                 <!-- login/ join modal -->
-                <div id="modal1" class="modal">
+                <div id="not-logged-modal" class="modal">
                     <div class="modal-content">
-                        <h4>Please Login or Join to Favourite</h4>
-                        <p>A bunch of text</p>
+                        <h4>Please Login or Join to Favourite & Rate</h4>
+                        <blockquote>"Art is too important not to share" 
+                            <br>
+                            <br>
+                                    - Romero Britto </blockquote>
                     </div>
                     <div class="modal-footer">
                         <a href="{{ url_for('join') }}" class="modal-close waves-effect waves-green btn-flat">Join</a>
@@ -87,15 +90,18 @@
 
             <div class="card-content">
                 <ul>
-                    <li class="city">{{ listing.listing_city }}</li>
+                    <li class="city">{{ listing.listing_city }}</li> 
                     <br>
-                    <li class="rating valign-wrapper">Rating:
+                
+                    <li class="rating valign-wrapper">Average rating:
+                        
+                
                         <!-- rating button to open rating modal -->
                         <button class="btn-small favourite-button modal-trigger valign-wrapper"
                             href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right-align">star</i>
                         </button>
-
-                                                <!-- ratings modal  -->
+                
+                        <!-- ratings modal  -->
                 <div id="{{ listing.listing_name }}modal" class="modal">
                     <div class="modal-content">
                         <h4>Rate {{ listing.listing_name }}</h4>
@@ -135,7 +141,7 @@
                             </p>
                             <p>
                                 <label for="{{ listing.listing_name }}user_rating5">
-                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating5" value="user_rating5"
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating5" value="5"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                             class="material-icons">star</i><i class="material-icons">star</i><i
@@ -144,7 +150,7 @@
                             </p>
                             <p>
                                 <label for="{{ listing.listing_name }}user_rating6">
-                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating6" value="user_rating6"
+                                    <input name="{{ listing.listing_name }}user_rating" id="{{ listing.listing_name }}user_rating6" value="6"
                                         class="group1" type="radio" />
                                     <span><i class="material-icons">star</i><i class="material-icons">star</i><i
                                             class="material-icons">star</i><i class="material-icons">star</i><i
@@ -161,9 +167,16 @@
                             <div class="modal-footer">
                                 <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel <i
                                         class="material-icons right submission-icon">clear</i></a>
+                            {% if session.user %}
                                 <button class="btn affirmative-button v-align center-align" type="submit">Rate it
                                     <i class="material-icons right submission-icon">library_add</i>
                                 </button>
+                            {% else %}
+                                    <!-- login/ join modal-trigger on favourite button -->
+                                <button class="btn affirmative-button v-align center-align modal-trigger" href="#not-logged-modal">Rate it
+                                    <i class="material-icons right submission-icon">library_add</i></button>
+                            {% endif %}
+                                
                              </div>
                         </form>
                     </div>
