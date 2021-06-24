@@ -186,7 +186,9 @@ def add_listing():
             "listing_image": request.form.get("listing_image"),
             "listing_by": session["user"],
             "listing_website": request.form.get("listing_website"),
-            "listing_avg_rating": ""
+            "listing_avg_rating": "",
+            "listing_comments": request.form.get("listing_comments"),
+            "listing_location": request.form.get("listing_location")
         }
 
         mongo.db.listings.insert_one(listing)
@@ -211,6 +213,8 @@ def edit_listing(listing_id):
             "listing_image": request.form.get("listing_image"),
             "listing_by": session["user"],
             "listing_website": request.form.get("listing_website"),
+            "listing_comments": request.form.get("listing_comments"),
+            "listing_location": request.form.get("listing_location")
         }
 
         mongo.db.listings.update({"_id": ObjectId(listing_id)}, submit)
@@ -263,9 +267,7 @@ def favourite_listing(listing_id):
 @app.route("/rate_listing/<listing_id>", methods=["GET", "POST"])
 def rate_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    print(listing)
     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
-    print(user)
     if session["user"]:
         if request.method == "POST":
             listing_rating = {
@@ -278,13 +280,40 @@ def rate_listing(listing_id):
             {"_id": ObjectId(listing_id)},
             {"$push": {"listing_rating": listing_rating}})
             print(listing_rating)
-            return render_template("listings.html")
+            return redirect(url_for("get_listings"))
             """
             if user is not in session, re-direct
             """
-    flash("please login to rate this listing")
     return redirect(url_for("login"))
-    return render_template("listings.html")
+    
+
+#########
+## TO BE TESTED ###
+#########
+# @app.route("/edit_listing_rating/<listing_id", methods=["GET", "POST"])
+# def edit_listing(listing_id):
+#     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
+#     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
+#     superuser = user["super_user"]
+#     if session["user"] or superuser:
+#         if request.method == "POST":
+#             listing_rating = {
+#                 "rating_by": session["user"],
+#                 "user_rating": request.form.get("user_rating"),
+#                 "user_comments": request.form.get("user_comments")
+#                 }
+            
+#             mongo.db.listings.update_one(
+#             {"_id": ObjectId(listing_id)},
+#             {"$set": {"listing_rating": listing_rating}})
+#             print(listing_rating)
+#             return render_template("listings.html")
+#             """
+#             if user is not in session, re-direct
+#             """
+#     flash("please login to rate this listing")
+#     return redirect(url_for("login"))
+#     return render_template("listings.html")
 
 
 # route to delete a listing
