@@ -28,9 +28,6 @@ def get_index():
 @app.route("/get_listings")
 def get_listings():
     listings = list(mongo.db.listings.find())
-    
-
-         
     return render_template(
         "listings.html", listings=listings)
 
@@ -38,12 +35,7 @@ def get_listings():
 # to display one listing
 @app.route("/listing_page/<listing_id>")
 def listing_page(listing_id):
-
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-   
-   
-        
-    
     return render_template(
         "listing_page.html", listing=listing)
 
@@ -130,6 +122,8 @@ def login():
 # route to populate profile page
 @app.route("/profile/<user_name>", methods=["GET", "POST"])
 def profile(user_name):
+    user = list(mongo.db.users.find())
+    categories = mongo.db.categories.find().sort("category_name", 1)
     """
     get session user's username from the database
     """
@@ -152,11 +146,19 @@ def profile(user_name):
     if session["user"]:
         return render_template(
             "profile.html", user_name=user_name,
-            user_favourites=favourites_list)
+            user_favourites=favourites_list, user=user,
+            categories=categories)
     """
     if user is not in session, re-direct
     """
     return redirect(url_for("login"))
+
+
+@app.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("Category user profile successfully deleted")
+    return redirect(url_for("listings"))
 
 
 # route to add a logout
@@ -239,7 +241,7 @@ def favourite_listing(listing_id):
     user_favourites = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_favourites"]
     print(user_favourites)
-    
+ 
     if request.method == "POST":
         # check if the listing is already in the
         # user's favourites list in db.
@@ -273,20 +275,18 @@ def rate_listing(listing_id):
                 "user_rating": request.form.get("user_rating"),
                 "user_comments": request.form.get("user_comments")
                 }
-            
-            mongo.db.listings.update_one(
-            {"_id": ObjectId(listing_id)},
-            {"$push": {"listing_rating": listing_rating}})
-            print(listing_rating)
-            return redirect(url_for("get_listings"))
+            mongo.db.listings.update_one({"_id": ObjectId(listing_id)},
+                            {"$push": {"listing_rating": listing_rating}})
+            return redirect(url_for(
+                "get_listings", listing=listing, user=user))
             """
-            if user is not in session, re-direct
+                if user is not in session, re-direct
             """
-    return redirect(url_for("login"))
+        return redirect(url_for("login"))
     
 
 #########
-## TO BE TESTED ###
+# TO BE TESTED ###
 #########
 # @app.route("/edit_listing_rating/<listing_id", methods=["GET", "POST"])
 # def edit_listing(listing_id):
@@ -312,8 +312,6 @@ def rate_listing(listing_id):
 #     flash("please login to rate this listing")
 #     return redirect(url_for("login"))
 #     return render_template("listings.html")
-
-
 # route to delete a listing
 @app.route("/delete_listing/<listing_id>")
 def delete_listing(listing_id):
