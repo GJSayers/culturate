@@ -96,26 +96,38 @@
         <li>
             <div class="collapsible-header"><i class="material-icons">contacts</i>My Details</div>
             <div class="collapsible-body"><span>
-                    {% for user_name in users %}
-                    <div class="card-panel user-cards"></div>
+                <div class="card-panel user-cards">
                     <span>
-                        <div class="card-panel user-cards">
-                            <span>
-
-                                <p><strong>Name: </strong>{{ users.user_name }}</p>
-                                <p><strong>Email: </strong>{{ users.user_email }}</p>
-                                <p><strong>Bio: </strong>{{ users.user_bio }}</p>
+                        <div>
+                           <span>
+                                <p><strong>Name: </strong>{{ user_name }}</p>
+                                <p><strong>Email: </strong>{{ user_email }}</p>
+                                <p><strong>Bio: </strong>{{ user_bio }}</p>
                             </span>
                         </div>
                     </span>
-
-                    {% endfor %}
+                </div>
             </div>
         </li>
         <li>
             <div class="collapsible-header"><i class="material-icons">collections_bookmark</i>My Added Places
             </div>
-            <div class="collapsible-body"><span>Items added by the profile owner</span></div>
+            <div class="collapsible-body">
+                <!-- <span>
+                {% if user_created %}
+                    {% for l in user_created %}
+                <div class="card-panel user-cards">
+                    <span>
+                        <div>
+                           <span>
+                                <p><strong>{{ listing_name }}</strong></p>
+                            </span>
+                        </div>
+                    </span>
+                </div>
+                    {% endfor %}
+                {% endif %}
+            </span></div> -->
         </li>
         {% endif %}
     </ul>

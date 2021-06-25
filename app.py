@@ -124,11 +124,23 @@ def login():
 def profile(user_name):
     user = list(mongo.db.users.find())
     categories = mongo.db.categories.find().sort("category_name", 1)
+    listing = list(mongo.db.listings.find())
     """
     get session user's username from the database
     """
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
+    """
+    get session user's profile from the database
+    """
+    user_profile = mongo.db.users.find_one(
+        {"user_name": session["user"]})
+    """
+    get session user's listed items from the database
+    """
+    # user_created = mongo.db.users.find_one(
+    #             {"_id": user_profile},
+    #             {"listing_by": listing})
     """
     get session user favourites from the database
     """
@@ -147,7 +159,8 @@ def profile(user_name):
         return render_template(
             "profile.html", user_name=user_name,
             user_favourites=favourites_list, user=user,
-            categories=categories)
+            categories=categories, user_profile=user_profile,
+            user_created=user_created)
     """
     if user is not in session, re-direct
     """
