@@ -354,6 +354,13 @@ input[type='text'],
     background-color: #C33F8B;
 }
 
+.user-cards {
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: #C2B678;
+    color: #1a2017;
+}
 
 
 /*---- footer ---- */
