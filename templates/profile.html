@@ -3,9 +3,10 @@
 
 <div class="row profile-section card-panel">
     {% if session.user|lower == "admin"|lower %}
-    <span class="submission-header">{{ user_name }}'s Profile</span>
+    <span class="submission-header">{{ user_name }}'s Dashboard</span>
     {% else %}
-    <span class="submission-header">{{ user_name }}'s Dashboad</span>
+    <span class="submission-header">{{ user_name }}'s Profile</span>
+    
     {% endif %}
     <ul class="collapsible">
         <li>
@@ -71,7 +72,7 @@
             <div class="collapsible-body"><span>
                     {% for users in user %}
                     <div class="col s12 m5">
-                        <div class="card-panel teal">
+                        <div class="card-panel user-cards"></div>
                             <span>
                                 <div class="card-panel user-cards">
                                     <span>
@@ -96,10 +97,12 @@
         {% endif %}
     </ul>
 
-
-
+    {% if session.user|lower == "admin"|lower %}
+    <blockquote class="admin-blockquote">"A true artist is not one who is inspired, but one who inspires others.""
+    ―  Salvador Dali</blockquote>
+    {% else %}
     <span class="submission-header">{{ user_name }}'s Favourites</span>
-
+    {% endif %}
     <div class="row listing-section">
         <div class="card">
             {% for listing in user_favourites %}

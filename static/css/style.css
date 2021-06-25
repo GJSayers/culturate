@@ -1,4 +1,10 @@
 
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
 .row.flashes {
     align-content: space-around
 }
@@ -91,8 +97,8 @@ nav ul a:hover {
     margin: 0%;
     background-color: #1a2017;
     padding-top: 10%;
+    height: 100%;
     color: #C2B678;
-    
 }
 
 .listings-blockquote {
@@ -102,6 +108,17 @@ nav ul a:hover {
     font-size: x-large;
     font-weight: 600;
     border-left: none;
+}
+
+.admin-blockquote {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20%;
+    margin-bottom: 19%;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: x-large;
+    font-weight: 600;
+    border-left: 5px solid #C33F8B;
 }
 
 .blockquote-small {
@@ -362,8 +379,27 @@ input[type='text'],
     color: #1a2017;
 }
 
+.collapsible-header, .collapsible {
+    background-color: #1a2017;
+    border-color: #1a2017;
+    
+}
+
+.collapsible-body {
+    border-bottom: #C33F8B;
+}
+
+
+
 
 /*---- footer ---- */
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+}
 
 .footer-title {
     color: #1a2017;
