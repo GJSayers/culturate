@@ -1,15 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row form-background center-align">
-    <div class="card submission-form">
-        <div class="card-content center-align">
-            <span class="submission-header">{{ user_name }}'s Profile</span>
+<div class="row profile-section card-panel">
+    <span class="submission-header">{{ user_name }}'s Profile</span>
 
             <ul class="collapsible">
                 <li>
-                    <div class="collapsible-header"><i class="material-icons">place</i>Near Me</div>
-                    <div class="collapsible-body"><span>Add the map here</span></div>
+                    <div class="collapsible-header"><i class="material-icons">search</i>Find somewhere new</div>
+                    <div class="collapsible-body"><span>            <!-- search bar -->
+<div class="row search-section card-panel">
+    <form action="{{ url_for('search') }}" method="POST" class="col">
+        <div class="row valign-wrapper center-align">
+            <div class="input-field col s12 center-align">
+                <i class="material-icons prefix">search</i>
+                <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                <label for="query">Search Listings</label>
+            </div>
+        </div>
+            <!-- search & cancel buttons -->
+        <div class="row center-align">
+            <div class="col s12 m6 center-align">
+                <a href="{{ url_for('get_listings') }}" class="btn cancel-button center-align"><i class="material-icons left">fast_rewind</i>Start Again</a>
+                <button type="submit" class="btn affirmative-button center-align"><i class="material-icons left">search</i>Search</button>
+            </div>
+        </div>
+    </form></span></div>
                 </li>
                 <li>
                     <div class="collapsible-header"><i class="material-icons">contacts</i>My Details</div>
@@ -21,10 +36,13 @@
                     <div class="collapsible-body"><span>Items added by the profile owner</span></div>
                 </li>
             </ul>
+    
+            
 
             <span class="submission-header">{{ user_name }}'s Favourites</span>
 
             <div class="row listing-section">
+                <div class="card">
                     {% for listing in user_favourites %}
                     <div class="col s12 m4 listing-card">
                         <div class="card">
@@ -156,7 +174,7 @@
                                     <br>
                                     <li class="cost">Cost: {{ listing.listing_cost }}</li>
                                     <br>
-                                    <li class="comments">Comments: {{ listing.listing_comments }}</li><br>
+                                    
                                                             <!-- rating button to open rating modal -->
                         <div class="">
                             <span>Already visited? </span>

@@ -86,7 +86,7 @@ nav ul a:hover {
 
 /*---- listings ---- */
 
-.search-section {
+.search-section, .profile-section {
     margin: 0%;
     background-color: #1a2017;
     padding-top: 10%;
