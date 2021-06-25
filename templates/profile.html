@@ -54,13 +54,33 @@
                             <p><strong>Name: </strong>{{ users.user_name }}</p>
                             <p><strong>Email: </strong>{{ users.user_email }}</p>
                             <p><strong>Bio: </strong>{{ users.user_bio }}</p>
-                            <a href="{{ url_for('profile', user_name=user_name) }}" class="btn cancel-button"> Cancel <i
-                                    class="material-icons right submission-icon">clear</i></a>
-
+                            <!-- delete button -->
+                            <a href="#{{ users._id }}" class="btn delete-button modal-trigger"> Delete<i
+                                    class="material-icons right submission-icon">clear</i>
+                            </a>
+                            <!-- delete confirmation modal -->
+                        <div id="{{ users._id }}" class="modal">
+                            <div class="modal-content">
+                                <h4>Delete user?</h4>
+                                <p>Are you sure?</p>
+                                <blockquote> “If you’re brave enough to say goodbye, life will reward you with a new
+                                    hello.”
+                                    <br>
+                                    <br>
+                                    – Paulo Coelho </blockquote>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ url_for('delete_user', user_id=users._id) }}" class="btn delete-button" data-target="{{ users._id }}">
+                                    Delete<i class="material-icons right submission-icon">clear</i>
+                                </a>
+                            </div>
+                        </div>
                         </span>
-                    </div>
+                        
+                    </div>   
                 </span>
                 {% endfor %}
+                
             </div>
         </li>
         <li>
@@ -231,7 +251,7 @@
                                      <!-- favourite button  -->
                                         <!-- login/ join modal-trigger on favourite button -->
                                         <button class="btn affirmative-button v-align center-align modal-trigger"
-                                            href="#not-logged-modal">Rate it
+                                            id="#not-logged-modal">Rate it
                                             <i class="material-icons right submission-icon">library_add</i></button>
                                         {% endif %}
 

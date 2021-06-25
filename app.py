@@ -154,11 +154,12 @@ def profile(user_name):
     return redirect(url_for("login"))
 
 
+# route to delete a user
 @app.route("/delete_user/<user_id>")
 def delete_user(user_id):
     mongo.db.users.remove({"_id": ObjectId(user_id)})
-    flash("Category user profile successfully deleted")
-    return redirect(url_for("listings"))
+    flash("User profile successfully deleted")
+    return redirect(url_for("get_listings"))
 
 
 # route to add a logout
@@ -292,8 +293,7 @@ def rate_listing(listing_id):
 # def edit_listing(listing_id):
 #     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
 #     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
-#     superuser = user["super_user"]
-#     if session["user"] or superuser:
+#     if session["user"]:
 #         if request.method == "POST":
 #             listing_rating = {
 #                 "rating_by": session["user"],
