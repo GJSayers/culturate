@@ -26,7 +26,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">label</i>
-                <textarea id="listing_name" name="listing_name" class="materialize-textarea validate" required></textarea>
+                <textarea id="listing_name" name="listing_name" minlength="3" maxlength="20" class="materialize-textarea validate" required></textarea>
                 <label for="listing_name">Listing Name</label>
             </div>
         </div>
@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <!-- Ratings input -->
+        <!-- Ratings input
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">star</i>
@@ -77,13 +77,13 @@
                 </select>
                 <label for="listing_rating">Rating</label>
             </div>
-        </div>
+        </div> -->
 
         <!-- Place / Event City input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">location_city</i>
-                <textarea id="listing_city" name="listing_city" class="materialize-textarea validate" required></textarea>
+                <textarea id="listing_city" name="listing_city" minlength="3" maxlength="20" class="materialize-textarea validate" required></textarea>
                 <label for="listing_city">Place / Event City</label>
             </div>
         </div>
@@ -93,21 +93,38 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">insert_comment</i>
-                <textarea id="listing_comments" name="listing_comments" class="materialize-textarea validate" required></textarea>
-                <label for="listing_comments">Comments</label>
+                <textarea id="listing_comments" name="listing_comments" minlength="10" maxlength="150" class="materialize-textarea validate" required></textarea>
+                <label for="listing_comments">Write-up</label>
             </div>
         </div>
 
-        <!-- profile pic input -->
+        <!-- listing pic input -->
         <div class="row">
             <div class="input-field file-field col s10 push-s1">
-                <span><i class="material-icons prefix submission-icon validate" required>add_a_photo</i>
-                    <label for="avatar">Upload listing Pic</label>
-                </span>
-                <input id="listing_image" name="listing_image" type="file">
-                <div class="file-path-wrapper">
+                <i class="material-icons prefix submission-icon validate" required>add_a_photo</i>
+                    <label for="listing_image">Listing url</label>
+                <input id="listing_image" name="listing_image" minlength="8" maxlength="250" type="text" class="validate">
+                <!-- <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
-                </div>
+                </div> -->
+            </div>
+        </div>
+
+         <!-- listing website input -->
+        <div class="row">
+            <div class="input-field file-field col s10 push-s1">
+                <i class="material-icons prefix submission-icon validate" required>computer</i>
+                    <label for="listing_website">Website url</label>
+                <input id="listing_website" name="listing_website" minlength="8" maxlength="250" type="text" class="validate">
+            </div>
+        </div>
+
+        <!-- listing map url input -->
+        <div class="row">
+            <div class="input-field file-field col s10 push-s1">
+                <i class="material-icons prefix submission-icon validate" required>add_location</i>
+                    <label for="listing_location">Location url</label>
+                <input id="listing_location" name="listing_location" minlength="8" maxlength="250" type="text" class="validate">
             </div>
         </div>
 
