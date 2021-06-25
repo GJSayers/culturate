@@ -249,7 +249,7 @@ def favourite_listing(listing_id):
                 {"_id": user},
                 {"$pull": {"user_favourites": listing["_id"]}})
             flash("listing removed from favourites")
-            return render_template("listings.html")
+            return redirect(url_for("get_listings"))
         else:
             # add a listing to the session user's
             # favourites section in profile
@@ -257,7 +257,7 @@ def favourite_listing(listing_id):
                 {"_id": user},
                 {"$push": {"user_favourites": listing["_id"]}})
             flash("listing successfully added to favourites")
-        return render_template("listings.html")
+            return redirect(url_for("get_listings"))
     return render_template("listings.html")
 
 
