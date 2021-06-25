@@ -45,7 +45,7 @@
                 {% endif %}
                 <span class="card-title">{{ listing.listing_name }}</span>
 
-                {% if session.user|lower == listing.listing_by|lower %}
+                {% if session.user|lower == listing.listing_by|lower or "admin"|lower %}
 
                 <!-- edit form button to edit listings -->
                 <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" 
