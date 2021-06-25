@@ -10,7 +10,7 @@ $(document).ready(function () {
         isOpen: false
     });
     $('.modal').modal();
-});
+
 
 
  validateMaterializeSelect();
@@ -40,3 +40,4 @@ $(document).ready(function () {
             }
         });
     }
+});
