@@ -23,7 +23,7 @@
 
                     {% endfor %}
                 </select>
-                <label for="category_name">Venue Type</label>
+                <label for="category_name">Listing Type</label>
             </div>
         </div>
 
@@ -42,7 +42,6 @@
                 <i class="material-icons prefix submission-icon">local_cafe</i>
                 <select multiple id="listing_facilities" name="listing_facilities" class="validate" required>
                     <option value="" disabled selected>Choose available facilities</option>
-
                     <option value="Accessible">Accessible</option>
                     <option value="Cafe">Cafe</option>
                     <option value="Toilets">Toilets</option>
@@ -68,22 +67,7 @@
             </div>
         </div>
 
-        <!-- Ratings input -->
-        <div class="row">
-            <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix submission-icon">star</i>
-                <select id="listing_rating" name="listing_rating" class="validate" required>
-                    <option value="" disabled selected>Rating</option>
-                    <option value=1>1 star</option>
-                    <option value=2>2 stars</option>
-                    <option value=3>3 stars</option>
-                    <option value=4>4 stars</option>
-                    <option value=5>5 stars</option>
-                    <option value=6>6 stars</option>
-                </select>
-                <label for="listing_rating">Rating</label>
-            </div>
-        </div>
+      
 
         <!-- Place / Event City input -->
         <div class="row">
@@ -100,20 +84,34 @@
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">insert_comment</i>
                 <textarea id="listing_comments" name="listing_comments" class="materialize-textarea validate" required>{{ listing.listing_comments }}</textarea>
-                <label for="listing_comments">Comments</label>
+                <label for="listing_comments">Write-up</label>
             </div>
         </div>
 
-        <!-- profile pic input -->
+          <!-- listing pic input -->
         <div class="row">
-            <div class="input-field file-field col s10 push-s1">
-                <span><i class="material-icons prefix submission-icon validate" required>add_a_photo</i>
-                    <label for="listing_image">Upload listing Pic</label>
-                </span>
-                <input id="listing_image" name="listing_image" type="file">
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                </div>
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix submission-icon">add_a_photo</i>
+                    <input id="listing_image" name="listing_image" minlength="8" maxlength="250" type="text" class="validate" required>
+                <label for="listing_image">Listing image url</label>
+            </div>
+        </div>
+
+         <!-- listing website input -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix submission-icon validate" required>computer</i>
+                    <input  id="listing_website" name="listing_website" minlength="8" maxlength="250" class="validate" required> 
+                <label for="listing_website">Website url</label>
+            </div>
+        </div>
+
+        <!-- listing map url input -->
+        <div class="row">
+            <div class="input-field col s10 push-s1">
+                <i class="material-icons prefix submission-icon validate" required>add_location</i>
+                   <input {{ listing.listing_location }} id="listing_location" name="listing_location" minlength="8" maxlength="250" type="text" class="validate" required>
+                 <label for="listing_location">Location url</label>
             </div>
         </div>
 
@@ -121,9 +119,9 @@
         <div class="row valign-wrapper center-align">
             <div class="col s-8 offset-s2 center-align">
                 <a href="{{ url_for('get_listings') }}" class="btn cancel-button">  Cancel <i class="material-icons right submission-icon">clear</i></a>
-                <button class="btn affirmative-button center-align" type="submit">Save Changes
+                <a href="{{ url_for('get_listings') }}" class="btn affirmative-button center-align" type="submit">Save Changes
                     <i class="material-icons right submission-icon">mode_edit</i>
-                </button>
+                </a>
             </div>
         </div>
         
