@@ -4,12 +4,13 @@ $(document).ready(function () {
     $('.parallax').parallax();
     $('.collapsible').collapsible();
     $('.tabs').tabs();
+    $('.modal').modal();
     $('.fixed-action-btn').floatingActionButton({
         direction: 'left',
         hoverEnabled: false,
         isOpen: false
     });
-    $('.modal').modal();
+    
 
 
 
