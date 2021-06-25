@@ -159,7 +159,9 @@
                         </li>
                         <br>
                         </ul>
-                    <div class="col s12 l6">{{ listing.listing_location }}</div>
+                    <div>
+                        {{ listing.listing_location }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -206,7 +208,7 @@
                     <p>
                         <label for="{{ listing.listing_name }}user_rating5">
                             <input name="{{ listing.listing_name }}user_rating"
-                                id="{{ listing.listing_name }}user_rating5" value="user_rating5" class="group1"
+                                id="{{ listing.listing_name }}user_rating5" value="5" class="group1"
                                 type="radio" />
                             <span><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
@@ -216,7 +218,7 @@
                     <p>
                         <label for="{{ listing.listing_name }}user_rating6">
                             <input name="{{ listing.listing_name }}user_rating"
-                                id="{{ listing.listing_name }}user_rating6" value="user_rating6" class="group1"
+                                id="{{ listing.listing_name }}user_rating6" value="6" class="group1"
                                 type="radio" />
                             <span><i class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
