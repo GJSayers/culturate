@@ -181,106 +181,107 @@
                         </form>
                         {% endif %}
                         <!-- ratings modal  -->
-                        <div id="{{ listing.listing_name }}modal" class="modal">
-                            <div class="modal-content">
-                                <h4>Rate {{ listing.listing_name }}</h4>
+                                       <!-- ratings modal  -->
+            <div id="{{ listing.listing_name }}modal" class="modal">
+                <div class="modal-content">
+                    <h4>Rate {{ listing.listing_name }}</h4>
 
-                                <!-- ratings form in modal -->
-                                <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
-                                    id="{{ listing.listing_id }}user_rating"
-                                    name="{{ listing.listing_name}}user_rating">
-                                    <!-- 1 star rating  -->
-                                    <p>
-                                        <label for="{{ listing.listing_name }}user_rating1">
-                                            <input name="{{ listing.listing_name }}user_rating"
-                                                id="{{ listing.listing_name }}user_rating1" value="1" class="group1"
-                                                type="radio" checked />
-                                            <span><i class="material-icons">star</i></span>
-                                        </label>
-                                    </p>
-                                    <!-- 2 star rating  -->
-                                    <p>
-                                        <label for="{{ listing.listing_name }}user_rating2">
-                                            <input name="{{ listing.listing_name }}user_rating"
-                                                id="{{ listing.listing_name }}user_rating2" value="2" class="group1"
-                                                type="radio" />
-                                            <span><i class="material-icons">star</i><i
-                                                    class="material-icons">star</i></span>
-                                        </label>
-                                    </p>
-                                    <!-- 3 star rating  -->
-                                    <p>
-                                        <label for="{{ listing.listing_name }}user_rating3">
-                                            <input name="{{ listing.listing_name }}user_rating"
-                                                id="{{ listing.listing_name }}user_rating3" value="3" class="group1"
-                                                type="radio" />
-                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                                    class="material-icons">star</i></span>
-                                        </label>
-                                    </p>
-                                    <!-- 4 star rating  -->
-                                    <p>
-                                        <label for="{{ listing.listing_name }}user_rating4">
-                                            <input name="{{ listing.listing_name }}user_rating"
-                                                id="{{ listing.listing_name }}user_rating4" value="4" class="group1"
-                                                type="radio" />
-                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                                    class="material-icons">star</i><i
-                                                    class="material-icons">star</i></span>
-                                        </label>
-                                    </p>
-                                    <!-- 5 star rating  -->
-                                    <p>
-                                        <label for="{{ listing.listing_name }}user_rating5">
-                                            <input name="{{ listing.listing_name }}user_rating"
-                                                id="{{ listing.listing_name }}user_rating5" value="5" class="group1"
-                                                type="radio" />
-                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                                    class="material-icons">star</i><i class="material-icons">star</i><i
-                                                    class="material-icons">star</i></span>
-                                        </label>
-                                    </p>
-                                    <!-- 6 star rating  -->
-                                    <p>
-                                        <label for="{{ listing.listing_name }}user_rating6">
-                                            <input name="{{ listing.listing_name }}user_rating"
-                                                id="{{ listing.listing_name }}user_rating6" value="6" class="group1"
-                                                type="radio" />
-                                            <span><i class="material-icons">star</i><i class="material-icons">star</i><i
-                                                    class="material-icons">star</i><i class="material-icons">star</i><i
-                                                    class="material-icons">star</i><i
-                                                    class="material-icons">star</i></span>
-                                        </label>
-                                    </p>
-                                    <!-- user comments  -->
-                                    <p>
-                                        <label for="user_comments">Tell us what you think..</label>
-                                        <textarea name="user_comments" id="user_comments"
-                                            class="materialize-textarea validate" required>
-                                </textarea>
-                                    </p>
-                                    <!-- rating modal footer with buttons to cancel or submit -->
-                                    <div class="modal-footer">
-                                        <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel <i
-                                                class="material-icons right submission-icon">clear</i></a>
-                                        {% if session.user %}
-                                        <!-- rate it button  -->
-                                        <button class="btn affirmative-button v-align center-align" type="submit">Rate
-                                            it
-                                            <i class="material-icons right submission-icon">library_add</i>
-                                        </button>
-                                        {% else %}
-                                        <!-- favourite button  -->
-                                        <!-- login/ join modal-trigger on favourite button -->
-                                        <button class="btn affirmative-button v-align center-align modal-trigger"
-                                            id="#not-logged-modal">Rate it
-                                            <i class="material-icons right submission-icon">library_add</i></button>
-                                        {% endif %}
-
-                                    </div>
-                                </form>
-                            </div>
+                    <!-- radio button ratings form in modal -->
+                    <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
+                        id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name }}user_rating">
+                        <p>
+                            <label for="{{ listing.listing_name }}user_rating1">
+                                <input name="user_rating"
+                                    id="{{ listing.listing_name }}user_rating1" value="1" class="group1" type="radio"
+                                    checked />
+                                <span>
+                                    <i class="radio-star material-icons">star</i>
+                                </span>
+                            </label>
+                        </p>
+                        <p>
+                            <label for="{{ listing.listing_name }}user_rating2">
+                                <input name="user_rating"
+                                    id="{{ listing.listing_name }}user_rating2" value="2" class="group1" type="radio" />
+                                <span><i class="radio-star material-icons">star</i><i
+                                        class="radio-star material-icons">star</i></span>
+                            </label>
+                        </p>
+                        <p>
+                            <label for="{{ listing.listing_name }}user_rating3">
+                                <input name="user_rating"
+                                    id="{{ listing.listing_name }}user_rating3" value="3" class="group1" type="radio" />
+                                <span><i class="radio-star material-icons">star</i>
+                                     <i class="radio-star material-icons">star</i>
+                                     <i class="radio-star material-icons">star</i>
+                                </span>
+                            </label>
+                        </p>
+                        <p>
+                            <label for="{{ listing.listing_name }}user_rating4">
+                                <input name="user_rating"
+                                    id="{{ listing.listing_name }}user_rating4" value="4" class="group1" type="radio" />
+                                    <span>
+                                      <i class="radio-star material-icons">star</i>
+                                      <i class="radio-star material-icons">star</i>
+                                      <i class="radio-star material-icons">star</i>
+                                      <i class="radio-star material-icons">star</i>
+                                    </span>
+                            </label>
+                        </p>
+                        <p>
+                            <label for="{{ listing.listing_name }}user_rating5">
+                                <input name="user_rating"
+                                    id="{{ listing.listing_name }}user_rating5" value="5" class="group1" type="radio" />
+                                    <span>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                    </span>
+                            </label>
+                        </p>
+                        <p>
+                            <label for="{{ listing.listing_name }}user_rating6">
+                                <input name="user_rating"
+                                    id="{{ listing.listing_name }}user_rating6" value="6" class="group1" type="radio" />
+                                    <span>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                        <i class="radio-star material-icons">star</i>
+                                    </span>
+                            </label>
+                        </p>
+                        <p>
+                            <label for="user_comments">Tell us what you think..</label>
+                            <textarea name="user_comments" id="user_comments" class="materialize-textarea validate"
+                                required>
+                          </textarea>
+                        </p>
+                                <!-- modal footer with buttons to cancel or submit -->
+                                <div class="modal-footer">
+                                    <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel 
+                                        <i class="material-icons right submission-icon">clear</i>
+                                    </a>
+                                    {% if session.user %}
+                                    <button class="btn favourite-button v-align center-align" type="submit">Rate it
+                                        <i class="material-icons right submission-icon">star</i>
+                                    </button>
+                                    {% else %}
+                                    <!-- login/ join modal-trigger on favourite button -->
+                                    <button class="btn affirmative-button v-align center-align modal-trigger"
+                                        href="#not-logged-modal">Rate it
+                                        <i class="material-icons right submission-icon">library_add</i>
+                                    </button>
+                                    {% endif %}
+                                </div>
+                            </form>
                         </div>
+            </div>
 
 
                     </div>
