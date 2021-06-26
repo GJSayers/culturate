@@ -55,11 +55,11 @@ nav i.material-icons:hover, i.material-icons.link-icon:hover {
     color: #03B066;
 }
 
-i.material-icons.link-icon {
+i.material-icons.link-icon  {
     color: #C2B678;
 }
 
-i.tiny.material-icons {
+i.tiny.material-icons, i.radio-star.material-icons {
     color: #C2B678;
 }
 
