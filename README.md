@@ -57,6 +57,15 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 ![Functional-Testing](static/testing/functional-testing-design.png)
 * The website should aim to have good browser performance and follow accessibility guidelines
 
+#### Security
+* The details that will be handled in this project are user email.  This will be dealt with by installing Werkseug password hash and check password hass into the flask app. 
+* For the security of the data over-all the data is stored in Mongo DB.  The application connects to Mongo DB, but the connection passwords anre protected in the Gitignore file. 
+* To enure the correct level access, session storage is used as well as re-directs to minimise the possibility of users accessing areas of the site they should not. 
+
+#### Data Management
+* The site is using crud functionality, and in order for these Create, Read, Update & Delete functions to provide a good user experience it is necessary for alerts to be used to ensure there is no one step deletion of data.  In the case of this site, modals have been implemented at the delete stage.  
+ for example from the Admin dashboard, users can be edited or deleted:
+ ![Admin](static/images/screen-shots/surface/admin-dashboard.png)
 #### Core Features
 -----
 
@@ -84,13 +93,12 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 ![Final Schema](static/images/screen-shots/schema-final.png)
 
 ### Skeleton
-#### Element arrangement considerations
-#### User feedback arrangements
+------
 
 #### Wireframes 
-------
-The initial designs were sketched out of Balsamiq with some of the form views being the same across device sizes to ensure more impact on the visual pages such as the listing pages.  
-Here are the wireframes for the skeleton design planning:
+
+* The initial designs were sketched out of Balsamiq with some of the form views being the same across device sizes to ensure more impact on the visual pages such as the listing pages.  
+* Here are the wireframes for the skeleton design planning:
 ![Wireframes](static/images/skeleton/culturate-form-all-devices.png)
 ![Wireframes](static/images/skeleton/culturate-home-desktop.png)
 ![Wireframes](static/images/skeleton/culturate-home-ipad.png)
@@ -101,7 +109,7 @@ Here are the wireframes for the skeleton design planning:
 ![Wireframes](static/images/skeleton/culturate-submission-form-ipad.png)
 
 ### Surface & Prototypes
-I then wanted to get an idea of how the colours and imagery would work so I did some planning on Figma too - I just selected a few key pages to illustrate an idea of houw the colours would come out:
+* I then wanted to get an idea of how the colours and imagery would work so I did some planning on Figma too - I just selected a few key pages to illustrate an idea of houw the colours would come out:
 ![Prototypes](static/images/screen-shots/surface/figma-screen-design.png)
 
 #### Design Inspiration & Colour choices 
