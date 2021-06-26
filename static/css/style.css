@@ -238,7 +238,7 @@ li.rating span i {
     font-weight: 300;
 }
 
-.ratings-header, .categories-header {
+.ratings-header {
     margin-top: 15%;
     font-family: 'Permanent Marker', cursive;
     font-size: x-large;
