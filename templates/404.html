@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row listing-section">
+<div class="row cener-align">
 <div class="col s12">
     <h2 class="header">404 Error </h2>
     <div class="card horizontal">
@@ -10,10 +10,10 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>Oops! looks like you didn't find what you were looking for...(404)</p>
+          <blockquote class="blockquote-small">“If you don’t get lost, there’s a chance you may never be found.” ~ Anonymous</blockquote>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('get_index') }}">Homepage</a>
+          <a class="error-link" href="{{ url_for('get_index') }}">Homepage</a>
         </div>
       </div>
     </div>
