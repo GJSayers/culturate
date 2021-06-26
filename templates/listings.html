@@ -38,7 +38,7 @@
 <div class="row listing-section">
     {% for listing in listings %}
     <div class="col s12 m4 listing-card">
-        <div class="card">
+        <div class="card float">
             <div class="card-image">
 
                 <!-- contruct listing cards images -->
@@ -51,7 +51,7 @@
                     alt="eye-street-art-default-listing-image">
                 {% endif %}
                 <span class="card-title">{{ listing.listing_name }}</span>
-                {% if session.user|lower == listing.listing_by|lower %}
+                {% if (session.user|lower == listing.listing_by|lower or session.user|lower == 'admin') %}
                 <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" id="edit_form" name="edit_form">
                     <button class="btn-floating btn-large halfway-fab edit-button"><i
                             class="material-icons">edit</i></button>
@@ -213,19 +213,19 @@
                     <br>
 
                     <!-- rating button to open rating modal -->
-                    <div class="row">
+                    <div class="row valign-wrapper">
+                        <div>
                         <p>Already visited? </p>
-                            <button class="btn-small submit-btn modal-trigger valign-wrapper"
+                            <button class="btn-small favourite-button modal-trigger valign-wrapper"
                                 href="#{{ listing.listing_name }}modal">Rate it 
                                 <i class="material-icons right">star</i>
                             </button>
-                        <div>
-                        </div>
                         <p>Planning a visit?</p>
-                        <a class="btn-small affirmative-button valign-wrapper"
+                        <a class="btn-small submit-btn valign-wrapper"
                             href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
                             <i class="material-icons right">lightbulb_outline</i>
                         </a>
+                        </div>
                     </div>
                     <p><em>created by: {{ listing.listing_by }}</em></p>
                 </ul>
