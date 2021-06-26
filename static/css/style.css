@@ -409,7 +409,9 @@ input[type='text'],
     border-bottom: #C33F8B;
 }
 
-
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: #C33F8B;
+}
 
 
 /*---- footer ---- */
