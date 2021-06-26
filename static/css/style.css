@@ -325,6 +325,10 @@ input[type='text'],
     color: #C33F8B;
 }
 
+input#query.validate {
+    color: #F7E93F;
+}
+
 /*--- modals ---*/
 
 .modal-content {
@@ -365,7 +369,7 @@ input[type='text'],
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #03B066;
-    color: #1a2017;
+    color: #fff;
 }
 
 .cancel-button, .favourite-button, .delete-button {
