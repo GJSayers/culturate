@@ -9,7 +9,6 @@ html,body {
     align-content: space-around
 }
 
-
 .flashes h4 {
     align-content: space-around;
     height: 25%;
@@ -372,11 +371,19 @@ input#query.validate {
     color: #fff;
 }
 
-.cancel-button, .favourite-button, .delete-button {
+.favourite-button, .delete-button {
     margin-top: 5%;
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #C33F8B;
+    color: #fff;
+}
+
+.cancel-button {
+    margin-top: 5%;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    background-color: #C2B678;
     color: #fff;
 }
 
@@ -420,7 +427,7 @@ input#query.validate {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
     color: #C33F8B;
-}
+} 
 
 
 /*---- footer ---- */
