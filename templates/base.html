@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&family=Sedgwick+Ave&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&family=Sedgwick+Ave&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/culturate-apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/culturate-favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/culturate-favicon-16x16.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static', filename='images/culturate-apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static', filename='images/culturate-favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static', filename='images/culturate-favicon-16x16.png')}}">
     <link rel="manifest" href="/site.webmanifest">
     {% block styles %}
     {% endblock %}
     <title>Culturate</title>
 </head>
+
 <body>
     <header>
 
-    <!--top nav-->
-            <nav>
-                <div class="nav-wrapper">
-                <a href="{{ url_for('get_index') }}" class="brand-logo"> <span>Cultu</span><span class="logo-part-2">rate.</span>
-                    </a>
+        <!--top nav-->
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_index') }}" class="brand-logo"> <span>Cultu</span><span
+                        class="logo-part-2">rate.</span>
+                </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_listings') }}">Home</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', user_name=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_listing') }}">Add a listing</a></li>
-                        {% if session.user|lower == "admin"|lower %}
-                            <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                        {% endif %}
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a href="{{ url_for('join') }}">Join</a></li>
+                    <li><a href="{{ url_for('profile', user_name=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('add_listing') }}">Add a listing</a></li>
+                    {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
                     {% endif %}
-
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('join') }}">Join</a></li>
+                    {% endif %}
                 </ul>
-                </div>
-            </nav>
+            </div>
+        </nav>
 
-    <!--mobile sidenav-->
-            <ul class="sidenav" id="mobile-demo">
-                    <li><a href="{{ url_for('get_listings') }}">Home</a></li>
-                    {% if session.user %}
-                        <li><a href="{{ url_for('profile', user_name=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('add_listing') }}">Add a listing</a></li>
-                        {% if session.user|lower == "admin"|lower %}
-                            <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                        {% endif %}
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                    {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a href="{{ url_for('join') }}">Join</a></li>
-                    {% endif %}
-            </ul>
+        <!--mobile sidenav-->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('get_listings') }}">Home</a></li>
+            {% if session.user %}
+            <li><a href="{{ url_for('profile', user_name=session['user']) }}">Profile</a></li>
+            <li><a href="{{ url_for('add_listing') }}">Add a listing</a></li>
+            {% if session.user|lower == "admin"|lower %}
+            <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+            {% endif %}
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a href="{{ url_for('join') }}">Join</a></li>
+            {% endif %}
+        </ul>
     </header>
 
     <section>
         <!-- flash messages-->
         {% with messages = get_flashed_messages()%}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="yellow accent-3 center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %} 
-        {% endwith %}       
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
     </section>
     {% block content %}
     {% endblock %}
     <footer class="page-footer center-align">
-          <div class="container">
+        <div class="container">
             <div class="row">
-              <div class="col l6 s12">
-                <h5 class="footer-title">Contact Us</h5>
-                <!-- <p class="">For extra category suggestions or anything else, get in touch here</p> -->
-              </div>
-              <div class="row">
-                <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix submission-icon">email</i>
-                    <input id="user_email" name="user_email" type="email" class="validate">
-                    <label for="user_email" class="label">Email</label>
+                <div class="col l6 s12">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <!-- <p class="">For extra category suggestions or anything else, get in touch here</p> -->
                 </div>
-            </div>
-              <!-- <div class="col l4 offset-l2 s12">
+                <div class="row">
+                    <div class="input-field col s10 push-s1">
+                        <i class="material-icons prefix submission-icon">email</i>
+                        <input id="user_email" name="user_email" type="email" class="validate">
+                        <label for="user_email" class="label">Email</label>
+                    </div>
+                </div>
+                <!-- <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
@@ -100,15 +107,14 @@
               </div> -->
             </div>
             <div class="center-align">
-             © 2021 Copyright Gemma Sayers
-            <!-- <a class="" href="#!">More Links</a> -->
-          </div>
-            
-          </div>
-          
-        </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                © 2021 Copyright Gemma Sayers
+                <!-- <a class="" href="#!">More Links</a> -->
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
