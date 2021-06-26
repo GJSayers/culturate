@@ -85,15 +85,18 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 ### Skeleton
 #### Element arrangement considerations
 #### User feedback arrangements
-#### Arguments for AB testing 
+
 #### Wireframes / Prototypes
 
 
 
 ### Surface
-#### Design Inspiration
+#### Design Inspiration & Colour choices 
+* The over-all concept came from the anticipation of getting out to access cultural activities after the lockdown period.  My hometown of Eastbourne has an inspirational gallery - the Towner Gallery, which is painted in rainbow by artist Iothar Gotz.  I used an image of the gallery for landing page, and took colour design inspiration from this pallet - offering an alternative to the sometimes staid and serious gallery website design approach to give a vibrant design feel that will appeal to multiple user-groups.
+![Towner](static/images/screen-shots/towner-gallery.png)
+I translated the colour pallet using Coolors to get the hex and RGB codes to use in CSS:
+![Color-Palette](static/images/screen-shots/colour-palette.png)
 
-##### Mood Board & Colour choices
 ##### Typography
 ##### Imagery
 
