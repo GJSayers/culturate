@@ -93,6 +93,11 @@ nav ul a:hover {
 
 /*---- listings ---- */
 
+img.responsive {
+    width: 350;
+    height: 275;
+}
+
 .search-section, .profile-section {
     margin: 0%;
     background-color: #1a2017;
