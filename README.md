@@ -6,7 +6,7 @@
 
 Culturate is a cultural places, exhibitions and events site. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
-## UX
+## Strategy 
 -------
 ### User Stories - First Time User A (Community User)
 -------
@@ -17,8 +17,8 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 #### User Stories - Existing User B (Community User)
 -------
 1. As an **Existing User** I want to be able to **login** easily. 
-2. As an **Existing User** I want a **Personalised experience** by being able to **like** and **save listings** for future reference.  
-3. As an **Existing User** I would like to be **addessed by my username**
+2. As an **Existing User** I want a **Personalised experience** by being able to **like** or **save listings** for future reference.  
+3. As an **Existing User** I would like to be **addressed by my username**
 4. As an **Existing User** I would like to be able to **upload listings** for others to see. 
 
 
@@ -35,18 +35,31 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 2. As a **Site Manager / Admin User** I want to be able to **edit / delete listings** if necessary. 
 2. As a **Site Manager / Admin User** I want to be able to **edit / users** if necessary. 
 3. As a **Site Manager / Admin User** I want to ensure that the website **stays up to date**, and **automatically deletes** events that have passed. 
-### Strategy
+
+#### Website Owner Goals
+-------
+* The possibility to in the future gain commission from being a referrals site if the site were to become popular.  For this to happen, the site must look polised and have great UX for user buy-in. 
+
+## Scope
 -------
 
-#### Accessibility 
--------
-#### Security
--------
+#### Product Objectives & Functional Requirements
 
-### Scope
------
+* Listing pages that can store **user ratings** and **be favourited** by the user. 
+* Easy UI to **upload listings**
+* **Admin dashboard/ admin access** to be able to monitor and edit content. 
+
+#### Scope 
+* Responsive layout to ensure **optimal visuals**
+* The site must **store data securely**
+* The administrator must be able to access data through the website to edit or delete the records of users or listings. 
+* The website should be able to function as close as possible to the following user-story based requirements:
+![Functional-Testing](static/testing/functional-testing-design.png)
+* The website should aim to have good browser performance and follow accessibility guidelines
+
 #### Core Features
 -----
+
 #### Feature Feasibility *MVP vs Full Features
 -----
 #### 1st Round Selected Production Features 
@@ -69,31 +82,45 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 * As well as this, there was the need to add array of dictionaries to store the user-ratings. During the process of the project, I also solidified the terminology and named the final schema in a more semantically correct manner.
 * Final Schema was still 3 collections and during the project I learnt how to access the sub-collections:
 ![Final Schema](static/images/screen-shots/schema-final.png)
-#### User Journey Map
-##### User Journey Map *First time User
-##### User Journey Map *Existing User (Logged in / joined member)
-##### User Journey Map *Existing User (Not Logged in / Brower user)
-##### User Journey Map *Site Manager / Admin User 
-#### Necessary Elements 
-
 
 ### Skeleton
 #### Element arrangement considerations
 #### User feedback arrangements
 
-#### Wireframes / Prototypes
+#### Wireframes 
+------
+The initial designs were sketched out of Balsamiq with some of the form views being the same across device sizes to ensure more impact on the visual pages such as the listing pages.  
+Here are the wireframes for the skeleton design planning:
+![Wireframes](static/images/skeleton/culturate-form-all-devices.png)
+![Wireframes](static/images/skeleton/culturate-home-desktop.png)
+![Wireframes](static/images/skeleton/culturate-home-ipad.png)
+![Wireframes](static/images/skeleton/culturate-home-page-mb.png)
+![Wireframes](static/images/skeleton/culturate-listings-categories-dtop.png)
+![Wireframes](static/images/skeleton/culturate-listings-categories-ipad.png)
+![Wireframes](static/images/skeleton/culturate-listings-categories-mb.png)
+![Wireframes](static/images/skeleton/culturate-submission-form-ipad.png)
 
+### Surface & Prototypes
+I then wanted to get an idea of how the colours and imagery would work so I did some planning on Figma too - I just selected a few key pages to illustrate an idea of houw the colours would come out:
+![Prototypes](static/images/screen-shots/surface/figma-screen-design.png)
 
-
-### Surface
 #### Design Inspiration & Colour choices 
-* The over-all concept came from the anticipation of getting out to access cultural activities after the lockdown period.  My hometown of Eastbourne has an inspirational gallery - the Towner Gallery, which is painted in rainbow by artist Iothar Gotz.  I used an image of the gallery for landing page, and took colour design inspiration from this pallet - offering an alternative to the sometimes staid and serious gallery website design approach to give a vibrant design feel that will appeal to multiple user-groups.
+* The over-all concept came from the anticipation of getting out to access cultural activities after the lockdown period.  
+My hometown of Eastbourne has an inspirational gallery - the Towner Gallery, which is painted in rainbow by artist Iothar Gotz.  
+I used an image of the gallery for landing page, and took colour design inspiration from this pallet - offering an alternative to the sometimes staid and serious gallery website design approach to give a vibrant design feel that will appeal to multiple user-groups and elicit a vibrant positive feeling for users. 
 ![Towner](static/images/screen-shots/towner-gallery.png)
 I translated the colour pallet using Coolors to get the hex and RGB codes to use in CSS:
 ![Color-Palette](static/images/screen-shots/colour-palette.png)
 
 ##### Typography
+* For the Typography, it was necessary to chose classically no nonsense font, so I chose Archivo, but to complement for forms (where information is being shared) and profile pages where the user is likely to be already an engager used, I chose Permanenet Marker to personalise. 
 ##### Imagery
+The Imagery of the website will be based on the user contributions, but to set the theme, the homepage is a parallax containing two striking colourful artworks. 
+Where there may be times where an image is not uploaded, there is a standby image to populate incase.
+Here is the homepage ![Homepage](static/images/screen-shots/surface/home-page-imagery.png)
+Here is an example of a listing page: ![Listing-Page](static/images/screen-shots/surface/listing-page.png)
+You will see that I decided to dial back the yellow, and keep most backgrounds aside from forms with the #1a2017 and use the colour as pops, letting the art imagery sign it's own song. 
+
 
 ## Implementation 
 
