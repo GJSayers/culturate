@@ -344,26 +344,34 @@ input[type='text'],
 
 
 .affirmative-button {
-    margin: 5%;
+    margin-top: 5%;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
     background-color: #03B066;
     color: #1a2017;
 }
 
-.cancel-button, .favourite-button {
-    margin: 5%;
+.cancel-button, .favourite-button, .delete-button {
+    margin-top: 5%;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
     background-color: #C33F8B;
     color: #1a2017;
 }
 
-.edit-button {
-    background-color: #C2B678;
-    color: #1a2017;
-}
-
 .submit-btn {
+    margin-top: 5%;
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #F7E93F;
+    color: #1a2017;
+}
+
+.edit-button {
+    margin-top: 5%;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    background-color: #C2B678;
     color: #1a2017;
 }
 
@@ -375,7 +383,7 @@ input[type='text'],
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     letter-spacing: 2px;
-    background-color: #C2B678;
+    background-color: #fff;
     color: #1a2017;
 }
 
