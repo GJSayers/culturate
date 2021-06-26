@@ -68,7 +68,6 @@ def join():
             "user_password": generate_password_hash(
                 request.form.get("user_password")),
             "user_bio": request.form.get("user_bio"),
-            "user_avatar": request.form.get("user_avatar"),
             "user_favourites": []
                 }
         mongo.db.users.insert_one(join)
@@ -80,6 +79,24 @@ def join():
         return redirect(url_for("profile", user_name=session["user"]))
 
     return render_template("join.html")
+
+
+# route to edit a user profile
+@app.route("/edit_user/<user_profile>", methods=["GET", "POST"])
+def edit_user(user_profile):
+    if request.method == "POST":
+        update_details = {
+            "user_name": request.form.get("user_name").lower(),
+            "user_email": request.form.get("user_email"),
+            "user_bio": request.form.get("user_bio")
+                }
+        mongo.db.users.update_one(
+                {"_id": ObjectId(user_profile)}, update_details)
+        flash("Thanks for keeping your details up to date!")
+    user_profile = mongo.db.users.find_one(
+        {"user_name": session["user"]})
+    return render_template("edit_user.html",
+        user_profile=user_profile)
 
 
 # route to login
@@ -159,8 +176,7 @@ def profile(user_name):
         return render_template(
             "profile.html", user_name=user_name,
             user_favourites=favourites_list, user=user,
-            categories=categories, user_profile=user_profile,
-            user_created=user_created)
+            categories=categories, user_profile=user_profile)
     """
     if user is not in session, re-direct
     """
