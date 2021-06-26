@@ -85,7 +85,7 @@
                         <ul>
                             <hr class="ratings-divider">
                             <li>
-                                <!-- rating tab div for average rating display -->
+                                <!-- rating tab div for rating display -->
 
                                 {% if rating.user_rating == "1" %}
                                 <span class="rating-span v-align"><i class="tiny material-icons">star</i></span>
@@ -134,7 +134,6 @@
                     <div id="info" class="comments-tabs center-align">
                         <br>
                         <span class="ratings-header">Info</span>
-
                         <div class="row">
                             <ul>
                                 <li>
@@ -162,14 +161,13 @@
                                     {% endfor %}
                                     <br>
                                 </li>
+                            </div>
+                                <hr class="ratings-divider">
 
-                        </div>
-                        <hr class="ratings-divider">
-
-                        <li><span>Get there...</span>
-                        </li>
-                        <br>
-                        </ul>
+                                <li><span>Get there...</span>
+                                </li>
+                            <br>
+                            </ul>
                         <div>
                             {{ listing.listing_location|safe }}
                         </div>
@@ -256,10 +254,11 @@
                             </label>
                         </p>
                         <p>
-                            <label for="user_comments">Tell us what you think..</label>
-                            <textarea name="user_comments" id="user_comments" class="materialize-textarea validate"
-                                required>
-                          </textarea>
+                           <div class="input-field">
+                                <label for="user_comments">Tell us what you think..</label>
+                                <textarea name="user_comments" id="user_comments" class="materialize-textarea validate" required>
+                                </textarea>
+                          </div>
                         </p>
                         <!-- modal footer with buttons to cancel or submit -->
                         <div class="modal-footer">
@@ -278,11 +277,9 @@
                                     </button>
                                     {% endif %}
                                 </div>
-                    </form>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
-                
             </div>
-        </div>
-    </div>
     {% endblock %}
