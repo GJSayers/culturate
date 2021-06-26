@@ -131,6 +131,16 @@ You will see that I decided to dial back the yellow, and keep most backgrounds a
 
 
 ## Implementation 
+This project is a uses the flask framwork, which is a framwork that is written in Python  app has been built and source-controlled on GitHub with regular commits. The backend is managed in MongoDB and the project is deployed to Heroku. 
+
+### Deployment
+To deploy the project to Heroku from Git, I used the following steps:
+* In the Git CLI, install Heroku using the command $ npm install -g heroku
+* The -g is important to intall 'globally'
+* Then log into Heroku **through the Git CLI** using the command $ heroku login -i
+* Following this you will enter your previously created Heroku Login details
+* Then to check you can find the app, enter the command $ Heroku apps, which will return a list of the apps your login details have et up in Heroku. 
+* Then use the app name that is return which is the app you wish to deploy. 
 
 ## Technologies Used
 
