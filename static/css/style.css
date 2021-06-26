@@ -313,7 +313,7 @@ input[type='text'],
 }
 
 .input-field>label {
-    color: #1a2017;
+    color: #C2B678;
 }
 
 .input-field>label:hover {
@@ -368,7 +368,7 @@ input[type='text'],
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #C33F8B;
-    color: #1a2017;
+    color: #fff;
 }
 
 .submit-btn {
