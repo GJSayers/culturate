@@ -2,8 +2,8 @@
 {% block content %}
 
 <div class="row listing-section">
-    <div class="col s12 listing-card">
-        <div class="card">
+    <div class="col listing-card s12 m6 offest-m6 offset-m3">
+        <div class="card center-align">
             <div class="card-image">
                 <!-- contruct listing cards images -->
 
@@ -171,7 +171,7 @@
                         <br>
                         </ul>
                         <div>
-                            {{ listing.listing_location }}
+                            {{ listing.listing_location|safe }}
                         </div>
                     </div>
                 </div>
