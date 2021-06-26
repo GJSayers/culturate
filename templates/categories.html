@@ -1,50 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="row form-background">
-    <div class="col">
-        <div class="card submission-form">
-            <div class="card-content center-align">
-                <span class="card-title submission-header"> Manage Categories </span>
-            </div>
+<div class="row category-panel">
+    <div class="col center-align">
+        <span class="categories-header center-align"> Manage Categories </span>
+    <div class="row">
+        <a href="{{ url_for('add_category') }}" class="col s6 btn offset-s3 submit-btn">
+            Add Category <i class="material-icons right">add</i>
+        </a>
+    </div>
 
-            <div class="row">
-                <a href="{{ url_for('add_category') }}" class="col s6 btn offset-s3 submit-btn">
-                    Add Category <i class="material-icons right">add</i>
-                </a>
-            </div>
-            {% for category in categories %}
-            <div class="col s12 m4">
-                <div class="card small">
-                    <div class="card-image">
-                        <img src="https://cdn.pixabay.com/photo/2020/02/25/21/57/graffiti-art-4880123_1280.jpg"
-                            alt="community-art">
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title">{{ category.category_name}}</span>
-                    </div>
-                    <div class="fixed-action-btn click-to-toggle">
-                        <a class="btn-floating btn-large red">
-                            <i class="large material-icons">mode_edit</i>
-                        </a>
-                        <ul>
-                            <li><a class="btn-floating blue"
-                                    href="{{ url_for('delete_category', category_id=category._id) }}"><i
-                                        class="material-icons">mode_edit</i></a></li>
-                            <li><a class="btn-floating green"
-                                    href="{{ url_for('delete_category', category_id=category._id) }}">
-                                    <i class="material-icons">delete</i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="row listing-section">
+        {% for category in categories %}
+        <div class="col s12 m4">
+            <div class="card listing-card">
+                <div class="card-image">
+                    <img src="https://cdn.pixabay.com/photo/2020/02/25/21/57/graffiti-art-4880123_1280.jpg"
+                        alt="community-art">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">{{ category.category_name}}</span>
+                    <a class="btn-small edit-button" href="{{ url_for('edit_category', category_id=category._id) }}">
+                        <i class="material-icons">mode_edit</i>
+                    </a>
+                    <a class="btn-small delete-button"
+                        href="{{ url_for('delete_category', category_id=category._id) }}">
+                        <i class="material-icons">delete</i>
+                    </a>
                 </div>
             </div>
-
-            {% endfor %}
         </div>
+        {% endfor %}
+        </div>  
     </div>
 </div>
-
-
 {% endblock %}

@@ -132,7 +132,7 @@ nav ul a:hover {
     margin-top: 0%;
     margin-bottom: 0%;
     padding-top: 5%;
-    padding-bottom: 5%;
+    padding-bottom: 0%;
 }
 
 .card, .listing-card {
@@ -177,6 +177,14 @@ nav ul a:hover {
     width: 100%;
     letter-spacing: 5px;
     background-color: rgb(26, 32, 23, .5);  
+}
+
+span.card-title {
+    background-color: transparent;
+}
+
+.category-panel {
+    background-color: fff;
 }
 
 .city {
@@ -230,12 +238,16 @@ li.rating span i {
     font-weight: 300;
 }
 
-.ratings-header {
+.ratings-header, .categories-header {
     margin-top: 15%;
     font-family: 'Permanent Marker', cursive;
     font-size: x-large;
 }
 
+ .categories-header {
+    font-family: 'Permanent Marker', cursive;
+    font-size: x-large;
+ }
 .comments-tabs {
     text-align: center;
 
