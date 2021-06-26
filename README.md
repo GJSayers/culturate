@@ -7,18 +7,8 @@
 Culturate is a cultural places, exhibitions and events site. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
 ## UX
-
-### Strategy
 -------
-
-#### Accessibility 
--------
-#### Security
--------
-
-#### User Goals
--------
-#### User Stories - First Time User A (Community User)
+### User Stories - First Time User A (Community User)
 -------
 1. As a **First time user**, I want to have a clear visual impact on landing on the site to demonstrate the **artistic** / **cultual sharing** & **listing** purpose of the site. 
 2. As a **First time user**, I want to be able to **browse at least some listings** without having to sign up / login. 
@@ -30,7 +20,6 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 2. As an **Existing User** I want a **Personalised experience** by being able to **like** and **save listings** for future reference.  
 3. As an **Existing User** I would like to be **addessed by my username**
 4. As an **Existing User** I would like to be able to **upload listings** for others to see. 
-5. As an **Existing User** I would like to be able to **share interesting finds directly on social media**
 
 
 ##### User Stories - Repeat/ Frequent User C (Logged in / joined member)
@@ -38,7 +27,6 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 2. As a **Repeat User** I would like to be able to **search the listings** 
 3. As a **Repeat User** I would like to be able to **edit and update my profile**
 4. As a **Repeat User** I would like to be able to **edit or update the comments on my listings**
-5. As a **Repeat User** I would like to be able to **contact the website owners** to suggest new listing categories. 
 
 
 #### User Stories - Site Manager / Admin User D
@@ -47,6 +35,13 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 2. As a **Site Manager / Admin User** I want to be able to **edit / delete listings** if necessary. 
 2. As a **Site Manager / Admin User** I want to be able to **edit / users** if necessary. 
 3. As a **Site Manager / Admin User** I want to ensure that the website **stays up to date**, and **automatically deletes** events that have passed. 
+### Strategy
+-------
+
+#### Accessibility 
+-------
+#### Security
+-------
 
 ### Scope
 -----
@@ -109,6 +104,7 @@ I translated the colour pallet using Coolors to get the hex and RGB codes to use
 *  [HTML5](https://en.wikipedia.org/wiki/HTML5)
 *  [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 *  [Javascript]
+*  [Jquery]
 *  [Python3] (https://www.python.org/)
 
 ### Frameworks, Libraries & Programs Used

@@ -95,8 +95,10 @@ def edit_user(user_profile):
         flash("Thanks for keeping your details up to date!")
     user_profile = mongo.db.users.find_one(
         {"user_name": session["user"]})
+    user_name = mongo.db.users.find_one(
+        {"user_name": session["user"]})["user_name"]
     return render_template("edit_user.html",
-        user_profile=user_profile)
+        user_profile=user_profile, user_name=user_name)
 
 
 # route to login
