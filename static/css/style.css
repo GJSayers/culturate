@@ -131,6 +131,7 @@ img.responsive {
 }
 
 
+
 .listing-section {
     background-color: #1a2017;
     margin-top: 0%;
@@ -149,18 +150,15 @@ img.responsive {
     color: #1a2017;
 }
 
-.website a {
+.website a, .link-login, .link-join {
     color: #C33F8B;
+    padding-right: 3%;
+    
 }
 
-.website a:hover{
+.website a:hover .modal-login.link-login:hover, .modal-login.link-join:hover {
     color: #1a2017;
 }
-
-/* iframe {
-    width: 275px;
-    height: 220px;
-} */
 
 .cards-backdrop {
     background-color: #1a2017;
@@ -336,11 +334,11 @@ input#query.validate {
     color: #1a2017;
 }
 
-.modal-content blockquote {
+/* .modal-content blockquote {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: normal;
     color: #C2B678;
-}
+} */
 
 
 /*---- login ---- */

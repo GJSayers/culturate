@@ -35,14 +35,14 @@
                 <div id="not-logged-modal" class="modal">
                     <div class="modal-content">
                         <h4>Login or Join to Favourite & Rate</h4>
-                        <blockquote>"Art is too important not to share"
+                        <blockquote class="blockquote-small">"Art is too important not to share"
                             <br>
                             <br>
                             - Romero Britto </blockquote>
                     </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('join') }}" class="modal-close waves-effect waves-green btn-flat">Join</a>
-                        <a href="{{ url_for('login') }}" class="modal-close waves-effect waves-green btn-flat">Login</a>
+                    <div class="modal-footer modal-login">
+                        <a href="{{ url_for('join') }}" class="link-join modal-close">Join</a>
+                        <a href="{{ url_for('login') }}" class="link-login modal-close">Login</a>
                     </div>
                 </div>
                 </div>
@@ -62,9 +62,15 @@
                         <br>
                         <li class="buttons valign-wrapper">
                             <!-- rating button to open rating modal -->
+                            {% if session.user %}
                             <button class="btn-small favourite-button modal-trigger valign-wrapper"
                                 href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right">star</i>
                             </button>
+                            {% else %}
+                            <button class="btn-small favourite-button modal-trigger valign-wrapper"
+                                href="#not-logged-modal">Rate it <i class="material-icons right">star</i>
+                            </button>
+                            {% endif %}
                         </li>
                     </ul>
                 </div>
@@ -265,17 +271,9 @@
                                     <a href="{{ url_for('listing_page', listing_id=listing._id) }}" class="btn cancel-button"> Cancel 
                                         <i class="material-icons right submission-icon">clear</i>
                                     </a>
-                                    {% if session.user %}
                                     <button class="btn favourite-button v-align center-align" type="submit">Rate it
                                         <i class="material-icons right submission-icon">star</i>
                                     </button>
-                                    {% else %}
-                                    <!-- login/ join modal-trigger on favourite button -->
-                                    <button class="btn affirmative-button v-align center-align modal-trigger"
-                                        href="#not-logged-modal">Rate it
-                                        <i class="material-icons right submission-icon">library_add</i>
-                                    </button>
-                                    {% endif %}
                                 </div>
                             </form>
                         </div>
