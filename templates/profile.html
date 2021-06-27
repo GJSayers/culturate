@@ -54,12 +54,12 @@
                             <p><strong>Email: </strong>{{ entry.user_email }}</p>
                             <p><strong>Bio: </strong>{{ entry.user_bio }}</p>
                             <!-- edit button -->
-                            <a href="{{ url_for('edit_user', user=user, user_name=user.user_name,
+                            <a href="{{ url_for('edit_user', user=entry._id, user_name=entry.user_name,
                              update_details=update_details) }}"
                                 class="btn-small submit-btn"> Edit <i
                                     class="material-icons right submission-icon">edit</i>
                             </a>
-                            <a href="{{ url_for('profile', user=user, user_name=user_name, entry=entry._id) }}"
+                            <a href="{{ url_for('profile', user=user._id, user_name=user_name) }}"
                                 class="btn-small affirmative-button"> Cancel <i
                                     class="material-icons right submission-icon">clear</i></a>
                             <!-- delete button -->
@@ -116,11 +116,11 @@
                                         <p><strong>Email: </strong>{{ user.user_email }}</p>
                                         <p><strong>Bio: </strong>{{ user.user_bio }}</p>
                                         <!-- edit button -->
-                                            <a href="{{ url_for('edit_user', user=user._id, update_details=update_details) }}"
+                                            <a href="{{ url_for('edit_user', user=user._id, user_name=user.user_name, update_details=update_details) }}"
                                                 class="btn-small submit-btn"> Edit <i
                                                     class="material-icons right submission-icon">edit</i>
                                             </a>
-                                            <a href="{{ url_for('profile', user=user, user_name=user_name) }}"
+                                            <a href="{{ url_for('profile', user=user._id, user_name=user_name) }}"
                                                 class="btn-small affirmative-button"> Cancel <i
                                     class="material-icons right submission-icon">clear</i></a>
                                     </span>
