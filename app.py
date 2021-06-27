@@ -82,23 +82,23 @@ def join():
 
 
 # route to edit a user profile
-@app.route("/edit_user/<user_profile>", methods=["GET", "POST"])
-def edit_user(user_profile):
+@app.route("/edit_user/<user>", methods=["GET", "POST"])
+def edit_user(user):
     if request.method == "POST":
         update_details = {
             "user_name": request.form.get("user_name").lower(),
             "user_email": request.form.get("user_email"),
             "user_bio": request.form.get("user_bio")
                 }
-        mongo.db.users.update_one(
-                {"_id": ObjectId(user_profile)}, update_details)
+        mongo.db.users.update(
+                {"_id": ObjectId(user)}, update_details)
         flash("Thanks for keeping your details up to date!")
-    user_profile = mongo.db.users.find_one(
-        {"user_name": session["user"]})
+    user = mongo.db.users.find_one(
+        {"_id": ObjectId(user)})
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
     return render_template("edit_user.html",
-        user_profile=user_profile, user_name=user_name)
+        user=user, user_name=user_name)
 
 
 # route to login
@@ -141,7 +141,7 @@ def login():
 # route to populate profile page
 @app.route("/profile/<user_name>", methods=["GET", "POST"])
 def profile(user_name):
-    user = list(mongo.db.users.find())
+    users = list(mongo.db.users.find())
     categories = mongo.db.categories.find().sort("category_name", 1)
     listing = list(mongo.db.listings.find())
     """
@@ -152,7 +152,7 @@ def profile(user_name):
     """
     get session user's profile from the database
     """
-    user_profile = mongo.db.users.find_one(
+    user = mongo.db.users.find_one(
         {"user_name": session["user"]})
     """
     get session user's listed items from the database
@@ -160,6 +160,7 @@ def profile(user_name):
     # user_created = mongo.db.users.find_one(
     #             {"_id": user_profile},
     #             {"listing_by": listing})
+
     """
     get session user favourites from the database
     """
@@ -178,7 +179,7 @@ def profile(user_name):
         return render_template(
             "profile.html", user_name=user_name,
             user_favourites=favourites_list, user=user,
-            categories=categories, user_profile=user_profile)
+            categories=categories, users=users)
     """
     if user is not in session, re-direct
     """
@@ -186,9 +187,9 @@ def profile(user_name):
 
 
 # route to delete a user
-@app.route("/delete_user/<user_id>")
-def delete_user(user_id):
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
+@app.route("/delete_user/<user>")
+def delete_user(user):
+    mongo.db.users.remove({"_id": ObjectId(user)})
     flash("User profile successfully deleted")
     return redirect(url_for("get_listings"))
 

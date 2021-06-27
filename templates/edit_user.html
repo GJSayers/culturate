@@ -2,7 +2,7 @@
 {% block content %}
 <div class="row form-background">
     <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for(
-        'edit_user', user_profile=user_profile, update_details=update_details, user_name=user_name) }}">
+        'edit_user', user=user._id, update_details=update_details) }}">
         <div class="card submission-form">
             <div class="card-content center-align">
                 <span class="submission-header">Edit your profile</span>
@@ -12,27 +12,27 @@
             <div class="row">
                 <div class="input-field col s10 push-s1">
                     <i class="material-icons prefix submission-icon">account_circle</i>
-                    <input id="{{ user_profile.user_name }}" name="{{ user_profile.user_name }}" type="text"
-                        class="validate" autocomplete="username">
-                    <label for="{{ user_profile.user_name }}">Username</label>
+                    <input id="user_name" name="user_name" type="text" value="{{ user.user_name }}"
+                        class="validate" autocomplete="{{ user.user_name }}">
+                    <label for="user_name">Username</label>
                 </div>
             </div>
             <!-- email input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
                     <i class="material-icons prefix submission-icon">email</i>
-                    <input id="{{ user_profile.user_email }}" name="{{ user_profile.user_email }}" type="email"
+                    <input id="user_email" name="user_email" type="email" value="{{ user.user_email }}"
                         class="validate">
-                    <label for="{{ user_profile.user_email }}" class="label">Email</label>
+                    <label for="user_email" class="label">Email</label>
                 </div>
             </div>
             <!-- bio input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
                     <i class="material-icons prefix submission-icon">face</i>
-                    <textarea id="{{ user_profile.user_bio }}" name="{{ user_profile.user_bio }}" class="materialize-textarea validate" required>
+                    <textarea id="user_bio" name="user_bio" class="materialize-textarea validate" required>
                     </textarea>
-                    <label for="{{ user_profile.user_bio }}">Bio</label>
+                    <label for="user_bio">Bio</label>
                 </div>
             </div>
 
@@ -47,9 +47,9 @@
                         Changes
                         <i class="material-icons right submission-icon">mode_edit</i>
                     </a>
-                    <a href="#{{ user_profile._id }}delete-confirmation" class="btn delete-button modal-trigger">
+                    <a href="#{{ user._id }}delete-confirmation" class="btn delete-button modal-trigger">
                         Delete<i class="material-icons right submission-icon"
-                            data-target="{{ user_profile._id }}delete-confirmation">delete</i>
+                            data-target="{{ user._id }}delete-confirmation">delete</i>
                     </a>
 
                 </div>
@@ -59,7 +59,7 @@
 </div>
 
 <!-- delete confirmation modal -->
-<div id="{{ user_profile._id }}delete-confirmation" class="modal">
+<div id="{{ user._id }}delete-confirmation" class="modal">
     <div class="modal-content">
         <h4>Delete user</h4>
         <p>Are you sure?</p>
@@ -73,8 +73,8 @@
         <a href="{{ url_for('profile', user_name=user_name) }}" class="btn cancel-button"> Cancel <i
                 class="material-icons right submission-icon">clear</i>
         </a>
-        <a href="{{ url_for('delete_user', user_id=user_profile.user_id) }}" class="btn delete-button"
-            data-target="{{ user_profile.user_id }}">Delete<i
+        <a href="{{ url_for('delete_user', user=user._id) }}" class="btn delete-button"
+            data-target="{{ user._id }}">Delete<i
                 class="material-icons right submission-icon">delete</i>
         </a>
     <div class="center-align">

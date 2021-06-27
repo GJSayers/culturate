@@ -45,29 +45,29 @@
                     <i class="material-icons">contacts</i>Users
                 </div>
                 <div class="collapsible-body">
-                {% for users in user %}
+                {% for entry in users %}
                     <span>
                     <div class="card-panel user-cards">
                         <span>
-                            <p><strong>ID: </strong>{{ users._id }}</p>
-                            <p><strong>Name: </strong>{{ users.user_name }}</p>
-                            <p><strong>Email: </strong>{{ users.user_email }}</p>
-                            <p><strong>Bio: </strong>{{ users.user_bio }}</p>
+                            <p><strong>ID: </strong>{{ entry._id }}</p>
+                            <p><strong>Name: </strong>{{ entry.user_name }}</p>
+                            <p><strong>Email: </strong>{{ entry.user_email }}</p>
+                            <p><strong>Bio: </strong>{{ entry.user_bio }}</p>
                             <!-- edit button -->
-                            <a href="{{ url_for('edit_user', user_profile=user_profile,
+                            <a href="{{ url_for('edit_user', user=user, user_name=user.user_name,
                              update_details=update_details) }}"
                                 class="btn-small submit-btn"> Edit <i
                                     class="material-icons right submission-icon">edit</i>
                             </a>
-                            <a href="{{ url_for('profile', user_profile=user_profile, user_name=user_name) }}"
+                            <a href="{{ url_for('profile', user=user, user_name=user_name, entry=entry._id) }}"
                                 class="btn-small affirmative-button"> Cancel <i
                                     class="material-icons right submission-icon">clear</i></a>
                             <!-- delete button -->
-                            <a href="#{{ users._id }}" class="btn-small delete-button modal-trigger"> Delete<i
+                            <a href="#{{ user._id }}" class="btn-small delete-button modal-trigger"> Delete<i
                                     class="material-icons right submission-icon">clear</i>
                             </a>
                             <!-- delete confirmation modal -->
-                            <div id="{{ users._id }}" class="modal">
+                            <div id="{{ user._id }}" class="modal">
                                 <div class="modal-content">
                                     <h4>Delete user</h4>
                                     <p>Are you sure?</p>
@@ -78,8 +78,8 @@
                                         – Paulo Coelho </blockquote>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="{{ url_for('delete_user', user_id=users._id) }}" class="btn delete-button"
-                                        data-target="{{ users._id }}">
+                                    <a href="{{ url_for('delete_user', user=user._id) }}" class="btn delete-button"
+                                        data-target="{{ user._id }}">
                                         Delete<i class="material-icons right submission-icon">clear</i>
                                     </a>
                                 </div>
@@ -112,15 +112,15 @@
                             <span>
                                 <div>
                                     <span>
-                                        <p><strong>Name: </strong>{{ user_name }}</p>
-                                        <p><strong>Email: </strong>{{ user_profile.user_email }}</p>
-                                        <p><strong>Bio: </strong>{{ user_profile.user_bio }}</p>
+                                        <p><strong>Name: </strong>{{ user.user_name }}</p>
+                                        <p><strong>Email: </strong>{{ user.user_email }}</p>
+                                        <p><strong>Bio: </strong>{{ user.user_bio }}</p>
                                         <!-- edit button -->
-                                            <a href="{{ url_for('edit_user', user_profile_id=user_profile._id, update_details=update_details) }}"
+                                            <a href="{{ url_for('edit_user', user=user._id, update_details=update_details) }}"
                                                 class="btn-small submit-btn"> Edit <i
                                                     class="material-icons right submission-icon">edit</i>
                                             </a>
-                                            <a href="{{ url_for('profile', user_profile=user_profile, user_name=user_name) }}"
+                                            <a href="{{ url_for('profile', user=user, user_name=user_name) }}"
                                                 class="btn-small affirmative-button"> Cancel <i
                                     class="material-icons right submission-icon">clear</i></a>
                                     </span>
@@ -277,7 +277,7 @@
                                     <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel 
                                         <i class="material-icons right submission-icon">clear</i>
                                     </a>
-                                    {% if session.user %}
+                                    {% if session.user|lower %}
                                     <button class="btn favourite-button v-align center-align" type="submit">Rate it
                                         <i class="material-icons right submission-icon">star</i>
                                     </button>
