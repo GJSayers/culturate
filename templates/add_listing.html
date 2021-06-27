@@ -26,7 +26,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">label</i>
-                <textarea id="listing_name" name="listing_name" minlength="3" maxlength="20" class="materialize-textarea validate" required>Listing Name</textarea>
+                <textarea id="listing_name" name="listing_name" minlength="3" maxlength="20" class="materialize-textarea validate" required></textarea>
                 <label for="listing_name">Listing Name</label>
             </div>
         </div>
@@ -62,28 +62,11 @@
             </div>
         </div>
 
-        <!-- Ratings input
-        <div class="row">
-            <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix submission-icon">star</i>
-                <select id="listing_rating" name="listing_rating" class="validate" required>
-                    <option value="" disabled selected>Rating</option>
-                    <option value=1>1 Star</option>
-                    <option value=2>2 Stars</option>
-                    <option value=3>3 Stars</option>
-                    <option value=4>4 Stars</option>
-                    <option value=5>5 Stars</option>
-                    <option value=6>6 Stars</option>
-                </select>
-                <label for="listing_rating">Rating</label>
-            </div>
-        </div> -->
-
         <!-- Place / Event City input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">location_city</i>
-                <textarea id="listing_city" name="listing_city" minlength="3" maxlength="20" class="materialize-textarea validate" required>Place / Event City</textarea>
+                <textarea id="listing_city" name="listing_city" minlength="3" maxlength="20" class="materialize-textarea validate" required></textarea>
                 <label for="listing_city">Place / Event City</label>
             </div>
         </div>
@@ -93,7 +76,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">insert_comment</i>
-                <textarea id="listing_comments" name="listing_comments" minlength="10" maxlength="150" class="materialize-textarea validate" required>Write-up</textarea>
+                <textarea id="listing_comments" name="listing_comments" minlength="10" maxlength="150" class="materialize-textarea validate" required></textarea>
                 <label for="listing_comments">Write-up</label>
             </div>
         </div>
@@ -101,30 +84,27 @@
         <!-- listing pic input -->
         <div class="row">
             <div class="input-field file-field col s10 push-s1">
-                <i class="material-icons prefix submission-icon validate" required>add_a_photo</i>
+                <i class="material-icons prefix submission-icon validate" >add_a_photo</i>
                     <label for="listing_image">Listing image url</label>
-                <input id="listing_image" name="listing_image" minlength="8" maxlength="250" type="text" class="validate">
-                <!-- <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
-                </div> -->
+                <input id="listing_image" name="listing_image" type="url" minlength="8" maxlength="250" type="text" class="validate" required>
             </div>
         </div>
 
          <!-- listing website input -->
         <div class="row">
             <div class="input-field file-field col s10 push-s1">
-                <i class="material-icons prefix submission-icon validate" required>computer</i>
+                <i class="material-icons prefix submission-icon">computer</i>
                     <label for="listing_website">Website url</label>
-                <input id="listing_website" name="listing_website" minlength="8" maxlength="250" type="text" class="validate">
+                <input id="listing_website" name="listing_website" type="url" minlength="8" maxlength="250" type="text" class="validate" required>
             </div>
         </div>
 
         <!-- listing map url input -->
         <div class="row">
             <div class="input-field file-field col s10 push-s1">
-                <i class="material-icons prefix submission-icon validate" required>add_location</i>
+                <i class="material-icons prefix submission-icon">add_location</i>
                     <label for="listing_location">Location url</label>
-                <input id="listing_location" name="listing_location" minlength="8" maxlength="250" type="text" class="validate">
+                <input id="listing_location" name="listing_location" type="url" minlength="8" maxlength="250" type="text" class="validate" required>
             </div>
         </div>
 
