@@ -85,13 +85,13 @@ def join():
 @app.route("/edit_user/<user>", methods=["GET", "POST"])
 def edit_user(user):
     if request.method == "POST":
-        update_details = {
+        update_details = {"$set": {
             "user_name": request.form.get("user_name").lower(),
             "user_email": request.form.get("user_email"),
             "user_bio": request.form.get("user_bio")
-                }
-        mongo.db.users.update(
-                {"_id": ObjectId(user)}, update_details)
+                }}
+        mongo.db.users.update_one(
+                {"_id": ObjectId(user)}, update_details, upsert=True)
         flash("Thanks for keeping your details up to date!")
     user = mongo.db.users.find_one(
         {"_id": ObjectId(user)})

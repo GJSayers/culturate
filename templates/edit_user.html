@@ -2,18 +2,18 @@
 {% block content %}
 <div class="row form-background">
     <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for(
-        'edit_user', user=user._id, update_details=update_details) }}">
+        'edit_user', user=user._id) }}">
         <div class="card submission-form">
             <div class="card-content center-align">
-                <span class="submission-header">Edit your profile</span>
+                <span class="submission-header">Edit profile for {{ user.user_name }}</span>
             </div>
 
             <!-- username input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
                     <i class="material-icons prefix submission-icon">account_circle</i>
-                    <input id="user_name" name="user_name" type="text" value="{{ user.user_name }}"
-                        class="validate" autocomplete="{{ user.user_name }}">
+                    <input id="user_name" name="user_name" type="text" value="{{ user.user_name }}" class="validate"
+                        autocomplete="{{ user.user_name }}">
                     <label for="user_name">Username</label>
                 </div>
             </div>
@@ -29,57 +29,58 @@
             <!-- bio input -->
             <div class="row">
                 <div class="input-field col s10 push-s1">
-                    <i class="material-icons prefix submission-icon">face</i>
-                    <textarea id="user_bio" name="user_bio" class="materialize-textarea validate" required>
+                    <i class="material-icons prefix submission-icon">face</i><textarea id="user_bio" name="user_bio"
+                        class="materialize-textarea validate" required>
                     </textarea>
                     <label for="user_bio">Bio</label>
                 </div>
             </div>
 
-            <!-- submit button -->
+            <!-- submit buttons -->
             <div class="row center-align">
                 <div class="col center-align">
                     <a href="{{ url_for('profile', user_name=user_name) }}" class="btn cancel-button"> Cancel <i
                             class="material-icons right submission-icon">clear</i>
                     </a>
-                    <a href="{{ url_for('profile', user_name=user_name) }}" class="btn affirmative-button center-align"
-                        type="submit">Save
+                    <button href="{{ url_for('profile', user_name=user_name) }}"
+                        class="btn affirmative-button center-align" type="submit">Save
                         Changes
                         <i class="material-icons right submission-icon">mode_edit</i>
-                    </a>
+                    </button>
                     <a href="#{{ user._id }}delete-confirmation" class="btn delete-button modal-trigger">
                         Delete<i class="material-icons right submission-icon"
                             data-target="{{ user._id }}delete-confirmation">delete</i>
                     </a>
-
                 </div>
             </div>
         </div>
-    </form>  
-</div>
+    </div>
 
 <!-- delete confirmation modal -->
-<div id="{{ user._id }}delete-confirmation" class="modal">
-    <div class="modal-content">
-        <h4>Delete user</h4>
-        <p>Are you sure?</p>
-        <blockquote class="blockquote-small"> “If you’re brave enough to say goodbye, life will reward you with a new
-            hello.”
-            <br>
-            <br>
-            – Paulo Coelho </blockquote>
-    </div>
-    <div class="modal-footer center-align">
-        <a href="{{ url_for('profile', user_name=user_name) }}" class="btn cancel-button"> Cancel <i
-                class="material-icons right submission-icon">clear</i>
-        </a>
-        <a href="{{ url_for('delete_user', user=user._id) }}" class="btn delete-button"
-            data-target="{{ user._id }}">Delete<i
-                class="material-icons right submission-icon">delete</i>
-        </a>
-    <div class="center-align">
-        <a href="{{ url_for('join') }}" class="join-link">Not a user?... Join here</a>
-    </div>
-    </div>
+
+        <div id="{{ user._id }}delete-confirmation" class="modal">
+            <div class="modal-content">
+                <h4>Delete user</h4>
+                <p>Are you sure?</p>
+            <blockquote class="blockquote-small"> “If you’re brave enough to say goodbye, life will reward you with a new
+                hello.”
+                <br>
+                <br>
+                – Paulo Coelho </blockquote>
+            </div>
+            <div class="modal-footer center-align">
+                <a href="{{ url_for('profile', user_name=user_name) }}" class="btn cancel-button"> Cancel <i
+                        class="material-icons right submission-icon">clear</i>
+                </a>
+                <button href="{{ url_for('delete_user', user=user._id) }}" class="btn delete-button" type="submit">Delete<i
+                        class="material-icons right submission-icon">delete</i>
+                </button>
+                <div class="center-align">
+                    <a href="{{ url_for('join') }}" class="join-link">Not a user?... Join here</a>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+
 {% endblock %}
