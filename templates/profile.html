@@ -113,10 +113,10 @@
                                 <div>
                                     <span>
                                         <p><strong>Name: </strong>{{ user_name }}</p>
-                                        <p><strong>Email: </strong>{{ user_email }}</p>
-                                        <p><strong>Bio: </strong>{{ user_bio }}</p>
+                                        <p><strong>Email: </strong>{{ user_profile.user_email }}</p>
+                                        <p><strong>Bio: </strong>{{ user_profile.user_bio }}</p>
                                         <!-- edit button -->
-                                            <a href="{{ url_for('edit_user', user_profile=user_profile, update_details=update_details) }}"
+                                            <a href="{{ url_for('edit_user', user_profile_id=user_profile._id, update_details=update_details) }}"
                                                 class="btn-small submit-btn"> Edit <i
                                                     class="material-icons right submission-icon">edit</i>
                                             </a>
