@@ -2,32 +2,53 @@
 {% block content %}
 
 <div class="row category-panel">
-    <div class="col center-align">
-        <span class="categories-header center-align"> Manage Categories </span>
-    <div class="row">
-        <a href="{{ url_for('add_category') }}" class="col s6 btn offset-s3 submit-btn">
+    <div class="col center-align category-background">
+        <div class="categories-header center-align"> Manage Categories </div>
+    <div class="row category-row">
+        <a href="{{ url_for('add_category') }}" class="col s6 btn offset-s3 edit-button category-button">
             Add Category <i class="material-icons right">add</i>
         </a>
     </div>
 
     <div class="row listing-section">
         {% for category in categories %}
-        <div class="col s12 m4">
+        <div class="col s12 m4 listing-section">
             <div class="card listing-card">
                 <div class="card-image">
                     <img src="https://cdn.pixabay.com/photo/2020/02/25/21/57/graffiti-art-4880123_1280.jpg"
                         alt="community-art" class="responsive"> 
                 </div>
                 <div class="card-content">
-                    <span class="card-title">{{ category.category_name}}</span>
-                    <a class="btn-small edit-button" href="{{ url_for('edit_category', category_id=category._id) }}">
-                        <i class="material-icons">mode_edit</i>
+                    <div class="row category-title">{{ category.category_name}}</div>
+                    <a class="btn affirmative-button" 
+                        href="{{ url_for('edit_category', category_id=category._id) }}">
+                        Edit<i class="material-icons right submission-icon">mode_edit</i>
                     </a>
-                    <a class="btn-small delete-button"
-                        href="{{ url_for('delete_category', category_id=category._id) }}">
-                        <i class="material-icons">delete</i>
+                    <a class="btn delete-button modal-trigger"
+                        href="#{{ category._id }}delete-confirmation"
+                        data-target="{{ category._id }}">Delete
+                        <i class="material-icons right submission-icon">delete</i>
                     </a>
                 </div>
+            </div>
+        </div>
+        <div id="{{ category._id }}delete-confirmation" class="modal">
+            <div class="modal-content">
+                <h4>Delete Category</h4>
+                <p>Are you sure?</p>
+            <blockquote class="blockquote-small"> “If you’re brave enough to say goodbye, life will reward you with a new
+                hello.”
+                <br>
+                <br>
+                – Paulo Coelho </blockquote>
+            </div>
+            <div class="modal-footer center-align">
+                <a href="{{ url_for('get_categories', category_id=category._id) }}" class="btn cancel-button"> Cancel <i
+                        class="material-icons right submission-icon">clear</i>
+                </a>
+                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn delete-button">Delete<i
+                        class="material-icons right submission-icon" data-target="{{ category._id }}">delete</i>
+                </a>
             </div>
         </div>
         {% endfor %}

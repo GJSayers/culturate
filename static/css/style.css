@@ -90,7 +90,31 @@ nav ul a:hover {
 }
 
 
-/*---- listings ---- */
+/*---- categories & listings ---- */
+
+.category-background, .category-row, .categories-header {
+    padding-top: 5%;
+    background-color: #1a2017;
+    color: #C2B678;
+}
+
+.category-title {
+    font-family: 'Archivo Black', sans-serif; 
+    font-weight: 900;
+    font-size: large;
+    width: 100%;
+    letter-spacing: 5px;
+}
+
+div.col.listing-section {
+    padding-bottom: 5%;
+    background-color: #1a2017;
+}
+
+.category-row {
+    margin-bottom: 5%;
+}
+
 
 img.responsive {
     width: 350;
@@ -334,12 +358,6 @@ input#query.validate {
     color: #1a2017;
 }
 
-/* .modal-content blockquote {
-    font-family: 'Archivo Black', sans-serif;
-    letter-spacing: normal;
-    color: #C2B678;
-} */
-
 
 /*---- login ---- */
 
@@ -387,7 +405,7 @@ div.collapsible-header:hover {
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #03B066;
-    color: #fff;
+    color: #1a2017;
 }
 
 .favourite-button, .delete-button {
@@ -395,7 +413,7 @@ div.collapsible-header:hover {
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #C33F8B;
-    color: #fff;
+    color: #1a2017;
 }
 
 .cancel-button {
@@ -403,7 +421,7 @@ div.collapsible-header:hover {
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #C2B678;
-    color: #fff;
+    color: #1a2017;
 }
 
 .submit-btn {
