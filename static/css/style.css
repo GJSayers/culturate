@@ -358,6 +358,27 @@ input#query.validate {
     color: #03B066;
 }
 
+/*---- profile ---- */
+
+div.collapsible-header:hover {
+    color: #C33F8B;
+}
+
+.collapsible-header, .collapsible {
+    background-color: #1a2017;
+    border-color: #1a2017;
+    
+}
+
+.collapsible-body {
+    border-bottom: #C33F8B;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: #C33F8B;
+} 
+
+
 /*---- buttons ---- */
 
 
@@ -413,19 +434,7 @@ input#query.validate {
     color: #1a2017;
 }
 
-.collapsible-header, .collapsible {
-    background-color: #1a2017;
-    border-color: #1a2017;
-    
-}
 
-.collapsible-body {
-    border-bottom: #C33F8B;
-}
-
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-    color: #C33F8B;
-} 
 
 
 /*---- footer ---- */
