@@ -72,9 +72,9 @@
                 <a href="{{ url_for('profile', user_name=user_name) }}" class="btn cancel-button"> Cancel <i
                         class="material-icons right submission-icon">clear</i>
                 </a>
-                <button href="{{ url_for('delete_user', user=user._id) }}" class="btn delete-button" type="submit">Delete<i
-                        class="material-icons right submission-icon">delete</i>
-                </button>
+                <a href="{{ url_for('delete_user', user=user._id) }}" class="btn delete-button">Delete<i
+                        class="material-icons right submission-icon" data-target="{{ user._id }}">delete</i>
+                </a>
                 <div class="center-align">
                     <a href="{{ url_for('join') }}" class="join-link">Not a user?... Join here</a>
                 </div>
