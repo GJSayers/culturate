@@ -31,7 +31,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">label</i>
-                <textarea id="listing_name" name="listing_name" class="materialize-textarea validate"
+                <textarea id="listing_name" name="listing_name" class="materialize-textarea validate" minlength="3" maxlength="20"
                     required>{{ listing.listing_name }}</textarea>
                 <label for="listing_name">Place / Event Name</label>
             </div>
@@ -74,7 +74,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">location_city</i>
-                <textarea id="listing_city" name="listing_city" class="materialize-textarea validate"
+                <textarea id="listing_city" name="listing_city" class="materialize-textarea validate" minlength="3" maxlength="20"
                     required>{{ listing.listing_city }}</textarea>
                 <label for="listing_city">Place / Event City</label>
             </div>
@@ -85,7 +85,7 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">insert_comment</i>
-                <textarea id="listing_comments" name="listing_comments" class="materialize-textarea validate"
+                <textarea id="listing_comments" name="listing_comments" class="materialize-textarea validate" minlength="3" maxlength="20"
                     required>{{ listing.listing_comments }}</textarea>
                 <label for="listing_comments">Write-up</label>
             </div>
@@ -96,7 +96,7 @@
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">add_a_photo</i>
                 <input id="listing_image" name="listing_image" minlength="8" maxlength="250" type="text"
-                    class="validate" required>
+                    class="validate" type="url" required>
                 <label for="listing_image">Listing image url</label>
             </div>
         </div>
@@ -104,8 +104,8 @@
         <!-- listing website input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix submission-icon validate" required>computer</i>
-                <input id="listing_website" name="listing_website" minlength="8" maxlength="250" class="validate"
+                <i class="material-icons prefix submission-icon validate">computer</i>
+                <input id="listing_website" name="listing_website" minlength="8" maxlength="250" class="validate" type="url"
                     required>
                 <label for="listing_website">Website url</label>
             </div>
@@ -114,9 +114,9 @@
         <!-- listing map url input -->
         <div class="row">
             <div class="input-field col s10 push-s1">
-                <i class="material-icons prefix submission-icon validate" required>add_location</i>
+                <i class="material-icons prefix submission-icon" required>add_location</i>
                 <input {{ listing.listing_location }} id="listing_location" name="listing_location" minlength="8"
-                    maxlength="250" type="text" class="validate" required>
+                    maxlength="250" type="url" class="validate" required>
                 <label for="listing_location">Location url</label>
             </div>
         </div>
