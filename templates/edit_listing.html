@@ -96,7 +96,7 @@
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon">add_a_photo</i>
                 <input id="listing_image" name="listing_image" minlength="8" maxlength="250" type="text"
-                    class="validate" type="url" required>
+                    class="validate" type="url" value="{{ listing.listing_image }}" required>
                 <label for="listing_image">Listing image url</label>
             </div>
         </div>
@@ -105,7 +105,8 @@
         <div class="row">
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon validate">computer</i>
-                <input id="listing_website" name="listing_website" minlength="8" maxlength="250" class="validate" type="url"
+                <input id="listing_website" name="listing_website" minlength="8" maxlength="250" class="validate" 
+                 type="url" value="{{ listing.listing_website }}"
                     required>
                 <label for="listing_website">Website url</label>
             </div>
@@ -116,7 +117,7 @@
             <div class="input-field col s10 push-s1">
                 <i class="material-icons prefix submission-icon" required>add_location</i>
                 <input {{ listing.listing_location }} id="listing_location" name="listing_location" minlength="8"
-                    maxlength="250" type="url" class="validate" required>
+                    maxlength="250" type="text" value="{{ listing.listing_location }}" class="validate" required>
                 <label for="listing_location">Location url</label>
             </div>
         </div>
@@ -126,10 +127,10 @@
             <div class="col center-align">
                 <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel <i
                         class="material-icons right submission-icon">clear</i></a>
-                <a href="{{ url_for('get_listings') }}" class="btn affirmative-button center-align" type="submit">Save
+                <button href="{{ url_for('get_listings') }}" class="btn affirmative-button center-align" type="submit">Save
                     Changes
                     <i class="material-icons right submission-icon">mode_edit</i>
-                </a>
+                </button>
                 <a href="#{{ listing.id }}delete-confirmation" class="btn delete-button modal-trigger"> Delete<i
                     class="material-icons right submission-icon">delete</i>
                 </a>
