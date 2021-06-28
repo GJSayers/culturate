@@ -102,9 +102,10 @@
             </div>
             <div class="collapsible-body">
                 <span>
-                    {% for categories in categories %}
-                    <span>{{ categories.category_name }}</span>
-                    {% endfor %}
+                    <!-- edit button -->
+                            <a href="{{ url_for('get_categories') }}" class="btn-small submit-btn"> Manage Categories <i
+                                    class="material-icons right submission-icon">edit</i>
+                            </a>
                 </span>
             </div>
         </li>
