@@ -197,6 +197,10 @@ img.responsive {
 
 /*--- listing-cards ---*/
 
+.card-content {
+    z-index: -5;
+}
+
 .card .card-title {
     font-family: 'Archivo Black', sans-serif; 
     font-weight: 900;
