@@ -1,58 +1,59 @@
 {% extends "base.html" %}
 {% block content %}
-
-<div class="row category-panel">
-    <div class="col center-align category-background">
-        <div class="categories-header center-align"> Manage Categories </div>
+<!-- categories panel  -->
+<div class="row center-align category-background">
+    <div class="categories-header center-align"> Manage Categories </div>
     <div class="row category-row">
         <a href="{{ url_for('add_category') }}" class="col s6 btn offset-s3 edit-button category-button">
             Add Category <i class="material-icons right">add</i>
         </a>
     </div>
-
-    <div class="row listing-section">
-        {% for category in categories %}
-        <div class="col s12 m4 listing-section">
-            <div class="card listing-card">
-                <div class="card-image">
-                    <img src="https://cdn.pixabay.com/photo/2020/02/25/21/57/graffiti-art-4880123_1280.jpg"
-                        alt="community-art" class="responsive"> 
-                </div>
-                <div class="card-content">
-                    <div class="row category-title">{{ category.category_name}}</div>
-                    <a class="btn affirmative-button" 
-                        href="{{ url_for('edit_category', category_id=category._id) }}">
-                        Edit<i class="material-icons right submission-icon">mode_edit</i>
-                    </a>
-                    <a class="btn delete-button modal-trigger"
-                        href="#{{ category._id }}delete-confirmation"
-                        data-target="{{ category._id }}">Delete
-                        <i class="material-icons right submission-icon">delete</i>
-                    </a>
-                </div>
+    {% for category in categories %}
+    <div class="card col s12 m6 l4 category-background">
+        <div class="card-float">
+            <!-- cards  -->
+            <div class="card-image">
+                <img src="https://cdn.pixabay.com/photo/2020/02/25/21/57/graffiti-art-4880123_1280.jpg"
+                    alt="community-art" class="responsive">
+            </div>
+            <div class="card-content">
+                <div class="row category-title">{{ category.category_name}}</div>
+                <a class="btn affirmative-button" href="{{ url_for('edit_category', category_id=category._id) }}">
+                    Edit<i class="material-icons right submission-icon">mode_edit</i>
+                </a>
+                <button class="btn delete-button modal-trigger" href="#delete-confirmation">Delete
+                    <i class="material-icons right submission-icon">delete</i>
+                </button>
             </div>
         </div>
-        <div id="{{ category._id }}delete-confirmation" class="modal">
+    </div>
+
+
+    <!-- delete confirmation modal  -->
+    <form action="{{ url_for('get_categories')}}">
+        <div id="delete-confirmation" class="modal">
             <div class="modal-content">
                 <h4>Delete Category</h4>
                 <p>Are you sure?</p>
-            <blockquote class="blockquote-small"> “If you’re brave enough to say goodbye, life will reward you with a new
-                hello.”
-                <br>
-                <br>
-                – Paulo Coelho </blockquote>
+                <blockquote class="blockquote-small"> “If you’re brave enough to say goodbye, life will reward you
+                    with a new
+                    hello.”
+                    <br>
+                    <br>
+                    – Paulo Coelho </blockquote>
             </div>
+            <!-- delete confirmation footer  -->
             <div class="modal-footer center-align">
-                <a href="{{ url_for('get_categories', category_id=category._id) }}" class="btn cancel-button"> Cancel <i
-                        class="material-icons right submission-icon">clear</i>
+                <a href="{{ url_for('get_categories') }}" class="btn cancel-button">
+                    Cancel <i class="material-icons right submission-icon">clear</i>
                 </a>
-                <a href="{{ url_for('delete_category', category_id=category._id) }}" class="btn delete-button">Delete<i
-                        class="material-icons right submission-icon" data-target="{{ category._id }}">delete</i>
-                </a>
+                <button href="{{ url_for('delete_category', category_id=category._id) }}"
+                    class="btn delete-button">Delete<i class="material-icons right submission-icon"
+                        data-target="{{ category._id }}">delete</i>
+                </button>
             </div>
         </div>
-        {% endfor %}
-        </div>  
-    </div>
+    </form>
+    {% endfor %}
 </div>
 {% endblock %}
