@@ -423,6 +423,10 @@ input#query.validate {
     color: #1a2017;
 }
 
+.modal {
+    padding-bottom: 10%;
+}
+
 
 /*---- login ---- */
 
