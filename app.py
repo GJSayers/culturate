@@ -69,7 +69,7 @@ def join():
                 request.form.get("user_password")),
             "user_bio": request.form.get("user_bio"),
             "user_favourites": []
-                }
+        }
         mongo.db.users.insert_one(join)
         """
         start a session for the user with a session cookie
@@ -89,16 +89,16 @@ def edit_user(user):
             "user_name": request.form.get("user_name").lower(),
             "user_email": request.form.get("user_email"),
             "user_bio": request.form.get("user_bio")
-                }}
+        }}
         mongo.db.users.update_one(
-                {"_id": ObjectId(user)}, update_details, upsert=True)
+            {"_id": ObjectId(user)}, update_details, upsert=True)
         flash("Thanks for keeping your details up to date!")
     user = mongo.db.users.find_one(
         {"_id": ObjectId(user)})
     user_name = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_name"]
     return render_template("edit_user.html",
-        user=user, user_name=user_name)
+                           user=user, user_name=user_name)
 
 
 # route to login
@@ -194,7 +194,7 @@ def delete_user(user):
     return redirect(url_for("get_listings"))
 
 
-# route to delete a user from admin profile directly 
+# route to delete a user from admin profile directly
 @app.route("/delete_entry/<entry>")
 def delete_entry(entry):
     mongo.db.users.remove({"_id": ObjectId(entry)})
@@ -282,7 +282,7 @@ def favourite_listing(listing_id):
     user_favourites = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_favourites"]
     print(user_favourites)
- 
+
     if request.method == "POST":
         # check if the listing is already in the
         # user's favourites list in db.
@@ -315,16 +315,16 @@ def rate_listing(listing_id):
                 "rating_by": session["user"],
                 "user_rating": request.form.get("user_rating"),
                 "user_comments": request.form.get("user_comments")
-                }
+            }
             mongo.db.listings.update_one({"_id": ObjectId(listing_id)},
-                            {"$push": {"listing_rating": listing_rating}})
+                                         {"$push": {"listing_rating": listing_rating}})
             return redirect(url_for(
                 "get_listings", listing=listing, user=user))
             """
                 if user is not in session, re-direct
             """
         return redirect(url_for("login"))
-    
+
 
 #########
 # TO BE TESTED ###
@@ -340,7 +340,7 @@ def rate_listing(listing_id):
 #                 "user_rating": request.form.get("user_rating"),
 #                 "user_comments": request.form.get("user_comments")
 #                 }
-            
+
 #             mongo.db.listings.update_one(
 #             {"_id": ObjectId(listing_id)},
 #             {"$set": {"listing_rating": listing_rating}})
@@ -391,7 +391,8 @@ def edit_category(category_id):
         submit = {"$set": {
             "category_name": request.form.get("category_name")
         }}
-        mongo.db.categories.update_one({"_id": ObjectId(category_id)}, submit, upsert=True)
+        mongo.db.categories.update_one(
+            {"_id": ObjectId(category_id)}, submit, upsert=True)
         flash("Category Successfully Updated - Thank you!")
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template("edit_category.html", category=category)
