@@ -116,6 +116,7 @@
                                         class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                         class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                         class="tiny material-icons">star</i></span>
+
                                 {% else %}
                                 <span class="rating-span v-align">This listing has not been rated yet!</span>
                                 <button class="btn-small favourite-button modal-trigger v-align center-align"
@@ -125,11 +126,12 @@
 
                                 {% endif %}
                             </li>
+                                {% if rating.user_comments != "" -%}
                             <li>
-                                <span class="rating-comment v-align"><i class="tiny material-icons">comment</i><strong>
-                                        "
-                                        {{ rating.user_comments }} "</strong></span>
+                                <span class="rating-comment v-align"><i class="tiny material-icons">comment</i>
+                                    <strong>{{ rating.user_comments }}</strong></span>
                             </li>
+                                {%- endif %}
                             <li>
                                 <em><span class="rating-by v-align"><small>rated by -
                                             {{ rating.rating_by }}</small></span></em>
@@ -140,37 +142,41 @@
                     <div id="info" class="comments-tabs center-align">
                         <br>
                         <span class="ratings-header">Info</span>
+                                <br>
+                                <hr class="ratings-divider">
+                                <br>
                         <div class="row">
                             <ul>
                                 <li>
-                                    <span class="cost">Cost: {{ listing.listing_cost }}</span>
+                                    <span class="cost">Cost - {{ listing.listing_cost }}</span>
                                 </li>
+                                <br>
                                 <hr class="ratings-divider">
+                                <br>
                                 <li class="facilities">
-                                    Facilities:
+                                    Facilities -
                                     {% for facility in listing.listing_facilities %}
-                                    {% if facility == "Accessible" %}
-                                    <span><i class="material-icons">accessible</i></span>
-                                    {% endif %}
-                                    {% if facility == "Cafe" %}
-                                    <span><i class="material-icons">local_dining</i></span>
-                                    {% endif %}
-                                    {% if facility == "Guide Available" %}
-                                    <span><i class="material-icons">headset_mic</i></span>
-                                    {% endif %}
-                                    {% if facility == "Child Friendly" %}
-                                    <span><i class="material-icons">child_friendly</i></span>
-                                    {% endif %}
-                                    {% if facility == "Toilets" %}
+                                        {% if facility == "Accessible" %}
+                                        <span><i class="material-icons">accessible</i></span>
+                                        {% endif %}
+                                        {% if facility == "Cafe" %}
+                                        <span><i class="material-icons">local_dining</i></span>
+                                        {% endif %}
+                                        {% if facility == "Guide Available" %}
+                                        <span><i class="material-icons">headset_mic</i></span>
+                                        {% endif %}
+                                        {% if facility == "Child Friendly" %}
+                                        <span><i class="material-icons">child_friendly</i></span>
+                                        {% endif %}
+                                        {% if facility == "Toilets" %}
                                     <span><i class="material-icons">wc</i></span>
-                                    {% endif %}
+                                        {% endif %}
                                     {% endfor %}
-                                    <br>
+                                    
                                 </li>
                             </div>
                                 <hr class="ratings-divider">
-
-                                <li><span>Get there...</span>
+                                <li><p>Get there</p>
                                 </li>
                             <br>
                             </ul>
