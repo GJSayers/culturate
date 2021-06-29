@@ -111,6 +111,24 @@ div.col.listing-section {
     background-color: #1a2017;
 }
 
+div.row.listing-section {
+    padding-bottom: 8%;
+}
+
+@media screen and (min-height: 1024px) {
+    .listing-section, .search-section {
+        padding: 5%;
+    }
+}
+
+@media screen and (min-height: 1400px) {
+    .listing-section, .search-section {
+        padding: 10%;
+    }
+}
+
+
+
 .category-row {
     margin-bottom: 5%;
 }
@@ -174,6 +192,25 @@ img.responsive {
     color: #1a2017;
 }
 
+@media screen and (min-height: 1024px) {
+  .listing-page-card {
+        height: 700px;
+  }
+}
+
+@media screen and (min-height: 1366px) {
+  .listing-page-card {
+        height: 600px;
+  }
+}
+
+@media screen and (min-height: 1400px) {
+    .listing-page-card {
+        height: 800px;
+    }
+}
+
+
 .website a, .link-login, .link-join {
     color: #C33F8B;
     padding-right: 3%;
@@ -196,10 +233,6 @@ img.responsive {
 }
 
 /*--- listing-cards ---*/
-
-.card-content {
-    z-index: -5;
-}
 
 .card .card-title {
     font-family: 'Archivo Black', sans-serif; 

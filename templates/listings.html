@@ -37,8 +37,8 @@
 {% if listings|length > 0 %}
 <div class="row listing-section">
     {% for listing in listings %}
-    <div class="col s12 m4 listing-card">
-        <div class="card float">
+    <div class="col s12 m6 l4 listing-card">
+        <div class="card listing-page-card float">
             <div class="card-image">
 
                 <!-- contruct listing cards images -->
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-content">
+            <div class="card-content responsive">
                 <ul>
                     <li class="city">{{ listing.listing_city }}</li>
                     <br>
