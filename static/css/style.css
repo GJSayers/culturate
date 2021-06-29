@@ -183,13 +183,17 @@ img.responsive {
 }
 
 .card, .listing-card {
-    border: none;
+    border: 1px #1a2017;
     box-shadow: none;
 }
+
+
+
 .listing-card {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
     color: #1a2017;
+    border: 1px #1a2017;
 }
 
 @media screen and (min-height: 1024px) {
@@ -272,8 +276,8 @@ li.rating span i {
 /*---- lisiting_page tabs ---- */
 
 .tabs .indicator {
-    color: #F7E93F;
-    background-color: #F7E93F;
+    color: #C2B678;
+    background-color: #C2B678;
 }
 
 .tabs .tab a:hover, .tabs .tab a.active {
@@ -324,6 +328,10 @@ hr.ratings-divider {
 
 .tabs-content {
     background-color: #1a2017;
+}
+
+li::marker {
+    display: none;
 }
 
 
@@ -456,8 +464,8 @@ div.collapsible-header:hover {
 
 /*---- buttons ---- */
 
-
 .affirmative-button {
+    position: relative;
     margin-top: 5%;
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
@@ -466,7 +474,9 @@ div.collapsible-header:hover {
 }
 
 .favourite-button, .delete-button {
+    position: relative;
     margin-top: 5%;
+    margin-bottom: 5%;
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #C33F8B;
@@ -474,6 +484,7 @@ div.collapsible-header:hover {
 }
 
 .cancel-button {
+    position: relative;
     margin-top: 5%;
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
@@ -482,12 +493,19 @@ div.collapsible-header:hover {
 }
 
 .submit-btn {
+    position: relative;
     margin-top: 5%;
     font-family: 'Archivo Black', sans-serif;
     font-weight: bold;
     background-color: #F7E93F;
     color: #1a2017;
 }
+
+.affirmative-button:hover, .favourite-button:hover,
+ .delete-button:hover, .cancel-button:hover, .submit-btn:hover {
+    background-color: #C2B678; 
+}
+
 
 .edit-button {
     margin-top: 5%;
