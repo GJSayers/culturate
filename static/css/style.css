@@ -297,6 +297,7 @@ hr.ratings-divider {
 /*---- sumbission forms ---- */
 
 
+
 .submission-header {
     font-family: 'Permanent Marker', cursive;
     font-size: x-large;
@@ -332,6 +333,25 @@ hr.ratings-divider {
     background-color: transparent;
     margin: 0%;
 }
+
+@media screen and (min-height: 1000px) {
+  .form-background {
+    min-height: 800px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+    .form-background {
+    min-height: 1000px;
+  }
+}
+
+@media screen and (min-height: 1300px) {
+    .form-background {
+    min-height: 1000px;
+  }
+}
+
 
 /*--- input fields ---*/
 
