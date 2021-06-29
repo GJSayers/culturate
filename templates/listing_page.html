@@ -126,12 +126,12 @@
 
                                 {% endif %}
                             </li>
-                                {% if rating.user_comments != "" -%}
+                                {% if rating.user_comments != "" %}
                             <li>
                                 <span class="rating-comment v-align"><i class="tiny material-icons">comment</i>
                                     <strong>{{ rating.user_comments }}</strong></span>
                             </li>
-                                {%- endif %}
+                                {% endif %}
                             <li>
                                 <em><span class="rating-by v-align"><small>rated by -
                                             {{ rating.rating_by }}</small></span></em>
