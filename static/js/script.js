@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $(window).scroll(function() {
 
-    $('.flashes').fadeOut();
+    $('.flashes').fadeOut(1000);
     
     });
 
