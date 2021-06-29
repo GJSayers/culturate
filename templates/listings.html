@@ -206,38 +206,39 @@
 
                     <!-- rating button to open rating modal -->
 
-                    <li class="col-12 v-align">Seen it?
+                    <li class="col-12 v-align">
                         {% if session.user|lower %}
                         <button class="btn-small favourite-button modal-trigger right"
                             href="#{{ listing.listing_name }}modal">Rate it
                             <i class="material-icons right">star</i>
                         </button>
+                        <p>
+                            <a class="btn-small submit-btn left"
+                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
+                                <i class="material-icons right">lightbulb_outline</i>
+                            </a>
+                        </p>
 
                         {% else %}
                         <button class="btn-small favourite-button modal-trigger right" href="#not-logged-modal">Rate it
                             <i class="material-icons right">star</i>
                         </button>
-                    </li>
-
-                    {% endif %}
-
-                    <li class=" col 12 v-align">
                         <p>
-                            <a class="btn-small submit-btn right"
-                                href="{{ url_for('listing_page', listing_id=listing._id)}}">
+                            <a class="btn-small submit-btn left"
+                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
                                 <i class="material-icons right">lightbulb_outline</i>
                             </a>
                         </p>
                     </li>
+
+                    {% endif %}   
+                    
                     <li class="col 12 v-align">
                         <div class="col 12">
                             <p><em>created by: {{ listing.listing_by }}</em></p>
                         </div>
                     </li>
-
                 </ul>
-
-
             </div>
         </div>
     </div>
