@@ -182,7 +182,7 @@ img.responsive {
     padding-bottom: 0%;
 }
 
-.card, .listing-card {
+.card, .listing-card, .card-panel {
     border: 1px #1a2017;
     box-shadow: none;
 }
