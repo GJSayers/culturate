@@ -58,15 +58,16 @@
                              update_details=update_details) }}" class="btn-small submit-btn"> Edit <i
                                     class="material-icons right submission-icon">edit</i>
                             </a>
-                            <a href="{{ url_for('profile', user=user._id, user_name=user_name) }}"
+                            <button href="{{ url_for('profile', user=user._id, user_name=user_name) }}"
                                 class="btn-small affirmative-button"> Cancel <i
-                                    class="material-icons right submission-icon">clear</i></a>
+                                    class="material-icons right submission-icon">clear</i>
+                            </button>
                             <!-- delete button -->
-                            <a href="#{{ user._id }}" class="btn-small delete-button modal-trigger"> Delete<i
+                            <a href="#{{ entry._id }}delete-confirmation" class="btn-small delete-button modal-trigger"> Delete<i
                                     class="material-icons right submission-icon">clear</i>
                             </a>
                             <!-- delete confirmation modal -->
-                            <div id="{{ user._id }}delete-confirmation" class="modal">
+                            <div id="{{ entry._id }}delete-confirmation" class="modal">
                                 <div class="modal-content">
                                     <h4>Delete user</h4>
                                     <p>Are you sure?</p>
@@ -78,12 +79,12 @@
                                         – Paulo Coelho </blockquote>
                                 </div>
                                 <div class="modal-footer center-align">
-                                    <a href="{{ url_for('profile', user_name=user_name) }}" class="btn cancel-button">
+                                    <a href="{{ url_for('profile', user_name=entry.user_name) }}" class="btn cancel-button">
                                         Cancel <i class="material-icons right submission-icon">clear</i>
                                     </a>
-                                    <a href="{{ url_for('delete_user', user=user._id) }}"
+                                    <a href="{{ url_for('delete_entry', entry=entry._id) }}"
                                         class="btn delete-button">Delete<i class="material-icons right submission-icon"
-                                            data-target="{{ user._id }}">delete</i>
+                                            data-target="{{ entry._id }}">delete</i>
                                     </a>
                                     <div class="center-align">
                                         <a href="{{ url_for('join') }}" class="join-link">Not a user?... Join here</a>

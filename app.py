@@ -194,6 +194,14 @@ def delete_user(user):
     return redirect(url_for("get_listings"))
 
 
+# route to delete a user from admin profile directly 
+@app.route("/delete_entry/<entry>")
+def delete_entry(entry):
+    mongo.db.users.remove({"_id": ObjectId(entry)})
+    flash("User profile successfully deleted")
+    return redirect(url_for("get_listings"))
+
+
 # route to add a logout
 @app.route("/logout")
 def logout():
