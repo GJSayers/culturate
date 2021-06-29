@@ -10,8 +10,12 @@ $(document).ready(function () {
         hoverEnabled: false,
         isOpen: false
     });
-    
 
+    $(window).scroll(function() {
+
+    $('.flashes').fadeOut();
+    
+    });
 
 
  validateMaterializeSelect();
