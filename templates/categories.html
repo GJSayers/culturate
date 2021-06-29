@@ -21,9 +21,9 @@
                 <a class="btn affirmative-button" href="{{ url_for('edit_category', category_id=category._id) }}">
                     Edit<i class="material-icons right submission-icon">mode_edit</i>
                 </a>
-                <button class="btn delete-button modal-trigger" href="#delete-confirmation">Delete
+                <a class="btn delete-button modal-trigger" href="#{{ category._id }}delete-confirmation">Delete
                     <i class="material-icons right submission-icon">delete</i>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
 
     <!-- delete confirmation modal  -->
     <form action="{{ url_for('get_categories')}}">
-        <div id="delete-confirmation" class="modal">
+        <div id="{{ category._id }}delete-confirmation" class="modal">
             <div class="modal-content">
                 <h4>Delete Category</h4>
                 <p>Are you sure?</p>
@@ -47,10 +47,10 @@
                 <a href="{{ url_for('get_categories') }}" class="btn cancel-button">
                     Cancel <i class="material-icons right submission-icon">clear</i>
                 </a>
-                <button href="{{ url_for('delete_category', category_id=category._id) }}"
+                <a href="{{ url_for('delete_category', category_id=category._id) }}"
                     class="btn delete-button">Delete<i class="material-icons right submission-icon"
                         data-target="{{ category._id }}">delete</i>
-                </button>
+                </a>
             </div>
         </div>
     </form>
