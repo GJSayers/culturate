@@ -172,7 +172,7 @@
                                     <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel
                                         <i class="material-icons right submission-icon">clear</i>
                                     </a>
-                                    <button class="btn favourite-button v-align center-align" type="submit">Rate it
+                                    <button class="btn rate-button v-align center-align" type="submit">Rate it
                                         <i class="material-icons right submission-icon">star</i>
                                     </button>
                                 </div>
@@ -207,7 +207,7 @@
 
                     <li class="col-12 v-align">
                         {% if session.user|lower %}
-                        <button class="btn-small favourite-button modal-trigger right"
+                        <button class="btn-small rate-button modal-trigger right"
                             href="#{{ listing.listing_name }}modal">Rate it
                             <i class="material-icons right">star</i>
                         </button>
@@ -219,7 +219,7 @@
                         </p>
 
                         {% else %}
-                        <button class="btn-small favourite-button modal-trigger right" href="#not-logged-modal">Rate it
+                        <button class="btn-small rate-button modal-trigger right" href="#not-logged-modal">Rate it
                             <i class="material-icons right">star</i>
                         </button>
                         <p>
@@ -232,10 +232,8 @@
 
                     {% endif %}
 
-                    <li class="col 12 v-align">
-                        <div class="col 12 left listing-by">
-                            <p><em>created by: {{ listing.listing_by }}</em></p>
-                        </div>
+                    <li class="col 12 v-align created-wrapper">    
+                    <small><em class="created-by v-align left">listed by - {{ listing.listing_by }}</em> </small>
                     </li>
                 </ul>
             </div>
