@@ -71,10 +71,11 @@
     <!-- rating button to open rating modal -->
                     <li class="buttons valign-wrapper">
 
-                        {% if session.user %}
-                        <a class="btn-small rate-button modal-trigger valign-wrapper"
-                            href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right">star</i>
-                        </a>
+                        {% if session.user|lower %}
+                        <button class="btn-small rate-button modal-trigger right"
+                                href="#{{ listing.listing_name|replace(' ','') }}modal">Rate it
+                                <i class="material-icons right">star</i>
+                        </button>
                         {% else %}
                         <a class="btn-small rate-button modal-trigger valign-wrapper" href="#not-logged-modal">Rate it
                             <i class="material-icons right">star</i>
@@ -131,7 +132,7 @@
                         {% else %}
                             <span class="rating-span v-align">This listing has not been rated yet!</span>
                             <button class="btn-small rate-button modal-trigger v-align center-align"
-                                href="#{{ listing.listing_name }}modal">Rate it<i class="material-icons right">star</i>
+                                href="#{{ listing.listing_name|replace(' ','') }}modal">Rate it<i class="material-icons right">star</i>
                             </button>
 
                             {% endif %}
@@ -208,6 +209,7 @@
     </div>
 
     <!-- ratings modal  -->
+
     <div id="{{ listing.listing_name|replace(' ','') }}modal" class="modal">
         <div class="modal-content">
             <h4>Rate {{ listing.listing_name }}</h4>
