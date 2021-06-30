@@ -271,17 +271,10 @@ def edit_listing(listing_id):
 @app.route("/favourite_listing/<listing_id>", methods=["GET", "POST"])
 def favourite_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    print(listing)
     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
-    print(user)
     user_favourite = listing["_id"]
-    print(user_favourite)
-    user_name = mongo.db.users.find_one(
-        {"user_name": session["user"]})["user_name"]
-    print(user_name)
     user_favourites = mongo.db.users.find_one(
         {"user_name": session["user"]})["user_favourites"]
-    print(user_favourites)
 
     if request.method == "POST":
         # check if the listing is already in the
@@ -310,9 +303,7 @@ def rate_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
     author = mongo.db.listings.find_one({"rating_by": user})
-    print(author)
-    print(user)
-    
+
     if session["user"] and author != user:
         if request.method == "POST":
             listing_rating = {
@@ -325,9 +316,9 @@ def rate_listing(listing_id):
                                           listing_rating}})
             return redirect(url_for(
                 "get_listings", listing=listing, user=user))
-            """
-                if user is not in session, re-direct
-            """
+        """
+        if user is not in session, re-direct
+        """
         return redirect(url_for("login"))
     flash("you have already rated this listing")
     return redirect(url_for("listing_page", listing_id=listing_id))
