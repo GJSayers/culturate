@@ -1,10 +1,11 @@
 <h1 align="center">Culturate</h1>
 -------
-![Mockups](static/images/screen-shots/mock-ups.png)
+
+![Mockups](static/images/mock-ups.png)
 
 [View the live project here.](https://culturate.herokuapp.com/)
 
-Culturate is a cultural places, exhibitions and events site. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
+Culturate is a cultural places, exhibitions and events site.  It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
 ## Strategy 
 -------
@@ -22,19 +23,19 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 4. As an **Existing User** I would like to be able to **upload listings** for others to see. 
 
 
-##### User Stories - Repeat/ Frequent User C (Logged in / joined member)
+#### User Stories - Repeat/ Frequent User C (Logged in / joined member)
 1. As a **Repeat User** I would like to be able to **edit my likes and saves** 
 2. As a **Repeat User** I would like to be able to **search the listings** 
 3. As a **Repeat User** I would like to be able to **edit and update my profile**
-4. As a **Repeat User** I would like to be able to **edit or update the comments on my listings**
+4. As a **Repeat User** I would like to be able to **edit or update the listings that I added**
 
 
 #### User Stories - Site Manager / Admin User D
 -----
 1. As a **Site Manager / Admin User** I want to be able to **create new categories**
 2. As a **Site Manager / Admin User** I want to be able to **edit / delete listings** if necessary. 
-2. As a **Site Manager / Admin User** I want to be able to **edit / users** if necessary. 
-3. As a **Site Manager / Admin User** I want to ensure that the website **stays up to date**, and **automatically deletes** events that have passed. 
+3. As a **Site Manager / Admin User** I want to be able to **edit / users** if necessary. 
+4. As a **Site Manager / Admin User** I want to ensure that the website **stays up to date**, and that any inappropriate comments can be deleted if necessary - although the main point is for all users to have their say. 
 
 #### Website Owner Goals
 -------
@@ -53,8 +54,8 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 * Responsive layout to ensure **optimal visuals**
 * The site must **store data securely**
 * The administrator must be able to access data through the website to edit or delete the records of users or listings. 
-* The website should be able to function as close as possible to the following user-story based requirements:
-![Functional-Testing](static/testing/functional-testing-design.png)
+* The website should be able to function as close as possible to the following user-story based functional feature requirements:
+![Functional-Testing](static/testing/testing-methodology/functional-testing-design.png)
 * The website should aim to have good browser performance and follow accessibility guidelines
 
 #### Security
@@ -63,34 +64,51 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 * To enure the correct level access, session storage is used as well as re-directs to minimise the possibility of users accessing areas of the site they should not. 
 
 #### Data Management
-* The site is using crud functionality, and in order for these Create, Read, Update & Delete functions to provide a good user experience it is necessary for alerts to be used to ensure there is no one step deletion of data.  In the case of this site, modals have been implemented at the delete stage.  
- for example from the Admin dashboard, users can be edited or deleted:
- ![Admin](static/images/screen-shots/surface/admin-dashboard.png)
+* The site is using crud functionality, and in order for these Create, Read, Update & Delete functions to provide a good user experience it is necessary for:
+* **alerts** to be used 
+* ensure there is **no one step deletion** of data
+* **access** functionality managed through app routes and jinja templating to make use of session user cookes, but also data matching
+
+
 #### Core Features
 -----
 
-#### Feature Feasibility *MVP vs Full Features
------
-#### 1st Round Selected Production Features 
------
+* A **Listing page** with  **Listing cards** that represent the data in an attractive and succinct format
+* Click through to more **detailed listing page** to contain the **ratings and info**. 
+* Option to **create a profile** 
+* Ability to **upload a listing**
+* Ability to **favourite items** 
+* Ability to **leave a rating**
+* Search to be able to **search listings** by any data included in the listing only.
+* **Validation rules and alerts** for data that is uploaded to the db. 
+* An **admin dashboard** for administrators of the site. 
+
+
 #### Future Implementations
 -----
+* More in-depth **security functions** 
+* A **request form** for new categories
+* Maps **API instead of Embed**
+* Use a **CDN for storing and serving images faster** and for the user to be able to upload a file rather than a URL
+* 
+
 #### Content and Structure requirements
 -----
 
 ### Structure
 #### Conceptual Design 
 * I used Lucid Chart to put together a flow chart of the relationships between the data and actions taken by users as an initial guide to aide the design process.  
-![Conceptual Design Chart](static/images/screen-shots/culturate_conceptual_design_chart.png)
+![Conceptual Design Chart](static/structure/culturate_conceptual_design_chart.png)
 * This also helped to identify secutiry measures to be taken into account, and which CRUD operations are performed by which user - The flow was slightly modified throughout design to satisfy the user stories.  The 'liked/saved' block also represents the read part of CRUD. 
+
 #### Database Schema
 * Original database Schema design consisted of 3 collections in MongoDB Users, Galleries, Categories: 
-![Original Schema](static/images/screen-shots/schema-original.png)
+![Original Schema](static/structure/schema-original.png)
 
-* In the practicality of actually constructing the user journeys and features it was necessary to edit the schema to include more generic term listings instead of galleries so that on-page semantics were correct.  
+* In the practicality of actually constructing the user journeys and features it was necessary to edit the schema to include more generic term listings instead of galleries so that on-page semantics were correct and avoiding creation on unnecessary additional collections
 * As well as this, there was the need to add array of dictionaries to store the user-ratings. During the process of the project, I also solidified the terminology and named the final schema in a more semantically correct manner.
 * Final Schema was still 3 collections and during the project I learnt how to access the sub-collections:
-![Final Schema](static/images/screen-shots/schema-final.png)
+![Final Schema](static/structure/schema-final.png)
 
 ### Skeleton
 ------
@@ -99,38 +117,56 @@ Culturate is a cultural places, exhibitions and events site. It is designed to b
 
 * The initial designs were sketched out of Balsamiq with some of the form views being the same across device sizes to ensure more impact on the visual pages such as the listing pages.  
 * Here are the wireframes for the skeleton design planning:
-![Wireframes](static/images/skeleton/culturate-form-all-devices.png)
-![Wireframes](static/images/skeleton/culturate-home-desktop.png)
-![Wireframes](static/images/skeleton/culturate-home-ipad.png)
-![Wireframes](static/images/skeleton/culturate-home-page-mb.png)
-![Wireframes](static/images/skeleton/culturate-listings-categories-dtop.png)
-![Wireframes](static/images/skeleton/culturate-listings-categories-ipad.png)
-![Wireframes](static/images/skeleton/culturate-listings-categories-mb.png)
-![Wireframes](static/images/skeleton/culturate-submission-form-ipad.png)
+
+#### Homepage - Desktop
+![Wireframes](static/skeleton/culturate-home-desktop.png)
+#### Homepage - IPad
+![Wireframes](static/skeleton/culturate-home-ipad.png)
+#### Homepage - Mobile
+![Wireframes](static/skeleton/culturate-home-page-mb.png)
+#### Forms - A uniform design applicable across all devices
+![Wireframes](static/skeleton/culturate-form-all-devices.png)
+#### Forms - Ipad example
+![Wireframes](static/skeleton/culturate-submission-form-ipad.png)
+#### Categories - Desktop
+![Wireframes](static/skeleton/culturate-listings-categories-dtop.png)
+#### Categories - Ipad
+![Wireframes](static/skeleton/culturate-listings-categories-ipad.png)
+#### Categories - Mobile
+![Wireframes](static/skeleton/culturate-listings-categories-mb.png)
 
 ### Surface & Prototypes
 * I then wanted to get an idea of how the colours and imagery would work so I did some planning on Figma too - I just selected a few key pages to illustrate an idea of houw the colours would come out:
-![Prototypes](static/images/screen-shots/surface/figma-screen-design.png)
+
+#### Figma Prototypes
+![Prototypes](static/surface/figma-screen-design.png)
 
 #### Design Inspiration & Colour choices 
 * The over-all concept came from the anticipation of getting out to access cultural activities after the lockdown period.  
 My hometown of Eastbourne has an inspirational gallery - the Towner Gallery, which is painted in rainbow by artist Iothar Gotz.  
 I used an image of the gallery for landing page, and took colour design inspiration from this pallet - offering an alternative to the sometimes staid and serious gallery website design approach to give a vibrant design feel that will appeal to multiple user-groups and elicit a vibrant positive feeling for users. 
-![Towner](static/images/screen-shots/towner-gallery.png)
+![Towner](static/surface/towner-gallery.png)
 I translated the colour pallet using Coolors to get the hex and RGB codes to use in CSS:
 ![Color-Palette](static/images/screen-shots/colour-palette.png)
 
-##### Typography
-* For the Typography, it was necessary to chose classically no nonsense font, so I chose Archivo, but to complement for forms (where information is being shared) and profile pages where the user is likely to be already an engager used, I chose Permanenet Marker to personalise. 
+#### Typography
+* For the Typography, it was necessary to chose classically no nonsense font, so I chose **Archivo**, but to complement for forms (where information is being shared) and profile pages where the user is likely to be already an engager used, I chose **Permanenet Marker** to personalise. 
+
 ##### Imagery
 The Imagery of the website will be based on the user contributions, but to set the theme, the homepage is a parallax containing two striking colourful artworks. 
-Where there may be times where an image is not uploaded, there is a standby image to populate incase.
-Here is the homepage ![Homepage](static/images/screen-shots/surface/home-page-imagery.png)
-Here is an example of a listing page: ![Listing-Page](static/images/screen-shots/surface/listing-page.png)
+Where there may be times where an image is not uploaded, there is a standby image to populate incase. 
+
+#### Homepage 
+![Homepage](static/surface/home-page-imagery.png)
+
+#### Here is an example of a listing page:
+ ![Listing-Page](static/surface/listing-page.png)
+ 
 You will see that I decided to dial back the yellow, and keep most backgrounds aside from forms with the #1a2017 and use the colour as pops, letting the art imagery sign it's own song. 
 
 
 ## Implementation 
+
 This project is a uses the flask framwork, which is a framwork that is written in Python  app has been built and source-controlled on GitHub with regular commits. The backend is managed in MongoDB and the project is deployed to Heroku. 
 
 ### Deployment
