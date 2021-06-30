@@ -42,7 +42,7 @@
                 <!-- contruct listing cards images -->
 
                 {% if listing.listing_image != "" %}
-                <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
+                <img class="responsive" src="{{ listing.listing_image|safe }}" alt="listing-image">
                 {% else %}
                 <img class="responsive"
                     src="https://isupportstreetart.blob.core.windows.net/issabucket/2020/01/pexel-1024x765.jpeg"
@@ -210,23 +210,23 @@
                             href="#{{ listing.listing_name }}modal">Rate it
                             <i class="material-icons right">star</i>
                         </a>
-                        <p>
+                        <span>
                             <a class="btn-small submit-btn left"
                                 href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
                                 <i class="material-icons right">lightbulb_outline</i>
                             </a>
-                        </p>
+                        </span>
 
                         {% else %}
                         <a class="btn-small rate-button modal-trigger right" href="#not-logged-modal">Rate it
                             <i class="material-icons right">star</i>
                         </a>
-                        <p>
+                        <span>
                             <a class="btn-small submit-btn left"
                                 href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
                                 <i class="material-icons right">lightbulb_outline</i>
                             </a>
-                        </p>
+                        </span>
                     </li>
 
                     {% endif %}
