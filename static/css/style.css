@@ -334,7 +334,7 @@ li.rating span i {
 }
 
 .ratings-header {
-    margin-top: 15%;
+    margin-top: 5%;
     font-family: 'Permanent Marker', cursive;
     font-size: x-large;
 }
@@ -363,6 +363,10 @@ li::marker {
     display: none;
 }
 
+li.ratings, li.cost, li.map, li.facilities {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
 
 /*---- sumbission forms ---- */
 

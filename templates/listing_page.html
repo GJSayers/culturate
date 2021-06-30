@@ -28,8 +28,8 @@
                 </form>
                 {% else %}
                 <!-- login/ join modal-trigger on favourite button -->
-                <button class="btn-floating btn-large halfway-fab favourite-button modal-trigger"
-                    href="#not-logged-modal"><i class="material-icons">favorite</i></button>
+                <a class="btn-floating btn-large halfway-fab favourite-button modal-trigger"
+                    href="#not-logged-modal"><i class="material-icons">favorite</i></a>
                 {% endif %}
                 <!-- login/ join modal -->
                 <div id="not-logged-modal" class="modal">
@@ -49,7 +49,6 @@
                 <div class="card-content">
                     <ul>
                         <li class="city">{{ listing.listing_city }}</li>
-
                         <br>
                         <li class="comments">
                             <blockquote class="blockquote-small">{{ listing.listing_comments }}</blockquote>
@@ -63,13 +62,13 @@
                         <li class="buttons valign-wrapper">
                             <!-- rating button to open rating modal -->
                             {% if session.user %}
-                            <button class="btn-small rate-button modal-trigger valign-wrapper"
+                            <a class="btn-small rate-button modal-trigger valign-wrapper"
                                 href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right">star</i>
-                            </button>
+                            </a>
                             {% else %}
-                            <button class="btn-small rate-button modal-trigger valign-wrapper"
+                            <a class="btn-small rate-button modal-trigger valign-wrapper"
                                 href="#not-logged-modal">Rate it <i class="material-icons right">star</i>
-                            </button>
+                            </a>
                             {% endif %}
                         </li>
                     </ul>
@@ -140,19 +139,14 @@
                         {% endfor %}
                     </div>
                     <div id="info" class="comments-tabs center-align">
-                        <br>
-                        <span class="ratings-header">Info</span>
-                                <br>
+                        <h2 class="ratings-header">Info</h2>
                                 <hr class="ratings-divider">
-                                <br>
                         <div class="row">
                             <ul>
-                                <li>
+                                <li class="cost">
                                     <span class="cost">Cost - {{ listing.listing_cost }}</span>
                                 </li>
-                                <br>
                                 <hr class="ratings-divider">
-                                <br>
                                 <li class="facilities">
                                     Facilities -
                                     {% for facility in listing.listing_facilities %}
@@ -169,19 +163,18 @@
                                         <span><i class="material-icons">child_friendly</i></span>
                                         {% endif %}
                                         {% if facility == "Toilets" %}
-                                    <span><i class="material-icons">wc</i></span>
+                                        <span><i class="material-icons">wc</i></span>
                                         {% endif %}
-                                    {% endfor %}
-                                    
+                                    {% endfor %}       
                                 </li>
-                            </div>
+                            
                                 <hr class="ratings-divider">
-                                <li><p>Get there</p>
+                                <li class="map"><span> Get there </span>
                                 </li>
-                            <br>
                             </ul>
                         <div>
                             {{ listing.listing_location|safe }}
+                        </div>
                         </div>
                     </div>
                 </div>
