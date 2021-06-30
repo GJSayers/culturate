@@ -516,8 +516,7 @@ div.collapsible-header:hover {
     color: #1a2017;
 }
 
-.favourite-button,
-.delete-button {
+.rate-button {
     position: relative;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -527,7 +526,15 @@ div.collapsible-header:hover {
     color: #1a2017;
 }
 
-.cancel-button {
+.favourite-button {
+    position: relative;
+    font-family: 'Archivo Black', sans-serif;
+    font-weight: bold;
+    background-color: #C33F8B;
+    color: #1a2017;
+}
+
+.cancel-button, .delete-button  {
     position: relative;
     margin-top: 5%;
     font-family: 'Archivo Black', sans-serif;
