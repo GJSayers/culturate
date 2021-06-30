@@ -234,7 +234,7 @@ div.row.listing-section {
 
     .listing-page-card,
     .listing-card {
-        height: 475px;
+        min-height: 475px;
     }
 }
 
