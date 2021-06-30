@@ -155,13 +155,6 @@ def profile(user_name):
     user = mongo.db.users.find_one(
         {"user_name": session["user"]})
     """
-    get session user's listed items from the database
-    """
-    # user_created = mongo.db.users.find_one(
-    #             {"_id": user_profile},
-    #             {"listing_by": listing})
-
-    """
     get session user favourites from the database
     """
     user_favourites = mongo.db.users.find_one(
@@ -322,32 +315,6 @@ def rate_listing(listing_id):
         return redirect(url_for("login"))
     flash("you have already rated this listing")
     return redirect(url_for("listing_page", listing_id=listing_id))
-
-
-#########
-# TO BE TESTED ###
-#########
-# @app.route("/edit_rating/<listing_id>", methods=["GET", "POST"])
-# def edit_rating(listing_id):
-#     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-#     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
-#     if session["user"]:
-#         if request.method == "POST":
-#             listing_rating = {"$set": {
-#                 "rating_by": session["user"],
-#                 "user_rating": request.form.get("user_rating"),
-#                 "user_comments": request.form.get("user_comments")
-#             }}
-
-#             mongo.db.listings.update_one(
-#                 {"_id": ObjectId(listing_id)}, listing_rating, upsert=True)
-#             print(listing_rating)
-#         return render_template("edit_listing.html",
-#                                user=user, listing=listing,
-#                                listing_rating=listing_rating)
-#     # re-direct if user not in session
-#     flash("please login to rate this listing")
-#     return redirect(url_for("login"))
 
 
 # route to delete a listing
