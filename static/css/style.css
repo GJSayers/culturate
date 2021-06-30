@@ -115,6 +115,8 @@ div.row.listing-section {
     padding-bottom: 8%;
 }
 
+/*---- min-screen heights to listing sections ---- */
+
 @media screen and (min-height: 1024px) {
     .listing-section, .search-section {
         padding: 5%;
@@ -195,9 +197,11 @@ img.responsive {
     border: 1px #1a2017;
 }
 
-@media screen and (min-height: 667px) {
+/*---- min card display height to stop gapping ---- */
+
+@media screen and (min-height: 568px) {
   .listing-page-card, .listing-card {
-        height: 500px;
+        height: 450px;
         margin-bottom: 10%;
   }
 }
