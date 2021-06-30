@@ -148,12 +148,6 @@ div.row.listing-section {
     margin-bottom: 5%;
 }
 
-
-img.responsive {
-    width: 350;
-    height: 275;
-}
-
 .search-section,
 .profile-section {
     margin: 0%;
@@ -213,6 +207,10 @@ img.responsive {
     border: 1px #1a2017;
 }
 
+.created-by {
+    padding-top: 10%;
+}
+
 /*---- min card display height to stop gapping ---- */
 
 @media screen and (min-height: 568px) {
@@ -224,11 +222,11 @@ img.responsive {
     }
 }
 
-@media screen and (min-height: 736px) {
+@media screen and (min-height: 667px) {
 
     .listing-page-card,
     .listing-card {
-        height: 550px;
+        height: 525px;
         padding-bottom: 10%;
     }
 }
@@ -277,10 +275,6 @@ img.responsive {
 
 span.card-title {
     background-color: transparent;
-}
-
-.category-panel {
-    background-color: fff;
 }
 
 .city {
