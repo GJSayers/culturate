@@ -66,13 +66,13 @@
 
     <!-- login/ join modal-trigger on favourite button -->
 
-                <a class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#not-logged-modal-fav"><i
+                <a class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#{{ listing._id }}not-logged-modal-fav"><i
                         class="material-icons">favorite</i></a>
                 {% endif %}
 
     <!-- login/ join to rate -->
 
-                <div id="not-logged-modal-rate" class="modal">
+                <div id="{{ listing._id }}not-logged-modal-rate" class="modal">
                     <div class="modal-content">
                         <h4>Login or Join to Favourite & Rate</h4>
                         <blockquote class="blockquote-small">"Art is too important not to share"
@@ -91,7 +91,7 @@
 
     <!-- login/ join to favourite -->
 
-                <div id="not-logged-modal-fav" class="modal">
+                <div id="{{ listing._id }}not-logged-modal-fav" class="modal">
                     <div class="modal-content">
                         <h4>Login or Join to Favourite & Rate</h4>
                         <blockquote class="blockquote-small">"Art is too important not to share"
@@ -148,7 +148,7 @@
 
     <!-- prompt modal to join or login to be able to rate -->
 
-                        <a class="btn-small rate-button modal-trigger right" href="#not-logged-modal-rate">Rate it
+                        <a class="btn-small rate-button modal-trigger right" href="#{{ listing._id }}not-logged-modal-rate">Rate it
                             <i class="material-icons right">star</i>
                         </a>
                         <span>
