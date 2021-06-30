@@ -90,7 +90,6 @@ nav ul a:hover {
     transition-delay: .2s;
 }
 
-
 /*---- categories & listings ---- */
 
 .category-background,
@@ -136,7 +135,8 @@ div.row.listing-section {
     }
 }
 
- @media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
+
     .listing-section,
     .search-section {
         padding-left: 12%;
@@ -283,8 +283,6 @@ span.card-title {
     font-weight: 900;
     font-size: x-large;
 }
-
-
 
 div.li.rating,
 div.li.facilities,
@@ -528,7 +526,8 @@ div.collapsible-header:hover {
     color: #1a2017;
 }
 
-.cancel-button, .delete-button  {
+.cancel-button,
+.delete-button {
     position: relative;
     margin-top: 5%;
     font-family: 'Archivo Black', sans-serif;
