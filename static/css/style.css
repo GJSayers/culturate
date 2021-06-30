@@ -188,7 +188,6 @@ img.responsive {
 }
 
 
-
 .listing-card {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
@@ -196,8 +195,15 @@ img.responsive {
     border: 1px #1a2017;
 }
 
+@media screen and (min-height: 667px) {
+  .listing-page-card, .listing-card {
+        height: 500px;
+        margin-bottom: 10%;
+  }
+}
+
 @media screen and (min-height: 1024px) {
-  .listing-page-card {
+  .listing-page-card, .listing-card {
         height: 700px;
   }
 }
