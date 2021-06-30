@@ -39,7 +39,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_index') }}">Home</a></li>
                     <li><a href="{{ url_for('get_listings') }}">Listings</a></li>
-                    {% if session.user|lowerx %}
+                    {% if session.user|lower %}
                     <li><a href="{{ url_for('profile', user_name=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_listing') }}">Add a listing</a></li>
                     {% if session.user|lower == "admin"|lower %}
