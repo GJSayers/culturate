@@ -67,9 +67,9 @@
                         <a href="{{ listing.listing_website }}" target="_blank" rel="noreferrer">Visit listing
                             website</a>
                     </li>
-                    <li class="buttons valign-wrapper">
 
     <!-- rating button to open rating modal -->
+                    <li class="buttons valign-wrapper">
 
                         {% if session.user %}
                         <a class="btn-small rate-button modal-trigger valign-wrapper"
@@ -295,7 +295,7 @@
                 </p>
 
     <!-- modal footer with buttons to cancel or submit -->
-    
+
                 <div class="modal-footer">
                     <a href="{{ url_for('listing_page', listing_id=listing._id) }}" class="btn cancel-button"> Cancel
                         <i class="material-icons right submission-icon">clear</i>

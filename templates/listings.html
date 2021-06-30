@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<!-- search bar -->
+    <!-- search bar -->
 <div class="row search-section card-panel">
     <form action="{{ url_for('search') }}" method="POST" class="col">
         <div class="row valign-wrapper center-align">
@@ -10,7 +10,9 @@
                 <label for="query">Search Listings</label>
             </div>
         </div>
-        <!-- search & cancel buttons -->
+
+    <!-- search & cancel buttons -->
+
         <div class="row center-align">
             <div class="col s8 center-align">
                 <a href="{{ url_for('get_listings') }}" class="btn cancel-button">Cancel
@@ -25,12 +27,13 @@
     <div class="art-quote col m6 hide-on-small-only">
         <blockquote class="listings-blockquote">"More important than a work of art itself is what it will sow. Art can
             die, a painting can disappear. What counts is the seed."
-            
+
             ― Joan Miro
         </blockquote>
     </div>
 </div>
-<!-- contruct listing cards list-->
+
+    <!-- contruct listing cards list-->
 
 {% if listings|length > 0 %}
 <div class="row listing-section">
@@ -39,7 +42,7 @@
         <div class="card listing-page-card float">
             <div class="card-image">
 
-                <!-- contruct listing cards images -->
+    <!-- contruct listing cards images -->
 
                 {% if listing.listing_image != "" %}
                 <img class="responsive" src="{{ listing.listing_image|safe }}" alt="listing-image">
@@ -51,8 +54,7 @@
                 <span class="card-title">{{ listing.listing_name }}</span>
                 {% if (session.user|lower == listing.listing_by|lower or session.user|lower == 'admin') %}
                 <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" id="edit_form" name="edit_form">
-                    <a class="btn-floating btn-large halfway-fab edit-button"><i
-                            class="material-icons">edit</i></a>
+                    <a class="btn-floating btn-large halfway-fab edit-button"><i class="material-icons">edit</i></a>
                 </form>
                 {% elif session.user|lower %}
                 <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}"
@@ -61,16 +63,20 @@
                             class="material-icons">favorite</i></button>
                 </form>
                 {% else %}
-                <!-- login/ join modal-trigger on favourite button -->
-                <a class="btn-floating btn-large halfway-fab favourite-button modal-trigger"
-                    href="#not-logged-modal"><i class="material-icons">favorite</i></a>
+
+    <!-- login/ join modal-trigger on favourite button -->
+
+                <a class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#not-logged-modal-fav"><i
+                        class="material-icons">favorite</i></a>
                 {% endif %}
-                <!-- login/ join  -->
-                <div id="not-logged-modal" class="modal">
+
+    <!-- login/ join to rate -->
+
+                <div id="not-logged-modal-rate" class="modal">
                     <div class="modal-content">
                         <h4>Login or Join to Favourite & Rate</h4>
                         <blockquote class="blockquote-small">"Art is too important not to share"
-                            
+
                             - Romero Britto </blockquote>
                     </div>
                     <div class="modal-footer modal-login">
@@ -83,9 +89,27 @@
                 <ul class="v-align">
                     <li class="city">{{ listing.listing_city }}</li>
 
-                    
+    <!-- login/ join to favourite -->
 
-                    <!-- facilities icon population -->
+                <div id="not-logged-modal-fav" class="modal">
+                    <div class="modal-content">
+                        <h4>Login or Join to Favourite & Rate</h4>
+                        <blockquote class="blockquote-small">"Art is too important not to share"
+
+                            - Romero Britto </blockquote>
+                    </div>
+                    <div class="modal-footer modal-login">
+                        <a href="{{ url_for('join') }}" class="link-join modal-close">Join</a>
+                        <a href="{{ url_for('login') }}" class="link-login modal-close">Login</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content responsive v-align">
+                <ul class="v-align">
+                    <li class="city">{{ listing.listing_city }}</li>
+
+    <!-- facilities icon population -->
+
                     <li class="facilities v-align-wrapper">Facilities
                         {% for facility in listing.listing_facilities %}
                         {% if facility == "Accessible" %}
@@ -104,17 +128,54 @@
                         <span><i class="material-icons">wc</i></span>
                         {% endif %}
                         {% endfor %}
-
                     </li>
-                    <!-- ratings modal  -->
-                    <div id="{{ listing.listing_name }}modal" class="modal">
-                        <div class="modal-content">
-                            <h4>Rate {{ listing.listing_name }}</h4>
 
-                            <!-- radio button ratings form in modal -->
-                            <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
-                                id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name }}user_rating">
-                                <ul>
+    <!-- rating button to open rating modal as session / logged in user -->
+
+                    <li class="col-12 v-align">
+                        {% if session.user|lower %}
+                        <a class="btn-small rate-button modal-trigger right"
+                            href="#{{ listing.listing_name }}modal">Rate it
+                            <i class="material-icons right">star</i>
+                        </a>
+                        <span>
+                            <a class="btn-small submit-btn left"
+                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
+                                <i class="material-icons right">lightbulb_outline</i>
+                            </a>
+                        </span>
+
+                        {% else %}
+
+    <!-- prompt modal to join or login to be able to rate -->
+
+                        <a class="btn-small rate-button modal-trigger right" href="#not-logged-modal-rate">Rate it
+                            <i class="material-icons right">star</i>
+                        </a>
+                        <span>
+                            <a class="btn-small submit-btn left"
+                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
+                                <i class="material-icons right">lightbulb_outline</i>
+                            </a>
+                        </span>
+                    </li>
+
+                    {% endif %}
+
+                    <li class="col 12 v-align created-wrapper">
+                        <small><em class="created-by v-align left">listed by - {{ listing.listing_by }}</em> </small>
+                    </li>
+                </ul>
+
+    <!-- ratings modal  -->
+                <div id="{{ listing.listing_name }}modal" class="modal">
+                    <div class="modal-content">
+                        <h4>Rate {{ listing.listing_name }}</h4>
+
+                        <!-- radio button ratings form in modal -->
+                        <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
+                            id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name }}user_rating">
+                            <ul>
                                 <li>
                                     <label for="{{ listing.listing_name }}user_rating1">
                                         <input name="user_rating" id="{{ listing.listing_name }}user_rating1" value="1"
@@ -128,7 +189,8 @@
                                     <label for="{{ listing.listing_name }}user_rating2">
                                         <input name="user_rating" id="{{ listing.listing_name }}user_rating2" value="2"
                                             class="group1" type="radio" />
-                                        <span><i class="radio-star material-icons">star</i><i class="radio-star material-icons">star</i></span>
+                                        <span><i class="radio-star material-icons">star</i><i
+                                                class="radio-star material-icons">star</i></span>
                                     </label>
                                 </li>
                                 <li>
@@ -180,61 +242,28 @@
                                         </span>
                                     </label>
                                 </li>
-                                </ul>
-                                <p>
-                                    <div class="input-field">
-                                        <label for="user_comments">Tell us what you think</label>
-                                        <textarea name="user_comments" id="{{ listing.listing_name }}user_comments"
-                                            class="materialize-textarea validate" required>
-                                        </textarea>
-                                    </div>
-                                </p>
-                                <!-- modal footer with buttons to cancel or submit -->
-                                <div class="modal-footer">
-                                    <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel
-                                        <i class="material-icons right submission-icon">clear</i>
-                                    </a>
-                                    <button class="btn rate-button v-align center-align" type="submit">Rate it
-                                        <i class="material-icons right submission-icon">star</i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                                <li class="input-field" class="comments-label">
+                                    <label for="{{ listing.listing_name }}user_comments" >Tell us what you think</label>
+                                    <i class="material-icons prefix">comment</i>
+                                    <textarea name="user_comments" id="{{ listing.listing_name }}user_comments"
+                                        class="materialize-textarea validate" required>
+                                    </textarea>
+                                </li>
+                            </ul>
+
+    <!-- modal footer with buttons to cancel or submit -->
+                            
+                            <div class="modal-footer">
+                                <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel
+                                    <i class="material-icons right submission-icon">clear</i>
+                                </a>
+                                <button class="btn rate-button v-align center-align" type="submit">Rate it
+                                    <i class="material-icons right submission-icon">star</i>
+                                </button>
+                            </div>
+                        </form>
                     </div>
-
-                    <!-- rating button to open rating modal -->
-
-                    <li class="col-12 v-align">
-                        {% if session.user|lower %}
-                        <a class="btn-small rate-button modal-trigger right"
-                            href="#{{ listing.listing_name }}modal">Rate it
-                            <i class="material-icons right">star</i>
-                        </a>
-                        <span>
-                            <a class="btn-small submit-btn left"
-                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
-                                <i class="material-icons right">lightbulb_outline</i>
-                            </a>
-                        </span>
-
-                        {% else %}
-                        <a class="btn-small rate-button modal-trigger right" href="#not-logged-modal">Rate it
-                            <i class="material-icons right">star</i>
-                        </a>
-                        <span>
-                            <a class="btn-small submit-btn left"
-                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
-                                <i class="material-icons right">lightbulb_outline</i>
-                            </a>
-                        </span>
-                    </li>
-
-                    {% endif %}
-
-                    <li class="col 12 v-align created-wrapper">    
-                    <small><em class="created-by v-align left">listed by - {{ listing.listing_by }}</em> </small>
-                    </li>
-                </ul>
+                </div>
             </div>
         </div>
     </div>
