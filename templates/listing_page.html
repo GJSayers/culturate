@@ -5,7 +5,8 @@
     <div class="col info-card s12 m6 offest-m6 offset-m3">
         <div class="card center-align">
             <div class="card-image">
-                <!-- contruct listing cards images -->
+                
+    <!-- contruct listing cards images -->
 
                 {% if listing.listing_image != "" %}
                 <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
@@ -27,11 +28,15 @@
                             class="material-icons">favorite</i></button>
                 </form>
                 {% else %}
-                <!-- login/ join modal-trigger on favourite button -->
+
+    <!-- login/ join modal-trigger on favourite button -->
+                
                 <a class="btn-floating btn-large halfway-fab favourite-button modal-trigger" href="#not-logged-modal"><i
                         class="material-icons">favorite</i></a>
                 {% endif %}
-                <!-- login/ join modal -->
+
+    <!-- login/ join modal -->
+                
                 <div id="not-logged-modal" class="modal">
                     <div class="modal-content">
                         <h4>Login or Join to Favourite & Rate</h4>
@@ -45,6 +50,9 @@
                     </div>
                 </div>
             </div>
+
+    <!-- login/ join modal content -->
+
             <div class="card-content">
                 <ul>
                     <li class="city">{{ listing.listing_city }}</li>
@@ -60,7 +68,9 @@
                             website</a>
                     </li>
                     <li class="buttons valign-wrapper">
-                        <!-- rating button to open rating modal -->
+
+    <!-- rating button to open rating modal -->
+
                         {% if session.user %}
                         <a class="btn-small rate-button modal-trigger valign-wrapper"
                             href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right">star</i>
@@ -73,7 +83,8 @@
                     </li>
                 </ul>
             </div>
-            <!-- tabs section -->
+
+    <!-- tabs section -->
 
             <div class="card-tabs">
                 <ul class="tabs tabs-fixed-width">
@@ -94,31 +105,30 @@
                     <ul>
                         <li>
 
-                            <!-- rating tab div for rating display -->
+    <!-- rating tab div for rating display -->
 
-                            {% if rating.user_rating == "1" %}
+                        {% if rating.user_rating == "1" %}
                             <span class="rating-span v-align"><i class="tiny material-icons">star</i></span>
-                            {% elif rating.user_rating == "2" %}
+                        {% elif rating.user_rating == "2" %}
                             <span class="rating-span v-align"><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i></span>
-                            {% elif rating.user_rating == "3" %}
+                        {% elif rating.user_rating == "3" %}
                             <span class="rating-span v-align"><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>
-                            {% elif rating.user_rating == "4" %}
+                        {% elif rating.user_rating == "4" %}
                             <span class="rating-span v-align"><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i></span>
-                            {% elif rating.user_rating == "5" %}
+                        {% elif rating.user_rating == "5" %}
                             <span class="rating-span v-align"><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i></span>
-                            {% elif rating.user_rating == "6" %}
+                        {% elif rating.user_rating == "6" %}
                             <span class="rating-span v-align"><i class="tiny tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i><i class="tiny material-icons">star</i><i
                                     class="tiny material-icons">star</i></span>
-
-                            {% else %}
+                        {% else %}
                             <span class="rating-span v-align">This listing has not been rated yet!</span>
                             <button class="btn-small rate-button modal-trigger v-align center-align"
                                 href="#{{ listing.listing_name }}modal">Rate it<i class="material-icons right">star</i>
@@ -139,6 +149,9 @@
                     </ul>
                     {% endfor %}
                 </div>
+
+    <!-- info tab div for info display -->
+
                 <div id="info" class="comments-tabs center-align">
                     <h2 class="ratings-header">Info</h2>
                     <div class="col s12">
@@ -199,7 +212,8 @@
         <div class="modal-content">
             <h4>Rate {{ listing.listing_name }}</h4>
 
-            <!-- radio button ratings form in modal -->
+    <!-- radio button ratings form in modal -->
+
             <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
                 id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name }}user_rating">
                 <p>
@@ -279,7 +293,9 @@
                                 </textarea>
                     </div>
                 </p>
-                <!-- modal footer with buttons to cancel or submit -->
+
+    <!-- modal footer with buttons to cancel or submit -->
+    
                 <div class="modal-footer">
                     <a href="{{ url_for('listing_page', listing_id=listing._id) }}" class="btn cancel-button"> Cancel
                         <i class="material-icons right submission-icon">clear</i>
