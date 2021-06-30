@@ -63,11 +63,11 @@
                         <li class="buttons valign-wrapper">
                             <!-- rating button to open rating modal -->
                             {% if session.user %}
-                            <button class="btn-small favourite-button modal-trigger valign-wrapper"
+                            <button class="btn-small rate-button modal-trigger valign-wrapper"
                                 href="#{{ listing.listing_name }}modal">Rate it <i class="material-icons right">star</i>
                             </button>
                             {% else %}
-                            <button class="btn-small favourite-button modal-trigger valign-wrapper"
+                            <button class="btn-small rate-button modal-trigger valign-wrapper"
                                 href="#not-logged-modal">Rate it <i class="material-icons right">star</i>
                             </button>
                             {% endif %}
@@ -119,7 +119,7 @@
 
                                 {% else %}
                                 <span class="rating-span v-align">This listing has not been rated yet!</span>
-                                <button class="btn-small favourite-button modal-trigger v-align center-align"
+                                <button class="btn-small rate-button modal-trigger v-align center-align"
                                     href="#{{ listing.listing_name }}modal">Rate it<i
                                         class="material-icons right">star</i>
                                 </button>
@@ -277,7 +277,7 @@
                                     <a href="{{ url_for('listing_page', listing_id=listing._id) }}" class="btn cancel-button"> Cancel 
                                         <i class="material-icons right submission-icon">clear</i>
                                     </a>
-                                    <button class="btn favourite-button v-align center-align" type="submit">Rate it
+                                    <button class="btn rate-button v-align center-align" type="submit">Rate it
                                         <i class="material-icons right submission-icon">star</i>
                                     </button>
                                 </div>
