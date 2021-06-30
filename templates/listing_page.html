@@ -36,8 +36,7 @@
                     <div class="modal-content">
                         <h4>Login or Join to Favourite & Rate</h4>
                         <blockquote class="blockquote-small">"Art is too important not to share"
-                            <br>
-                            <br>
+        
                             - Romero Britto </blockquote>
                     </div>
                     <div class="modal-footer modal-login">
@@ -49,16 +48,14 @@
                 <div class="card-content">
                     <ul>
                         <li class="city">{{ listing.listing_city }}</li>
-                        <br>
                         <li class="comments">
                             <blockquote class="blockquote-small">{{ listing.listing_comments }}</blockquote>
                         </li>
-                        <p><small><em>listed by - {{ listing.listing_by }}</em></small></p>
-                        <br>
+                        <p><small><em>listed by - {{ listing.listing_by }}</em></small>
+                        </p>
                         <li class="website">
                             <a href="{{ listing.listing_website }}" target="_blank" rel="noreferrer">Visit listing website</a>
                         </li>
-                        <br>
                         <li class="buttons valign-wrapper">
                             <!-- rating button to open rating modal -->
                             {% if session.user %}
