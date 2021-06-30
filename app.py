@@ -309,7 +309,11 @@ def favourite_listing(listing_id):
 def rate_listing(listing_id):
     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
-    if session["user"] and listing.listing_by != user:
+    author = mongo.db.listings.find_one({"rating_by": user})
+    print(author)
+    print(user)
+    
+    if session["user"] and author != user:
         if request.method == "POST":
             listing_rating = {
                 "rating_by": session["user"],
@@ -325,34 +329,34 @@ def rate_listing(listing_id):
                 if user is not in session, re-direct
             """
         return redirect(url_for("login"))
-    else:
-        flash("you have already rated this listing")
+    flash("you have already rated this listing")
+    return redirect(url_for("listing_page", listing_id=listing_id))
 
 
 #########
 # TO BE TESTED ###
 #########
-@app.route("/edit_rating/<listing_id", methods=["GET", "POST"])
-def edit_rating(listing_id):
-    listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
-    user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
-    if session["user"]:
-        if request.method == "POST":
-            listing_rating = {"$set": {
-                "rating_by": session["user"],
-                "user_rating": request.form.get("user_rating"),
-                "user_comments": request.form.get("user_comments")
-            }}
+# @app.route("/edit_rating/<listing_id>", methods=["GET", "POST"])
+# def edit_rating(listing_id):
+#     listing = mongo.db.listings.find_one({"_id": ObjectId(listing_id)})
+#     user = mongo.db.users.find_one({"user_name": session["user"]})["_id"]
+#     if session["user"]:
+#         if request.method == "POST":
+#             listing_rating = {"$set": {
+#                 "rating_by": session["user"],
+#                 "user_rating": request.form.get("user_rating"),
+#                 "user_comments": request.form.get("user_comments")
+#             }}
 
-            mongo.db.listings.update_one(
-                {"_id": ObjectId(listing_id)}, listing_rating, upsert=True)
-            print(listing_rating)
-        return render_template("edit_listing.html",
-                               user=user, listing=listing,
-                               listing_rating=listing_rating)
-    # re-direct if user not in session
-    flash("please login to rate this listing")
-    return redirect(url_for("login"))
+#             mongo.db.listings.update_one(
+#                 {"_id": ObjectId(listing_id)}, listing_rating, upsert=True)
+#             print(listing_rating)
+#         return render_template("edit_listing.html",
+#                                user=user, listing=listing,
+#                                listing_rating=listing_rating)
+#     # re-direct if user not in session
+#     flash("please login to rate this listing")
+#     return redirect(url_for("login"))
 
 
 # route to delete a listing
