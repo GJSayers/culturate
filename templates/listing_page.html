@@ -181,7 +181,7 @@
             </div>
 
             <!-- ratings modal  -->
-            <div id="{{ listing.listing_name }}modal" class="modal">
+            <div id="{{ listing.listing_name|replace(' ','') }}modal" class="modal">
                 <div class="modal-content">
                     <h4>Rate {{ listing.listing_name }}</h4>
 
