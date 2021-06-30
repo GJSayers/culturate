@@ -195,7 +195,6 @@ div.row.listing-section {
 .card,
 .listing-card,
 .card-panel {
-    border: 1px #1a2017;
     box-shadow: none;
 }
 
@@ -204,7 +203,7 @@ div.row.listing-section {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
     color: #1a2017;
-    border: 1px #1a2017;
+    border: 2px #1a2017;
 }
 
 .created-by {
@@ -351,7 +350,7 @@ li.rating span i {
 
 hr.ratings-divider {
     border: 1px solid #C33F8B;
-    width: 10%;
+    width: 50px;
     display: inline-flex;
 }
 
@@ -366,6 +365,10 @@ li::marker {
 li.ratings, li.cost, li.map, li.facilities {
     padding-top: 5%;
     padding-bottom: 5%;
+}
+
+div.card-content.tabs-content, div.card.center-align {
+    border: solid 2px #1a2017;
 }
 
 /*---- sumbission forms ---- */
