@@ -137,26 +137,6 @@
                     </div>
             </div>
         </li>
-        <li>
-            <div class="collapsible-header"><i class="material-icons">collections_bookmark</i>My Added Places
-            </div>
-            <div class="collapsible-body">
-                <!-- <span>
-                    {% if user_created %}
-                        {% for l in user_created %}
-                    <div class="card-panel user-cards">
-                        <span>
-                            <div>
-                            <span>
-                                    <p><strong>{{ listing_name }}</strong></p>
-                                </span>
-                            </div>
-                        </span>
-                    </div>
-                        {% endfor %}
-                    {% endif %}
-                </span></div> -->
-        </li>
         {% endif %}
     </ul>
 
@@ -167,10 +147,11 @@
     <span class="submission-header">{{ user_name }}'s Favourites</span>
     {% endif %}
     <div class="row listing-section">
-        <div class="card">
+        
             {% for listing in user_favourites %}
-            <div class="col s12 m4 listing-card">
-                <div class="card">
+        <div class="col s12 m4 listing-card">
+            <div class="card listing-page-card float">
+                
                     <div class="card-image">
                         {% if listing.listing_image != "" %}
                         <img class="responsive" src="{{ listing.listing_image }}" alt="listing-image">
@@ -300,8 +281,6 @@
                                 </form>
                             </div>
                         </div>
-
-
                     </div>
 
                     <!-- card main display content  -->
@@ -309,7 +288,8 @@
                         <ul>
                             <li class="city">{{ listing.listing_city }}</li>
                             <br>
-                            <li class="facilities valign-wrapper">Facilities:
+                            <li class="facilities valign-wrapper">
+                                <div>Facilities </div> 
                                 {% for facility in listing.listing_facilities %}
                                 {% if facility == "Accessible" %}
                                 <span><i class="material-icons">accessible</i></a></span>
@@ -333,29 +313,44 @@
                             <br>
 
                             <!-- rating button to open rating modal -->
-                            <div>
-                                <span>Already visited? </span>
-                                <button class="btn-small favourite-button modal-trigger valign-wrapper"
-                                    href="#{{ listing.listing_name }}modal">Rate it <i
-                                        class="material-icons right">star</i>
-                                </button>
-                            </div>
-                            <!-- info button to open listing card with more detailed info -->
-                            <div>
-                                <span>Planning a visit?</span>
-                                <a class="btn-small affirmative-button valign-wrapper"
-                                    href="{{ url_for('listing_page', listing_id=listing._id)}}">Info<i
-                                        class="material-icons right">lightbulb_outline</i>
-                                </a>
-                            </div>
-                            <p><em><small> created by: {{ listing.listing_by }}</small></em>
-                            </p>
+                            <li class="col-12 v-align">
+                        {% if session.user|lower %}
+                        <button class="btn-small favourite-button modal-trigger right"
+                            href="#{{ listing.listing_name }}modal">Rate it
+                            <i class="material-icons right">star</i>
+                        </button>
+                        <p>
+                            <a class="btn-small submit-btn left"
+                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
+                                <i class="material-icons right">lightbulb_outline</i>
+                            </a>
+                        </p>
+
+                        {% else %}
+                        <button class="btn-small favourite-button modal-trigger right" href="#not-logged-modal">Rate it
+                            <i class="material-icons right">star</i>
+                        </button>
+                        <p>
+                            <a class="btn-small submit-btn left"
+                                href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
+                                <i class="material-icons right">lightbulb_outline</i>
+                            </a>
+                        </p>
+                    </li>
+                           
+                    <li class="col 12 v-align">
+                        <div class="col 12">
+                            <p><em>created by: {{ listing.listing_by }}</em></p>
+                        </div>
+                    </li>
                         </ul>
+                    {% endif %}
                     </div>
-                </div>
+                
+            </div>
             </div>
             {% endfor %}
-        </div>
+        
     </div>
 </div>
 </div>

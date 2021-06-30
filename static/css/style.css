@@ -1,6 +1,5 @@
-
-
-html,body {
+html,
+body {
     margin: 0;
     padding: 0;
 }
@@ -19,7 +18,7 @@ html,body {
     margin-left: 15%;
     margin-right: 15%;
     transition: ease-out;
-    
+
 }
 
 /*---- index ---- */
@@ -51,15 +50,17 @@ nav i.material-icons {
     color: #1a2017;
 }
 
-nav i.material-icons:hover, i.material-icons.link-icon:hover {
+nav i.material-icons:hover,
+i.material-icons.link-icon:hover {
     color: #03B066;
 }
 
-i.material-icons.link-icon  {
+i.material-icons.link-icon {
     color: #C2B678;
 }
 
-i.tiny.material-icons, i.radio-star.material-icons {
+i.tiny.material-icons,
+i.radio-star.material-icons {
     color: #C2B678;
 }
 
@@ -92,14 +93,16 @@ nav ul a:hover {
 
 /*---- categories & listings ---- */
 
-.category-background, .category-row, .categories-header {
+.category-background,
+.category-row,
+.categories-header {
     padding-top: 5%;
     background-color: #1a2017;
     color: #C2B678;
 }
 
 .category-title {
-    font-family: 'Archivo Black', sans-serif; 
+    font-family: 'Archivo Black', sans-serif;
     font-weight: 900;
     font-size: large;
     width: 100%;
@@ -118,13 +121,17 @@ div.row.listing-section {
 /*---- min-screen heights to listing sections ---- */
 
 @media screen and (min-height: 1024px) {
-    .listing-section, .search-section {
+
+    .listing-section,
+    .search-section {
         padding: 5%;
     }
 }
 
 @media screen and (min-height: 1400px) {
-    .listing-section, .search-section {
+
+    .listing-section,
+    .search-section {
         padding: 10%;
     }
 }
@@ -141,7 +148,8 @@ img.responsive {
     height: 275;
 }
 
-.search-section, .profile-section {
+.search-section,
+.profile-section {
     margin: 0%;
     background-color: #1a2017;
     padding-top: 10%;
@@ -170,7 +178,7 @@ img.responsive {
 }
 
 .blockquote-small {
-    
+
     border-left: 5px solid #C2B678;
 }
 
@@ -184,7 +192,9 @@ img.responsive {
     padding-bottom: 0%;
 }
 
-.card, .listing-card, .card-panel {
+.card,
+.listing-card,
+.card-panel {
     border: 1px #1a2017;
     box-shadow: none;
 }
@@ -200,22 +210,35 @@ img.responsive {
 /*---- min card display height to stop gapping ---- */
 
 @media screen and (min-height: 568px) {
-  .listing-page-card, .listing-card {
+
+    .listing-page-card,
+    .listing-card {
         height: 450px;
         margin-bottom: 10%;
-  }
+    }
+}
+
+@media screen and (min-height: 736px) {
+
+    .listing-page-card,
+    .listing-card {
+        height: 550px;
+        margin-bottom: 10%;
+    }
 }
 
 @media screen and (min-height: 1024px) {
-  .listing-page-card, .listing-card {
-        height: 700px;
-  }
+
+    .listing-page-card,
+    .listing-card {
+        height: 475px;
+    }
 }
 
 @media screen and (min-height: 1366px) {
-  .listing-page-card {
+    .listing-page-card {
         height: 600px;
-  }
+    }
 }
 
 @media screen and (min-height: 1400px) {
@@ -225,13 +248,16 @@ img.responsive {
 }
 
 
-.website a, .link-login, .link-join {
+.website a,
+.link-login,
+.link-join {
     color: #C33F8B;
     padding-right: 3%;
-    
+
 }
 
-.website a:hover .modal-login.link-login:hover, .modal-login.link-join:hover {
+.website a:hover .modal-login.link-login:hover,
+.modal-login.link-join:hover {
     color: #1a2017;
 }
 
@@ -249,11 +275,11 @@ img.responsive {
 /*--- listing-cards ---*/
 
 .card .card-title {
-    font-family: 'Archivo Black', sans-serif; 
+    font-family: 'Archivo Black', sans-serif;
     font-weight: 900;
     width: 100%;
     letter-spacing: 5px;
-    background-color: rgb(26, 32, 23, .5);  
+    background-color: rgb(26, 32, 23, .5);
 }
 
 span.card-title {
@@ -273,7 +299,11 @@ span.card-title {
 
 
 
-div.li.rating, div.li.facilities, div.li.cost, div.li.comments, a {
+div.li.rating,
+div.li.facilities,
+div.li.cost,
+div.li.comments,
+a {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
     font-weight: 400;
@@ -290,24 +320,27 @@ li.rating span i {
     background-color: #C2B678;
 }
 
-.tabs .tab a:hover, .tabs .tab a.active {
+.tabs .tab a:hover,
+.tabs .tab a.active {
     color: #C2B678;
     background-color: #1a2017;
 }
 
-.tabs .tab a:focus, .tabs .tab a:focus.active {
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
     background-color: #1a2017;
 }
 
 .tabs .tab a {
-    
+
     background-color: #C2B678;
     color: #1a2017;
 }
 
 /*--- tabs-content styling ---*/
 
-#ratings, #info {
+#ratings,
+#info {
     background-color: #1a2017;
     color: #C2B678;
     font-family: 'Archivo Black', sans-serif;
@@ -321,10 +354,11 @@ li.rating span i {
     font-size: x-large;
 }
 
- .categories-header {
+.categories-header {
     font-family: 'Permanent Marker', cursive;
     font-size: x-large;
- }
+}
+
 .comments-tabs {
     text-align: center;
 
@@ -386,28 +420,29 @@ li::marker {
 }
 
 @media screen and (min-height: 1000px) {
-  .form-background {
-    min-height: 800px;
-  }
+    .form-background {
+        min-height: 800px;
+    }
 }
 
 @media screen and (min-height: 1300px) {
     .form-background {
-    min-height: 1000px;
-  }
+        min-height: 1000px;
+    }
 }
 
 @media screen and (min-height: 1300px) {
     .form-background {
-    min-height: 1000px;
-  }
+        min-height: 1000px;
+    }
 }
 
 
 /*--- input fields ---*/
 
 input[type='text'],
-.input-field, .prefix.active {
+.input-field,
+.prefix.active {
     --color: #03B066;
     --active: #03B066;
     --border-hover: #03B066;
@@ -461,10 +496,11 @@ div.collapsible-header:hover {
     color: #C33F8B;
 }
 
-.collapsible-header, .collapsible {
+.collapsible-header,
+.collapsible {
     background-color: #1a2017;
     border-color: #1a2017;
-    
+
 }
 
 .collapsible-body {
@@ -473,7 +509,7 @@ div.collapsible-header:hover {
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
     color: #C33F8B;
-} 
+}
 
 
 /*---- buttons ---- */
@@ -487,7 +523,8 @@ div.collapsible-header:hover {
     color: #1a2017;
 }
 
-.favourite-button, .delete-button {
+.favourite-button,
+.delete-button {
     position: relative;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -515,9 +552,12 @@ div.collapsible-header:hover {
     color: #1a2017;
 }
 
-.affirmative-button:hover, .favourite-button:hover,
- .delete-button:hover, .cancel-button:hover, .submit-btn:hover {
-    background-color: #C2B678; 
+.affirmative-button:hover,
+.favourite-button:hover,
+.delete-button:hover,
+.cancel-button:hover,
+.submit-btn:hover {
+    background-color: #C2B678;
 }
 
 
