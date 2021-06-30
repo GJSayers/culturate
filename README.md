@@ -147,7 +147,8 @@ My hometown of Eastbourne has an inspirational gallery - the Towner Gallery, whi
 I used an image of the gallery for landing page, and took colour design inspiration from this pallet - offering an alternative to the sometimes staid and serious gallery website design approach to give a vibrant design feel that will appeal to multiple user-groups and elicit a vibrant positive feeling for users. 
 ![Towner](static/surface/towner-gallery.png)
 I translated the colour pallet using Coolors to get the hex and RGB codes to use in CSS:
-![Color-Palette](static/images/screen-shots/colour-palette.png)
+
+![Color-Palette](static/surface/colour-palette.png)
 
 #### Typography
 * For the Typography, it was necessary to chose classically no nonsense font, so I chose **Archivo**, but to complement for forms (where information is being shared) and profile pages where the user is likely to be already an engager used, I chose **Permanenet Marker** to personalise. 
@@ -161,7 +162,7 @@ Where there may be times where an image is not uploaded, there is a standby imag
 
 #### Here is an example of a listing page:
  ![Listing-Page](static/surface/listing-page.png)
- 
+
 You will see that I decided to dial back the yellow, and keep most backgrounds aside from forms with the #1a2017 and use the colour as pops, letting the art imagery sign it's own song. 
 
 
