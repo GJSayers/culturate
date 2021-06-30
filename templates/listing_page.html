@@ -189,9 +189,9 @@
                     <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
                         id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name }}user_rating">
                         <p>
-                            <label for="{{ listing.listing_name }}user_rating1">
+                            <label for="{{ listing.listing_name|replace(' ','') }}user_rating1">
                                 <input name="user_rating"
-                                    id="{{ listing.listing_name }}user_rating1" value="1" class="group1" type="radio"
+                                    id="{{ listing.listing_name|replace(' ','') }}user_rating1" value="1" class="group1" type="radio"
                                     checked />
                                 <span>
                                     <i class="radio-star material-icons">star</i>
@@ -199,9 +199,9 @@
                             </label>
                         </p>
                         <p>
-                            <label for="{{ listing.listing_name }}user_rating2">
+                            <label for="{{ listing.listing_name|replace(' ','') }}user_rating2">
                                 <input name="user_rating"
-                                    id="{{ listing.listing_name }}user_rating2" value="2" class="group1" type="radio" />
+                                    id="{{ listing.listing_name|replace(' ','') }}user_rating2" value="2" class="group1" type="radio" />
                                 <span>
                                     <i class="radio-star material-icons">star</i>
                                     <i class="radio-star material-icons">star</i>
@@ -209,9 +209,9 @@
                             </label>
                         </p>
                         <p>
-                            <label for="{{ listing.listing_name }}user_rating3">
+                            <label for="{{ listing.listing_name|replace(' ','') }}user_rating3">
                                 <input name="user_rating"
-                                    id="{{ listing.listing_name }}user_rating3" value="3" class="group1" type="radio" />
+                                    id="{{ listing.listing_name|replace(' ','') }}user_rating3" value="3" class="group1" type="radio" />
                                 <span >
                                      <i class="radio-star material-icons">star</i>
                                      <i class="radio-star material-icons">star</i>
@@ -220,9 +220,9 @@
                             </label>
                         </p>
                         <p>
-                            <label for="{{ listing.listing_name }}user_rating4">
+                            <label for="{{ listing.listing_name|replace(' ','') }}user_rating4">
                                 <input name="user_rating"
-                                    id="{{ listing.listing_name }}user_rating4" value="4" class="group1" type="radio" />
+                                    id="{{ listing.listing_name|replace(' ','') }}user_rating4" value="4" class="group1" type="radio" />
                                     <span >
                                       <i class="radio-star material-icons">star</i>
                                       <i class="radio-star material-icons">star</i>
@@ -232,9 +232,9 @@
                             </label>
                         </p>
                         <p>
-                            <label for="{{ listing.listing_name }}user_rating5">
+                            <label for="{{ listing.listing_name|replace(' ','') }}user_rating5">
                                 <input name="user_rating"
-                                    id="{{ listing.listing_name }}user_rating5" value="5" class="group1" type="radio" />
+                                    id="{{ listing.listing_name|replace(' ','') }}user_rating5" value="5" class="group1" type="radio" />
                                     <span >
                                         <i class="radio-star material-icons">star</i>
                                         <i class="radio-star material-icons">star</i>
@@ -245,9 +245,9 @@
                             </label>
                         </p>
                         <p>
-                            <label for="{{ listing.listing_name }}user_rating6">
+                            <label for="{{ listing.listing_name|replace(' ','') }}user_rating6">
                                 <input name="user_rating"
-                                    id="{{ listing.listing_name }}user_rating6" value="6" class="group1" type="radio" />
+                                    id="{{ listing.listing_name|replace(' ','') }}user_rating6" value="6" class="group1" type="radio" />
                                     <span >
                                         <i class="radio-star material-icons">star</i>
                                         <i class="radio-star material-icons">star</i>
