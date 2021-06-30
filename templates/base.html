@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&family=Sedgwick+Ave&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
@@ -37,7 +37,8 @@
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_listings') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_index') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_listings') }}">Listings</a></li>
                     {% if session.user %}
                     <li><a href="{{ url_for('profile', user_name=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('add_listing') }}">Add a listing</a></li>
@@ -55,7 +56,8 @@
 
         <!--mobile sidenav-->
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="{{ url_for('get_listings') }}">Home</a></li>
+            <li><a href="{{ url_for('get_index') }}">Home</a></li>
+            <li><a href="{{ url_for('get_listings') }}">Lisitngs</a></li>
             {% if session.user %}
             <li><a href="{{ url_for('profile', user_name=session['user']) }}">Profile</a></li>
             <li><a href="{{ url_for('add_listing') }}">Add a listing</a></li>
@@ -87,30 +89,19 @@
     <footer class="page-footer center-align">
         <div class="container">
             <div class="row">
-                <div class="col l6 s12">
+                <div class="col s12">
                     <h5 class="footer-title">Contact Us</h5>
+
                     <!-- <p class="">For extra category suggestions or anything else, get in touch here</p> -->
                 </div>
                 <div class="row">
-                    <div class="input-field col s10 push-s1">
-                        <i class="material-icons prefix submission-icon">email</i>
-                        <input id="user_email" name="user_email" type="email" class="validate">
-                        <label for="user_email" class="label">Email</label>
+                    <div class="col s10 push-s1">
+                        <a href="mailto:gemma.sayersm@gmail.com?subject=Contact Culturate" id="email-us" name="email-us"><i class="material-icons prefix submission-icon">email</i></a>
                     </div>
                 </div>
-                <!-- <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div> -->
             </div>
             <div class="center-align">
                 © 2021 Copyright Gemma Sayers
-                <!-- <a class="" href="#!">More Links</a> -->
             </div>
         </div>
     </footer>
