@@ -358,10 +358,6 @@ hr.ratings-divider {
     background-color: #1a2017;
 }
 
-li::marker {
-    display: none;
-}
-
 li.ratings, li.cost, li.map, li.facilities {
     padding-top: 5%;
     padding-bottom: 5%;
@@ -462,6 +458,14 @@ input#query.validate {
 
 .modal {
     padding-bottom: 10%;
+}
+
+.comments-label {
+    padding-top: 7%;
+}
+
+li.input-field::marker {
+    display: none;
 }
 
 
