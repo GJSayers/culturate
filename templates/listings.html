@@ -170,7 +170,7 @@
 
                         <!-- radio button ratings form in modal -->
                         <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
-                            id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name|replace(' ', '') }}user_rating">
+                            id="{{ listing.listing._id }}user_rating" name="{{ listing.listing_name|replace(' ', '') }}user_rating">
                             <ul>
                                 <li>
                                     <label for="{{ listing._id }}user_rating1">
@@ -238,7 +238,7 @@
                                         </span>
                                     </label>
                                 </li>
-                                <li class="input-field" class="comments-label">
+                                <li class="input-field" class="{{ listing.listing_name|replace(' ', '') }}comments-label">
                                     <label for="{{ listing.listing_name|replace(' ', '') }}user_comments" >Tell us what you think</label>
                                     <i class="material-icons prefix">comment</i>
                                     <textarea name="user_comments" id="{{ listing.listing_name|replace(' ', '') }}user_comments"
