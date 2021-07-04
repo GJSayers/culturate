@@ -73,15 +73,69 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 #### Core Features
 -----
 
-* A **Listing page** with  **Listing cards** that represent the data in an attractive and succinct format
+* A **Listings page** with  **Listing cards** that represent the data in an attractive and succinct format - Exampled in the belw screen-shot;
+#### Here is an example of the listings page - 
+------
+
+ ![Listings-Page](static/surface/listings-page.png)
+
 * Click through to more **detailed listing page** to contain the **ratings and info**. 
+#### Here is an example of a listing page - 
+------
+
+ ![Listing-Page](static/surface/listing-page.png)
 * Option to **create a profile** 
+    * For non-logged in users, there are various directions to prompt the user to login, from the nav, from the landing page and also incase they try to login without a profile, at the bottom of the login page.  
+#### Here is an example of the join form - 
+----- 
+![Join page](static/surface/join-form.png)
+
+
 * Ability to **upload a listing**
-* Ability to **favourite items** 
+    * From the nav bar, the user can choose to add a listing
+#### Here is an example of the add listing form - 
+-----
+![Add-listing-form](static/surface/add-listing-form-top.png)
+![Add-listing-form](static/surface/add-listing-form-bottom.png)
+* Ability to **edit a previously uploaded listing**
+    * The ability to edit a listing is available to both the authour of the listing and the admin.  If the user is logged in as either of these they will see an edit button instead of a favourite button on the listing card whether in listing, profile, or listin_page view.
+
+#### Here is an example of the edit button - 
+-----
+![Edit-listing-button](static/surface/edit-button.png)
+    * The edit listing form comes pre-populated with the existing data to ensure that the user does not wipe over their existing data without intentionally doing so. 
+#### Here is an example of the edit form - 
+-----
+![Edit-listing-form-top](static/surface/edit-listing-form-top.png)
+![Edit-listing-form-bottom](static/surface/edit-listing-form-bottom.png)
+
+
+* Ability to **favourite items** and **un-favourite**
+    * This feature is very simple for the user to user - The heat button serves ar a favourite button that adds the listing to an array of user favourties in the db.  If the button is clicked again, the listing is removes from the favourites list.  The user is kept informed of the status at each click with a a flash message. 
+    * The user favourites are added to the user's profile page.
+
+#### Here is an example of the favourite button - 
+-----
+![Favourite-button](static/surface/favourite-button.png)
+
+
 * Ability to **leave a rating**
+    * The user can rate a listing by using the rate-it button which is visibile on the listings page, the listing_page, of within the profile cards. 
+    * If the user is not logged in, they are show a different modal giving them links to join or login to rate. 
+#### Here is an example of the ratings modal - 
+-----
+![Ratings-Modal](static/surface/ratings-modal.png)
+
+#### Here is an example of the login modal - 
+-----
+![Login-Modal](static/surface/login-modal.png)
 * Search to be able to **search listings** by any data included in the listing only.
+![Search-seaction]()
 * **Validation rules and alerts** for data that is uploaded to the db. 
+![Form validation]()
 * An **admin dashboard** for administrators of the site. 
+![Admin dashboard]()
+* Preventative **validation** measures to ensure un-validated data is not submitted to the database and to **inform the user** if theya re missing out on amy required steps. 
 
 
 #### Future Implementations
@@ -90,7 +144,7 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 * A **request form** for new categories
 * Maps **API instead of Embed**
 * Use a **CDN for storing and serving images faster** and for the user to be able to upload a file rather than a URL
-* 
+* Incorporate social sharing
 
 #### Content and Structure requirements
 -----
