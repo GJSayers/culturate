@@ -98,7 +98,7 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 ### Structure
 #### Conceptual Design 
 * I used Lucid Chart to put together a flow chart of the relationships between the data and actions taken by users as an initial guide to aide the design process.  
-![Conceptual Design Chart](static/structure/culturate_conceptual_design_chart.png)
+![Conceptual Design Chart](static/structure/culturate-conceptual-design.png)
 * This also helped to identify secutiry measures to be taken into account, and which CRUD operations are performed by which user - The flow was slightly modified throughout design to satisfy the user stories.  The 'liked/saved' block also represents the read part of CRUD. 
 
 #### Database Schema
