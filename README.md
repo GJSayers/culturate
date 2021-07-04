@@ -227,9 +227,18 @@ Detailed testing documentation can be found in [TESTING.MD](/workspace/culturate
 
 
 ### Credits
-* Content
-* Media
-* default image (if no listing image uploaded) https://www.isupportstreetart.com/students-benefit-street-art/
-
+-----
+* Content - created by site owner 
+### Media
+* default image (if no listing image uploaded) [I support street art](https://www.isupportstreetart.com/students-benefit-street-art/)
+* homepage images:
+    * top: Image of Towner gallery eastbourne by [Marc Atkins](https://www.townereastbourne.org.uk/wp-content/uploads/Home-apge-slide-dance-diagonal-%C2%A9-Marc-Atkins-46.jpg)
+    * bottom: Image found in corriere [Courtesy Or.Me – Ortica Memoria](https://static2-living.corriereobjects.it/wp-content/uploads/2021/01/floreale-660x440.jpg)
+* listing images are url links to the original image. 
 
 ### Acknowledgements
+-----
+* The foundational learings from this site came from the [Code Institute](https://codeinstitute.net/) Task Manager walkthrough project.  The concepts and structure of which have been substantially modified to create this project. 
+* The tutor support team at [Code Institute](https://codeinstitute.net/) have been extremely helpful when bugs could not be solved independently.  Particular shout-outs to Igor, Jo, and Sheryl. 
+* The CI [Slack](https://slack.com/intl/en-it/) channel have been an excellent source of peer comment and suggestions.  Thanks to [Sean Young](https://github.com/seanyoung247) for helping me figure out the issue with my form submission. 
+* Thanks to my mentor [Gurjot Singh](https://github.com/gurjot-in) for continued support and patience. 
