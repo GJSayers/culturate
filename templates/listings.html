@@ -170,7 +170,7 @@
 
                         <!-- radio button ratings form in modal -->
                         <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
-                            id="{{ listing.listing._id }}user_rating" name="{{ listing.listing_name|replace(' ', '') }}user_rating">
+                            id="{{ listing._id }}user_rating" name="{{ listing.listing_name|replace(' ', '') }}user_rating">
                             <ul>
                                 <li>
                                     <label for="{{ listing._id }}user_rating1">
