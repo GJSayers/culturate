@@ -442,14 +442,6 @@ div.card-content.tabs-content, div.card.center-align {
 
 /*--- input fields ---*/
 
-input[type='text'],
-.input-field,
-.prefix.active {
-    --color: #03B066;
-    --active: #03B066;
-    --border-hover: #03B066;
-}
-
 .input-field>label {
     color: #C2B678;
 }
