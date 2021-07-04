@@ -1,4 +1,4 @@
-<h1 align="center">Culturate</h1>
+<h1 align="center">Culturate - Testing</h1>
 -------
 
 ![Mockups](static/images/mock-ups.png)
