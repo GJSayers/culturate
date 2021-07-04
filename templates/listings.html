@@ -238,12 +238,12 @@
                                         </span>
                                     </label>
                                 </li>
-                                <li class="{{ listing.listing_name|replace(' ', '') }}comments-label input-field">
-                                    <label for="{{ listing.listing_name|replace(' ', '') }}user_comments" >Tell us what you think</label>
-                                    <i class="material-icons prefix">comment</i>
-                                    <textarea name="user_comments" id="{{ listing.listing_name|replace(' ', '') }}user_comments"
-                                        class="materialize-textarea validate" type="text "minlength="3" maxlength="100" required>
-                                    </textarea>
+                                <li>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">comment</i>
+                                        <textarea id="{{ listing.listing_name|replace(' ','') }}user_comments" name="{{ listing.listing_name|replace(' ','') }}user_comments" min-length="10" maxlength="150" type="text" class="materialize-textarea validate" required></textarea>
+                                        <label for="{{ listing.listing_name|replace(' ','') }}user_comments" >Tell us what you think</label>
+                                    </div>
                                 </li>
                             </ul>
 
