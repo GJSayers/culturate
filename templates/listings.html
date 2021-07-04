@@ -115,12 +115,12 @@
 
                     <li class="col-12 v-align">
                         {% if session.user|lower %}
-                        <a class="btn-small rate-button modal-trigger right"
+                        <a class="btn-small rate-button modal-trigger left"
                             href="#{{ listing.listing_name|replace(' ','') }}modal">Rate it
                             <i class="material-icons right">star</i>
                         </a>
                         <span>
-                            <a class="btn-small submit-btn left"
+                            <a class="btn-small submit-btn right"
                                 href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
                                 <i class="material-icons right">lightbulb_outline</i>
                             </a>
@@ -130,11 +130,11 @@
 
     <!-- prompt modal to join or login to be able to rate -->
 
-                        <a class="btn-small rate-button modal-trigger right" href="#{{ listing._id }}not-logged-modal-rate">Rate it
+                        <a class="btn-small rate-button modal-trigger left" href="#{{ listing._id }}not-logged-modal-rate">Rate it
                             <i class="material-icons right">star</i>
                         </a>
                         <span>
-                            <a class="btn-small submit-btn left"
+                            <a class="btn-small submit-btn right"
                                 href="{{ url_for('listing_page', listing_id=listing._id)}}">Info
                                 <i class="material-icons right">lightbulb_outline</i>
                             </a>
@@ -143,8 +143,8 @@
 
                     {% endif %}
 
-                    <li class="col 12 v-align created-wrapper">
-                        <small><em class="created-by v-align left">listed by - {{ listing.listing_by }}</em> </small>
+                    <li class="col s12 v-align left">
+                        <small><em class="created-by">listed by - {{ listing.listing_by }}</em></small>
                     </li>
                 </ul>
 
