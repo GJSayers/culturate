@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="input-field col s10 push-s1">
                     <i class="material-icons prefix submission-icon">account_circle</i>
-                    <input id="user_name" name="user_name" type="text" class="validate" autocomplete="username">
+                    <input id="user_name" name="user_name" type="text" min-length="4" class="validate" autocomplete="username" required>
                     <label for="user_name">Username</label>
                 </div>
             </div>
@@ -20,8 +20,8 @@
             <div class="row">
                 <div class="input-field col s10 push-s1">
                     <i class="material-icons prefix submission-icon">lock</i>
-                    <input id="user_password" name="user_password" type="password" class="validate"
-                        autocomplete="new-password">
+                    <input id="user_password" name="user_password" type="password"  maxlength="20" class="validate"
+                        autocomplete="new-password" required>
                     <label for="user_password">Password</label>
                 </div>
             </div>
