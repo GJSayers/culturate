@@ -11,6 +11,7 @@ $(document).ready(function () {
         hoverEnabled: false,
         isOpen: false
     });
+    $('input#input_text, textarea#textarea2').characterCounter();
     // to fade out flashes so they do not persist once use scrolls
     $(window).scroll(function() {
     $('.flashes').fadeOut(1000);
