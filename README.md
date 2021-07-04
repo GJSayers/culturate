@@ -166,11 +166,13 @@ Where there may be times where an image is not uploaded, there is a standby imag
 You will see that I decided to dial back the yellow, and keep most backgrounds aside from forms with the #1a2017 and use the colour as pops, letting the art imagery sign it's own song. 
 
 
-## Implementation 
+## Implementation
+-----
 
 This project is a uses the flask framwork, which is a framwork that is written in Python  app has been built and source-controlled on GitHub with regular commits. The backend is managed in MongoDB and the project is deployed to Heroku. 
 
 ### Deployment
+-----
 To deploy the project to Heroku from Git, I used the following steps:
 * In the Git CLI, install Heroku using the command $ npm install -g heroku
 * The -g is important to intall 'globally'
@@ -179,44 +181,50 @@ To deploy the project to Heroku from Git, I used the following steps:
 * Then to check you can find the app, enter the command $ Heroku apps, which will return a list of the apps your login details have et up in Heroku. 
 * Then use the app name that is return which is the app you wish to deploy. 
 
+### Forking the GitHub Repository
+
+### Making a Local Clone
+
+### Testing
+-----
+Detailed testings has been carried out for functionality, usability and responsiveness which are documented in [Testing](TESTING.md) with supporting documentation and testing results available in the [testing folder](static/testing)
+
 ## Technologies Used
 
 ### Languages Used
 
 *  [HTML5](https://en.wikipedia.org/wiki/HTML5)
 *  [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-*  [Javascript]
-*  [Jquery]
-*  [Python3] (https://www.python.org/)
+*  [Javascript](https://www.javascript.com/)
+*  [Python3](https://www.python.org/)
 
-### Frameworks, Libraries & Programs Used
+### Frameworks, Libraries, Programs & Platforms Used
 
-*  [Jinja] (https://en.wikipedia.org/wiki/Jinja_(template_engine))
-*  [MaterializeCSS] (https://materializecss.com/) is used as a css framework to ensure responsive design delivery within the timeframe. 
-*  [Heroku](https://www.heroku.com) is the cloud-based platform used to deploy the project. 
-*  [MongoDB](https://www.mongodb.com) is used for the document database.
-*  [Flask] (https://en.wikipedia.org/wiki/Flask_(web_framework)) is used as a micro-framework and supports the use of Jinja templates. 
-*  [Figma] (https://www.figma.com/)
-*  [JQuery] (https://jquery.com/)
+*  [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) is used to render templates into the base html and access the routing applied in the python files. 
+*  [MaterializeCSS](https://materializecss.com/) is used as a css framework to ensure responsive design delivery within the timeframe. 
+
+*  [MongoDB](https://www.mongodb.com) is used for the document database storage to store and return to the front end initial data structure as well as inputs from the end user (for example ratings / user info). 
+*  [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) is used as a micro-framework and supports the use of Jinja templates. 
+*  [Figma](https://www.figma.com/) is used to illustrate the prototypes to visualise the look of the finished pages prior to coding. 
+*  [JQuery](https://jquery.com/) is used mainly to activate elements in the materialise CSS. 
 *  [Hover.css](https://ianlunn.github.io/Hover/) I used hover to make elements more interactive.
-*  [Google Fonts](https://fonts.google.com/) 
-*  [Font Awesome](https://fontawesome.com/) Font awesome is where I sourced all the icons for the site.
+*  [Google Fonts](https://fonts.google.com/) Is used to serve the archivo and permanenet marker fonts used throughout the project
+*  
 *  [GitHub](https://github.com/) is used to file the repository and record the version control. 
 *  [GitPod](https://gitpod.io) was used for development and version control.
+*  [Heroku](https://www.heroku.com) is the cloud-based platform used to deploy the project. 
 
-)
 
 ## Testing
+----
 
-Detailed testing documentation can be found in [TESTING.MD] (/workspace/culturate/TESTING.MD)
+Detailed testing documentation can be found in [TESTING.MD](/workspace/culturate/TESTING.MD)
 
 ### Known Bugs
 
-## Deployment
 
-### Forking the GitHub Repository
 
-### Making a Local Clone
+
 
 ### Credits
 * Content
