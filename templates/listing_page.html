@@ -289,10 +289,9 @@
                 </p>
                 <p>
                     <div class="input-field">
-                        <label for="user_comments">Tell us what you think..</label>
-                        <textarea name="user_comments" id="user_comments" type="text" minlength="3" maxlength="100" class="materialize-textarea validate"
-                            required>
-                                </textarea>
+                        <i class="material-icons prefix">comment</i>
+                        <textarea id="{{ listing.listing_name|replace(' ','') }}user_comments" name="{{ listing.listing_name|replace(' ','') }}user_comments" min-length="10" maxlength="150" type="text" class="materialize-textarea validate" required></textarea>
+                        <label for="{{ listing.listing_name|replace(' ','') }}user_comments" >Tell us what you think</label>
                     </div>
                 </p>
 
