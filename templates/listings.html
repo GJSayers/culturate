@@ -89,24 +89,6 @@
                 <ul class="v-align">
                     <li class="city">{{ listing.listing_city }}</li>
 
-    <!-- login/ join to favourite -->
-
-                <div id="{{ listing._id }}not-logged-modal-fav" class="modal">
-                    <div class="modal-content">
-                        <h4>Login or Join to Favourite & Rate</h4>
-                        <blockquote class="blockquote-small">"Art is too important not to share"
-
-                            - Romero Britto </blockquote>
-                    </div>
-                    <div class="modal-footer modal-login">
-                        <a href="{{ url_for('join') }}" class="link-join modal-close">Join</a>
-                        <a href="{{ url_for('login') }}" class="link-login modal-close">Login</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-content responsive v-align">
-                <ul class="v-align">
-
     <!-- facilities icon population -->
 
                     <li class="facilities v-align-wrapper">Facilities
@@ -165,6 +147,21 @@
                         <small><em class="created-by v-align left">listed by - {{ listing.listing_by }}</em> </small>
                     </li>
                 </ul>
+
+    <!-- login/ join to favourite modal -->
+
+    <div id="{{ listing._id }}not-logged-modal-fav" class="modal">
+        <div class="modal-content">
+            <h4>Login or Join to Favourite & Rate</h4>
+            <blockquote class="blockquote-small">"Art is too important not to share"
+
+                - Romero Britto </blockquote>
+        </div>
+        <div class="modal-footer modal-login">
+            <a href="{{ url_for('join') }}" class="link-join modal-close">Join</a>
+            <a href="{{ url_for('login') }}" class="link-login modal-close">Login</a>
+        </div>
+    </div>
 
     <!-- ratings modal  -->
                 <div id="{{ listing.listing_name|replace(' ', '') }}modal" class="modal">
