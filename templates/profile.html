@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <!-- dropdown section for admin user -->
+<!-- dropdown section for admin user -->
 
 <div class="row profile-section card-panel">
     {% if session.user|lower == "admin"|lower %}
@@ -17,7 +17,7 @@
             <div class="collapsible-body">
                 <span>
 
-    <!-- search bar inside dropdown -->
+                    <!-- search bar inside dropdown -->
 
                     <div class="row search-section card-panel">
                         <form action="{{ url_for('search') }}" method="POST" class="col">
@@ -29,16 +29,17 @@
                                 </div>
                             </div>
 
-    <!-- search & cancel buttons -->
+                            <!-- search & cancel buttons -->
 
                             <div class="row center-align">
                                 <div class="col s12 m6 center-align">
-    <!-- cancel btn -->                                
-                                    
-                                    <a href="{{ url_for('profile', user=user._id, user_name=user_name) }}" class="btn cancel-button center-align"><i
+                                    <!-- cancel btn -->
+
+                                    <a href="{{ url_for('profile', user=user._id, user_name=user_name) }}"
+                                        class="btn cancel-button center-align"><i
                                             class="material-icons left">clear</i>Cancel</a>
-    <!-- search btn -->                                
-                                            
+                                    <!-- search btn -->
+
                                     <button type="submit" class="btn affirmative-button center-align"><i
                                             class="material-icons left">search</i>Search</button>
                                 </div>
@@ -47,10 +48,10 @@
                     </div>
                 </span>
             </li>
-            {% if session.user|lower == "admin"|lower %}
+        {% if session.user|lower == "admin"|lower %}
             <li>
 
-    <!-- list of users for easy editing access -->
+            <!-- list of users for easy editing access -->
 
             <div class="collapsible-header">
                 <i class="material-icons">contacts</i>Users
@@ -65,24 +66,24 @@
                             <p><strong>Email: </strong>{{ entry.user_email }}</p>
                             <p><strong>Bio: </strong>{{ entry.user_bio }}</p>
 
-    <!-- edit button -->
+                            <!-- edit button -->
 
                             <a href="{{ url_for('edit_user', user=entry._id, user_name=entry.user_name,
                              update_details=update_details) }}" class="btn-small submit-btn"> Edit <i
                                     class="material-icons right submission-icon">edit</i>
                             </a>
-    <!-- cancel button -->
+                            <!-- cancel button -->
                             <button href="{{ url_for('profile', user=user._id, user_name=user_name) }}"
                                 class="btn-small affirmative-button"> Cancel <i
                                     class="material-icons right submission-icon">clear</i>
                             </button>
 
-    <!-- delete button -->
+                            <!-- delete button -->
                             <a href="#{{ entry._id }}delete-confirmation" class="btn-small delete-button modal-trigger">
                                 Delete<i class="material-icons right submission-icon">clear</i>
                             </a>
 
-    <!-- delete confirmation modal -->
+                            <!-- delete confirmation modal -->
 
                             <div id="{{ entry._id }}delete-confirmation" class="modal">
                                 <div class="modal-content">
@@ -100,7 +101,7 @@
                                         class="btn cancel-button">
                                         Cancel <i class="material-icons right submission-icon">clear</i>
                                     </a>
-    <!-- modal footer buttons -->
+                                    <!-- modal footer buttons -->
                                     <a href="{{ url_for('delete_entry', entry=entry._id) }}"
                                         class="btn delete-button">Delete<i class="material-icons right submission-icon"
                                             data-target="{{ entry._id }}">delete</i>
@@ -115,10 +116,10 @@
                 </span>
                 {% endfor %}
             </div>
-            </li>
-            <li>
+        </li>
+        <li>
 
-    <!-- category access for editing -->
+            <!-- category access for editing -->
 
             <div class="collapsible-header">
                 <i class="material-icons">collections_bookmark</i>Manage Categories
@@ -134,33 +135,33 @@
         {% else %}
         <li>
 
-    <!-- dropdown section for standard user -->
+            <!-- dropdown section for standard user -->
 
             <div class="collapsible-header">
                 <i class="material-icons">contacts</i>My Details
             </div>
             <div class="collapsible-body"><span>
-                <div class="card-panel user-cards">
-                    <span>
-                        <div>
-                            <span>
-                                <p><strong>Name: </strong>{{ user.user_name }}</p>
+                    <div class="card-panel user-cards">
+                        <span>
+                            <div>
+                                <span>
+                                    <p><strong>Name: </strong>{{ user.user_name }}</p>
                                     <p><strong>Email: </strong>{{ user.user_email }}</p>
                                     <p><strong>Bio: </strong>{{ user.user_bio }}</p>
 
-    <!-- edit button -->
+                                    <!-- edit button -->
                                     <a href="{{ url_for('edit_user', user=user._id, user_name=user.user_name, update_details=update_details) }}"
                                         class="btn-small submit-btn"> Edit <i
                                             class="material-icons right submission-icon">edit</i>
                                     </a>
-    <!-- cancel button -->
+                                    <!-- cancel button -->
                                     <a href="{{ url_for('profile', user=user._id, user_name=user_name) }}"
                                         class="btn-small affirmative-button"> Cancel <i
                                             class="material-icons right submission-icon">clear</i></a>
-                            </span>
-                        </div>
-                    </span>
-                </div>
+                                </span>
+                            </div>
+                        </span>
+                    </div>
             </div>
         </li>
         {% endif %}
@@ -191,15 +192,15 @@
                     <span class="card-title">{{ listing.listing_name }}</span>
                     {% if session.user|lower == listing.listing_by|lower %}
 
-    <!-- edit button and form --> 
+                    <!-- edit button and form -->
 
                     <form action="{{ url_for('edit_listing', listing_id=listing._id)}}" id="edit_form" name="edit_form">
                         <button class="btn-floating btn-large halfway-fab edit-button"><i
                                 class="material-icons">edit</i></button>
                     </form>
                     {% elif session.user|lower %}
-    
-    <!-- favourite button and form-->               
+
+                    <!-- favourite button and form-->
 
                     <form method="POST" action="{{ url_for('favourite_listing', listing_id=listing._id)}}"
                         id="favourite_form" name="favourite_form">
@@ -213,13 +214,13 @@
                     </form>
                     {% endif %}
 
-    <!-- ratings modal  -->
+                    <!-- ratings modal  -->
 
                     <div id="{{ listing.listing_name }}modal" class="modal">
                         <div class="modal-content">
                             <h4>Rate {{ listing.listing_name }}</h4>
 
-    <!-- radio button ratings form in modal -->
+                            <!-- radio button ratings form in modal -->
 
                             <form method="POST" action="{{ url_for('rate_listing', listing_id=listing._id)}}"
                                 id="{{ listing.listing_id }}user_rating" name="{{ listing.listing_name }}user_rating">
@@ -290,13 +291,18 @@
                                     </label>
                                 </p>
                                 <p>
-                                    <label for="user_comments">Tell us what you think..</label>
-                                    <textarea name="user_comments" id="user_comments"
-                                        class="materialize-textarea validate" required>
-                          </textarea>
+                                    <div class="input-field">
+                                        <i class="material-icons prefix">comment</i>
+                                        <textarea id="{{ listing.listing_name|replace(' ','') }}user_comments"
+                                            name="{{ listing.listing_name|replace(' ','') }}user_comments"
+                                            min-length="10" maxlength="150" type="text"
+                                            class="materialize-textarea validate" required></textarea>
+                                        <label for="{{ listing.listing_name|replace(' ','') }}user_comments">Tell us
+                                            what you think</label>
+                                    </div>
                                 </p>
 
-    <!-- modal footer with buttons to cancel or submit -->
+                                <!-- modal footer with buttons to cancel or submit -->
 
                                 <div class="modal-footer">
                                     <a href="{{ url_for('get_listings') }}" class="btn cancel-button"> Cancel
@@ -308,7 +314,7 @@
                                     </button>
                                     {% else %}
 
-    <!-- login/ join modal-trigger on favourite button -->
+                                    <!-- login/ join modal-trigger on favourite button -->
 
                                     <button class="btn affirmative-button v-align center-align modal-trigger"
                                         href="#not-logged-modal">Rate it
@@ -321,14 +327,12 @@
                     </div>
                 </div>
 
-    <!-- card main display content  -->
+                <!-- card main display content  -->
 
-                <div class="card-content">
-                    <ul>
+                <div class="card-content responsive v-align">
+                    <ul class="v-align">
                         <li class="city">{{ listing.listing_city }}</li>
-                        <br>
-                        <li class="facilities valign-wrapper">
-                            <div>Facilities </div>
+                        <li class="facilities valign-wrapper">Facilities
                             {% for facility in listing.listing_facilities %}
                             {% if facility == "Accessible" %}
                             <span><i class="material-icons">accessible</i></a></span>
@@ -347,13 +351,10 @@
                             {% endif %}
                             {% endfor %}
                         </li>
-                        <br>
-                        <li class="cost">Cost: {{ listing.listing_cost }}</li>
-                        <br>
 
-    <!-- rating button to open rating modal -->
+                        <!-- rating button to open rating modal -->
 
-                        <li class="col-12 v-align">
+                        <li class="col s12 v-align">
                             {% if session.user|lower %}
                             <button class="btn-small rate-button modal-trigger right"
                                 href="#{{ listing.listing_name }}modal">Rate it
@@ -368,7 +369,7 @@
 
                             {% else %}
 
-    <!-- button for not-logged in modal-->
+                            <!-- button for not-logged in modal-->
 
                             <button class="btn-small rate-button modal-trigger right" href="#not-logged-modal">Rate
                                 it
@@ -381,14 +382,11 @@
                                 </a>
                             </p>
                         </li>
-
-                        <li class="col 12 v-align">
-                            <div class="col 12">
-                                <p><em>created by: {{ listing.listing_by }}</em></p>
-                            </div>
+                        {% endif %}
+                        <li class="col s12 v-align left">
+                            <small><em class="created-by">listed by - {{ listing.listing_by }}</em></small>
                         </li>
                     </ul>
-                    {% endif %}
                 </div>
             </div>
         </div>
