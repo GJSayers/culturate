@@ -230,6 +230,15 @@ div.row.listing-section {
     }
 }
 
+@media screen and (min-height: 736px) {
+
+    .listing-page-card,
+    .listing-card {
+        height: 550px;
+        padding-bottom: 10%;
+    }
+}
+
 @media screen and (min-height: 1024px) {
 
     .listing-page-card,
@@ -291,6 +300,11 @@ a {
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: 2px;
     font-weight: 400;
+}
+
+li.facilities {
+    padding-top: 0%;
+    padding-bottom: 0%;
 }
 
 li.rating span i {
