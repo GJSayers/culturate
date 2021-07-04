@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // jquery from materialise docs to activate materialise fucntions 
     $('.sidenav').sidenav();
     $('select').formSelect();
     $('.parallax').parallax();
@@ -10,14 +11,13 @@ $(document).ready(function () {
         hoverEnabled: false,
         isOpen: false
     });
-
+    // to fade out flashes so they do not persist once use scrolls
     $(window).scroll(function() {
-
     $('.flashes').fadeOut(1000);
     
     });
 
-
+    // code taken from Code Institute Task manager tutorial to ensure proper functioning of select fucntion in Materialize
  validateMaterializeSelect();
     function validateMaterializeSelect() {
         let classValid = { "border-bottom": "1px solid #4caf50", "box-shadow": "0 1px 0 0 #4caf50" };
