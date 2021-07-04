@@ -171,27 +171,47 @@ You will see that I decided to dial back the yellow, and keep most backgrounds a
 
 This project is a uses the flask framwork, which is a framwork that is written in Python  app has been built and source-controlled on GitHub with regular commits. The backend is managed in MongoDB and the project is deployed to Heroku. 
 
-### Deployment
+
+## Deployment
 -----
-To deploy the project to Heroku from Git, I used the following steps:
-* In the Git CLI, install Heroku using the command $ npm install -g heroku
-* The -g is important to intall 'globally'
-* Then log into Heroku **through the Git CLI** using the command $ heroku login -i
-* Following this you will enter your previously created Heroku Login details
-* Then to check you can find the app, enter the command $ Heroku apps, which will return a list of the apps your login details have et up in Heroku. 
-* Then use the app name that is return which is the app you wish to deploy. 
+
+### To deploy to Heroku
+ * To deply to Heroku it is first necessary to create and app on Heroku to link to from your repositry in github and in the settings tab set up your config vars with the details relevant to your database and project: ![](static/structure/config-vars.png)
+ * 
+
+---
+Once an app is created on Heroku, To deploy the project to Heroku from Git, I used the following steps:
+1. In the Git CLI, install Heroku using the command $ npm install -g heroku
+2. The -g is important to intall 'globally'
+3. Then log into Heroku **through the Git CLI** using the command $ heroku login -i
+4. Following this you will enter your previously created Heroku Login details
+5. Then to check you can find the app, enter the command $ Heroku apps, which will return a list of the apps your login details have et up in Heroku. 
+6. Then check the app name that is returned is the app you wish to deploy. 
+7. before attemptiong to push to Heroku, check that your requirements.txt and Procfile are set up. 
+8. Log into Heroku
+9. Click on the deploy tab
+10. Select Github as deployment method 
+11. Add the correct repository to connect and click connect
+12. To automate each time a new git push is made, click 'enable automatic deploys' then deploy branch. 
+
+
 
 ### Forking the GitHub Repository
+To make a copy of the repository, which may be necessary if you wish to make changes without affecting the original using this method;
+
+1. Ensure you are logged in to GitHub
+2. The Fork button is on the top right of the page, above settings and below your github icon. Click on it to make a copy of the original.
 
 ### Making a Local Clone
 
-### Testing
+#### Testing
 -----
 Detailed testings has been carried out for functionality, usability and responsiveness which are documented in [Testing](TESTING.md) with supporting documentation and testing results available in the [testing folder](static/testing)
 
 ## Technologies Used
-
+-----
 ### Languages Used
+-----
 
 *  [HTML5](https://en.wikipedia.org/wiki/HTML5)
 *  [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
@@ -199,7 +219,7 @@ Detailed testings has been carried out for functionality, usability and responsi
 *  [Python3](https://www.python.org/)
 
 ### Frameworks, Libraries, Programs & Platforms Used
-
+-----
 *  [Jinja](https://en.wikipedia.org/wiki/Jinja_(template_engine)) is used to render templates into the base html and access the routing applied in the python files. 
 *  [MaterializeCSS](https://materializecss.com/) is used as a css framework to ensure responsive design delivery within the timeframe. 
 
@@ -219,11 +239,6 @@ Detailed testings has been carried out for functionality, usability and responsi
 ----
 
 Detailed testing documentation can be found in [TESTING.MD](/workspace/culturate/TESTING.MD)
-
-### Known Bugs
-
-
-
 
 
 ### Credits
