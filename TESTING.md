@@ -7,7 +7,8 @@
 
 Culturate is a cultural places, exhibitions and events site.  It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
-### Testing User Stories from User Experience (UX) Section
+## Testing User Stories from User Experience (UX) Section
+------
 
 ### User Stories - First Time User A (Community User)
 -------
@@ -47,17 +48,20 @@ This testing was performed by manually going through all the associated function
 4. As an **Existing User** I would like to be able to **upload listings** for others to see. 
 
 #### Final testing record for Existing User B (Community User)
+-------
 
 ![User-B](static/testing/final/user-and-functional/user-story-user-b.png)
 
 
 #### User Stories - Repeat/ Frequent User C (Logged in / joined member)
+------
 1. As a **Repeat User** I would like to be able to **edit my likes and saves** 
 2. As a **Repeat User** I would like to be able to **search the listings** 
 3. As a **Repeat User** I would like to be able to **edit and update my profile**
 4. As a **Repeat User** I would like to be able to **edit or update the listings that I added**
 
 #### Final testing record for Existing User C (Community User)
+-------
 
 ![User-C](static/testing/final/user-and-functional/user-story-user-c.png)
 
@@ -69,14 +73,33 @@ This testing was performed by manually going through all the associated function
 3. As a **Site Manager / Admin User** I want to be able to **edit / users** if necessary. 
 4. As a **Site Manager / Admin User** I want to ensure that the website **stays up to date**, and that any inappropriate comments can be deleted if necessary - although the main point is for all users to have their say. 
 
-#### Final testing record for Existing User C (Community User)
+#### Final testing record for Admin User D (Community User)
 
 ![User-D](static/testing/final/user-and-functional/user-story-user-d.png)
 
-
-
+#### Final 
 
 ### Browser Testing 
-### Device Testing
+* Main testing trhoughout the project was carried out on Chrome and Safari.  The site has also been tested on Microsoft Edge and Firefox from desktop view - all functioning as expected and no visible difference in functionality or display. 
+
+### Device Testing & Responsiveness
+* Devices used for testing:
+    * Macbook Air
+    * Iphone 11 plus
+    * Iphone 6 
+    * IPhone SE
+    * Samsung phone (model unknown)
+    * Ipad pro
+* There were considerable challenges to over-come with the diplay of the cards as detailed in the bug fixing section. Primarily, the cards were displaying gaps on larger devices, then during the fixing efforts, the buttons began to over-hang and cards over-lap on smaller devices.  
+* As well as using the physical devices, the Google dev tools was used to visualise the responsiveness in an Iphone 6 plus and for larger desktops.  and the finished product provides a responsive experience for all devices tested. 
+* For larger devices, the space srrounding the search bar provides an artistic quote for better user experience. 
+![](static/testing/final/user-and-functional/large-screen-quote.png)
+
 ### Lighthouse Testing 
-### Accessibility Testing 
+
+### Validator Testing 
+* Code has been passed through HTML, CSS, JSHINT & Pylint validators for the final code - all resulting in passes eventually. 
+* There were some issues to overcome, with lists and divs nesting errors as well as duplicate names and id's.  
+* The full validation testing pre-fix can be found here: [Initial Validator Results](static/testing/initial/validator)
+* The full validation testing pass results can be found here: [Final validation results](static/testing/final)
+
