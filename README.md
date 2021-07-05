@@ -69,88 +69,6 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 * ensure there is **no one step deletion** of data
 * **access** functionality managed through app routes and jinja templating to make use of session user cookes, but also data matching
 
-
-#### Core Features
------
-
-* I decided to segment my features out into their various CRUD operations to ensure that the features were related and could be tested thoroughly. 
-![Completed feature testing](static/testing/final/user-and-functional/feature-testing-complete.png) This can be seen in better detail in the following link [feature-testing](static/testing/final/user-and-functional/feature-testing-complete.png)
-
-* The visual inperpretations of the features are detailed below. 
-
-* A **Listings page** with  **Listing cards** that represent the data in an attractive and succinct format - Exampled in the belw screen-shot;
-#### Here is an example of the listings page - 
-------
-
- ![Listings-Page](static/surface/listings-page.png)
-
-* Click through to more **detailed listing page** to contain the **ratings and info**. 
-#### Here is an example of a listing page - 
-------
-
- ![Listing-Page](static/surface/listing-page.png)
-* Option to **create a profile** 
-    * For non-logged in users, there are various directions to prompt the user to login, from the nav, from the landing page and also incase they try to login without a profile, at the bottom of the login page.  
-#### Here is an example of the join form - 
------ 
-![Join page](static/surface/join-form.png)
-
-
-* Ability to **upload a listing**
-    * From the nav bar, the user can choose to add a listing
-#### Here is an example of the add listing form - 
------
-![Add-listing-form](static/surface/add-listing-form-top.png)
-![Add-listing-form](static/surface/add-listing-form-bottom.png)
-* Ability to **edit a previously uploaded listing**
-    * The ability to edit a listing is available to both the authour of the listing and the admin.  If the user is logged in as either of these they will see an edit button instead of a favourite button on the listing card whether in listing, profile, or listin_page view.
-
-#### Here is an example of the edit button - 
------
-![Edit-listing-button](static/surface/edit-button.png)
-    * The edit listing form comes pre-populated with the existing data to ensure that the user does not wipe over their existing data without intentionally doing so. 
-#### Here is an example of the edit form - 
------
-![Edit-listing-form-top](static/surface/edit-listing-form-top.png)
-![Edit-listing-form-bottom](static/surface/edit-listing-form-bottom.png)
-
-
-* Ability to **favourite items** and **un-favourite**
-    * This feature is very simple for the user to user - The heat button serves ar a favourite button that adds the listing to an array of user favourties in the db.  If the button is clicked again, the listing is removes from the favourites list.  The user is kept informed of the status at each click with a a flash message. 
-    * The user favourites are added to the user's profile page.
-
-#### Here is an example of the favourite button - 
------
-![Favourite-button](static/surface/favourite-button.png)
-
-
-* Ability to **leave a rating**
-    * The user can rate a listing by using the rate-it button which is visibile on the listings page, the listing_page, of within the profile cards. 
-    * If the user is not logged in, they are show a different modal giving them links to join or login to rate. 
-#### Here is an example of the ratings modal - 
------
-![Ratings-Modal](static/surface/ratings-modal.png)
-
-#### Here is an example of the login modal - 
------
-![Login-Modal](static/surface/login-modal.png)
-* Search to be able to **search listings** by any data included in the listing only.
-![Search-section]()
-* **Validation rules and alerts** for data that is uploaded to the db. 
-![Form validation]()
-* An **admin dashboard** for administrators of the site. 
-![Admin dashboard]()
-* Preventative **validation** measures to ensure un-validated data is not submitted to the database and to **inform the user** if theya re missing out on amy required steps. 
-
-
-#### Future Implementations
------
-* More in-depth **security functions** 
-* A **request form** for new categories
-* Maps **API instead of Embed**
-* Use a **CDN for storing and serving images faster** and for the user to be able to upload a file rather than a URL
-* Incorporate social sharing
-
 #### Content and Structure requirements
 -----
 
@@ -215,6 +133,106 @@ I translated the colour pallet using Coolors to get the hex and RGB codes to use
 ##### Imagery
 The Imagery of the website will be based on the user contributions, but to set the theme, the homepage is a parallax containing two striking colourful artworks. 
 Where there may be times where an image is not uploaded, there is a standby image to populate incase. 
+
+#### Core Features
+-----
+
+* I decided to segment my features out into their various CRUD operations to ensure that the features were related and could be tested thoroughly. 
+![Completed feature testing](static/testing/final/user-and-functional/feature-testing-complete.png) This can be seen in better detail in the following link [feature-testing](static/testing/final/user-and-functional/feature-testing-complete.png)
+
+* The visual inperpretations of the features are detailed below. 
+
+* A **Listings page** with  **Listing cards** that represent the data in an attractive and succinct format - Exampled in the belw screen-shot;
+#### Here is an example of the listings page - 
+------
+
+ ![Listings-Page](static/surface/listings-page.png)
+
+* Click through to more **detailed listing page** to contain the **ratings and info**. 
+#### Here is an example of a listing page - 
+------
+
+ ![Listing-Page](static/surface/listing-page.png)
+* Option to **create a profile** 
+    * For non-logged in users, there are various directions to prompt the user to login, from the nav, from the landing page and also incase they try to login without a profile, at the bottom of the login page.  
+#### Here is an example of the join form - 
+----- 
+![Join page](static/surface/join-form.png)
+
+
+* Ability to **upload a listing**
+    * From the nav bar, the user can choose to add a listing
+#### Here is an example of the add listing form - 
+-----
+![Add-listing-form](static/surface/add-listing-form-top.png)
+![Add-listing-form](static/surface/add-listing-form-bottom.png)
+* Ability to **edit a previously uploaded listing**
+    * The ability to edit a listing is available to both the author of the listing and the admin.  If the user is logged in as either of these they will see an edit button instead of a favourite button on the listing card whether in listing, profile, or listin_page view.
+
+#### Here is an example of the edit button - 
+-----
+![Edit-listing-button](static/surface/edit-button.png)
+    * The edit listing form comes pre-populated with the existing data to ensure that the user does not wipe over their existing data without intentionally doing so. 
+#### Here is an example of the edit form - 
+-----
+![Edit-listing-form-top](static/surface/edit-listing-form-top.png)
+![Edit-listing-form-bottom](static/surface/edit-listing-form-bottom.png)
+
+
+* Ability to **favourite items** and **un-favourite**
+    * This feature is very simple for the user to user - The heat button serves ar a favourite button that adds the listing to an array of user favourties in the db.  If the button is clicked again, the listing is removes from the favourites list.  The user is kept informed of the status at each click with a a flash message. 
+    * The user favourites are added to the user's profile page.
+
+#### Here is an example of the favourite button - 
+-----
+![Favourite-button](static/surface/favourite-button.png)
+
+
+* Ability to **leave a rating**
+    * The user can rate a listing by using the rate-it button which is visibile on the listings page, the listing_page, of within the profile cards. 
+    * If the user is not logged in, they are show a different modal giving them links to join or login to rate. 
+#### Here is an example of the ratings modal - 
+-----
+![Ratings-Modal](static/surface/ratings-modal.png)
+
+#### Here is an example of the login modal - 
+-----
+![Login-Modal](static/surface/login-modal.png)
+* Search to be able to **search listings** by any data included in the listing only.  The search feature is avilable on both the listings page and from directly within the profile. 
+
+#### Here is an example of the search section - desktop view
+-----
+![Search-section](static/testing/final/user-and-functional/large-screen-quote.png)
+
+#### Here is an example of the validation in action - 
+-----
+* **Validation rules and alerts** for data that is uploaded to the db, each field onn each form has validation rules for presence (if it has been completed or not), format(whether is should be text / url/ email etc) & range(max and or min length).  If these rules are not complied with the forms will not submit, and the user gets prompted. 
+![Form validation](static/testing/final/user-and-functional/validation.png)
+![Form validation 2](static/testing/final/user-and-functional/validation-2.png)
+* An **admin dashboard** for administrators of the site.  The admin dashboard is intended as a quick and personalised route for the administrator to perform standard tasks from the dropdown; 
+    
+    ![Admin dashboard](static/testing/final/user-and-functional/admin-db.png)
+    * search (if the admin wants to edit a particular listing)
+    ![Admin dashboard-2](static/testing/final/user-and-functional/admin-db-2.png)
+
+    * access user records
+
+    ![Admin dashboard-3](static/testing/final/user-and-functional/admin-db-3.png)
+    * quick link to manage categories
+
+    ![Admin dashboard-4](static/testing/final/user-and-functional/admin-db-4.png)
+
+
+* Preventative **validation** measures to ensure un-validated data is not submitted to the database and to **inform the user** if theya re missing out on amy required steps. 
+
+
+#### Future Implementations
+-----
+* More in-depth **security functions** 
+* A **request form** for new categories
+* Maps **API instead of Embed**
+* Use a **CDN for storing and serving images faster** and for the user to be able to upload a file rather than a URL
+* Incorporate social sharing
 
 #### Homepage 
 ![Homepage](static/surface/home-page-imagery.png)
@@ -309,17 +327,17 @@ Detailed testing documentation can be found in [TESTING.MD](/workspace/culturate
 
 ### Credits
 -----
-* Content - created by site owner 
+* Content - created by site owner and family and friend testers submiting listings and ratings. 
 ### Media
-* default image (if no listing image uploaded) [I support street art](https://www.isupportstreetart.com/students-benefit-street-art/)
-* homepage images:
-    * top: Image of Towner gallery eastbourne by [Marc Atkins](https://www.townereastbourne.org.uk/wp-content/uploads/Home-apge-slide-dance-diagonal-%C2%A9-Marc-Atkins-46.jpg)
+* Default image (if no listing image uploaded) [I support street art](https://www.isupportstreetart.com/students-benefit-street-art/)
+* Homepage images:
+    * top: Image of Towner Gallery Eastbourne by [Marc Atkins](https://www.townereastbourne.org.uk/wp-content/uploads/Home-apge-slide-dance-diagonal-%C2%A9-Marc-Atkins-46.jpg)
     * bottom: Image found in corriere [Courtesy Or.Me – Ortica Memoria](https://static2-living.corriereobjects.it/wp-content/uploads/2021/01/floreale-660x440.jpg)
-* listing images are url links to the original image. 
+* Listing images are url links to the original image. 
 
 ### Acknowledgements
 -----
 * The foundational learings from this site came from the [Code Institute](https://codeinstitute.net/) Task Manager walkthrough project.  The concepts and structure of which have been substantially modified to create this project. 
 * The tutor support team at [Code Institute](https://codeinstitute.net/) have been extremely helpful when bugs could not be solved independently.  Particular shout-outs to Igor, Jo, and Sheryl. 
-* The CI [Slack](https://slack.com/intl/en-it/) channel have been an excellent source of peer comment and suggestions.  Thanks to [Sean Young](https://github.com/seanyoung247) for helping me figure out the issue with my form submission. 
+* The CI [Slack](https://slack.com/intl/en-it/) channel have been an excellent source of peer comment and suggestions.  Thanks to [Sean Young](https://github.com/seanyoung247) for helping me figure out the issue with my favourites form submission. 
 * Thanks to my mentor [Gurjot Singh](https://github.com/gurjot-in) for continued support and patience. 
