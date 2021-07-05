@@ -73,6 +73,11 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 #### Core Features
 -----
 
+* I decided to segment my features out into their various CRUD operations to ensure that the features were related and could be tested thoroughly. 
+![Completed feature testing](static/testing/final/user-and-functional/feature-testing-complete.png) This can be seen in better detail in the following link [feature-testing](static/testing/final/user-and-functional/feature-testing-complete.png)
+
+* The visual inperpretations of the features are detailed below. 
+
 * A **Listings page** with  **Listing cards** that represent the data in an attractive and succinct format - Exampled in the belw screen-shot;
 #### Here is an example of the listings page - 
 ------
@@ -130,7 +135,7 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 -----
 ![Login-Modal](static/surface/login-modal.png)
 * Search to be able to **search listings** by any data included in the listing only.
-![Search-seaction]()
+![Search-section]()
 * **Validation rules and alerts** for data that is uploaded to the db. 
 ![Form validation]()
 * An **admin dashboard** for administrators of the site. 
@@ -219,6 +224,13 @@ Where there may be times where an image is not uploaded, there is a standby imag
 
 You will see that I decided to dial back the yellow, and keep most backgrounds aside from forms with the #1a2017 and use the colour as pops, letting the art imagery sign it's own song. 
 
+# Bugs and Fixes - Projects learnings. 
+-----
+* I learnt a lot on this project regarding how to structure the time and save time in the future.  My methodology was to get the basic framework and all pages up, then perfect the CSS & formatting after the routing was in place.  However this meant that with various changes to elements and fixes to be applied to more than one page meant that the timescale expanded.  Next time I would create fully one page of each - for example one add page, one submit page, one cards page, then have these fully functional and formatted with final routings and css before duplicating elements to other pages.  The following chart shows the major bug issues and related git commits and can also be seen up close in the following link [bugs/fixes](static/testing/final/user-and-functional/bugs-fixes-complete.png):
+
+![bugs-fixes](static/testing/final/user-and-functional/bugs-fixes-complete.png) 
+
+
 
 ## Implementation
 -----
@@ -235,18 +247,18 @@ This project is a uses the flask framwork, which is a framwork that is written i
 
 ---
 Once an app is created on Heroku, To deploy the project to Heroku from Git, I used the following steps:
-1. In the Git CLI, install Heroku using the command $ npm install -g heroku
-2. The -g is important to intall 'globally'
-3. Then log into Heroku **through the Git CLI** using the command $ heroku login -i
-4. Following this you will enter your previously created Heroku Login details
-5. Then to check you can find the app, enter the command $ Heroku apps, which will return a list of the apps your login details have et up in Heroku. 
-6. Then check the app name that is returned is the app you wish to deploy. 
-7. before attemptiong to push to Heroku, check that your requirements.txt and Procfile are set up. 
-8. Log into Heroku
-9. Click on the deploy tab
-10. Select Github as deployment method 
-11. Add the correct repository to connect and click connect
-12. To automate each time a new git push is made, click 'enable automatic deploys' then deploy branch. 
+
+1. Before attempting to deploy - check that your commits are pushed to Git Hub.  
+2. Before attempting to push to Heroku, check that your requirements.txt and Procfile are set up.
+3. Log into Heroku
+4. Click on the deploy tab
+5. Select Github as deployment method 
+![](static/images/git-hub-method.png)
+6. Add the correct github repository that you want to deploy to connect and click connect
+7. To automate each time a new git push is made, click 'enable automatic deploys'.  The defualt is master branch - In this image the button has already been clicked. 
+![](static/images/automatic-deploy.png)
+8. Finally in the manual deploy section - click deploy branch button.  This can also be used any time there is a problem with automatic deployment.
+![](static/images/manual-deploy.png)
 
 
 
