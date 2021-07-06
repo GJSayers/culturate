@@ -96,11 +96,26 @@ This testing was performed by manually going through all the associated function
 ![](static/testing/final/user-and-functional/large-screen-quote.png)
 
 ### Lighthouse Testing 
+-----
+* sample pages have been checked during the development process using the google lighthouse tool, with improvements being made along the way to improve the ratings. 
+* The final scores are as follows for the 3 main pages and more detailed reports can be found here [lighthouse final tests](static/testing/final/lighthouse):
+
+### Home Page 
+
+![](static/testing/final/lighthouse/home-page-lighthouse-final-score.png)
+
+### Listings Page
+
+![](static/testing/final/lighthouse/listings-page-lighthouse-final-score.png)
+
+### Listing Page
+
+![](static/testing/final/lighthouse/listing-page-lighthouse-final-score.png)
+
 
 ### Validator Testing 
 * Code has been passed through HTML, CSS, JSHINT & Pylint validators for the final code - all resulting in passes eventually. 
 * There were some issues to overcome, with lists and divs nesting errors as well as duplicate names and id's.  
 * The full validation testing pre-fix can be found here: [Initial Validator Results](static/testing/initial/validator)
 * The full validation testing pass results can be found here: [Final validation results](static/testing/final)
-
 
