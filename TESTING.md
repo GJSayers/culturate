@@ -7,6 +7,24 @@
 
 Culturate is a cultural places, exhibitions and events site.  It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
+# Table of Contents
+-----
+* Testing User Stories from User Experience (UX) Section
+    * User Stories - First Time User A (Community User)
+    * Final testing record for First Time User A (Community User)
+    * User Stories - Existing User B (Community User)
+    * Final testing record for Existing User B (Community User)
+    * User Stories - Repeat/ Frequent User C (Logged in / joined member)
+    * Final testing record for Existing User C (Community User)
+    * User Stories - Site Manager / Admin User D
+    * Final testing record for Admin User D (Community User)
+* Browser Testing
+* Device Testing & Responsiveness
+* Lighthouse Testing
+* Validator Testing
+
+
+
 ## Testing User Stories from User Experience (UX) Section
 ------
 

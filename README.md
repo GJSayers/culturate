@@ -7,9 +7,45 @@
 
 Culturate is a cultural places, exhibitions and events site.  It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
+# Table of Contents
+------
+* Strategy
+    * User Stories 
+    * Website Owner Goals
+* Scope
+    * Product Objectives & Functional Requirements
+    * Security
+    * Data Management
+* Content and Structure requirements
+    * Structure
+        * Conceptual Design
+        * Database Schema
+    * Skeleton 
+        * Wireframes
+        * Surface & Prototypes
+        * Design Inspiration and color choices
+        * Typography
+        * Imagery
+* Core Features
+* Future Implementations
+* Bugs & Fixes
+* Implementation
+* Deployment
+    * To deploy to Heroku
+    * Forking the GitHub Repository
+    * Making a Local Clone
+* Testing
+* Technologies Used 
+    * Languages Used
+    * Frameworks, Libraries, Programs & Platforms Used
+* Credits
+* Acknowledgements
+
+-----
+
 ## Strategy 
 -------
-### User Stories - First Time User A (Community User)
+#### User Stories - First Time User A (Community User)
 -------
 1. As a **First time user**, I want to have a clear visual impact on landing on the site to demonstrate the **artistic** / **cultual sharing** & **listing** purpose of the site. 
 2. As a **First time user**, I want to be able to **browse at least some listings** without having to sign up / login. 
@@ -38,13 +74,11 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 4. As a **Site Manager / Admin User** I want to ensure that the website **stays up to date**, and that any inappropriate comments can be deleted if necessary - although the main point is for all users to have their say. 
 
 #### Website Owner Goals
--------
+------
 * The possibility to in the future gain commission from being a referrals site if the site were to become popular.  For this to happen, the site must look polised and have great UX for user buy-in. 
 
-## Scope
--------
-
 #### Product Objectives & Functional Requirements
+------
 
 * Listing pages that can store **user ratings** and **be favourited** by the user. 
 * Easy UI to **upload listings**
@@ -286,12 +320,6 @@ To make a copy of the repository, which may be necessary if you wish to make cha
 1. Ensure you are logged in to GitHub
 2. The Fork button is on the top right of the page, above settings and below your github icon. Click on it to make a copy of the original.
 
-### Making a Local Clone
-
-#### Testing
------
-Detailed testings has been carried out for functionality, usability and responsiveness which are documented in [Testing](TESTING.md) with supporting documentation and testing results available in the [testing folder](static/testing)
-
 ## Technologies Used
 -----
 ### Languages Used
@@ -319,10 +347,9 @@ Detailed testings has been carried out for functionality, usability and responsi
 *  [Heroku](https://www.heroku.com) is the cloud-based platform used to deploy the project. 
 
 
-## Testing
-----
-
-Detailed testing documentation can be found in [TESTING.MD](/workspace/culturate/TESTING.MD)
+#### Testing
+-----
+Detailed testings has been carried out for functionality, usability and responsiveness which are documented in [Testing](TESTING.md) with supporting documentation and testing results available in the [testing folder](static/testing)
 
 
 ### Credits
