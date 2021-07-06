@@ -338,10 +338,14 @@ To make a copy of the repository, which may be necessary if you wish to make cha
 *  [MongoDB](https://www.mongodb.com) is used for the document database storage to store and return to the front end initial data structure as well as inputs from the end user (for example ratings / user info). 
 *  [Flask](https://en.wikipedia.org/wiki/Flask_(web_framework)) is used as a micro-framework and supports the use of Jinja templates. 
 *  [Figma](https://www.figma.com/) is used to illustrate the prototypes to visualise the look of the finished pages prior to coding. 
+*  [Balsamiq](https://balsamiq.com/) is used to create the wireframes
 *  [JQuery](https://jquery.com/) is used mainly to activate elements in the materialise CSS. 
 *  [Hover.css](https://ianlunn.github.io/Hover/) I used hover to make elements more interactive.
-*  [Google Fonts](https://fonts.google.com/) Is used to serve the archivo and permanenet marker fonts used throughout the project
-*  
+*  [Google Fonts](https://fonts.google.com/) Is used to serve the archivo and permanenet marker 
+fonts used throughout the project
+*  [Favicon.io](https://favicon.io/favicon-converter/) Was used to generate favicons for the project.
+*  [Technisi](https://techsini.com/multi-mockup/) Was used to generate project mock-ups. 
+*  [Coolors](https://coolors.co/) was used to generate the colour pallete.
 *  [GitHub](https://github.com/) is used to file the repository and record the version control. 
 *  [GitPod](https://gitpod.io) was used for development and version control.
 *  [Heroku](https://www.heroku.com) is the cloud-based platform used to deploy the project. 
