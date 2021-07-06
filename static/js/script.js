@@ -12,10 +12,11 @@ $(document).ready(function () {
         isOpen: false
     });
     $('input#input_text, textarea#textarea2').characterCounter();
-    // to fade out flashes so they do not persist once use scrolls
+    // to fade out flashes so they do not persist once user scrolls
     $(window).scroll(function() {
     $('.flashes').fadeOut(1000);
-    
+    // to fade out overlay so it does not persist once user scrolls
+    $('.overlay').fadeOut(2000);
     });
 
     // code taken from Code Institute Task manager tutorial to ensure proper functioning of select fucntion in Materialize
