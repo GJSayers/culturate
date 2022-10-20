@@ -3,7 +3,8 @@
 
 ![Mockups](static/images/mock-ups.png)
 
-[View the live project here.](https://culturate.herokuapp.com/)
+[View the live project on Render.](https://culturated.onrender.com/)
+[View the live project on Heroku.](https://culturate.herokuapp.com/)
 
 Culturate is a cultural places, exhibitions and events site.  It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
