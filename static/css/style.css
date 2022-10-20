@@ -465,21 +465,9 @@ div.card.center-align {
     margin: 0%;
 }
 
-@media screen and (min-height: 1000px) {
+@media screen and (min-height: 700px) {
     .form-background {
-        min-height: 800px;
-    }
-}
-
-@media screen and (min-height: 1300px) {
-    .form-background {
-        min-height: 1000px;
-    }
-}
-
-@media screen and (min-height: 1300px) {
-    .form-background {
-        min-height: 1000px;
+        min-height: 75vh;
     }
 }
 
