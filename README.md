@@ -4,7 +4,7 @@
 ![Mockups](static/images/mock-ups.png)
 
 [View the live project on Render.](https://culturated.onrender.com/)
-[View the live project on Heroku.](https://culturate.herokuapp.com/)
+
 
 Culturate is a cultural places, exhibitions and events site.  It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential contributors and people looking for information across a number of devices.
 
@@ -32,7 +32,7 @@ Culturate is a cultural places, exhibitions and events site.  It is designed to 
 * Bugs & Fixes
 * Implementation
 * Deployment
-    * To deploy to Heroku
+    * To deploy to Render
     * Forking the GitHub Repository
     * Making a Local Clone
 * Testing
@@ -288,7 +288,7 @@ You will see that I decided to dial back the yellow, and keep most backgrounds a
 ## Implementation
 -----
 
-This project is a uses the flask framwork, which is a framwork that is written in Python  app has been built and source-controlled on GitHub with regular commits. The backend is managed in MongoDB and the project is deployed to Heroku. 
+This project is a uses the flask framwork, which is a framwork that is written in Python.  The  app has been built and source-controlled on GitHub with regular commits. The backend is managed in MongoDB and the project was originally deployed to Heroku, but since the free tier has been removed has since been deployed on Render. 
 
 
 ## Deployment
@@ -349,8 +349,8 @@ fonts used throughout the project
 *  [Coolors](https://coolors.co/) was used to generate the colour pallete.
 *  [GitHub](https://github.com/) is used to file the repository and record the version control. 
 *  [GitPod](https://gitpod.io) was used for development and version control.
-*  [Heroku](https://www.heroku.com) is the cloud-based platform used to deploy the project. 
-
+*  [Heroku](https://www.heroku.com) is the cloud-based platform used to deploy the project initially. 
+*  [Render](https://render.com/) is the cloud-based platform used to deploy the project after the Heroku free tier was removed. 
 
 #### Testing
 -----
